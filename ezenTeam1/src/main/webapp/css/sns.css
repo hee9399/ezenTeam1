@@ -1,1 +1,24 @@
 @charset "UTF-8";
+*{margin:0px; padding:0px;}
+li{list-style-type: none}
+body{min-width:350px;}
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.container{
+	width:350px;
+	font-family: 'omyu_pretty';
+	margin: 0 auto;
+}
+.contBox{
+	border:solid 1px #e8e8e8;
+}
+.headerBox{
+	display: flex;
+	justify-content: space-between;
+}
+.sphoto{ width:100%;}
+.sphoto img { width:350px; object-fit:cover ;}
