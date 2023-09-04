@@ -9,8 +9,7 @@
 <body>
 
 	
-	
-	<button type = "button" onclick ="sdelete()">삭제</button>
+
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
 </body>

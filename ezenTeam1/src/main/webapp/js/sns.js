@@ -9,7 +9,7 @@ let sno = new URL(location.href).searchParams.get("sno");
 // 수정
 
 // 삭제
-function sdelete(sno){
+function sdelete(){
 	console.log('삭제버튼');
 	
 	
@@ -23,10 +23,14 @@ function sdelete(sno){
 	$.ajax({
 		url : "/sns/SnsController",
 		method : "delete",
-		data : { spwd : spwd},
+		data : { sno : sno , spwd : spwd },
 		success : r => {
-			if(r){alert('삭제 성공.');}
-			else{alert('패스워드가 일치하지 않습니다.');}
+			if(r){alert('삭제 성공.');
+			location.href = "/sns/sns.jsp";
+			}
+			else{alert('패스워드가 일치하지 않습니다.');
+			location.href = "/sns/snsList.jsp";
+			}
 			
 		} , 
 		error : e => {}
