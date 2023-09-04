@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<form name="snsForm">
 	<div class="container" >
 	<div class="headerBox"> <!-- header  -->
 		<div>SNS</div>
@@ -30,10 +31,11 @@
 		</div>
 	
 	</div>
+
 	
 	
 	
 	 </div>
-
+</form>
 </body>
 </html>
