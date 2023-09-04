@@ -22,13 +22,20 @@
 			</div>
 			<div class="footer">
 				<input type="password" name="spwd" class="pwd" placeholder="비밀번호 최소 8자리 이상"> 
+
 				<button class="btn" onclick ="swrite()" type="button">등록</button>
+
 			</div>
 		
 		</div>
 	 </div>
 </form>
+
+	
+
+
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
+
+	<script src = "/ezenTeam1/js/sns.js" type="text/javascript"></script>
 </body>
 </html>

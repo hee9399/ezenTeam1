@@ -25,13 +25,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 			</div>
 			<div class="btnbox">
 				<button class="btn" onclick ="" type="button">수정</button>
-				<button class="btn" onclick ="" type="button">삭제</button>
+				<button class="btn" onclick ="sdelete()" type="button">삭제</button>
 			</div>	
 		</div>
 	
 	
 	 </div>
+
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="../js/sns.js"></script>
+
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
+
 </body>
 </html>
