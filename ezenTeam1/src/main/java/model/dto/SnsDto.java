@@ -21,12 +21,22 @@ public class SnsDto {
 		this.spwd = spwd;
 		this.sdate = sdate;
 	}
-
+ // 등록할때 필요한 생성자
+	
 	// 메소드
 	
 	public int getSno() {
 		return sno;
 	}
+
+	public SnsDto(String sfile, String scontent, String spwd) {
+		super();
+		this.sfile = sfile;
+		this.scontent = scontent;
+		this.spwd = spwd;
+	}
+
+	
 
 	public void setSno(int sno) {
 		this.sno = sno;

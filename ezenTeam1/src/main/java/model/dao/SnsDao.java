@@ -14,7 +14,12 @@ public class SnsDao extends Dao{
 		
 		try {
 			String sql="insert into sns(sfile,scontent,spwd) values(?,?,?)";
-			
+			ps=conn.prepareStatement(sql);
+			ps.setString(1,snsDto.getSfile());
+			ps.setString(2,snsDto.getScontent());
+			ps.setString(3,snsDto.getSpwd());
+			int row= ps.executeUpdate();
+			if(row==1)return true;
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
