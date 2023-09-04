@@ -12,29 +12,21 @@
 <body>
 <form name="snsForm">
 	<div class="container" >
-	<div class="headerBox"> <!-- header  -->
-		<div>SNS</div>
-		<button>등록</button>
-	</div>
-	<!-- 1개의 게시물 -->
-	<div class="contBox">
-		<div>
-			<input name="sfile" type="file">
+	
+		<div class="contBox">
+			<div>
+				<input name="sfile" type="file">
+			</div>
+			<div class="cont">
+				<textarea name="bcontent" class="bcontent"></textarea>
+			</div>
+			<div class="footer">
+				<input type="password" name="spwd" class="pwd" placeholder="비밀번호 최소 8자리 이상"> 
+				<button class="btn" onclick ="" type="button">수정</button>
+				<button class="btn"  onclick ="" type="button">삭제</button>
+			</div>
+		
 		</div>
-		<div>
-			<textarea name="bcontent" class="bcontent"></textarea>
-		</div>
-		<div class="footer">
-		<input type="text" name="btitle" class="btitle" > 
-			<button onclick ="" type="button">수정</button>
-			<button onclick ="" type="button">삭제</button>
-		</div>
-	
-	</div>
-
-	
-	
-	
 	 </div>
 </form>
 </body>
