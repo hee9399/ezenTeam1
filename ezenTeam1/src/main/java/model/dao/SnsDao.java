@@ -1,5 +1,7 @@
 package model.dao;
 
+import model.dto.SnsDto;
+
 public class SnsDao extends Dao{
 
 	// 싱글톤 
@@ -8,7 +10,14 @@ public class SnsDao extends Dao{
 	public static SnsDao getInstance() {return snsDao;}
 	
 	// 1. 쓰기
-	
+	public boolean swrite(SnsDto snsDto) {
+		
+		try {
+			String sql="insert into sns(sfile,scontent,spwd) values(?,?,?)";
+			
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 	
 	// 2. 출력
 	
