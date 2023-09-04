@@ -22,7 +22,7 @@
 			</div>
 			<div class="footer">
 				<input type="password" name="spwd" class="pwd" placeholder="비밀번호 최소 8자리 이상"> 
-				<button class="btn" onclick ="" type="button">수정</button>
+				<button class="btn" onclick ="onUpdate" type="button">수정</button>
 				<button class="btn"  onclick ="" type="button">삭제</button>
 			</div>
 		

@@ -21,12 +21,21 @@ public class SnsDto {
 		this.spwd = spwd;
 		this.sdate = sdate;
 	}
+	// -- 수정할때 필요한 생성자 
+	public SnsDto(int sno, String sfile, String scontent) {
+		super();
+		this.sno = sno;
+		this.sfile = sfile;
+		this.scontent = scontent;
+	}
 
 	// 메소드
 	
 	public int getSno() {
 		return sno;
 	}
+
+	
 
 	public void setSno(int sno) {
 		this.sno = sno;
