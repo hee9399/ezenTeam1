@@ -1,5 +1,7 @@
 package model.dao;
 
+import model.dto.SnsDto;
+
 public class SnsDao extends Dao{
 
 	// 싱글톤 
@@ -14,7 +16,15 @@ public class SnsDao extends Dao{
 	
 	
 	// 3. 수정
-	
+	public boolean snsUpdate( SnsDto dto ) {
+		
+		try {
+			String sql = "";
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return false;
+	}
 	
 	// 4. 삭제 
 	
