@@ -17,6 +17,7 @@ function sdelete(sno){
 	let dconfirm =confirm('정말 탈퇴하시겠습니까?');
 	// 2. 확인 버튼을 눌렀을때
 	if(dconfirm == true) {
+		
 		let spwd = prompt('비밀번호 확인');
 		console.log(spwd);
 	$.ajax({
