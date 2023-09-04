@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.SnsDao;
+
 /**
  * Servlet implementation class SnsController
  */
@@ -36,7 +38,12 @@ public class SnsController extends HttpServlet {
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int sno = Integer.parseInt(request.getParameter("sno"));
 		
+		boolean result = SnsDao.getInstance().sdelete(sno);
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
 	}
 
 }

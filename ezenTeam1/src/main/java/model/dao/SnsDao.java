@@ -17,7 +17,21 @@ public class SnsDao extends Dao{
 	
 	
 	// 4. 삭제 
-	
+	public boolean sdelete(int sno) {
+		try {
+			String sql = "delete from sns where sno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, sno);
+			int count = ps.executeUpdate();
+			if(count == 1) return true;
+			
+					
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return false;
+	}
 	
 	
 	

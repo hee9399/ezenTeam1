@@ -8,5 +8,9 @@
 </head>
 <body>
 
+	
+	
+	<button type = "button" onclick ="sdelete()">삭제</button>
+	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
 </body>
 </html>
