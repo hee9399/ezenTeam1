@@ -5,7 +5,32 @@ let sno = new URL(location.href).searchParams.get("sno");
 // 쓰기
 
 // 출력
-
+function onList(){
+	console.log('리스트 로드');
+	
+	
+	$.ajax({
+		url : "/sns/SnsController",
+		method : "get",
+		data : { type : 1 },
+		success : r => {
+			console.log('success :: '+ r);
+			console.log('success :: '+ r.sno);
+			console.log('success :: '+ r.sdate);
+			console.log('success :: '+ r.content);
+			
+			
+			
+			
+			/* innerHTML */
+			
+			
+			
+		} , 
+		error : e => { console.log('success :: '+ e);}
+	});
+	
+}
 // 수정
 
 // 삭제

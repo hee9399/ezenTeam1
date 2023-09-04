@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/sns.css"  rel="stylesheet">
 </head>
-<body>
+<body onload ="onList()">
 	
 	<div class="container" >
 		<div class="headerBox"> <!-- header  -->
@@ -31,6 +31,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 	
 	
 	 </div>
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../js/sns.js"></script>
 </body>
 </html>

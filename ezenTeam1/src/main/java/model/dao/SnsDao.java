@@ -1,5 +1,7 @@
 package model.dao;
 
+import java.util.ArrayList;
+
 import model.dto.SnsDto;
 
 public class SnsDao extends Dao{
@@ -20,6 +22,31 @@ public class SnsDao extends Dao{
 	}
 	
 	// 2. 출력
+	public ArrayList<SnsDto> snsList(){
+		
+		ArrayList<SnsDto> list = new ArrayList<>(); 
+		
+		try {
+			
+			String sql ="select * from sns order by sdate desc";
+			ps= conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				SnsDto snsDto = new SnsDto(
+						  rs.getInt("sno")
+						, rs.getString("sfile")
+						, rs.getString("scontent")
+						, rs.getString("spwd")
+						, rs.getString("sdate"));
+				list.add(snsDto);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return list;
+	}
 	
 	
 	// 3. 수정
