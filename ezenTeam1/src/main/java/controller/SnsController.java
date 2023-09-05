@@ -114,13 +114,13 @@ public class SnsController extends HttpServlet {
 		// 1. 수정할 첨부파일 업로드 
 				MultipartRequest multi = new MultipartRequest(
 						request, 
-						request.getServletContext().getRealPath("/board/upload") ,
+						request.getServletContext().getRealPath("/sns/upload") ,
 						1024 * 1024 * 1024 ,
 						"UTF-8" ,
 						new DefaultFileRenamePolicy() 
-						);
+						); System.out.println("첨부파일도착" +multi);
 		// 2. 수정할 데이터 요청 
-		int sno = Integer.parseInt( multi.getParameter("sno") );
+		int sno = Integer.parseInt( multi.getParameter("sno") ); System.out.println("sno도착"+sno);
 		String sfile = multi.getFilesystemName("sfile");
 		String scontent = multi.getParameter("scontent");
 		
