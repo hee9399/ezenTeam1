@@ -25,6 +25,9 @@
 
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
+	
 	<script src = "/ezenTeam1/js/snslist.js"type="text/javascript"></script>
 
 </body>

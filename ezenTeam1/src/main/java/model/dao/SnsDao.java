@@ -87,7 +87,7 @@ public class SnsDao extends Dao{
 			ps.setString( 2 , dto.getScontent() );
 			ps.setString( 3 , dto.getSpwd() );
 			ps.setString( 4 , dto.getSdate() );
-			ps.setInt(5 , dto.getSno() );
+			ps.setInt( 5 , dto.getSno() );
 			int count = ps.executeUpdate();
 			// 1개의 레코드 이면 true
 			if(count == 1)return true;
