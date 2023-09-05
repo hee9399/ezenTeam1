@@ -47,17 +47,21 @@ public class SnsController extends HttpServlet {
 		// 요청
 		String type = request.getParameter("type");
 		String json = null;
-		System.out.println("type  :: "+ type);
+		System.out.println("type >>  :: "+ type);
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		if(type.equals("1")) { //게시물 전체 출력
 			//json으로 변환
 			ArrayList<SnsDto> result = SnsDao.getInstance().snsList();
+			System.out.println(result);
 			
 			json = objectMapper.writeValueAsString( result );
 			
 		} else if (type.equals("2")){ //게시물 1개 출력할때
+			// 1. 매개변수 요청 
+			int sno = Integer.parseInt( request.getParameter("sno") );
 			
+			 SnsDto result = SnsDao.getInstance().getSns(sno);
 			
 		}
 		
@@ -82,7 +86,7 @@ public class SnsController extends HttpServlet {
 		// 1. (입력받은 매개변수) 요청
 		String sfile = multi.getFilesystemName("sfile");
 		String scontent = multi.getParameter("scontent");
-		String spwd = multi.getFilesystemName("spwd");
+		String spwd = multi.getParameter("spwd");
 		
 		SnsDto snsDto = new SnsDto(sfile, scontent, spwd);
 		System.out.println(snsDto);
@@ -110,19 +114,22 @@ public class SnsController extends HttpServlet {
 		String sfile = multi.getFilesystemName("sfile");
 		String scontent = multi.getParameter("scontent");
 		
-		// sno를 보낸다 
+		// 3. 수정할 데이터 식별키 sno - 게시물식별키
 		SnsDto updateDto = new SnsDto(sno, sfile, scontent);
 		
 		System.out.println("수정할dto"+updateDto);
 		
+		// * 만약에 새로운 첨부파일이 없으면 기존 첨부파일 그대로 사용 
+					// 마냐게boardDto 가 null 이면
 		if( updateDto.getSfile() == null ) {
 			
-			
-			
+			// 기존 첨부파일 .getSns(sno)는 수정할게시물의 번호를 보여주는 코드이다 
+			updateDto.setSfile( SnsDao.getInstance().getSns(sno).getSfile() );
 		}
 		
 		// 3. DAO
 		boolean result = SnsDao.getInstance().snsUpdate(updateDto);
+		
 		// 4. 응답 
 		response.setContentType("application/json;charset=UTF-8");
     	response.getWriter().print(result);
@@ -131,10 +138,14 @@ public class SnsController extends HttpServlet {
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 삭제할 데이터 요청
 		int sno = Integer.parseInt(request.getParameter("sno"));
 		String spwd = request.getParameter("spwd");
+		
+		// 2. DAO
 		boolean result = SnsDao.getInstance().sdelete(sno,spwd);
 		
+		// 3. 응답
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
 	}
