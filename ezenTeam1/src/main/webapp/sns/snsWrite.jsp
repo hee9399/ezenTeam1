@@ -26,7 +26,7 @@
 
 				<button class="btn" onclick ="swrite()" type="button">등록</button>
 
-				<a href="snsList.jsp"> <button class="btn"  type="button">수정</button></a>
+				<a href="snsList.jsp"> <button class="btn"  type="button">목록</button></a>
 				
 
 			</div>
