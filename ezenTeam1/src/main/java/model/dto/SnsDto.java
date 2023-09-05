@@ -38,6 +38,15 @@ public class SnsDto {
 		this.sfile = sfile;
 		this.scontent = scontent;
 	}
+	
+	// -- 개별글 출력 생성자 
+	public SnsDto(int sno, String sfile, String scontent, String sdate) {
+		super();
+		this.sno = sno;
+		this.sfile = sfile;
+		this.scontent = scontent;
+		this.sdate = sdate;
+	}
 
 
 	// 메소드
@@ -45,8 +54,6 @@ public class SnsDto {
 	public int getSno() {
 		return sno;
 	}	
-
-	
 
 	public void setSno(int sno) {
 		this.sno = sno;
