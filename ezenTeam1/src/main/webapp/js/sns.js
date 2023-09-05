@@ -39,7 +39,7 @@ function onUpdate(){
 	console.log(formdata);
 	// 3. 응답 결과를 html 대입  
 		// .set( 속성명 , 값 ); // form에 데이터 속성 추가 
-	formdata.set( "bno" , bno );
+	formdata.set( "sno" , sno );
 	
 	// 3. ajax 로 form 전송하기 
 		           $.ajax({

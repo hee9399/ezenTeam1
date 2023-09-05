@@ -47,12 +47,32 @@ public class SnsDao extends Dao{
 				list.add(snsDto);
 			}
 			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		} catch (Exception e) {System.out.println(e);}
 		return list;
 	}
 	
+	// 개별 글 출력 메소드 , 식별키 - sno
+	public SnsDto getSns(int sno) {
+		
+		try {
+			String sql = "select * from sns where sno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, sno);
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				SnsDto snsDto = new SnsDto(
+					rs.getInt(1) ,	
+					rs.getString(2) ,
+					rs.getString(3) ,
+					rs.getString(4) 
+						);
+				return snsDto;
+			}
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return null;
+	}
 	
 	// 3. 수정
 	public boolean snsUpdate( SnsDto dto ) {
