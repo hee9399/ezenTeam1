@@ -1,6 +1,3 @@
-let sno = new URL(location.href).searchParams.get("sno");
-		console.log(sno);
-
 
 // 쓰기
 function swrite(){
@@ -117,7 +114,7 @@ function onUpdate(){
 
 // 삭제
 
-function sdelete(sno){
+function sdelete(){
    console.log('삭제버튼');
    
    
