@@ -5,6 +5,8 @@
 // 쓰기
 function swrite(){
 	console.log('실행');
+	//공란체크 
+	
 	let snsForm = document.querySelectorAll('.snsForm')[0];
 	console.log( snsForm );
 	// 2. form 데이터 객체화
@@ -32,3 +34,5 @@ function swrite(){
             error : e =>{} ,         
    }); 
 }
+
+  

@@ -26,10 +26,11 @@
 
 				<button class="btn" onclick ="swrite()" type="button">등록</button>
 
-				<button class="btn" onclick ="onUpdate()" type="button">수정</button>
-				<button class="btn"  onclick ="" type="button">삭제</button>
+				<a href="snsList.jsp"> <button class="btn"  type="button">수정</button></a>
+				
 
 			</div>
+			
 		
 		</div>
 	</form>

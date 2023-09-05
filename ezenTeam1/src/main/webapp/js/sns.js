@@ -66,7 +66,7 @@ function sdelete(sno){
 	
 	
 	// 1. 탈퇴여부 확인 confirm() 확인/취소 버튼 알림창
-	let dconfirm =confirm('정말 탈퇴하시겠습니까?');
+	let dconfirm =confirm('정말 삭제하시겠습니까?');
 	// 2. 확인 버튼을 눌렀을때
 	if(dconfirm == true) {
 		
@@ -78,7 +78,7 @@ function sdelete(sno){
 		data : { sno : sno , spwd : spwd },
 		success : r => {
 			if(r){alert('삭제 성공.');
-			location.href = "/ezenTeam1/sns/sns.jsp";
+			location.href = "/ezenTeam1/sns/snsList.jsp";
 			}
 			else{alert('패스워드가 일치하지 않습니다.');
 			location.href = "/ezenTeam1/sns/snsList.jsp";
