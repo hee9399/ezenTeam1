@@ -24,7 +24,7 @@ function swrite(){
             	console.log(r);
             	if(r){
 					 alert('등록 성공');
-				 	location.href ="/sns/sns.jsp"
+				 	location.href ="/ezenTeam1/sns/snsList.jsp"
 			 	}else{
 				 	alert('등록 실패');
 			 	}

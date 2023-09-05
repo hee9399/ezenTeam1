@@ -20,7 +20,7 @@ function onList(){
 				console.log("s" + s)
 				html+= `
 					<div class="contBox">
-						<div class="sphoto"><img src="/ezenTeam1/sns/file/${s.sfile}"></div>
+						<div class="sphoto"><img src="/ezenTeam1/sns/upload/${s.sfile}"></div>
 						<div class="sdate">${s.sdate}</div>
 						<div class="scontent">
 						${s.scontent}
