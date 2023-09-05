@@ -63,6 +63,16 @@ public class SnsController extends HttpServlet {
 			
 			 SnsDto result = SnsDao.getInstance().getSns(sno);
 			
+		} else if(type.equals("3")) {
+			String spwd = request.getParameter("spwd");
+			int sno = Integer.parseInt(request.getParameter("sno"));
+			
+			boolean result =  SnsDao.getInstance().checkPwd(sno, spwd);
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print(  result );
+			return;
+			
+
 		}
 		
 		

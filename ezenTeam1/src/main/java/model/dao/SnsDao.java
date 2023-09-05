@@ -115,6 +115,22 @@ public class SnsDao extends Dao{
 		return false;
 	}
 	
+	// 5, 비밀번호 검사
+	public boolean checkPwd(int sno, String spwd) {
+		try {
+			String sql = "select sno from sns where sno = ? and spwd = ?";
+			
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, sno);
+			ps.setString(2, spwd);
+			System.out.println("ps :: "+ ps );
+			rs = ps.executeQuery();
+			if(rs.next()) {return true;}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
 	
 	
 }// class e
