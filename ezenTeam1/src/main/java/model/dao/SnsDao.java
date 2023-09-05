@@ -79,15 +79,13 @@ public class SnsDao extends Dao{
 		
 		try {
 			// sql작성 
-			String sql = "update sns set sfile = ? , scontent = ? , spwd = ? where sno = ?";
+			String sql = "update sns set sfile = ? , scontent = ?  where sno = ?";
 			// sql 실행 
 			ps = conn.prepareStatement(sql);
 			// 입력받을 dto생성자 
 			ps.setString( 1 , dto.getSfile() );
 			ps.setString( 2 , dto.getScontent() );
-			ps.setString( 3 , dto.getSpwd() );
-			ps.setString( 4 , dto.getSdate() );
-			ps.setInt( 5 , dto.getSno() );
+			ps.setInt( 3 , dto.getSno() );
 			int count = ps.executeUpdate();
 			// 1개의 레코드 이면 true
 			if(count == 1)return true;

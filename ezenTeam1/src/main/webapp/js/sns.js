@@ -16,9 +16,7 @@ function getSns(){
       success :  r => {
 		  console.log(r);
 		  // 응답 결과 html 대입 
-		  document.querySelector('.sno').value = `${r.sno}`
-		  document.querySelector('.sfile').value = `${r.sfile}`
-		  document.querySelector('.bcontent').value = `${r.bcontent}` 
+		  document.querySelector('.scontent').value = `${r.scontent}` 
 		  
 	  } ,       
       error :  e => {} ,         
@@ -51,7 +49,7 @@ function onUpdate(){
                success : r => { console.log(r) 
                
                		if(r){ alert('수정성공'); 
-               			location.href=`/ezenTeam1/sns/sns.jsp?sno=${ sno }`;
+               			location.href=`/ezenTeam1/sns/snsList.jsp`;
                		}else{alert('수정실패');}
                } ,
                error : e => { console.log(e) } ,
