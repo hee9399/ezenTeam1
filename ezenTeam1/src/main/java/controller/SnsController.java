@@ -47,12 +47,13 @@ public class SnsController extends HttpServlet {
 		// 요청
 		String type = request.getParameter("type");
 		String json = null;
-		System.out.println("type  :: "+ type);
+		System.out.println("type >>  :: "+ type);
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		if(type.equals("1")) { //게시물 전체 출력
 			//json으로 변환
 			ArrayList<SnsDto> result = SnsDao.getInstance().snsList();
+			System.out.println(result);
 			
 			json = objectMapper.writeValueAsString( result );
 			
@@ -82,7 +83,7 @@ public class SnsController extends HttpServlet {
 		// 1. (입력받은 매개변수) 요청
 		String sfile = multi.getFilesystemName("sfile");
 		String scontent = multi.getParameter("scontent");
-		String spwd = multi.getFilesystemName("spwd");
+		String spwd = multi.getParameter("spwd");
 		
 		SnsDto snsDto = new SnsDto(sfile, scontent, spwd);
 		System.out.println(snsDto);

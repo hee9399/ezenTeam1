@@ -10,9 +10,9 @@
 
 </head>
 <body>
-<form name="snsForm">
+
 	<div class="container" >
-	
+	<form class="snsForm">
 		<div class="contBox">
 			<div>
 				<input name="sfile" type="file">
@@ -32,14 +32,15 @@
 			</div>
 		
 		</div>
+	</form>
 	 </div>
-</form>
+
 
 	
 
 
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-	<script src = "/ezenTeam1/js/sns.js" type="text/javascript"></script>
+	<script src = "/ezenTeam1/js/snsWrite.js" type="text/javascript"></script>
 </body>
 </html>
