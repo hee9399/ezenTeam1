@@ -17,6 +17,13 @@ function onList(){
 			
 				
 			r.forEach( s => {
+				let commenthtml = ``
+				s.replyList.forEach( c =>{
+					commenthtml += 	`<div class="reBox">
+								<span class="rContent">${c.rcontent}/${c.rdate}</span>
+								<button onclick ="check()" type="button">X</button>
+							</div>`
+				})
 				console.log("s" + s)
 				html+= `
 					<div class="contBox">
@@ -33,27 +40,18 @@ function onList(){
 						<button class="btn" onclick ="replyBtn()"  type="button">답글</button>
 						
 						</div>	
+					
+						<div class="replyWrap">
+						${commenthtml}
 						
-						<div class="replyWrap"><!-- 댓글 출력구간 -->
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
-							</div>
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
-							</div>
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
-							</div>
+							
 							
 						</div>
 					</div>
 					
 				
 				`;
-				
+				commenthtml =``
 			});
 			
 			

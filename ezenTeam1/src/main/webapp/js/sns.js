@@ -8,7 +8,7 @@ function getSns(){
 	// 2. ajax에게 sno 전달 해서 게시물정보 가져온다. 
 	 $.ajax({
       url : "/ezenTeam1/SnsController",      
-      data : {type : 2 , sno : sno},      
+      data : {type : 1 },      
       method : "get",   
       success :  r => {
 		  console.log(r);

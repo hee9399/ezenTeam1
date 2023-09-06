@@ -24,7 +24,9 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 import model.dao.SnsDao;
+import model.dao.SnsReplyDao;
 import model.dto.SnsDto;
+import model.dto.SnsReplyDto;
 
 
 
@@ -53,6 +55,14 @@ public class SnsController extends HttpServlet {
 		if(type.equals("1")) { //게시물 전체 출력
 			//json으로 변환
 			ArrayList<SnsDto> result = SnsDao.getInstance().snsList();
+			for(int i = 0; i<result.size(); i++) {
+				int sno = result.get(i).getSno();
+				
+				ArrayList<SnsReplyDto> replyList = SnsReplyDao.getInstance().getReply(sno);
+				
+				result.get(i).setReplyList(replyList);
+			}
+			
 			System.out.println(result);
 			
 			json = objectMapper.writeValueAsString( result );

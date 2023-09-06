@@ -1,11 +1,19 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import model.dao.SnsReplyDao;
+import model.dto.SnsReplyDto;
+
 
 
 // 링크 : /ezenTeam1/SnsReplyController
@@ -19,7 +27,28 @@ public class SnsReplyController extends HttpServlet {
 
 	// 호출 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+String type = request.getParameter("type");
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
 
+		if( type.equals("1") ) { // 전체 조회 로직 ;
+			
+
+			//int rno = Integer.parseInt( request.getParameter("rno") );
+			//String rcontent = request.getParameter("rcontent");
+			//String rdate = request.getParameter("rdate");
+			
+			//SnsReplyDto dto = new SnsReplyDto(sno,rcontent, rdate);
+			
+			//ArrayList<SnsReplyDto> result = SnsReplyDao.getInstance().getReply(sno);
+			
+			//json = objectMapper.writeValueAsString( result );
+		}
+		
+		// 공통 로직 // 1. 전체조회 , 개별조회 하던 응답 로직 공통
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print( json );
 	
 	}
 

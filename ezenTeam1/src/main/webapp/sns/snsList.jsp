@@ -34,7 +34,7 @@
 	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
 	
 	<script src = "/ezenTeam1/js/snslist.js"type="text/javascript"></script>
-	<script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script>
+	<!-- <script src = "/ezenTeam1/js/sns.js"type="text/javascript"></script> -->
 
 </body>
 </html>

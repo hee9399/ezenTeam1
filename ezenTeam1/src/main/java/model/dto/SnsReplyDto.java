@@ -10,6 +10,7 @@ public class SnsReplyDto {
 	private int sno; 			// ( sns내용 ) , 공백불가능 중복불가
     
 	
+	
 	// 기본생성자
 	public SnsReplyDto() {}
 	// 풀 생성자
@@ -29,14 +30,12 @@ public class SnsReplyDto {
 		this.rdate = rdate;
 	}
 	// 출력할때 필요한생성자 
-	public SnsReplyDto(int rno, String rcontent, String rdate, int sno) {
+	public SnsReplyDto(int sno ,String rcontent, String rdate) {
 		super();
-		this.rno = rno;
+		this.sno = sno;
 		this.rcontent = rcontent;
 		this.rdate = rdate;
-		this.sno = sno;
 	}
-	
 	// 메소드 
 	public int getRno() {
 		return rno;
