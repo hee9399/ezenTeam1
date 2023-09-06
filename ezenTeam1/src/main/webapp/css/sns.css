@@ -37,17 +37,17 @@ body{min-width:350px;}
 }
 .headerBox div {
 	text-shadow: 6px 6px 8px #666;
-}	
+}
 .sphoto{ width:100%;}
-.sphoto img { 
-	width:330px; 
+.sphoto img {
+	width:330px;
 	object-fit:cover ;
 	border-radius: 10px;
 }
-.sdate { 
+.sdate {
 	padding:10px 0 ;
 	font-size:0.8rem;
-	
+
 }
 .btnbox {
 	padding: 10px 0;
@@ -59,10 +59,10 @@ body{min-width:350px;}
 	color:#fff;
 	border: none;
 	border-radius: 5px;
-	
+
 }
 textarea {
-	width:330px; 
+	width:330px;
 	height:200px;
 	resize:none;
 	border-radius: 10px;
@@ -75,7 +75,7 @@ textarea {
 	height: 200px;
 	padding: 10px;
 	border: solid 1px #e8e8e8;
-	
+
 	font-size: 16px;
 	color:#888;
 	resize: none;
@@ -97,10 +97,10 @@ textarea {
 /*--------------댓글---------------*/
 .replyWrap {
 	border-top: solid 1px #e8e8e8;
-	
+
 	font-size: 0.8rem;
 	padding-top:10px;
-	
+
 }
 .replyWrap button {
 	border: none;
@@ -110,12 +110,16 @@ textarea {
 .reBox{
 	display: flex;
 	justify-content: space-between;
-	flex-wrap:wrap;
+	flex-wrap:nowrap;
 	padding-bottom:3px;
 }
 .rContent{
 	display:block;
-	width:95%;
+	width:80%;
+}
+.rTime{
+    display:block;
+    width:15%;
 }
 /*-----------------검색-------------------*/
 .searchBox{
@@ -124,7 +128,7 @@ textarea {
 .sResult{
 	display: block;
 	text-align: right;
-	font-size:0.8rem;	
+	font-size:0.8rem;
 }
 
 .searchBox input{
