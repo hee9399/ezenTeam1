@@ -16,8 +16,8 @@
 			<button class="btn"  onclick="onWrite()" type="button">등록</button>
 		</div>
 		<div class="searchBox">
-			<span  class="sResult" >총 피드수 : <span>14</span></span>
-			<input class="keyword" type="text">
+			<span  class="sResult" >총 피드수 : <span class="rcount">14</span></span>
+			<input onkeyup="onSearch()" class="keyword" type="text">
 		</div>
 	
 		<div class="cWrap">

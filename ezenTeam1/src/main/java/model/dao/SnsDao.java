@@ -27,13 +27,20 @@ public class SnsDao extends Dao{
 	}
 	
 	// 2. 출력
-	public ArrayList<SnsDto> snsList(){
+	public ArrayList<SnsDto> snsList( String keyword ){
 		
 		ArrayList<SnsDto> list = new ArrayList<>(); 
 		
 		try {
 			
-			String sql ="select * from sns order by sdate desc";
+			String sql ="select * from sns ";
+			// where scontent like '%?%';
+			if(!keyword.isEmpty() ) {
+				sql += " where scontent like '%"+keyword+"%' ";
+			}
+					sql += "order by sdate desc";
+					
+							
 			ps= conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
@@ -51,13 +58,28 @@ public class SnsDao extends Dao{
 		return list;
 	}
 	
+	// 전체 게시물 수 출력
+	public int getSearchCount( String keyword ) {
+		
+		try {
+			String sql = " select count(sno) from sns where scontent like '%"+keyword+"%' ";
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) return rs.getInt(1);
+			
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return 0;
+	}
+	
 	// 개별 글 출력 메소드 , 식별키 - sno
 	public SnsDto getSns(int sno) {
 		
 		try {
 			String sql = "select * from sns where sno = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, sno);
+			ps.setInt(1, sno); 
 			rs = ps.executeQuery();
 			if( rs.next() ) {
 				SnsDto snsDto = new SnsDto(

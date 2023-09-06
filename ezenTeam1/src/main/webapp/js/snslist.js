@@ -1,16 +1,16 @@
-/**
- * 
- */
-// 출력
+
+
+
+// 1.출력
 onList();
-function onList(){
+function onList(keyword){
 	console.log('리스트 로드');
 	
 	
 	$.ajax({
 		url : "/ezenTeam1/SnsController",
 		method : "get",
-		data : { type : 1 },
+		data : { type : 1 , keyword : keyword },
 		success : r => {
 			let html ='';
 			let cWrap = document.querySelector('.cWrap')
@@ -49,7 +49,7 @@ function onList(){
 							
 						</div>
 					</div>
-					
+		
 				
 				`;
 				
@@ -57,7 +57,8 @@ function onList(){
 			
 			
 			cWrap.innerHTML = html;
-			
+			// keyword 로 검색을 받아올 갯수 
+			rCount(keyword);
 			
 			
 		} , 
@@ -65,11 +66,43 @@ function onList(){
 	});
 	
 }
-// 글쓰기 화면으로 이동
+// 2. 글쓰기 화면으로 이동
 function onWrite(){
 	location.href='/ezenTeam1/sns/snsWrite.jsp';
 }
 
+// 
+function rCount(keyword){
+	
+	  $.ajax({
+      url : "/ezenTeam1/SnsController",      
+      data : { type : 4 , keyword : keyword },      
+      method : "get",   
+      success : r => {
+		  console.log(r)
+		  // 피드 수 출력 
+		  document.querySelector('.rcount').innerHTML = r;
+		  
+		  
+	  } ,       
+      error : e => {} ,         
+   });
+	
+}// f e
+
+// 3. 검색 버튼을 클릭했을때.
+function onSearch(){
+	console.log('onSearch() open');
+	// 입력받은 keyword 값을 
+	let keyword = document.querySelector('.keyword').value;
+	// onList 에 keyword를 보낸다
+	onList(keyword);
+	// 전체 list rcount를 받아야한다 
+	let rcount = document.querySelector('.rcount');
+	// 데이터 갯수를 가져와야한다.
+	
+	
+}//f  e
 
 
 //비번체크
