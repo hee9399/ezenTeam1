@@ -28,6 +28,9 @@ select * from sns where sno = ?;
 # 삭제 
 delete from sns where sno = 1 and spwd = '1234';
 -- delete from sns where sno = ? and spwd = ?
+# 검색 
+select count(sno) from sns where scontent like '%q%' ;
+# select * from sns where scontent like '%?%';
 
 # 댓글저장 테이블
 drop table if exists reply;
@@ -39,4 +42,4 @@ create table reply(
     sno int  ,     								-- ( sns내용 ) , 공백불가능 중복불가
     primary key( rno ),
     foreign key( sno) references sns(sno)
-);
+
