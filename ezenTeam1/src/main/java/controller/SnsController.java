@@ -74,6 +74,8 @@ public class SnsController extends HttpServlet {
 			return;
 			
 
+		}else if(type.equals("4")) {
+			
 		}
 		
 		
@@ -105,7 +107,7 @@ public class SnsController extends HttpServlet {
 		boolean result = SnsDao.getInstance().swrite(snsDto);
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
-
+		
 }
 
 	// 수정

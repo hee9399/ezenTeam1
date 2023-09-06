@@ -1,10 +1,7 @@
-/**
- * 
- */
+
 // 출력
 onList();
 function onList(){
-	console.log('리스트 로드');
 	
 	
 	$.ajax({
@@ -102,6 +99,7 @@ function checkPwd(sno, target){
 		error : e => { console.log('error :: '+ e);}
 	});
 }
+
 // 댓글 삭제시 비번 체크
 function  RcheckPwd(rno){ 
 	
@@ -126,6 +124,26 @@ function  RcheckPwd(rno){
 		error : e => { console.log('error :: '+ e);}
 	});
 }
+
+function replyBtn(){
+	let rcontent= prompt('내용(최대30글자)').slice(0, 30);
+	let rpwd = prompt('비밀번호(8글자이상)').slice(0, 8);
+	 
+	$.ajax({
+            url : "/ezenTeam1/SnsReplyController", 
+            method : "post",   
+            data : {rcontent : rcontent, rpwd : rpwd},      
+           success : r =>{console.log(r);
+             if(r){
+				 alert('답글 달기 성공');
+			 }else{
+				 alert('답글 달기 실패');
+			 }
+          } ,       
+            error : e=>{} ,         
+   });
+ }
+
 
 
 
