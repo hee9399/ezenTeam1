@@ -29,7 +29,8 @@ function onList(){
 						
 						<button class="btn" onclick ="checkPwd(${s.sno},'U')" type="button">수정</button>
 						<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
-			
+						<button class="btn" onclick ="replyBtn()"  type="button">답글</button>
+						
 						</div>	
 						
 						<div class="replyWrap"><!-- 댓글 출력구간 -->
