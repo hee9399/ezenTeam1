@@ -9,6 +9,9 @@ public class SnsDto {
 	private String spwd;
 	private String sdate;
 	
+	// - 조회 대사앚와 게시물 작성자대상자 일치여부 ( 본인글인지 아닌지에대한 유효성검사 )
+	private boolean ishost;
+	
 	// 기본 생성자
 	public SnsDto() {}
 
@@ -54,6 +57,14 @@ public class SnsDto {
 	public int getSno() {
 		return sno;
 	}	
+
+	public boolean isIshost() {
+		return ishost;
+	}
+
+	public void setIshost(boolean ishost) {
+		this.ishost = ishost;
+	}
 
 	public void setSno(int sno) {
 		this.sno = sno;

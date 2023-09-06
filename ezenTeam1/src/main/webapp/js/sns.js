@@ -13,9 +13,7 @@ function getSns(){
       success :  r => {
 		  console.log(r);
 		  // 응답 결과 html 대입 
-		  document.querySelector('.sno').value = `${r.sno}`
-		  document.querySelector('.sfile').value = `${r.sfile}`
-		  document.querySelector('.bcontent').value = `${r.bcontent}` 
+		  document.querySelector('.scontent').value = `${r.scontent}` 
 		  
 	  } ,       
       error :  e => {} ,         
@@ -48,7 +46,7 @@ function onUpdate(){
                success : r => { console.log(r) 
                
                		if(r){ alert('수정성공'); 
-               			location.href=`/ezenTeam1/sns/sns.jsp?sno=${ sno }`;
+               			location.href=`/ezenTeam1/sns/snsList.jsp`;
                		}else{alert('수정실패');}
                } ,
                error : e => { console.log(e) } ,
@@ -58,53 +56,28 @@ function onUpdate(){
 
 // 삭제
 
-function sdelete(){
-   console.log('삭제버튼');
-   
-   
-   // 1. 탈퇴여부 확인 confirm() 확인/취소 버튼 알림창
-   let dconfirm =confirm('정말 탈퇴하시겠습니까?');
-   // 2. 확인 버튼을 눌렀을때
-   if(dconfirm == true) {
-      
-      let spwd = prompt('비밀번호 확인');
-      console.log(spwd);
-   $.ajax({
-      url : "/sns/SnsController",
-      method : "delete",
-      data : { spwd : spwd},
-      success : r => {
-         if(r){alert('삭제 성공.');}
-         else{alert('패스워드가 일치하지 않습니다.');}
-         
-      } , 
-      error : e => {}
-   });
-   
-   }
-}
 
-function sdelete(){
+function sdelete(sno){
 	console.log('삭제버튼');
 	
 	
 	// 1. 탈퇴여부 확인 confirm() 확인/취소 버튼 알림창
-	let dconfirm =confirm('정말 탈퇴하시겠습니까?');
+	let dconfirm =confirm('정말 삭제하시겠습니까?');
 	// 2. 확인 버튼을 눌렀을때
 	if(dconfirm == true) {
 		
 		let spwd = prompt('비밀번호 확인');
 		console.log(spwd);
 	$.ajax({
-		url : "/sns/SnsController",
+		url : "/ezenTeam1/SnsController",
 		method : "delete",
 		data : { sno : sno , spwd : spwd },
 		success : r => {
 			if(r){alert('삭제 성공.');
-			location.href = "/sns/sns.jsp";
+			location.href = "/ezenTeam1/sns/snsList.jsp";
 			}
 			else{alert('패스워드가 일치하지 않습니다.');
-			location.href = "/sns/snsList.jsp";
+			location.href = "/ezenTeam1/sns/snsList.jsp";
 			}
 			
 		} , 
