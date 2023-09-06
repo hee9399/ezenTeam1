@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.SnsReplyDao;
+
 
 // 링크 : /ezenTeam1/SnsReplyController
 
@@ -35,6 +37,14 @@ public class SnsReplyController extends HttpServlet {
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int rno =  Integer.parseInt(request.getParameter("rno"));
+		String rpwd = request.getParameter("rpwd");
+		
+		boolean result = SnsReplyDao.getInstance().replyDelete(rno, rpwd);
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
 		
 	}
 

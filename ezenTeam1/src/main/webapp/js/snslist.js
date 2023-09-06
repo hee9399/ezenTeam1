@@ -36,15 +36,15 @@ function onList(){
 						<div class="replyWrap"><!-- 댓글 출력구간 -->
 							<div class="reBox">
 								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
+								<button onclick ="RcheckPwd(5)" type="button">X</button>
 							</div>
 							<div class="reBox">
 								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
+								<button onclick ="RcheckPwd(5)" type="button">X</button>
 							</div>
 							<div class="reBox">
 								<span class="rContent">댓글내용</span>
-								<button onclick ="check()" type="button">X</button>
+								<button onclick ="RcheckPwd(5)" type="button">X</button>
 							</div>
 							
 						</div>
@@ -102,7 +102,30 @@ function checkPwd(sno, target){
 		error : e => { console.log('error :: '+ e);}
 	});
 }
-
+// 댓글 삭제시 비번 체크
+function  RcheckPwd(rno){ 
+	
+	let rpwd = prompt('비밀번호 입력해주세요');
+	console.log("rpwd  :: " + rpwd);
+	console.log("rno  :: " + rno);
+	$.ajax({
+		url : "/ezenTeam1/SnsReplyController",
+		method : "delete",
+		data : { rno : rno , rpwd : rpwd},
+		success : r => {
+			console.log('비번체크success :: '+ r)
+			
+			if(r) {
+				alert('삭제되었습니다..')
+			} else {
+				alert('비밀번호가 일치하지 않습니다.')
+			}
+			
+			
+		} , 
+		error : e => { console.log('error :: '+ e);}
+	});
+}
 
 
 
