@@ -1,5 +1,7 @@
 package model.dto;
 
+import java.util.ArrayList;
+
 public class SnsDto {
 	
 	// 필드
@@ -12,6 +14,13 @@ public class SnsDto {
 	// - 조회 대사앚와 게시물 작성자대상자 일치여부 ( 본인글인지 아닌지에대한 유효성검사 )
 	private boolean ishost;
 	
+	ArrayList<SnsReplyDto> ReplyList;
+	
+	
+	
+	
+	
+
 	// 기본 생성자
 	public SnsDto() {}
 
@@ -100,6 +109,14 @@ public class SnsDto {
 
 	public void setSdate(String sdate) {
 		this.sdate = sdate;
+	}
+	
+	public ArrayList<SnsReplyDto> getReplyList() {
+		return ReplyList;
+	}
+
+	public void setReplyList(ArrayList<SnsReplyDto> replyList) {
+		ReplyList = replyList;
 	}
 
 	@Override

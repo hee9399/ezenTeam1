@@ -17,6 +17,13 @@ function onList(keyword){
 			
 				
 			r.forEach( s => {
+				let commenthtml = ``
+				s.replyList.forEach( c =>{
+					commenthtml += 	`<div class="reBox">
+								<span class="rContent">${c.rcontent}/${c.rdate}</span>
+								<button onclick ="RcheckPwd(${c.rno})" type="button">X</button>
+							</div>`
+				})
 				console.log("s" + s)
 				html+= `
 					<div class="contBox">
@@ -26,33 +33,24 @@ function onList(keyword){
 						${s.scontent}
 						</div>
 						<div class="btnbox">
+			
 						
 						<button class="btn" onclick ="checkPwd(${s.sno},'U')" type="button">수정</button>
 						<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
 						<button class="btn" onclick ="replyBtn()"  type="button">답글</button>
 						
 						</div>	
-						
-						<div class="replyWrap"><!-- 댓글 출력구간 -->
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="RcheckPwd(5)" type="button">X</button>
-							</div>
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="RcheckPwd(5)" type="button">X</button>
-							</div>
-							<div class="reBox">
-								<span class="rContent">댓글내용</span>
-								<button onclick ="RcheckPwd(5)" type="button">X</button>
-							</div>
+					
+						<div class="replyWrap">
+						${commenthtml}
+
 							
 						</div>
 					</div>
 		
 				
 				`;
-				
+				commenthtml =``
 			});
 			
 			
@@ -136,6 +134,7 @@ function checkPwd(sno, target){
 	});
 }
 
+
 // 댓글 삭제시 비번 체크
 function  RcheckPwd(rno){ 
 	
@@ -179,6 +178,7 @@ function replyBtn(){
             error : e=>{} ,         
    });
  }
+
 
 
 
