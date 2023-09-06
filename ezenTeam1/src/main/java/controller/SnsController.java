@@ -51,11 +51,21 @@ public class SnsController extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		if(type.equals("1")) { //게시물 전체 출력
+			// 요청
+			String keyword = request.getParameter("keyword");
+		
+			// dao
+			int count = SnsDao.getInstance().getSearchCount(keyword);
+			
+			// 응답 
+			
+			
 			//json으로 변환
-			ArrayList<SnsDto> result = SnsDao.getInstance().snsList();
+			ArrayList<SnsDto> result = SnsDao.getInstance().snsList(keyword);
 			System.out.println(result);
 			
 			json = objectMapper.writeValueAsString( result );
+			
 			
 		} else if (type.equals("2")){ //게시물 1개 출력할때
 			// 1. 매개변수 요청 
@@ -75,7 +85,16 @@ public class SnsController extends HttpServlet {
 			
 
 		}else if(type.equals("4")) {
-			
+
+			// 요청 
+			String keyword = request.getParameter("keyword");
+			// dao
+			int result = SnsDao.getInstance().getSearchCount(keyword);
+			// 응답
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print( result );
+			return;
+
 		}
 		
 		
