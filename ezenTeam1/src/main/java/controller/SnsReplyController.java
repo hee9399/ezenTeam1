@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.SnsDao;
+import model.dao.SnsReplyDao;
+import model.dto.SnsDto;
+import model.dto.SnsReplyDto;
+
 
 // 링크 : /ezenTeam1/SnsReplyController
 
@@ -25,7 +30,16 @@ public class SnsReplyController extends HttpServlet {
 
 	// 쓰기 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+			String rcontent = request.getParameter("rcontent");
+			String rpwd = request.getParameter("rpwd");
+			
+			
+			SnsReplyDto replyDto = new SnsReplyDto(rcontent, rpwd, rpwd);
+			
+			boolean result = SnsReplyDao.getInstance().replyWrite(replyDto);
+			
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print(result);
 	
 	}
 	// 수정

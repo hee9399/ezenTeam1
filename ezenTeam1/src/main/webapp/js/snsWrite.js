@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 // 쓰기
 function swrite(){

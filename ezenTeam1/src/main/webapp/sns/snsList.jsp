@@ -24,9 +24,9 @@
 				<!-- 게시물 출력구간 -->
 		</div>
 		
-	
-	
-	 </div>
+
+
+	</div>
 
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
