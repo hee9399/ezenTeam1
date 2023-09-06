@@ -12,13 +12,18 @@
 	
 	<div class="container" >
 		<div class="headerBox"> <!-- header  -->
-			<div>SNS</div>
+			<div> <a href="snsList.jsp"> SNS </a></div>
 			<button class="btn"  onclick="onWrite()" type="button">등록</button>
+		</div>
+		<div class="searchBox">
+			<span  class="sResult" >총 피드수 : <span>14</span></span>
+			<input class="keyword" type="text">
 		</div>
 	
 		<div class="cWrap">
 				<!-- 게시물 출력구간 -->
 		</div>
+		
 	
 	
 	 </div>
