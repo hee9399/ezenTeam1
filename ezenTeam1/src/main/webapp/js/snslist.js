@@ -31,7 +31,24 @@ function onList(){
 						<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
 			
 						</div>	
+						
+						<div class="replyWrap"><!-- 댓글 출력구간 -->
+							<div class="reBox">
+								<span class="rContent">댓글내용</span>
+								<button onclick ="check()" type="button">X</button>
+							</div>
+							<div class="reBox">
+								<span class="rContent">댓글내용</span>
+								<button onclick ="check()" type="button">X</button>
+							</div>
+							<div class="reBox">
+								<span class="rContent">댓글내용</span>
+								<button onclick ="check()" type="button">X</button>
+							</div>
+							
+						</div>
 					</div>
+					
 				
 				`;
 				
