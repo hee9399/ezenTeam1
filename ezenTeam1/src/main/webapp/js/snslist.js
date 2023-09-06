@@ -27,7 +27,7 @@ function onList(){
 						</div>
 						<div class="btnbox">
 							<button class="btn" onclick ="onUpdate(${s.sno})" type="button">수정</button>
-							<button class="btn" onclick ="sdelete()" type="button">삭제</button>
+							<button class="btn" onclick ="sdelete(${s.sno})" type="button">삭제</button>
 			
 						</div>	
 					</div>
