@@ -26,7 +26,7 @@ function onList(){
 						${s.scontent}
 						</div>
 						<div class="btnbox">
-
+						
 						<button class="btn" onclick ="checkPwd(${s.sno},'U')" type="button">수정</button>
 						<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
 			
