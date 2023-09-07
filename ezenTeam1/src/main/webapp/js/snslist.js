@@ -20,6 +20,9 @@ function onList(keyword){
 				let commenthtml = ``
 				s.replyList.forEach( c =>{
 					let rtime = getTime(Number(c.rdate))
+					 console.log("?")
+					 console.log( c )
+					 
 					commenthtml += 	`<div class="reBox">
 								<span class="rContent">${c.rcontent}</span>
 								<span class="rTime">${rtime}</span>
@@ -154,9 +157,10 @@ function  RcheckPwd(rno){
 			console.log('비번체크success :: '+ r)
 
 			if(r) {
-				alert('삭제되었습니다..')
+				alert('삭제되었습니다..');
+				location.href = `/ezenTeam1/sns/snsList.jsp`
 			} else {
-				alert('비밀번호가 일치하지 않습니다.')
+				alert('비밀번호가 일치하지 않습니다.');
 			}
 
 

@@ -18,6 +18,7 @@ public class SnsReplyDao extends Dao{
 	// 쓰기
 	public boolean replyWrite(SnsReplyDto replyDto) {
 		try {
+													// sno - 게시글 pk 에 참조하여 댓글 달기
 			String sql="insert into reply(rcontent,rpwd,sno) values(?,?,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, replyDto.getRcontent());
@@ -78,7 +79,7 @@ public class SnsReplyDao extends Dao{
 			if(rs ==1 ) { return true;}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
 		return false;
 	}
