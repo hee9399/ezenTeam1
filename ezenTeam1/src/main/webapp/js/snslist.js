@@ -178,8 +178,8 @@ function  RcheckPwd(rno){
 // 6.
 function replyBtn(sno){
 	console.log("sno :: "+sno)
-	let rcontent= prompt('내용(최대30글자)').slice(0, 30);
-	let rpwd = prompt('비밀번호(8글자이상)').slice(0, 8);
+	let rcontent= prompt('내용(최대30글자)')
+	let rpwd = prompt('비밀번호(8글자이상)')
 
 	$.ajax({
             url : "/ezenTeam1/SnsReplyController",
