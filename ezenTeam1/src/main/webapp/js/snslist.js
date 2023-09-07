@@ -166,7 +166,7 @@ function  RcheckPwd(rno){
 			if(r) {
 				alert('삭제되었습니다..');
 				location.href = `/ezenTeam1/sns/snsList.jsp`
-			} else {
+			} else if (r == false) {
 				alert('비밀번호가 일치하지 않습니다.');
 			}
 
