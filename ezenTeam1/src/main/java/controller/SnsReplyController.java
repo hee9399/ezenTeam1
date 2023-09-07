@@ -85,7 +85,7 @@ public class SnsReplyController extends HttpServlet {
 	// 삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int rno =  Integer.parseInt(request.getParameter("rno"));
+		int rno =  Integer.parseInt(request.getParameter("rno")); System.out.println(rno);
 		String rpwd = request.getParameter("rpwd");
 
 		boolean result = SnsReplyDao.getInstance().replyDelete(rno, rpwd);

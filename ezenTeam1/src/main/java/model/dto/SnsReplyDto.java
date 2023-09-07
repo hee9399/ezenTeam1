@@ -30,9 +30,9 @@ public class SnsReplyDto {
 		this.sno = sno;
 	}
 	// 출력할때 필요한생성자
-	public SnsReplyDto(int sno ,String rcontent, String rdate) {
+	public SnsReplyDto(int rno ,String rcontent, String rdate) {
 		super();
-		this.sno = sno;
+		this.rno = rno;
 		this.rcontent = rcontent;
 		this.rdate = rdate;
 	}
