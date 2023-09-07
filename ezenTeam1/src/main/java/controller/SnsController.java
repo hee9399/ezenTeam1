@@ -83,6 +83,7 @@ public class SnsController extends HttpServlet {
 			
 		} else if (type.equals("2")){ //게시물 1개 출력할때
 			// 1. 매개변수 요청 
+			
 			int sno = Integer.parseInt( request.getParameter("sno") );
 			// DAO 처리
 			 SnsDto result = SnsDao.getInstance().getSns(sno);
