@@ -77,9 +77,7 @@ public class SnsReplyDao extends Dao{
 			int rs = ps.executeUpdate();
 			if(rs ==1 ) { return true;}
 
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		} catch (Exception e) {System.out.println(e);}
 		return false;
 	}
 
