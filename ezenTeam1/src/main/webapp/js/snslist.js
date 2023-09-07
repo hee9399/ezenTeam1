@@ -1,4 +1,4 @@
-let keyword =''
+let keyword =''; 
 
 
 // 1.출력
@@ -20,6 +20,9 @@ function onList(keyword){
 				let commenthtml = ``
 				s.replyList.forEach( c =>{
 					let rtime = getTime(Number(c.rdate))
+					 console.log("?")
+					 console.log( c )
+					 
 					commenthtml += 	`<div class="reBox">
 								<span class="rContent">${c.rcontent}</span>
 								<span class="rTime">${rtime}</span>
@@ -39,11 +42,18 @@ function onList(keyword){
 						</div>
 						<div class="btnbox">
 
-
-						<button class="btn" onclick ="checkPwd(${s.sno},'U')" type="button">수정</button>
-						<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
-						<button class="btn" onclick ="replyBtn(${s.sno})"  type="button">답글</button>
-
+							<div class="btnL">
+								<button class="btn" onclick ="checkPwd(${s.sno},'U')" type="button">수정</button>
+								<button class="btn" onclick ="checkPwd(${s.sno},'D')" type="button">삭제</button>
+								<button class="btn" onclick ="replyBtn(${s.sno})"  type="button">답글</button>
+								<button class="btn" onclick ="fileDownload(${s.sno})"  type="button">다운로드</button>
+							</div>
+							<div class="btnR">
+								<button class="" onclick ="" type="button"><img src= "/ezenTeam1/img/like.png" /></button>
+								<span class="lcnt"> 3 <span>
+								<button class="" onclick ="" type="button"><img src= "/ezenTeam1/img/dislike.png" /></button>
+								<span class="dislcnt"> 2 <span>
+							</div>
 						</div>
 
 						<div class="replyWrap">
@@ -142,10 +152,10 @@ function checkPwd(sno, target){
 
 // 5. 댓글 삭제시 비번 체크
 function  RcheckPwd(rno){
-
+	console.log("rno  :: " + rno);
 	let rpwd = prompt('비밀번호 입력해주세요');
 	console.log("rpwd  :: " + rpwd);
-	console.log("rno  :: " + rno);
+	
 	$.ajax({
 		url : "/ezenTeam1/SnsReplyController",
 		method : "delete",
@@ -157,7 +167,7 @@ function  RcheckPwd(rno){
 				alert('삭제되었습니다..')
 				location.href = `/ezenTeam1/sns/snsList.jsp`
 			} else {
-				alert('비밀번호가 일치하지 않습니다.')
+				alert('비밀번호가 일치하지 않습니다.');
 			}
 
 
@@ -167,8 +177,9 @@ function  RcheckPwd(rno){
 }
 // 6.
 function replyBtn(sno){
-	let rcontent= prompt('내용(최대30글자)').slice(0, 30);
-	let rpwd = prompt('비밀번호(8글자이상)').slice(0, 8);
+	console.log("sno :: "+sno)
+	let rcontent= prompt('내용(최대30글자)')
+	let rpwd = prompt('비밀번호(8글자이상)')
 
 	$.ajax({
             url : "/ezenTeam1/SnsReplyController",
