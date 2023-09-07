@@ -23,7 +23,7 @@ function onList(keyword){
 					commenthtml += 	`<div class="reBox">
 								<span class="rContent">${c.rcontent}</span>
 								<span class="rTime">${rtime}</span>
-								<button onclick ="RcheckPwd(${c.rno})" type="button">X</button>
+								<button onclick ="RcheckPwd(${c.sno})" type="button">X</button>
 							</div>`
 				})
 				//console.log("s" + s)
@@ -155,6 +155,7 @@ function  RcheckPwd(rno){
 
 			if(r) {
 				alert('삭제되었습니다..')
+				location.href = `/ezenTeam1/sns/snsList.jsp`
 			} else {
 				alert('비밀번호가 일치하지 않습니다.')
 			}

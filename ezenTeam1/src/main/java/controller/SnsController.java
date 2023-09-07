@@ -58,7 +58,7 @@ public class SnsController extends HttpServlet {
 		
 			// dao
 			int count = SnsDao.getInstance().getSearchCount(keyword);
-			
+			System.out.println(count);
 			// 응답 
 			
 			
