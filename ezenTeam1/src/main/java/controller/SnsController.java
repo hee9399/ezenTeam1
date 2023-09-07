@@ -70,6 +70,9 @@ public class SnsController extends HttpServlet {
 			for(int i = 0; i<result.size(); i++) {
 				int sno = result.get(i).getSno();
 				
+				System.out.println("sno  :: "+ sno);
+				
+				
 				ArrayList<SnsReplyDto> replyList = SnsReplyDao.getInstance().getReply(sno);
 				
 				result.get(i).setReplyList(replyList);
