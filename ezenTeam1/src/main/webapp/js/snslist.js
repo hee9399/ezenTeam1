@@ -26,7 +26,7 @@ function onList(keyword){
 					commenthtml += 	`<div class="reBox">
 								<span class="rContent">${c.rcontent}</span>
 								<span class="rTime">${rtime}</span>
-								<button onclick ="RcheckPwd(${c.sno})" type="button">X</button>
+								<button onclick ="RcheckPwd(${c.rno})" type="button">X</button>
 							</div>`
 				})
 				//console.log("s" + s)
@@ -49,7 +49,7 @@ function onList(keyword){
 								<button class="btn" onclick ="fileDownload(${s.sno})"  type="button">다운로드</button>
 							</div>
 							<div class="btnR">
-								<button class="" onclick ="" type="button"><img src= "/ezenTeam1/img/like.png" /></button>
+								<button class="" onclick ="likePost(${s.sno})" type="button"><img src= "/ezenTeam1/img/like.png" /></button>
 								<span class="lcnt"> 3 <span>
 								<button class="" onclick ="" type="button"><img src= "/ezenTeam1/img/dislike.png" /></button>
 								<span class="dislcnt"> 2 <span>
@@ -166,7 +166,7 @@ function  RcheckPwd(rno){
 			if(r) {
 				alert('삭제되었습니다..')
 				location.href = `/ezenTeam1/sns/snsList.jsp`
-			} else {
+			} else if(r==false){
 				alert('비밀번호가 일치하지 않습니다.');
 			}
 
@@ -208,7 +208,6 @@ function getTime(min){
 
 	return time;
 }
-
 
 
 
