@@ -17,7 +17,7 @@ function onList(keyword){
 
 
 			r.forEach( s => {
-				let commenthtml = ``
+				let commenthtml = ``;
 				s.replyList.forEach( c =>{
 					let rtime = getTime(Number(c.rdate))
 					 console.log("?")
@@ -84,7 +84,7 @@ function onWrite(){
 	location.href='/ezenTeam1/sns/snsWrite.jsp';
 }
 
-//
+// 검색 레코드 
 function rCount(keyword){
 
 	  $.ajax({
