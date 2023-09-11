@@ -10,7 +10,10 @@ function swrite(){
 	// 일반객체로 첨부파일 전송X -> FormData객체 이용시 첨부파일 전송 가능 
 	// 2. form 객체화 하기
 	let writeData = new FormData( snsForm ); // 첨부파일 [ 대용량 ] 시 필수..
-		
+
+	
+	//줄바꿈 문자들어오면 <br>로 변경
+	writeData.append("scontent", document.querySelector('.scontent').value.replace(/(?:\r\n|\r|\n)/g, '<br/>'));	
 	console.log( "writeData ::: "+ writeData );	
 	// 3. ajax로 대용량  form 전송하기
 	 $.ajax({

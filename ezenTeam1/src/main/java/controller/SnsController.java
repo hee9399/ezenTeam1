@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -19,14 +20,14 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 
 import model.dao.SnsDao;
 import model.dao.SnsReplyDao;
 import model.dto.SnsDto;
 import model.dto.SnsReplyDto;
+import service.FileService;
 
 
 
@@ -192,8 +193,17 @@ public class SnsController extends HttpServlet {
 		int sno = Integer.parseInt(request.getParameter("sno"));
 		String spwd = request.getParameter("spwd");
 		
+			// 레코드 삭제 전 파일이른 꺼내기 [ 삭제후 파일이름 호출이 불가능하기때문에 ]
+			String filename = SnsDao.getInstance().getSns(sno).getSfile();
+		
 		// 2. DAO
 		boolean result = SnsDao.getInstance().sdelete(sno,spwd);
+			
+			// 게시물 삭제시 삭제된 게시물의 업로드파일도 같이삭제 
+			if(result) { // 만약에 게시물 삭제 성공이면 
+				filename = request.getServletContext().getRealPath("/sns/upload")+"/"+filename;
+				FileService.fileDelete(filename);
+			}
 		
 		// 3. 응답
 		response.setContentType("application/json;charset=UTF-8");
