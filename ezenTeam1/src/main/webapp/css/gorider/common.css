@@ -1,0 +1,45 @@
+@charset "UTF-8";
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	list-style-type: none;
+}
+
+/*
+#E4F9F5
+#30E3CA
+#11999E
+#40514E
+
+*/
+input:focus {outline:none;}
+/*로고 폰트*/
+@font-face {
+    font-family: 'Giants-Inline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*기본폰트*/
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+	font-family: 'Pretendard-Regular';
+}
+
+.wrap{
+    max-width:400px;
+    height:100vh;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+

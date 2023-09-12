@@ -1,11 +1,10 @@
-package model.dao;
+package model.dao.sns;
 
 
 import java.util.ArrayList;
 
-
-
-import model.dto.SnsReplyDto;
+import model.dao.Dao;
+import model.dto.sns.SnsReplyDto;
 
 public class SnsReplyDao extends Dao{
 

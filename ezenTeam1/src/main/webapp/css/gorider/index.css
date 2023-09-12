@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*-------------------(Header)----------------------*/
+.headerwrap{
+	display:flex;
+    justify-content:space-between;
+	padding:10px 15px;
+	background-color: #30E3CA;
+	color:#FFF;
+}
+
+.logo{
+	font-family: 'Giants-Inline';
+	font-size: 2rem;
+}
+
+.headerwrap button{
+	width:70px;
+	padding:15px 5px;
+    background-color: #E4F9F5;
+    color:#40514E;
+    font-weight: 900;
+}
+.btn button :hover{ color:#30E3CA;}
+/*-------------------(목적지검색)----------------------*/
+.searchbox{
+	margin:30px 0;
+	padding:0 20px;
+	text-align: center;
+}
+
+.searchbox input, button {
+   border: none;
+   box-shadow: 0 0 5px #30E3CA;
+   border-radius: 5px;
+}
+.destination{
+	width:80%;
+	padding:8px;
+	   margin-right: 10px;
+
+}
+.destination:focus{
+    box-shadow: 2px 2px 5px #30E3CA;
+
+}
+.searchbtn{
+	padding:7px;
+	width:12%;
+}
+
+/*-------------------(메인이미지구역)----------------------*/
+
+.mainimg{
+	background-image: url('/ezenTeam1/img/gorider/main02.jpg');
+	background-repeat:no-repeat;
+	background-size:100%;
+	height:250px;
+	object-fit:cover;
+}
+
+
+/*-------------------(footer)----------------------*/
+.footer{
+	position:absolute;
+	bottom:0;
+	height:10vh;
+	width:100%;
+	background-color: #40514E
+
+}

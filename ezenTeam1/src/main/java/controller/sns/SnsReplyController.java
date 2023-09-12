@@ -1,4 +1,4 @@
-package controller;
+package controller.sns;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,12 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-import model.dao.SnsReplyDao;
-
-import model.dto.SnsReplyDto;
-
+import model.dao.sns.SnsReplyDao;
+import model.dto.sns.SnsReplyDto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

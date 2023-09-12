@@ -1,4 +1,4 @@
-package controller;
+package controller.sns;
 
 
 import java.io.IOException;
@@ -19,14 +19,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-
-
-
-
-import model.dao.SnsDao;
-import model.dao.SnsReplyDao;
-import model.dto.SnsDto;
-import model.dto.SnsReplyDto;
+import model.dao.sns.SnsDao;
+import model.dao.sns.SnsReplyDao;
+import model.dto.sns.SnsDto;
+import model.dto.sns.SnsReplyDto;
 import service.FileService;
 
 

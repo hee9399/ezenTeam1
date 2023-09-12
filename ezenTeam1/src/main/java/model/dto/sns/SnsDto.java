@@ -1,4 +1,4 @@
-package model.dto;
+package model.dto.sns;
 
 import java.util.ArrayList;
 
