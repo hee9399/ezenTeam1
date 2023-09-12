@@ -2,7 +2,7 @@ package model.dao;
 
 import java.util.ArrayList;
 
-import model.dto.SnsDto;
+import model.dto.sns.SnsDto;
 
 public class SnsDao extends Dao{
 
