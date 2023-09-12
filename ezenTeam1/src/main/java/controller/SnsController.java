@@ -130,7 +130,7 @@ public class SnsController extends HttpServlet {
 		String scontent = multi.getParameter("scontent");
 		String spwd = multi.getParameter("spwd");
 		
-		SnsDao snsDto = new SnsDto(sfile, scontent, spwd);
+		SnsDto snsDto = new SnsDto(sfile, scontent, spwd);
 		System.out.println(snsDto);
 		
 		boolean result = SnsDao.getInstance().swrite(snsDto);
