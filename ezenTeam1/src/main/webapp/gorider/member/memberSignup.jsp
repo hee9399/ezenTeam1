@@ -54,10 +54,10 @@
 		         <!-- 결제카드번호 -->
 		         <li class="title"> 결제카드번호 </li>		   
 		         <li class="payinfo">
-		         	 <input  maxlength="4  name="mpadinfo1" class="mid" type="text"/> 
-		         	- <input  maxlength="4  name="mpadinfo2" class="mid" type="text"/>
-		         	- <input  maxlength="4  name="mpadinfo3" class="mid" type="text"/>
-		         	- <input  maxlength="4  name="mpadinfo4" class="mid" type="text"/>
+		         	 <input  maxlength="4"  name="mpadinfo1" class="mid" type="text"/> 
+		         	- <input  maxlength="4"  name="mpadinfo2" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpadinfo3" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpadinfo4" class="mid" type="text"/>
 		         </li>
 		    
 	         
