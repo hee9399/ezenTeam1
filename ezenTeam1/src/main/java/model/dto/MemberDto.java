@@ -4,11 +4,11 @@ public class MemberDto { // 회원 Dto
 
 	// 필드 
 	private int mno;      		// 회원번호              	
-	private String mname;  		// 회원이름              		
+	private String mname;  	// 회원이름              		
 	private String mid;  		// 회원아이디		
 	private String mpwd;		// 회원비밀번호 
-	private String memail; 		// 회원이메일
-	private String mphone; 		// 회원전화번호
+	private String memail; 	// 회원이메일
+	private String mphone; 	// 회원전화번호
 	private String mpayinfo; 	// 결제카드번호
 	private String mdate;		// 회원등록일
 	
