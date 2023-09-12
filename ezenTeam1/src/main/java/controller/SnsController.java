@@ -2,9 +2,7 @@ package controller;
 
 
 import java.io.IOException;
-
 import java.util.ArrayList;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,21 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-
-
-
-
 import model.dao.SnsDao;
-import model.dao.SnsReplyDao;
-import model.dto.SnsDto;
-import model.dto.SnsReplyDto;
+import model.dao.sns.SnsReplyDao;
+import model.dto.sns.SnsDto;
+import model.dto.sns.SnsReplyDto;
 import service.FileService;
 
 
@@ -139,7 +130,7 @@ public class SnsController extends HttpServlet {
 		String scontent = multi.getParameter("scontent");
 		String spwd = multi.getParameter("spwd");
 		
-		SnsDto snsDto = new SnsDto(sfile, scontent, spwd);
+		SnsDao snsDto = new SnsDto(sfile, scontent, spwd);
 		System.out.println(snsDto);
 		
 		boolean result = SnsDao.getInstance().swrite(snsDto);

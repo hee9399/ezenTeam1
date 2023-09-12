@@ -1,0 +1,65 @@
+@charset "UTF-8";/* library.css */
+
+/* 전체 구역 스타일 */
+.librarywrap {
+    text-align: center;
+    margin: 50px auto;
+    width: 300px;
+}
+
+/* 제목 스타일 */
+.title {
+   width: 300px;
+   text-align: center;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+/* 버튼 구역 스타일 */
+.button_wrap {
+    margin-bottom: 20px;
+}
+
+.buttonarea {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttonarea button {
+    padding: 10px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 입력 영역 스타일 */
+.inputarea {
+    margin-bottom: 20px;
+}
+
+.name,
+.phone {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 하단 버튼 스타일 */
+.bottom_button button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 버튼 호버 효과 */
+.bottom_button button:hover,
+.buttonarea button:hover {
+    background-color: #c0392b;
+}
