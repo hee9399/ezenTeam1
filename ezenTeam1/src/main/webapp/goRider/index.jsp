@@ -20,7 +20,7 @@
 		</div>
 
 	</div>
-	<div class="searchbox">
+	<div class="searchbox" >
 		<input type="text" class="destination" placeholder="어디로 갈까요?" /><button class="searchbtn" type="text">검색</button>
 
 	</div>
