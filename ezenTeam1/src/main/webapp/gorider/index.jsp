@@ -15,18 +15,20 @@
 	<div class="headerwrap">
 		<div class="logo">GoRider</div>
 		<div class="btn">
-			<button onclick="" type="button">회원가입</button>
+			<button onclick="onSignUp()" type="button">회원가입</button>
 
 		</div>
+		
 
 	</div>
+	<!-- Main imge -->
+	<div class="mainimg"></div>
 	<div class="searchbox" >
 		<input type="text" class="destination" placeholder="어디로 갈까요?" /><button class="searchbtn" type="text">검색</button>
 
 	</div>
 
-	<!-- Main imge -->
-	<div class="mainimg"></div>
+	
 
 
 	<!-- bottom -->
@@ -39,6 +41,6 @@
 
 
 </div>
-
+<script src="../js/gorider/index.js"></script>
 </body>
 </html>
