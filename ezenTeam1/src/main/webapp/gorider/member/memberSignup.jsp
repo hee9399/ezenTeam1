@@ -24,7 +24,6 @@
 		<form class="signupForm">
 		
 			
-			
 			<!-- 회원이름  -->
 			<div class="sname"> 회원이름 </div>
 			<input name="mname" class="mname" type="text" />
