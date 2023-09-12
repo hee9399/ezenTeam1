@@ -43,7 +43,7 @@
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 	<!-- js -->
-	<script src="/ezenTeam1/js/member/memberSignup.js" type="text/javascript"></script>
+	<script src="/ezenTeam1/js/gorider/memberSignup.js" type="text/javascript"></script>
 
 </body>
 </html>

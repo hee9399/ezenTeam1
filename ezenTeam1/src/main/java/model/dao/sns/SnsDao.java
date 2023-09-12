@@ -1,8 +1,9 @@
-package model.dao;
+package model.dao.sns;
 
 import java.util.ArrayList;
 
-import model.dto.SnsDto;
+import model.dao.Dao;
+import model.dto.sns.SnsDto;
 
 public class SnsDao extends Dao{
 
