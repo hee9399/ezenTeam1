@@ -18,32 +18,32 @@
     <form name="riderSignup">
         <ul>
             <li class="title" >이름</li>
-            <li class="input"><input class="" name="" type="text"></li>
+            <li class="input"><input class="rname" name="rname" type="text"></li>
 
             <li class="title" >아이디<button  class="idcheck" type="button">중복체크</button></li>
-            <li class="input"><input class="" name="" type="text"></li>
+            <li class="input"><input class="rid" name="rid" type="text"></li>
 
             <li class="title" >비밀번호</li>
-            <li class="input"><input class="" name="" type="text"></li>
+            <li class="input"><input maxlength="30" class="rpwd" name="rpwd" type="text"></li>
 
-            <li class="title" >비밀번호 다시 입력</li>
-            <li class="input"><input class="" name="" type="text"></li>
+            <li class="title" >비밀번호 확인</li>
+            <li class="input"><input maxlength="30" class="rpwd2" name="rpwd2" type="text"></li>
 
             <li class="title" >전화번호</li>
-            <li class="input"><input class="" name="" type="text"></li>
+            <li class="input"><input class="rphone" name="rphone" type="text"></li>
 
             <li class="title" >프로필사진</li>
-            <li class="input"><input class="" name="" type="file"></li>
+            <li class="input"><input onchange="" class="rmg" name="rimg" type="file"></li>
 
             <li class="title" >면허증</li>
-            <li class="input"><input class="" name="" type="file"></li>
+            <li class="input"><input onchange="" class="rlicen" name="rlicen" type="file"></li>
 
              <li class="title" >차량등록증</li>
-            <li class="input"><input class="" name="" type="file"></li>
+            <li class="input"><input onchange="" class="rregist" name="rregist" type="file"></li>
 
             <li class="title" >계좌번호</li>
             <li class="input">
-                <select name>
+                <select name="rbank">
                     <option value="">은행선택</option>
                     <option value="KM">국민</option>
                     <option value="IB">기업</option>
@@ -55,16 +55,16 @@
                     <option value="TS">토스</option>
                     <option value="HN">하나</option>
                 </select>
-                <input class="" name="" type="number">
+                <input class="raccount" name="raccount" type="number">
             </li>
         </ul>
         <div class="btn>
             <button  class="" onclick="" type="button"> 취소</button>
             <button  class="" onclick="" type="button"> 지원서제출</button>
         </div>    </form>
-    </div>
+    </div><!-- 라이더 회원가입 전체구역 e -->
 
-</div>
+</div><!-- 전체구역 e -->
    <!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 

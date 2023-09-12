@@ -1,1 +1,43 @@
 @charset "UTF-8";
+.signupWarp .header{
+	padding:10px 15px;
+	background-color: #30E3CA;
+	color:#FFF;
+	text-align: center;
+}
+.signupbox ul {
+	padding:30px 0;
+	max-width: 400px;
+}
+
+.signupbox li:nth-child(odd) {
+	padding:20px 15px 5px;
+}
+.signupbox li:nth-child(even) {
+	padding:0px 15px 10px;
+}
+.input input{
+	width:100%;
+	border: none;
+    box-shadow: 0 0 5px #30E3CA;
+    border-radius: 3px;
+    padding:10px;
+}
+.inputS input{
+	width:70%;
+	border: none;
+    box-shadow: 0 0 5px #30E3CA;
+    border-radius: 3px;
+    padding:10px;
+}
+.payinfo  input{
+	width:21%;
+	border: none;
+    box-shadow: 0 0 5px #30E3CA;
+    border-radius: 3px;
+}
+.btn { width:100%;
+padding:10px;
+margin: 30px 0;
+	
+}

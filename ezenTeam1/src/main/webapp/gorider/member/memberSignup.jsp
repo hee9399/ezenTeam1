@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Insert title here</title>
 
    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
@@ -24,26 +26,44 @@
 	      <form class="signupForm">
 	      
 	         
+	         <ul class="signupbox">
+		          <!-- 회원이름  -->
+		         <li class="title"> 회원이름 </li>
+		         <li class="input"><input name="mname" class="mname" type="text" /></li >
+		         
+		         <!-- 회원아이디  -->
+		         
+		         <li class="title"> 아이디 </li>		   
+		         <li class="input"><input  maxlength="30"  name="mid" class="mid" type="text"/></li>
+		         
+		         <!-- 회원비밀번호 -->
+		         <li class="title"> 비밀번호 </li>		   
+		         <li class="input"><input  maxlength="30"  name="mpwd" class="mpwd" type="text"/></li>
+		         <li class="title"> 비밀번호 확인 </li>		   
+		         <li class="input"><input  maxlength="30"  name="mpwd2" class="mpwd2" type="text"/></li>
+		         <!-- 회원이메일 -->
+		         <li class="title"> 이메일 <button class="" type="button" disabled>인증</button> </li>		   
+		         <li class="input"><input  maxlength="30"  name="mid" class="memail" type="email"/></li>
+		          <!-- 회원이메일 -->
+		         <li class="title"> 이메일 인증번호 </li>		   
+		         <li class="inputS">
+		         	<input  maxlength="30"  name="mid" class="memail" type="email"/>
+		         	<button class="" type="button" disabled>인증</button> 
+		         </li>
+		         
+		         <!-- 결제카드번호 -->
+		         <li class="title"> 결제카드번호 </li>		   
+		         <li class="payinfo">
+		         	 <input  maxlength="4"  name="mpadinfo1" class="mid" type="text"/> 
+		         	- <input  maxlength="4"  name="mpadinfo2" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpadinfo3" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpadinfo4" class="mid" type="text"/>
+		         </li>
+		    
 	         
-	         <!-- 회원이름  -->
-	         <div class="sname"> 회원이름 </div>
-	         <input name="mname" class="mname" type="text" />
-	         
-	         <!-- 회원아이디  -->
-	         
-	         <div class="sid"> 아이디 </div>
-	   
-	         <input  maxlength="30"  name="mid" class="mid" type="text"/>
-	         
-	         <!-- 회원비밀번호 -->
-	         
-	         <!-- 회원이메일 -->
-	         
-	         <!-- 회원전화번호 -->
-	         
-	         <!-- 결제카드번호 -->
-	         
-	         <!-- 회원등록일 -->
+	         </ul>
+	         <div class="btnbox"><button class="btn" type="button">회원 등록</button></div>
+	        
 	         
 	      </form>
 	   </div> <!-- 회원가입 전체구역 e -->
