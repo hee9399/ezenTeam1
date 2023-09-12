@@ -12,7 +12,7 @@
 	<div class="wrap"> <!-- 전체구역 -->
 		<div class="signupWarp"> <!-- 라이더 회원가입 전체구역 -->
 			<div class="header">
-				<h2> 라이더 회원가입 </h2>
+				<h2> 라이더 회원가입  </h2>
 				<p> 환영합니다. </p>
 			</div>
 			
