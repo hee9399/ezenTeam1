@@ -3,7 +3,7 @@
 .headerwrap{
 	display:flex;
     justify-content:space-between;
-	padding:10px 15px;
+	padding:10px 5px 10px 15px;
 	background-color: #30E3CA;
 	color:#FFF;
 }
@@ -20,7 +20,20 @@
     color:#40514E;
     font-weight: 900;
 }
-.btn button :hover{ color:#30E3CA;}
+.btnbox{display: flex;}
+.btn{
+    cursor: pointer;
+	background-color: var(--main01);
+	color:#40514E;
+	border-radius: 5px;
+	font-family: 'LINESeedKR-Bd';
+	font-size: 0.8rem;
+	margin-right: 5px;
+
+}
+.r1{padding:15px 12px 0px;}
+.r2{padding:8px 12px 0px;}
+.btn:hover{ color:var(--main03);}
 /*-------------------(목적지검색)----------------------*/
 .searchbox{
 	margin:30px 0;
@@ -46,6 +59,7 @@
 .searchbtn{
 	padding:7px;
 	width:12%;
+	color:#11999E;
 }
 
 /*-------------------(메인이미지구역)----------------------*/

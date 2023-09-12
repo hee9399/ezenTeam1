@@ -5,14 +5,19 @@
 	box-sizing: border-box;
 	list-style-type: none;
 }
-
 /*
-#E4F9F5
-#30E3CA
-#11999E
-#40514E
-
+    사용 : var(--white);
 */
+:root{
+	--white: #ffffff;
+	--dgray: #666666;
+	--lgray: #e8e8e8;
+	--main01: #E4F9F5;
+	--main02: #30E3CA;
+	--main03: #11999E;
+	--main04: #40514E;
+}
+
 input:focus {outline:none;}
 /*로고 폰트*/
 @font-face {
@@ -30,11 +35,31 @@ input:focus {outline:none;}
     font-style: normal;
 }
 
-body{
-	font-family: 'Pretendard-Regular';
-
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
+body{
+	font-family: NanumSquareNeo-Variable';
+
+}
+BUTTON{
+    border: none;
+    font-family: 'LINESeedKR-Bd';
+    cursor: pointer;
+    border-radius: 5px;
+    padding:10px;
+
+}
 .wrap{
     max-width:400px;
     height:100vh;
@@ -42,5 +67,6 @@ body{
     position: relative;
 
 }
+
 
 

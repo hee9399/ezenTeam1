@@ -14,21 +14,23 @@
 <div  class="wrap">
    <div class="headerwrap">
       <div class="logo">GoRider</div>
-      <div class="btn">
-         <button onclick="onSignUp()" type="button">회원가입</button>
-
+     <div class="btnbox">
+        <div onclick="onSignUp()"  class="btn r2">회원<br>가입</div>
+        <div onclick="onLogin()"  class="btn r1">로그인</div>
       </div>
-      
+
+
 
    </div>
    <!-- Main imge -->
    <div class="mainimg"></div>
    <div class="searchbox" >
-      <input type="text" class="destination" placeholder="어디로 갈까요?" /><button class="searchbtn" type="text">검색</button>
+      <input type="text" class="destination" placeholder="어디로 갈까요?" />
+      <button class="searchbtn" type="text">GO</button>
 
    </div>
 
-   
+
 
 
    <!-- bottom -->
