@@ -29,7 +29,7 @@
 	         <ul class="signupbox">
 		          <!-- 회원이름  -->
 		         <li class="title"> 회원이름 </li>
-		         <li class="input"><input name="mname" class="mname" type="text" /></li>
+		         <li class="input"><input name="mname" class="mname" type="text" /></li >
 		         
 		         <!-- 회원아이디  -->
 		         
