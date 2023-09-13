@@ -44,7 +44,7 @@ create table riderstate(
 
 drop table if exists service;
 create table service(
-	sno	int auto_increment,				# 서비스번호
+	sno	int auto_increment,				 # 서비스번호
 	mno int, 				    		# 회원번호  
     rno int  ,     						# 회원번호              	
     sdate datetime default now(),		# 서비스이용일
