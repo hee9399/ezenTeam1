@@ -27,9 +27,19 @@ create table rider(
     rregistration longtext,				# 차량등록증  //이미지
     rdate datetime default now(),		# 등록일
     raccount varchar(20),				# 계좌번호
+     rbank varchar(3) , 				# 라이더 은행명
     rstatus varchar(1),					# 승인상태
     rcomment text,						# 승인거부시 사유
     primary key( rno )
+);
+
+# 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
+drop table if exists riderstate;
+create table riderstate(
+	 rno int ,     			# 라이더번호  
+     rstart varchar(2) ,    # 라이더출근상태  
+     rcall varchar(2) ,  	# 라이더콜가능상태
+     foreign key(rno) references rider(rno) on delete cascade on update cascade
 );
 
 drop table if exists service;
@@ -38,28 +48,30 @@ create table service(
 	mno int, 				    		# 회원번호  
     rno int  ,     						# 회원번호              	
     sdate datetime default now(),		# 서비스이용일
-    sfromla double,						# 서비스 시작위치 위도
-    sfromlo double,						# 서비스 시작위치 경도
-    stola double,						# 서비스 도착위치 위도
-    stolo double,						# 서비스 도착위치 경도
+    sfromla varchar(30) ,						# 서비스 시작위치 위도
+    sfromlo varchar(30),						# 서비스 시작위치 경도
+    stola varchar(30),						# 서비스 도착위치 위도
+    stolo varchar(30),						# 서비스 도착위치 경도
     spayment int,						# 서비스결제금액
     spayYN varchar(1),					# 결제여부
     sreview text,						# 리뷰
     spoint int,							# 별점
     primary key( sno ),
-    foreign key( mno) references member(mno),
-	foreign key( rno) references rider(rno)
+    foreign key( mno) references member(mno) on delete cascade on update cascade ,
+	foreign key( rno) references rider(rno) on delete cascade on update cascade
 );
 
 drop table if exists deposit;
-create table deposit (
+create table deposit ( # 결제 테이블 
 	dno int auto_increment,			# 입금번호
     rno int  ,     					# 라이더번호
     ddate datetime default now(),	# 입금일
     ddeposit int,					# 입금액
 	primary key( dno ),
-    foreign key( rno) references rider(rno)
+    foreign key( rno) references rider(rno) on delete cascade on update cascade
 );
+
+
 
 
 select * from member;
