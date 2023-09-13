@@ -20,12 +20,12 @@
             <li class="title" >이름 </li>
             <li class="input"><input class="rname" name="rname" type="text"></li>
 
-            <li class="title" >아이디</li>
+            <li class="title" >아이디 <span class="idcheck">  </span> </li> 
             <li class="dflex">
                 <input class="rid intext80" name="rid" type="text">
                 <button  class="idcheck" type="button">중복체크</button></li>
 
-            <li class="title" >비밀번호</li>
+            <li class="title" >비밀번호 <span class="pwdcheck">  </span> </li>
             <li class=""><input maxlength="30" class="rpwd" name="rpwd" type="text"></li>
 
             <li class="title" >비밀번호 확인</li>
