@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="footer" >
-        푸터
+    푸터
 
    </div>
 </body>

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+*{border:0px solid red;}
+.ptitle{
+	text-align: center;
+	padding-top: 20px;
+	color:var(--dgray);
+}
+.listbox{
+	padding:20px 10px;
+}
+.listTitle {
+	display:flex;
+	justify-content:space-around;
+	width:100%;
+	font-family: 'LINESeedKR-Bd';
+    font-size:0.8rem;
+    text-align: center;
+    background-color: var(--main04);
+    color:var(--white);
+    padding:7px 0;
+}
+.rlistH li:nth-child(n+1):nth-child(-n+3){
+	border-right: solid 1px var(--main01);
+}
+.listContent{
+	display:flex;
+    justify-content:space-around;
+    width:100%;
+    font-size:0.8rem;
+    text-align: center;
+    padding:7px 0;
+ }
+ .rlistC:not(:last-child){
+    border-bottom:solid 1px var(--main03);
+ }
+.listContent:hover{
+	background-color: var(--main01);
+}
+/*------------------요청목록------------------*/
+
+
+
+
+/*------------------서비스이용내역------------------*/
+
+/*------------------리뷰관리------------------*/
+
+/*------------------입금관리------------------*/
+
+/*------------------결산관리------------------*/

@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <div class="footer" >
-        푸터
+ <%@include file="aheader.jsp" %>
+     <div class="wrap">
+        서비스이용현황 정보
 
-   </div>
+     </div>
 </body>
 </html>
