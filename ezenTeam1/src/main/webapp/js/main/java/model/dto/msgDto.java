@@ -11,7 +11,7 @@ public class msgDto {					// 주고받은 메세지 정보들을 설걔한 클�
 	private String frommimg;			// 보낸사람 프로필 이미지
 	private String date;					// 보낸시간
 	
-
+fgxfx
 	public msgDto() {}
 
 	public msgDto(String frommid, String msg, String frommimg, String date) {
