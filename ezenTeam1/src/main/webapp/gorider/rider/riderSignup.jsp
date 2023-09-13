@@ -17,7 +17,7 @@
     <div class="rSignupBox">
     <form name="riderSignup">
         <ul>
-            <li class="title" >이름</li>
+            <li class="title" >이름 </li>
             <li class="input"><input class="rname" name="rname" type="text"></li>
 
             <li class="title" >아이디</li>
