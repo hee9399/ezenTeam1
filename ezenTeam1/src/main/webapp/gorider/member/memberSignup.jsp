@@ -67,7 +67,7 @@
 
 
 	         </ul>
-	         <div class="btnbox"><button class="btn" type="button">회 원 등 록</button></div>
+	         <div class="btnbox"><button class="btn" type="button">회 원 등 록</button> </div>
 
 
 	      </form>
