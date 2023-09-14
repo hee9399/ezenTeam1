@@ -17,7 +17,7 @@
         <div class="listbox">
 
          <!-- title -->
-            <ul class="listTitle rlistH">
+            <ul class="listTitle rlistR">
                 <li class="col20">현상태</li>
                 <li class="col20">S번호</li>
                 <li class="col20">M번호</li>
@@ -26,7 +26,7 @@
            </ul>
 
         <!-- 1 content start -->
-            <ul class="listContent rlistC">
+            <ul class="listContent rlistR">
                 <li class="col20">요청</li>
                 <li class="col20">1025</li>
                 <li class="col20">66</li>
@@ -34,7 +34,7 @@
                 <li class="col20">2023-09-14 17:25</li>
            </ul>
            
-           <ul class="listContent rlistC">
+           <ul class="listContent rlistR">
                 <li class="col20">대기</li>
                 <li class="col20">1025</li>
                 <li class="col20">66</li>
@@ -42,7 +42,7 @@
                 <li class="col20">2023-09-14 17:25</li>
            </ul>
            
-           <ul class="listContent rlistC">
+           <ul class="listContent rlistR">
                 <li class="col20">진행</li>
                 <li class="col20">1025</li>
                 <li class="col20">66</li>
@@ -50,7 +50,7 @@
                 <li class="col20">2023-09-14 17:25</li>
            </ul>
            
-           <ul class="listContent rlistC">
+           <ul class="listContent rlistR">
                 <li class="col20">종료</li>
                 <li class="col20">1025</li>
                 <li class="col20">66</li>
@@ -58,7 +58,7 @@
                 <li class="col20">2023-09-14 17:25</li>
            </ul>
            
-           <ul class="listContent rlistC">
+           <ul class="listContent rlistR">
                 <li class="col20">요청</li>
                 <li class="col20">1025</li>
                 <li class="col20">66</li>
