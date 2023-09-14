@@ -59,15 +59,15 @@
 		         <!-- 결제카드번호 -->
 		         <li class="title"> 결제카드번호 </li>
 		         <li class="payinfo">
-		         	 <input  maxlength="4"  name="mpadinfo1" class="mid" type="text"/>
-		         	- <input  maxlength="4"  name="mpadinfo2" class="mid" type="text"/>
-		         	- <input  maxlength="4"  name="mpadinfo3" class="mid" type="text"/>
-		         	- <input  maxlength="4"  name="mpadinfo4" class="mid" type="text"/>
+		         	 <input  maxlength="4"  name="mpayinfo1" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpayinfo2" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpayinfo3" class="mid" type="text"/>
+		         	- <input  maxlength="4"  name="mpayinfo4" class="mid" type="text"/>
 		         </li>
 
 
 	         </ul>
-	         <div class="btnbox"><button class="btn" type="button">회 원 등 록</button> </div>
+	         <div class="btnbox"><button onclick="onSave()" class="btn" type="button">회 원 등 록</button> </div>
 
 
 	      </form>
@@ -79,7 +79,7 @@
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
    <!-- js -->
-   <script src="/ezenTeam1/js/gorider/memberSignup.js" type="text/javascript"></script>
+   <script src="/ezenTeam1/js/gorider/member/mSignup.js" type="text/javascript"></script>
 
 
 </body>
