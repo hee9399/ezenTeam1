@@ -12,7 +12,7 @@
 <div class="wrap">
     <div class="header">
         <h2> 라이더 지원하기  </h2>
-        <p> 환영합니다. </p>
+        <p> 환영합니다.</p>
     </div>
     <div class="rSignupBox">
     <form name="riderSignup">
