@@ -11,12 +11,13 @@
 <body>
 
       <div class="headerwrapA">
-        <div class="logoA">GoRider</div>
+        <div class="logoA" onclick="goMain()">GoRider</div>
         <div class="hinfo"> 신규요청 : 10 건</div>
 
 
 
    </div>
+<script src="/ezenTeam1/js/gorider/admin/aheader.js"></script>
 
 </body>
 </html>

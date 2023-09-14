@@ -5,21 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link href="/ezenTeam1/css/gorider/admin.css" rel="stylesheet">
+
 </head>
 <body>
-    <%@include file="aheader.jsp" %>
-     <div class="wrap">
-        <ul>
+	<div class="wrap">
+     <%@include file="aheader.jsp" %>
+     <div class="menuBox">
+     	<ul class="amenu">
 
-            <li><a href="aRequestList.jsp">라이더 승인요청</a></li>
-            <li><a href="aServiceList.jsp">서비스 이용 현황 </a></li>
-            <li><a href="aReviewList.jsp">리뷰/평점관리</a></li>
-            <li><a href="aDepositList.jsp">라이더 입금내역 </a></li>
-            <li><a href="aClosingList.jsp">서비스 정산</a></li>
+            <li onclick="goMenu('R')">라이더 승인요청</li>
+            <li onclick="goMenu('S')">서비스 이용 현황</li>
+            <li onclick="goMenu('V')">리뷰/평점관리</li>
+            <li onclick="goMenu('D')">라이더 입금내역</li>
+            <li onclick="goMenu('C')">서비스 정산</li>
 
 
         </ul>
+     
+     </div>
+       
 
+	 <%@include file="afooter.jsp" %>
     </div>
 </body>
 </html>
