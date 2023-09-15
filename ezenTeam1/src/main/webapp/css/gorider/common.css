@@ -67,9 +67,8 @@ h5{ padding:30px; text-align: center;}
 	font-family: 'LINESeedKR-Bd';
 	font-size: 0.8rem;
 	margin-right: 5px;
-
 }
-.r1{padding:15px 12px 0px;}
+.r1{padding:15px 12px 0px;} 
 .r2{padding:8px 12px 0px;}
 .btn:hover{ color:var(--main03);}
 
@@ -113,9 +112,11 @@ BUTTON{
     background-color: #30E3CA;
     color:#FFF;
 }
+
 .contentBox{
 	overflow-y:auto;
 }
+
 .logo{
     font-family: 'Giants-Inline';
     font-size: 2rem;

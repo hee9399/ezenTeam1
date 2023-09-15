@@ -64,7 +64,18 @@ public class MemberInfoController extends HttpServlet {
 
     // 호출
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
+		String result = null;
 		
+		if( type.equals("isExist")) {
+			String mid = request.getParameter("mid");
+			String search = request.getParameter("search");
+			boolean isExist	= MemberDao.getInstance().isExist(search,mid);
+			result = isExist ? "true": "false"; 
+		}
+		
+    	response.setContentType(("application/json;charset=UTF-8"));
+    	response.getWriter().print(result);
 	}
 
 	// 수정
