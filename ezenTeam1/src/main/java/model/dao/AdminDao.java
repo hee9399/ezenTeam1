@@ -17,7 +17,7 @@ public class AdminDao extends Dao{
 		ArrayList<RiderDto> list = new ArrayList<>();
 		try {
 			// 2.  최신순으로 라이더가 회원가입 요청했을때 간단한 라이더 정보 가져오는 쿼리문
-			String sql ="select rno , rid , rdate from rider order by rdate desc ";
+			String sql ="select rno , rid , rdate from rider order by rdate asc";
 			ps = conn.prepareStatement(sql);
 			rs=ps.executeQuery();
 			

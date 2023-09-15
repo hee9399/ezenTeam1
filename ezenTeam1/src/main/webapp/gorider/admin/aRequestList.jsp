@@ -16,57 +16,22 @@
 
          <!-- title -->
             <ul class="listTitle rlistH">
-                <li class="col10">No</li>
-                <li class="col35">라이더ID</li>
-                <li class="col35">요청일</li>
-                <li class="col20">상세보기</li>
+             <!-- js가 출력해주는 구간 -->
            </ul>
 
         <!-- 1 content start -->
             <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
+             <!-- js가 출력해주는 구간 -->   
            </ul>
-        <!-- 1 content end -->
-             <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-            <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-            <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-            <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-            <ul class="listContent rlistC">
-                <li class="col10">1</li>
-                <li class="col35">jjangu</li>
-                <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
+       
 
 
         </div>
 
 
 
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/ezenTeam1/js/gorider/admin/adminPrint.js"></script>
       <%@include file="afooter.jsp" %>
      </div>
 
