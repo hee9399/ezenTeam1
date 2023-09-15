@@ -3,21 +3,26 @@ console.log('js실행됩니다.');
 // 라이더 회원가입 js
 
 /*
+
 	회원가입 기능 순서
 	1. 회원가입 기능
 	2. 기능 실행 잘되면 -> 유효성 검사로 진행한다. 
 
  */
 
-// 1. 유효성 검사없는 회원가입 
+
+
+
+
+// 1. 유효성 검사없는 회원가입 Form데이터전송시 
 function signup(){
 	
 	// 1. 입력받은 데이터를 한번에 가져오기 
 		// 1. form객체 호출 
-	let signupForm = document.querySelectorAll('.signupForm'); 
-		console.log('form객체 호출했습니다'+signupForm)
+	let riderSignup = document.querySelectorAll('.riderSignup')[0]; 
+		console.log('form객체 호출했습니다'+riderSignup);
 		// 2. form 데이터 객체화 
-	let signupData = new FormData(signupForm); 
+	let signupData = new FormData(riderSignup); 
 		console.log(signupData);
 		
 	// 2. ajax 첨부파일대용량 전송시 
@@ -28,19 +33,23 @@ function signup(){
                contentType : false ,
                processData : false ,
                success : r => { 
-				   console.log(r) 
+				   console.log(r);
 				   
+				   if(r){ // 마냐게 컨트롤러에서 들어온값이 성공이면
+					   alert('회원가입 성공');
+					    // location.href = '/exenTeam1//';
+				   }else{
+					   alert('회원가입 실패[관리자에게 문의]')
+				   }
+				   		
 				   } ,
-               error : e => { console.log(e) } ,
+               error : e => { 
+				   console.log(e) 
+               } ,
             })
 	
 	
 }// f  e
-
-
-
-
-/*
 
 // 1. 아이디 유효성 검사
 function idcheck(){
@@ -79,4 +88,3 @@ function idcheck(){
 	
 }// f e
 
-*/

@@ -17,7 +17,7 @@
 
     </div>
     <div class="rSignupBox">
-    <form name="riderSignup">
+    <form class="riderSignup">
         <ul>
             <li class="title" > 이름 </li>
             <li class="input">
@@ -27,15 +27,16 @@
 
             <li class="title" >아이디</li> 
             <li class="dflex">
-                <input onkeyup="idcheck()" class="rid intext80" name="rid" type="text">
+            	<!-- onkeyup="idcheck()" -->
+                <input onkeyup="" class="rid intext80" name="rid" type="text">
                 <span class="idcheckbox"> </span> 
                 <button  class="idcheck" type="button">중복체크</button></li>
 
             <li class="title" >비밀번호 <span class="pwdcheck">  </span> </li>
-            <li class=""><input maxlength="30" class="rpwd" name="rpwd" type="text"></li>
+            <li class=""><input maxlength="30" class="rpwd" name="rpwd" type="password"></li>
 
             <li class="title" >비밀번호 확인</li>
-            <li class=""><input maxlength="30" class="rpwd2" name="rpwd2" type="text"></li>
+            <li class=""><input maxlength="30" class="rpwd2" name="rpwd2" type="password"></li>
 
             <li class="title" >프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
@@ -50,7 +51,7 @@
 
             <li class="title" >계좌번호</li>
             <li class="dflex">
-                <select class="inselect" name="rbank">
+                <select class="inselect rbank" name="rbank">
                     <option value=""> 은행선택 </option>
                     <option value="KM"> 국민 </option>
                     <option value="IB"> 기업 </option>
@@ -67,7 +68,7 @@
         </ul>
         <div class="btnbox">
             <button  class="btn50 colorW" onclick="" type="reset"> 다시쓰기</button>
-            <button  class="btn50" onclick="" type="button"> 지원서제출</button>
+            <button  class="btn50" onclick="signup()" type="button"> 지원서제출</button>
         </div>    </form>
     </div><!-- 라이더 회원가입 전체구역 e -->
 
@@ -76,6 +77,6 @@
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
    <!-- js -->
-   <script src="/ezenTeam1/js/gorider/riderSignup.js" type="text/javascript"></script>
+   <script src="/ezenTeam1/js/gorider/rider/riderSignup.js" type="text/javascript"></script>
 </body>
 </html>

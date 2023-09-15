@@ -34,6 +34,7 @@ public class RiderDto {// 기사 Dto
 		this.rstatus = rstatus;
 		this.rcomment = rcomment;
 	}
+	// 라이더 회원가입 생성자
 	// 등록할때 필요한 생성자 
 	public RiderDto(String rname, String rid, String rpwd, String rphoto, String rlicense, String rregistration,
 			String raccount, String rbank, String rstatus, String rcomment) {
@@ -46,8 +47,8 @@ public class RiderDto {// 기사 Dto
 		this.rregistration = rregistration;
 		this.raccount = raccount;
 		this.rbank = rbank;
-		this.rstatus = rstatus;
-		this.rcomment = rcomment;
+		this.rstatus = "N";		
+		this.rcomment = "null";
 	}
 	// 라이더 간단한 정보 출력할때 생성자
 	public RiderDto(int rno, String rid, String rdate) {
