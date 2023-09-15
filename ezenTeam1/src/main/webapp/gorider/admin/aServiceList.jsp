@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>서비스이용현황 정보</title>
     <link href="/ezenTeam1/css/gorider/admin.css" rel="stylesheet">
 
 </head>
@@ -70,7 +70,8 @@
         </div>   
         
         
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/ezenTeam1/js/gorider/admin/adminService.js"></script>
       <%@include file="afooter.jsp" %>
      </div>
 </body>
