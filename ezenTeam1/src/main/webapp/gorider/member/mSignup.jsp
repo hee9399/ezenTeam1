@@ -33,19 +33,19 @@
 
 		         <!-- 회원아이디  -->
 
-		         <li class="title"> 아이디 </li>
+		         <li class="title"> 아이디 <span class="idComment"> </span></li>
 		         <li class="input input75">
-		              <input  maxlength="30"  name="mid" class="mid intext80" type="text"/>
+		              <input  onkeyup="dupleIdCheck()" maxlength="30"  name="mid" class="mid intext80" type="text"/>
 		              <button  class="idcheck" type="button">중복체크</button></li>
-		         </li>
+		        
 
 		         <!-- 회원비밀번호 -->
-		         <li class="title"> 비밀번호 </li>
-		         <li class="input"><input  maxlength="30"  name="mpwd" class="mpwd" type="text"/></li>
-		         <li class="title"> 비밀번호 확인 </li>
-		         <li class="input"><input  maxlength="30"  name="mpwd2" class="mpwd2" type="text"/></li>
+		         <li class="title"> 비밀번호 <span class="pwdComment"> </span></li>
+		         <li class="input"><input  onkeyup="pwdCheck()" maxlength="30"  name="mpwd" class="mpwd" type="text"/></li>
+		         <li class="title"> 비밀번호 확인 <span class="pwd2Comment"> </span></li>
+		         <li class="input"><input onkeyup="pwdCheck()" maxlength="30"  name="mpwd2" class="mpwd2" type="text"/></li>
 		         <!-- 회원이메일 -->
-		         <li class="title input75"> 이메일 </li>
+		         <li class="title input75"> 이메일 <span class="emailComment"> </span></li>
 		         <li class="input input75 input65">
 		              <input name="memail" class="memail" type="email"/>
 		              <button class="" type="button" disabled>인증번호받기</button> </li>
@@ -57,7 +57,7 @@
 		         </li>
 
 		         <!-- 결제카드번호 -->
-		         <li class="title"> 결제카드번호 </li>
+		         <li class="title"> 결제카드번호 <span class="payComment"> </span></li>
 		         <li class="payinfo">
 		         	 <input  maxlength="4"  name="mpayinfo1" class="mid" type="text"/>
 		         	- <input  maxlength="4"  name="mpayinfo2" class="mid" type="text"/>
