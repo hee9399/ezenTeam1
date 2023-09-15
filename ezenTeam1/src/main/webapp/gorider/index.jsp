@@ -12,7 +12,16 @@
 <body>
 <!-- 전체렙 -->
 <div  class="wrap">
-    <%@include file="header.jsp" %>
+   <div class="headerwrap">
+      <div class="logo">GoRider</div>
+     <div class="btnbox">
+        <div onclick="onSignUp()"  class="btn r2">회원<br>가입</div>
+        <div onclick="onLogin()"  class="btn r1">로그인</div>
+      </div>
+
+
+
+   </div>
    <!-- Main imge -->
    <div class="mainimg"></div>
    <div class="searchbox" >
