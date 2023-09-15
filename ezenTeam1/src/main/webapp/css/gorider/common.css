@@ -5,14 +5,20 @@
 	box-sizing: border-box;
 	list-style-type: none;
 }
-
+a { text-decoration: none;}
 /*
-#E4F9F5
-#30E3CA
-#11999E
-#40514E
-
+    사용 : var(--white);
 */
+:root{
+	--white: #ffffff;
+	--dgray: #666666;
+	--lgray: #e8e8e8;
+	--main01: #E4F9F5;
+	--main02: #30E3CA;
+	--main03: #11999E;
+	--main04: #40514E;
+}
+
 input:focus {outline:none;}
 /*로고 폰트*/
 @font-face {
@@ -30,10 +36,43 @@ input:focus {outline:none;}
     font-style: normal;
 }
 
-body{
-	font-family: 'Pretendard-Regular';
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
+body{
+	font-family: NanumSquareNeo-Variable';
+
+}
+BUTTON{
+    border: none;
+    font-family: 'LINESeedKR-Bd';
+    cursor: pointer;
+    border-radius: 5px;
+}
+.col10 {width: 10%;}
+.col15 {width: 15%;}
+.col20 {width: 20%;}
+.col25 {width: 25%;}
+.col30 {width: 30%;}
+.col35 {width: 35%;}
+.col40 {width: 40%;}
+.col45 {width: 45%;}
+.col50 {width: 50%;}
+.col55 {width: 55%;}
+.col60 {width: 60%;}
+.col70 {width: 70%;}
+.col80 {width: 80%;}
+.btnPd6{padding:6px 6px 3px; font-size: 0.7rem;}
 .wrap{
     max-width:400px;
     height:100vh;
@@ -41,5 +80,54 @@ body{
     position: relative;
 
 }
+.headerwrap{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 5px 10px 15px;
+    background-color: #30E3CA;
+    color:#FFF;
+}
+
+.logo{
+    font-family: 'Giants-Inline';
+    font-size: 2rem;
+}
+/*admin_header S*/
+
+.wrapH{
+    max-width:400px;
+    margin: 0 auto;
+    position: relative;
+
+}
+.headerwrapA{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px;
+    background-color: var(--main03);
+    color:#FFF;
+}
+
+.logoA{
+    font-family: 'Giants-Inline';
+    font-size: 1.2rem;
+}
+.hinfo{
+    vertical-align:middle;
+	font-family: 'LINESeedKR-Bd';
+	font-size:0.8rem;
+}
+
+/*----------(admin_header E)----------*/
 
 
+/*-------------------(footer)----------------------*/
+.footer{
+    position:absolute;
+    bottom:0;
+    height:10vh;
+    width:100%;
+    background-color: #40514E
+
+}

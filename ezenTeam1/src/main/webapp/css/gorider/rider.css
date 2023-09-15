@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.rSignupBox{
+    font-family: 'LINESeedKR-Bd';
+
+}
+.header{
+    padding:10px 15px;
+    background-color: #30E3CA;
+    color:#FFF;
+    text-align: center;
+}
+ul {
+    padding:30px 0;
+    max-width: 400px;
+
+}
+li:nth-child(odd) {
+    padding:20px 15px 5px;
+
+    font-size: 0.9rem;
+    color:#666;
+}
+li:nth-child(even) {
+    padding:0px 15px 10px;
+}
+input{
+    width:100%;
+    border: none;
+    box-shadow: 0 0 5px #30E3CA;
+    border-radius: 3px;
+    padding:10px;
+}
+.dflex{
+	display: flex;
+	justify-content: space-between;
+}
+.intext75{ width:75%;}
+.intext80{ width:80%;}
+.infile{}
+
+.inselect{
+	padding:5px;
+     box-shadow: 0 0 5px #30E3CA;
+    border-radius: 3px;
+    border:none;
+}
+BUTTON{
+    background-color: #30E3CA;
+    color:#fff;
+}
+.btn50{ width:49%;}
+.colorW{
+	background-color:#fff;
+	color:#30E3CA;
+	border:solid 1px #30E3CA;
+}
+.btnbox{ padding-bottom: 30px;}
