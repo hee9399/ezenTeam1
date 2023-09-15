@@ -19,7 +19,7 @@
     <div class="rSignupBox">
     <form name="riderSignup">
         <ul>
-            <li class="title" >이름 </li>
+            <li class="title" > 이름 </li>
             <li class="input">
             	<input class="rname" name="rname" type="text">
             	 <span class="namecheckbox"> </span> 
@@ -38,13 +38,15 @@
             <li class=""><input maxlength="30" class="rpwd2" name="rpwd2" type="text"></li>
 
             <li class="title" >프로필사진</li>
-            <li class=""><input onchange="" class="rmg infile" name="rimg" type="file"></li>
+            <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
+            	<img class="preimg" src="" />
+            </li>
 
             <li class="title" >면허증</li>
-            <li class=""><input onchange="" class="rlicen infile" name="rlicen" type="file"></li>
+            <li class=""><input onchange="" class="rlicense infile" name="rlicense" type="file"></li>
 
              <li class="title" >차량등록증</li>
-            <li class=""><input onchange="" class="rregist " name="rregist" type="file"></li>
+            <li class=""><input onchange="" class="rregistration " name="rregistration" type="file"></li>
 
             <li class="title" >계좌번호</li>
             <li class="dflex">

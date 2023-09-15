@@ -9,7 +9,38 @@ console.log('js실행됩니다.');
 
  */
 
+// 1. 유효성 검사없는 회원가입 
+function signup(){
+	
+	// 1. 입력받은 데이터를 한번에 가져오기 
+		// 1. form객체 호출 
+	let signupForm = document.querySelectorAll('.signupForm'); 
+		console.log('form객체 호출했습니다'+signupForm)
+		// 2. form 데이터 객체화 
+	let signupData = new FormData(signupForm); 
+		console.log(signupData);
+		
+	// 2. ajax 첨부파일대용량 전송시 
+		           $.ajax({
+               url : "/ezenTeam1/RiderInfoController" , 
+               method: "post" ,
+               data : signupData ,
+               contentType : false ,
+               processData : false ,
+               success : r => { 
+				   console.log(r) 
+				   
+				   } ,
+               error : e => { console.log(e) } ,
+            })
+	
+	
+}// f  e
 
+
+
+
+/*
 
 // 1. 아이디 유효성 검사
 function idcheck(){
@@ -47,3 +78,5 @@ function idcheck(){
 	}
 	
 }// f e
+
+*/
