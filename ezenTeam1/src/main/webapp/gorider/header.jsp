@@ -7,11 +7,9 @@
 <body>
 <div class="headerwrap">
       <div class="logo">GoRider</div>
-      <!-- 로그인 안한경우 -->
-      <div class="btnbox">
-        <div onclick="onSignUp()"  class="btn">가입 </div>
-        <div onclick="onLogin()"  class="btn"> 로그인 </div>
+     <div class="btnbox">
+        <div onclick="onSignUp()"  class="btn r2">회원<br>가입</div>
+        <div onclick="onLogin()"  class="btn r1">로그인</div>
       </div>
-
    </div>
 </body>

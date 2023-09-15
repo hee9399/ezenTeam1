@@ -5,7 +5,7 @@
 	box-sizing: border-box;
 	list-style-type: none;
 }
-a { text-decoration: none;}
+
 /*
     사용 : var(--white);
 */
@@ -18,8 +18,9 @@ a { text-decoration: none;}
 	--main03: #11999E;
 	--main04: #40514E;
 }
-
+a { text-decoration: none;}
 input:focus {outline:none;}
+h5{ padding:30px; text-align: center;}
 /*로고 폰트*/
 @font-face {
     font-family: 'Giants-Inline';
@@ -48,6 +49,31 @@ input:focus {outline:none;}
     font-weight: normal;
     font-style: normal;
 }
+
+/*--------------------------------------------*/
+.headerwrap button{
+	width:70px;
+	padding:15px 5px;
+    background-color: #E4F9F5;
+    color:#40514E;
+    font-weight: 900;
+}
+.btnbox{display: flex;}
+.btn{
+    cursor: pointer;
+	background-color: var(--main01);
+	color:#40514E;
+	border-radius: 5px;
+	font-family: 'LINESeedKR-Bd';
+	font-size: 0.8rem;
+	margin-right: 5px;
+
+}
+.r1{padding:15px 12px 0px;}
+.r2{padding:8px 12px 0px;}
+.btn:hover{ color:var(--main03);}
+
+/*--------------------------------------------*/
 
 body{
 	font-family: NanumSquareNeo-Variable';
@@ -87,7 +113,9 @@ BUTTON{
     background-color: #30E3CA;
     color:#FFF;
 }
-
+.contentBox{
+	overflow-y:auto;
+}
 .logo{
     font-family: 'Giants-Inline';
     font-size: 2rem;

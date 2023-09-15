@@ -33,9 +33,9 @@
 
 		         <!-- 회원아이디  -->
 
-		         <li class="title"> 아이디 </li>
+		         <li class="title"> 아이디 <span class="validComment">아이디는 영문+숫자 조합 8자 이상</span> </li>
 		         <li class="input input75">
-		              <input  maxlength="30"  name="mid" class="mid intext80" type="text"/>
+		              <input  onkeyup="dupleIdCheck()" maxlength="30"  name="mid" class="mid intext80" type="text"/>
 		              <button  class="idcheck" type="button">중복체크</button></li>
 		         </li>
 

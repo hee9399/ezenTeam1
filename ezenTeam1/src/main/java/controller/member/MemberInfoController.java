@@ -64,7 +64,7 @@ public class MemberInfoController extends HttpServlet {
 
     // 호출
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 	}
 
 	// 수정

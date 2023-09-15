@@ -2,6 +2,7 @@
  *
  */
 console.log('연결');
+//회원가입 정보 저장
 function onSave(){
 	console.log( "onSave()");
 	//폼객체가져오기
@@ -25,4 +26,8 @@ function onSave(){
 	})
 
 
+}
+
+function dupleIdCheck(){
+	
 }
