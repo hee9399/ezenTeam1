@@ -11,7 +11,7 @@ create table member(
     mpwd varchar(20) not null,			# 회원비밀번호 
     memail varchar(50) not null unique,	# 회원이메일
 	mpayinfo varchar(16) not null,		# 결제카드번호
-    mdate datetime default now(),		# 회원등록일
+    mdate datetime default now(),		 # 회원등록일
     primary key( mno )
 );
 drop table if exists rider;
