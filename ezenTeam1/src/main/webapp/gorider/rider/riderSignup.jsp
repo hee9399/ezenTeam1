@@ -11,18 +11,24 @@
 <body>
 <div class="wrap">
     <div class="header">
-        <h2> 라이더 지원하기 </h2>
-        <p> 환영합니다. </p>
+
+        <h2> 라이더 지원하기  </h2>
+        <p> 환영합니다.</p>
+
     </div>
     <div class="rSignupBox">
     <form name="riderSignup">
         <ul>
             <li class="title" >이름 </li>
-            <li class="input"><input class="rname" name="rname" type="text"></li>
+            <li class="input">
+            	<input class="rname" name="rname" type="text">
+            	 <span class="namecheckbox"> </span> 
+            </li>
 
-            <li class="title" >아이디 <span class="idcheck">  </span> </li> 
+            <li class="title" >아이디</li> 
             <li class="dflex">
-                <input class="rid intext80" name="rid" type="text">
+                <input onkeyup="idcheck()" class="rid intext80" name="rid" type="text">
+                <span class="idcheckbox"> </span> 
                 <button  class="idcheck" type="button">중복체크</button></li>
 
             <li class="title" >비밀번호 <span class="pwdcheck">  </span> </li>
@@ -30,9 +36,6 @@
 
             <li class="title" >비밀번호 확인</li>
             <li class=""><input maxlength="30" class="rpwd2" name="rpwd2" type="text"></li>
-
-            <li class="title" >전화번호</li>
-            <li class=""><input class="rphone" name="rphone" type="text"></li>
 
             <li class="title" >프로필사진</li>
             <li class=""><input onchange="" class="rmg infile" name="rimg" type="file"></li>

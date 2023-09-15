@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+    <div class="footer" >
+        푸터
 
+   </div>
 </body>
 </html>

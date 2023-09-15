@@ -7,30 +7,45 @@ public class RiderDto {// 기사 Dto
 	private String rname; 			// 라이더이름              		
 	private String rid;				// 라이더아이디		
 	private String rpwd; 			// 라이더비밀번호 
-	private String rphone ;			// 라이더전화번호
 	private String rphoto;			// 라이더프로필사진 //이미지
 	private String rlicense;		// 면허증  //이미지
 	private String rregistration;	// 차량등록증  //이미지
 	private String rdate;			// 등록일
 	private String raccount; 		// 계좌번호
+	private String rbank;			// 은행
 	private String rstatus;			// 승인상태
-	private String rcomment;				// 승인거부시 사유
+	private String rcomment;		// 승인거부시 사유
 	// 생성자
 	public RiderDto() {}
 	// 풀 
-	public RiderDto(int rno, String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
-			String rregistration, String rdate, String raccount, String rstatus, String rcomment) {
+	public RiderDto(int rno, String rname, String rid, String rpwd, String rphoto, String rlicense,
+			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
 		this.rid = rid;
 		this.rpwd = rpwd;
-		this.rphone = rphone;
 		this.rphoto = rphoto;
 		this.rlicense = rlicense;
 		this.rregistration = rregistration;
 		this.rdate = rdate;
 		this.raccount = raccount;
+		this.rbank = rbank;
+		this.rstatus = rstatus;
+		this.rcomment = rcomment;
+	}
+	// 등록할때 필요한 생성자 
+	public RiderDto(String rname, String rid, String rpwd, String rphoto, String rlicense, String rregistration,
+			String raccount, String rbank, String rstatus, String rcomment) {
+		super();
+		this.rname = rname;
+		this.rid = rid;
+		this.rpwd = rpwd;
+		this.rphoto = rphoto;
+		this.rlicense = rlicense;
+		this.rregistration = rregistration;
+		this.raccount = raccount;
+		this.rbank = rbank;
 		this.rstatus = rstatus;
 		this.rcomment = rcomment;
 	}
@@ -58,12 +73,6 @@ public class RiderDto {// 기사 Dto
 	}
 	public void setRpwd(String rpwd) {
 		this.rpwd = rpwd;
-	}
-	public String getRphone() {
-		return rphone;
-	}
-	public void setRphone(String rphone) {
-		this.rphone = rphone;
 	}
 	public String getRphoto() {
 		return rphoto;
@@ -95,6 +104,12 @@ public class RiderDto {// 기사 Dto
 	public void setRaccount(String raccount) {
 		this.raccount = raccount;
 	}
+	public String getRbank() {
+		return rbank;
+	}
+	public void setRbank(String rbank) {
+		this.rbank = rbank;
+	}
 	public String getRstatus() {
 		return rstatus;
 	}
@@ -109,10 +124,70 @@ public class RiderDto {// 기사 Dto
 	}
 	@Override
 	public String toString() {
-		return "RiderDto [rno=" + rno + ", rname=" + rname + ", rid=" + rid + ", rpwd=" + rpwd + ", rphone=" + rphone
-				+ ", rphoto=" + rphoto + ", rlicense=" + rlicense + ", rregistration=" + rregistration + ", rdate="
-				+ rdate + ", raccount=" + raccount + ", rstatus=" + rstatus + ", rcomment=" + rcomment + "]";
+		return "RiderDto [rno=" + rno + ", rname=" + rname + ", rid=" + rid + ", rpwd=" + rpwd + ", rphoto=" + rphoto
+				+ ", rlicense=" + rlicense + ", rregistration=" + rregistration + ", rdate=" + rdate + ", raccount="
+				+ raccount + ", rbank=" + rbank + ", rstatus=" + rstatus + ", rcomment=" + rcomment + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }// class e

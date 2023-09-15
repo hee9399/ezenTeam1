@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*-------------------(Header)----------------------*/
-.headerwrap{
+/*.headerwrap{
 	display:flex;
     justify-content:space-between;
 	padding:10px 5px 10px 15px;
@@ -12,7 +12,7 @@
 	font-family: 'Giants-Inline';
 	font-size: 2rem;
 }
-
+*/
 .headerwrap button{
 	width:70px;
 	padding:15px 5px;
@@ -73,12 +73,3 @@
 }
 
 
-/*-------------------(footer)----------------------*/
-.footer{
-	position:absolute;
-	bottom:0;
-	height:10vh;
-	width:100%;
-	background-color: #40514E
-
-}
