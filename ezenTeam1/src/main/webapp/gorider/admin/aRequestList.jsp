@@ -19,7 +19,7 @@
                 <li class="col10">No</li>
                 <li class="col35">라이더ID</li>
                 <li class="col35">요청일</li>
-                <li class="col20">상세보기</li>
+                <li class="col20" >상세보기</li>
            </ul>
 
         <!-- 1 content start -->
@@ -27,7 +27,7 @@
                 <li class="col10">1</li>
                 <li class="col35">jjangu</li>
                 <li class="col35">2023-09-14</li>
-                <li class="col20"><button class="btnPd6" type="button" >상세보기</button></li>
+                <li class="col20"><button class="btnPd6" type="button" onclick="ApprovalView">상세보기</button></li>
            </ul>
         <!-- 1 content end -->
              <ul class="listContent rlistC">

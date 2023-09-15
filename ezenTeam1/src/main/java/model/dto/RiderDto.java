@@ -49,6 +49,13 @@ public class RiderDto {// 기사 Dto
 		this.rstatus = rstatus;
 		this.rcomment = rcomment;
 	}
+	// 라이더 간단한 정보 출력할때 생성자
+	public RiderDto(int rno, String rid, String rdate) {
+		super();
+		this.rno = rno;
+		this.rid = rid;
+		this.rdate = rdate;
+	}
 	// 메소드 
 	public int getRno() {
 		return rno;
