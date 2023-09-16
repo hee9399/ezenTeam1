@@ -36,21 +36,21 @@ public class MemberDao extends Dao{
 	// 2. 출력 , 로그인
 
 	// 3. 아이디/이메일 중복검사 [ 인수 : 검사할아이디 / 반환 : true(중복없이) , false(중복없이) ]
-	public boolean isExist(String search, String mid) {
-		String sql = "select *from member  where "+ search +" = ?"; 
+	public boolean isExist(String search, String key) {
+		String sql = "select *from member  where "+ search +" = ?";
 		try {
 			ps= conn.prepareStatement(sql);
-			ps.setString(1, mid);
+			ps.setString(1, key);
 			rs = ps.executeQuery();
 			System.out.println("MEMBER :: isExist() _SQL"+ps);
-			
+
 			if(rs.next()) {
 				return true;
 			}
 		} catch (Exception e) {
 			System.out.println("Exception  :: " + e);
 		}
-		
+
 		return false;
 	}
 

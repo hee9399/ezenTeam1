@@ -11,13 +11,13 @@
 
 }
 
-.signupbox li:nth-child(odd) {
+.signupbox li:nth-of-type(odd) {
 	padding:20px 15px 5px;
     font-family: 'LINESeedKR-Bd';
 	font-size: 0.9rem;
 	color:#666;
 }
-.signupbox li:nth-child(even) {
+.signupbox li:nth-of-type(even) {
 	padding:0px 15px 10px;
 }
 .signupbox input{
@@ -27,6 +27,7 @@
     border-radius: 3px;
     padding:10px;
 }
+
 .input75{
 	display: flex;
 	justify-content: space-between;
@@ -35,14 +36,8 @@
 .input75 button{border-radius: 5px;}
 .input75 input{
 	width:80%;
-	border: none;
-    box-shadow: 0 0 5px #30E3CA;
-    border-radius: 3px;
-    padding:10px;
 }
-.input65 input{
-	width:74%;
-}
+.input65 input{	width:74%;}
 .intext80{ width:80%;}
 .payinfo  input{
 	width:21%;
@@ -52,7 +47,7 @@
 }
 .btn {
 	width:100%;
-	margin: 30px 0;
+	margin: 30px 0 0;
 	font-size: 1.2rem;
 
 }
