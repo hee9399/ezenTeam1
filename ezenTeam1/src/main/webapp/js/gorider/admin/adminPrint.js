@@ -42,7 +42,7 @@ function ApprovalPrint() {
  
  // 1. 라이더가 회원가입했을때 그라이더에 대한 상세보기 함수.
  function ApprovalView(){
-	 
+	 console.log('ㅋㅋㅋ');
  }
  
  
