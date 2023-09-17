@@ -177,7 +177,7 @@ function authReq(){
 
 			// 2. authbox 안 html구성
 			let html = `<span class="timebox">02:00</span>
-				  		<input class="ecode" type="text">
+				  		<input class="memailcheck" type="text">
 				  		<button onclick="auth()" type="button" >인증</button>`
 
 			// 3.authbox에 html대입
@@ -208,15 +208,15 @@ function settimer(){
 		m = m < 10 ? "0" + m: m; //10보다 작으면 0을 덧붙임
 		s = s < 10 ? "0" + s: s;
 		//timerbox에 00:00형식으로  html작성
-		document.querySelector('.timerbox').innerHTML = `${m}:${s}`
+		document.querySelector('.timebox').innerHTML = `${m}:${s}`
 			timer --;
 		//타이머가 0보다 작으면 종료
-		if(timmer <0){
-			clearInterval(timmerInter);
+		if(timer <0){
+			clearInterval(timerInter);
 
 			//인증실패
-			document.querySelector('.emailComment').innerHTML ='인증실패';
-			checkLsit[2]=false;
+			document.querySelector('.emailComment').innerHTML ='시간초과 인증실패';
+			checkList[2]=false;
 
 			document.querySelector('.authbox').innerHTML = ``;
 

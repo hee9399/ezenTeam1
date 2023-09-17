@@ -108,12 +108,24 @@ BUTTON{ border: none;}
 .col70 {width: 70%;}
 .col80 {width: 80%;}
 .btnPd6{padding:6px 6px 3px; font-size: 0.7rem;}
+
+
+.colorY{color:#ffd700;}
+/*----------------------(전체 Wrap 설정)----------------------*/
+
 .wrap{
     max-width:400px;
     height:100vh;
     margin: 0 auto;
     position: relative;
+}
 
+.wrapR{
+	background-color:#000;
+	max-width:400px;
+    height:100vh;
+    margin: 0 auto;
+    position: relative;
 }
 .headerwrap{
     display:flex;
@@ -121,6 +133,15 @@ BUTTON{ border: none;}
     padding:10px 5px 10px 15px;
     background-color: #30E3CA;
     color:#FFF;
+}
+.rheaderwrap{
+	font-family: 'Pretendard-Regular';
+	font-size:1.2rem;
+	color:var(--white);
+	padding:15px ;
+}
+.rheaderwrap p{
+	text-align: right;
 }
 
 .contentBox{
