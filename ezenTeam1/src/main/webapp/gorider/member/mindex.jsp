@@ -21,7 +21,7 @@
       </div>
    </div>
  -->
-   <%@include file="header.jsp" %>  
+   <%@include file="../header.jsp" %>  
    <!-- Main imge -->
    <div class="mainimg"></div>
    <div class="searchbox" >
