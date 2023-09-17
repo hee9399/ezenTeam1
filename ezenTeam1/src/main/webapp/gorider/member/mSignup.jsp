@@ -34,31 +34,31 @@
 		         <!-- 회원아이디  -->
 
 		         <li class="title"> 아이디 <span class="idComment"> </span></li>
-		         <li class="input input75">
+		         <li class="input">
 		              <input  onkeyup="dupleIdCheck()" maxlength="30"  name="mid" class="mid intext80" type="text"/>
-		              <button  class="idcheck" type="button">중복체크</button></li>
-		        
+		             </li>
+
 
 		         <!-- 회원비밀번호 -->
 		         <li class="title"> 비밀번호 <span class="pwdComment"> </span></li>
 		         <li class="input"><input  onkeyup="pwdCheck()" maxlength="30"  name="mpwd" class="mpwd" type="text"/></li>
 		         <li class="title"> 비밀번호 확인 <span class="pwd2Comment"> </span></li>
 		         <li class="input"><input onkeyup="pwdCheck()" maxlength="30"  name="mpwd2" class="mpwd2" type="text"/></li>
-		         <!-- 회원이메일 -->
-		         <li class="title input75"> 이메일 <span class="emailComment"> </span></li>
-		         <li class="input input75 input65">
-		              <input name="memail" class="memail" type="email"/>
-		              <button class="" type="button" disabled>인증번호받기</button> </li>
-		          <!-- 회원이메일 -->
-		         <li class="title"> 이메일 인증번호 </li>
-		         <li class="input75">
-		         	<input  name="memailcheck" class="memailcheck" type="email"/>
-		         	<button class="" type="button" disabled>인증하기</button>
-		         </li>
 
+		         <!-- 회원이메일 -->
+		         <li class="title"> 이메일 <span class="emailComment"> </span></li>
+		         <li class="input input65 disFlexCent">
+		         <!-- 유효성검사 통과시 인증번호받기 버튼 사용가능 -->
+		              <input onkeyup="emailcheck()" name="memail" class="memail" type="email"/>
+		              <button onclick="authReq()" class="authBefore authBtn" type="button" disabled>인증번호받기</button>
+		         </li>
+		          <!-- 회원이메일 -->
+		         <sapn class="authbox">
+
+                 </sapn>
 		         <!-- 결제카드번호 -->
-		         <li class="title"> 결제카드번호 <span class="payComment"> </span></li>
-		         <li class="payinfo">
+		         <li class="title "> 결제카드번호 <span class="payComment"> </span></li>
+		         <li class="payinfo disFlexCent">
 		         	 <input  maxlength="4"  name="mpayinfo1" class="mid" type="text"/>
 		         	- <input  maxlength="4"  name="mpayinfo2" class="mid" type="text"/>
 		         	- <input  maxlength="4"  name="mpayinfo3" class="mid" type="text"/>

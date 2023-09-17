@@ -58,19 +58,7 @@ h5{ padding:30px; text-align: center;}
     color:#40514E;
     font-weight: 900;
 }
-.btnbox{display: flex;}
-.btn{
-    cursor: pointer;
-	background-color: var(--main01);
-	color:#40514E;
-	border-radius: 5px;
-	font-family: 'LINESeedKR-Bd';
-	font-size: 0.8rem;
-	margin-right: 5px;
-}
-.r1{padding:15px 12px 0px;} 
-.r2{padding:8px 12px 0px;}
-.btn:hover{ color:var(--main03);}
+
 
 /*--------------------------------------------*/
 
@@ -78,12 +66,34 @@ body{
 	font-family: NanumSquareNeo-Variable';
 
 }
-BUTTON{
-    border: none;
-    font-family: 'LINESeedKR-Bd';
+/*버튼--------------------------------------------*/
+BUTTON{ border: none;}
+.btnbox{display: flex;}
+.btn{
     cursor: pointer;
+    background-color: var(--main02);
+    color:var(--white);
     border-radius: 5px;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 0.8rem;
+    margin-right: 5px;
 }
+.btnA{
+    cursor: pointer;
+    background-color: var(--main03);
+    color:var(--white);
+    border-radius: 5px;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+.r1{padding:15px 12px 0px;}
+.r2{padding:8px 12px 0px;}
+.btypeW50H50 {width:50%; height:50px;}
+.btypeW100H50{width:100%; height:70px; font-size:1.2rem;}
+.btn:hover{ color:var(--main03);}
+
+
 .col10 {width: 10%;}
 .col15 {width: 15%;}
 .col20 {width: 20%;}
@@ -115,8 +125,39 @@ BUTTON{
 
 .contentBox{
 	overflow-y:auto;
+	width:100%;
+	height:calc(100vh - 100px);
+	scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+.contentBox::-webkit-scrollbar {
+  width: 0px; /* 스크롤바의 너비 조정 */
+}
+.contentBoxA{
+    overflow-y:auto;
+    width:100%;
+    height:calc(100vh - 100px);
+     scrollbar-color: transparent transparent;
+}
+.contentBoxA::-webkit-scrollbar {
+  width: 1px; /* 스크롤바의 너비 조정 */
 }
 
+.disFlexCent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.disFlexStart{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.disFlexEnd{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center
+}
 .logo{
     font-family: 'Giants-Inline';
     font-size: 2rem;
@@ -151,7 +192,7 @@ BUTTON{
 /*----------(admin_header E)----------*/
 
 
-/*-------------------(footer)----------------------*/
+/*-------------------(footer)-------------------*/
 .footer{
     position:absolute;
     bottom:0;
@@ -159,4 +200,45 @@ BUTTON{
     width:100%;
     background-color: #40514E
 
+}
+
+/*-------------------(login)-------------------*/
+.loginWrap{
+	height:100vh;
+	background-color:var(--white);
+	padding-top:20vh;
+	font-family: 'LINESeedKR-Bd';
+}
+
+
+.loginWrap .logo{
+	width:100%;
+	text-align: center;
+	color:var(--main03);
+}
+.loginBox{
+	width:100%;
+	padding:30px;
+	margin: auto 0 ;
+}
+.loginBox input[type=text] {
+	border:none;
+	   outline:none;
+	padding:15px;
+	margin:10px 0;
+	width:100%;
+	border-radius:5px;
+	background-color: var(--white);
+	box-shadow: 0 0 3px var(--main02);
+}
+
+.loginBox button {margin-top: 20px;}
+.loption{padding-right:30px;}
+.findBox div{
+	margin-left: 10px;
+    color:var(--dgray);
+    font-size: 0.8rem;
+}
+.findBox div:hover{
+	color:var(--main03)
 }

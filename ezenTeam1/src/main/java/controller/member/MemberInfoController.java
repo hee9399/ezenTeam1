@@ -66,14 +66,14 @@ public class MemberInfoController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String type = request.getParameter("type");
 		String result = null;
-		
+
 		if( type.equals("isExist")) {
-			String mid = request.getParameter("mid");
+			String key = request.getParameter("key");
 			String search = request.getParameter("search");
-			boolean isExist	= MemberDao.getInstance().isExist(search,mid);
-			result = isExist ? "true": "false"; 
+			boolean isExist	= MemberDao.getInstance().isExist(search,key);
+			result = isExist ? "true": "false";
 		}
-		
+
     	response.setContentType(("application/json;charset=UTF-8"));
     	response.getWriter().print(result);
 	}
