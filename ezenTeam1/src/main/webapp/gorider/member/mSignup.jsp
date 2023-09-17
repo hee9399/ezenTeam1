@@ -50,7 +50,7 @@
 		         <li class="input input65 disFlexCent">
 		         <!-- 유효성검사 통과시 인증번호받기 버튼 사용가능 -->
 		              <input onkeyup="emailcheck()" name="memail" class="memail" type="email"/>
-		              <button onclick="authReq()" class="authBtn" type="button" disabled>인증번호받기</button>
+		              <button onclick="authReq()" class="authBefore authBtn" type="button" disabled>인증번호받기</button>
 		         </li>
 		          <!-- 회원이메일 -->
 		         <sapn class="authbox">

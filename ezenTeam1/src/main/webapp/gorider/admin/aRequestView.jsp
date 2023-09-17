@@ -28,11 +28,11 @@
 
             </div>
             <div class="sec2">
-                <div class="title"><span>운전면허증</span></div>
+                <div class="title"><span> 운전면허증 </span></div>
                 <div> <img src="/ezenTeam1/gorider/rider/img/lsample.jpg"></div>
             </div>
             <div class="sec2">
-                <div><span>자동차등록증</span></div>
+                <div><span> 자동차등록증 </span></div>
                 <div> <img src="/ezenTeam1/gorider/rider/img/rsample.png"></div>
             </div>
             <div class="btnsec">

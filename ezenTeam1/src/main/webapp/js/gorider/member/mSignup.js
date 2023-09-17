@@ -21,7 +21,7 @@ function onSave(){
 		success: r =>{
 
 			console.log("성공" + r);
-			//location.href = '/ezenTeam1/gorider/member/mmain.jsp'
+			location.href = '/ezenTeam1/gorider/member/mlogin.jsp'
 		},
 		error : e =>{console.log("실패"+ e)}
 	})
@@ -100,6 +100,8 @@ let authBtn = document.querySelector('.authBtn');
 if(authBtn.disabled==true){ //사용불가 상태일때 스타일 적용
 	authBtn.style.backgroundColor='#666'
 	authBtn.style.cursor = 'none';
+	authBtn.style.borderRadius = '5px';
+	authBtn.style.fontSize = '0.9rem';
 }
 function emailcheck(){
 
@@ -156,4 +158,89 @@ function authReq(){
 		         	<input  name="memailcheck" class="memailcheck" type="text"/>
 		         	<button onclick="auth()" class="" type="button">인증하기</button>
 		         </li>`
+	//3.authbox에 html 대입
+		authbox.innerHTML = html;
+
+	authcode = '123123'
+	timer = 120;
+	settimer();
+
+	/*
+	$.ajax({
+		url:"/ezenTeam1/AuthSendEmailController",
+		method:"get",
+		data:{memail : document.querySelector('.memail').value},
+		success: r =>{
+			console.log("통신성공 : " + r);
+			// 1. authbox div 호출
+			let authbox = document.querySelector('.authbox');
+
+			// 2. authbox 안 html구성
+			let html = `<span class="timebox">02:00</span>
+				  		<input class="ecode" type="text">
+				  		<button onclick="auth()" type="button" >인증</button>`
+
+			// 3.authbox에 html대입
+			authbox.innerHTML = html;
+
+			// 4. 타이머 실행
+			authcode = '1234' // 테스트용 인증코드 1234
+			timer = 120;		//테스트용 제한시간 10초
+			settimer();  	// 타이머함수 호출
+		} ,
+		error:e=>{
+			console.log('통신실패 '+ e)
+		}
+
+	});
+	*/
+}
+
+// 타이머
+function settimer(){
+	timerInter = setInterval(()=>{
+
+		// 시간형식만들기
+		let m = parseInt(timer / 60)
+		let s = parseInt(timer % 60);  //초
+
+		//두자리수로 맞춤
+		m = m < 10 ? "0" + m: m; //10보다 작으면 0을 덧붙임
+		s = s < 10 ? "0" + s: s;
+		//timerbox에 00:00형식으로  html작성
+		document.querySelector('.timerbox').innerHTML = `${m}:${s}`
+			timer --;
+		//타이머가 0보다 작으면 종료
+		if(timmer <0){
+			clearInterval(timmerInter);
+
+			//인증실패
+			document.querySelector('.emailComment').innerHTML ='인증실패';
+			checkLsit[2]=false;
+
+			document.querySelector('.authbox').innerHTML = ``;
+
+		}
+	}, 1000)
+	console.log(checkList)
+
+}
+//6. 인증요청후 인증코드릉 입력하고 일치여부 확인 함수
+function auth(){
+	console.log('인증코드 체크');
+
+	//1. 입력받은 인증코드
+	let ecode = document.querySelector('.memailcheck').value;
+
+	//2. 비교
+	if(authcode == ecode){
+		clearInterval(timerInter);
+		document.querySelector('.emailComment').innerHTML = `인증성공`;
+		checkList[2] = true;
+		document.querySelector('.authbox').innerHTML=``; //authbox초기화
+	} else {
+		document.querySelector('.emailComment').innerHTML = `인증코드 불일치`;
+		checkList[2] = false;
+	}
+	console.log( checkList )
 }

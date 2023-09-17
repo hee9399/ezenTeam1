@@ -37,7 +37,7 @@
 .input75 input{
 	width:80%;
 }
-.input65 input{	width:74%;}
+.input65 input{	width:70%;}
 .intext80{ width:80%;}
 .payinfo  input{
 	width:21%;
@@ -51,10 +51,19 @@
 	font-size: 1.2rem;
 
 }
+.authBefore{
+	font-size :0.8rem;
+}
+
+.authAfter{
+    font-size :0.8rem;
+}
 BUTTON{
+    font-family: 'LINESeedKR-Bd';
 	background-color: #30E3CA;
 	color:#fff;
 	padding:10px;
+
 }
 /*-로그인-----------------------------------*/
 .signupbox span{

@@ -153,6 +153,11 @@ BUTTON{ border: none;}
     justify-content: space-between;
     align-items: flex-start;
 }
+.disFlexEnd{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center
+}
 .logo{
     font-family: 'Giants-Inline';
     font-size: 2rem;
@@ -201,10 +206,15 @@ BUTTON{ border: none;}
 .loginWrap{
 	height:100vh;
 	background-color:var(--white);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	padding-top:20vh;
 	font-family: 'LINESeedKR-Bd';
+}
+
+
+.loginWrap .logo{
+	width:100%;
+	text-align: center;
+	color:var(--main03);
 }
 .loginBox{
 	width:100%;
@@ -221,11 +231,14 @@ BUTTON{ border: none;}
 	background-color: var(--white);
 	box-shadow: 0 0 3px var(--main02);
 }
-.loginBox input[type=radio] {
 
-    padding:15px;
-    margin-left:10px;
-    margin-right:5px;
-    font-size:0.8rem;
-}
 .loginBox button {margin-top: 20px;}
+.loption{padding-right:30px;}
+.findBox div{
+	margin-left: 10px;
+    color:var(--dgray);
+    font-size: 0.8rem;
+}
+.findBox div:hover{
+	color:var(--main03)
+}
