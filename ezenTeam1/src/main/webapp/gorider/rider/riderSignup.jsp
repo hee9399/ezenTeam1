@@ -12,7 +12,6 @@
 <div class="wrap">
     <div class="header">
 
-
         <h2> 라이더 지원하기</h2>
         <p> 환영합니다.</p>
 
@@ -26,18 +25,17 @@
             	 <span class="namecheckbox"> </span> 
             </li>
 
-            <li class="title" >아이디</li> 
+            <li class="title" >아이디<span class="idcheckbox"> </span></li> 
             <li class="dflex">
             	<!-- onkeyup="idcheck()" -->
-                <input onkeyup="" class="rid intext80" name="rid" type="text">
-                <span class="idcheckbox"> </span> 
+                <input onkeyup="idcheck()" class="rid intext80" name="rid" type="text">
                 <button  class="idcheck" type="button">중복체크</button></li>
 
-            <li class="title" >비밀번호 <span class="pwdcheck">  </span> </li>
-            <li class=""><input maxlength="30" class="rpwd" name="rpwd" type="password"></li>
+            <li class="title" >비밀번호 <span class="pwdcheckbox">  </span> </li>
+            <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="password"></li>
 
             <li class="title" >비밀번호 확인</li>
-            <li class=""><input maxlength="30" class="rpwd2" name="rpwd2" type="password"></li>
+            <li class=""><input maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type="password"></li>
 
             <li class="title" >프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">

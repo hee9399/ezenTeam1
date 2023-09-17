@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -73,7 +74,32 @@ public class RiderInfoController extends HttpServlet {
     
     // 호출
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+			
+		// 1. 요청
+		String type = request.getParameter("type");
+			// * 만약에 타입이 info이면 
+		if(type.equals("info") ) {
+			// 섹션에 저장된 로그인 객체를 꺼낸다.
+			// 1. 세션호출한다. [ 세션타입은 object ]
+			Object session = request.getSession().getAttribute("loginDto");
+			// 2. 타입변환한다. [ 부모 -> 자식 ( 캐스팅 / 강제타입변환 ) ]
+			RiderDto loginDto = (RiderDto) session;
+			
+		// Dto는 JS가 이해살수 없는 언어이기 때문에 JS가 이해할수 있게 JS언어로 변환해줘야한다. [ jackson 라이브러리사용 ]
+			ObjectMapper objectMapper = new ObjectMapper();
+			String json = objectMapper.writeValueAsString(loginDto);
+			 
+			// 응답한다.
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print(json);
+			
+		}else if(type.equals("logout") ) {
+			// * 세션에 저장된 로그인 객체를 없애기/초기화/지우기/삭제 
+			// 방법 : (세션 특정 속성) 초기화하는 방법 jvm GC(쓰레기수집기 = 해당 객체를 아무도 참조하고 있지 않으면) 
+			request.getSession().setAttribute("logout", null);
+			
+		}
+		
 	}
 
 	// 수정

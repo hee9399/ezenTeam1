@@ -10,13 +10,17 @@ console.log('js실행됩니다.');
 
  */
 
-
-
+// 회원가입 체크여부 
+let checkList = [ false , false ] // 아이디 , 비밀번호 체크여부
 
 
 // 1. 유효성 검사없는 회원가입 Form데이터전송시 
 function signup(){
-	
+		
+	// 1. 아이디 / 비밀번호 유효성검사 통과 체크
+		console.log(checkList);
+	if(checkList[0] && checkList[1] ){
+		
 	// 1. 입력받은 데이터를 한번에 가져오기 
 		// 1. form객체 호출 
 	let riderSignup = document.querySelectorAll('.riderSignup')[0]; 
@@ -47,26 +51,29 @@ function signup(){
 				   console.log(e) 
                } ,
             })
+		}else{
+			console.log('회원가입 진행 불가능');
+		}
 	
 	
 }// f  e
 
-// 1. 아이디 유효성 검사
+// 2. 아이디 유효성 검사
 function idcheck(){
 	console.log('idcheck 함수실행됩니다');
 
 	// 1. 값 호출 
 	let rid = document.querySelector('.rid').value;  console.log('rid 입력값가져옴'+rid)
-	let idcheckbox = document.querySelector('idcheckbox'); console.log('idcheckbox 입력값가져옴'+idcheckbox)
+	let idcheckbox = document.querySelector('idcheckbox'); console.log('idcheckbox 입력값가져옴'+idcheckbox);
 	
 	// 2. 유호성 검사
 	
 	// 1. 아이디입력할때 영문[소문자]+슷지 조합의 5~20글자 사이 이면 
 		// 1. 정규표현식 작성
-	let midj = /^[a-z0-9]{5,20}$/
+	let ridj = /^[a-z0-9]{5,20}$/
 		// 2. 정규표현식 검사.
-	console.log(midj.test(rid) )
-	if(midj.test(rid) ){ // 만약에 입력한 값이 패턴과 일치하면 
+	console.log(ridj.test(rid) )
+	if(ridj.test(rid) ){ // 만약에 입력한 값이 패턴과 일치하면 
 		
 		
 		// -- 입력한 아이디가 패턴과 일치하면 중복검사 
@@ -77,14 +84,89 @@ function idcheck(){
       			 success : r => {
 			 	 console.log(r);
 				 // true - 사용가능한
-				 if(r == true){idcheckbox.innerHTML = '사용불가능한 아이디입니다';}
-				 else{idcheckbox.innerHTML = '사용가능한 아이디 입니다.';}
+				 if(r == true){idcheckbox.innerHTML = '사용불가능한 아이디입니다'; checkList[0] = false; }
+				 else{idcheckbox.innerHTML = '사용가능한 아이디 입니다.'; checkList[0] = true;}
 				   } ,       
       			 error : e => {} ,         
    });
 	}else{ // 입력한값이 일치하지 않으면 
-		idcheckbox.innerHTML = '영문(소문자)+숫자 조합의 5~20글자 가능합니다.';
+		idcheckbox.innerHTML = '영문(소문자)+숫자 조합의 5~20글자 가능합니다.'; checkList[0] = false;;
 	}
 	
 }// f e
+
+
+// 2. 비밀번호 유효성검사 
+function pwdcheck(){
+	console.log('패스워드유효성검사함수실행됩니다.');
+	
+	let pwdcheckbox = document.querySelector('.pwdcheckbox');
+		console.log('.pwdcheckbox'+pwdcheckbox);
+		
+	// 1. 입력 값 호출 
+	let rpwd = document.querySelector('.rpwd').value; 
+		console.log('rpwd'+rpwd);
+	let rpwdconfirm = document.querySelector('.rpwdconfirm').value; 
+		console.log('rpwdconfirm'+rpwdconfirm);
+	
+	// 2. 유효성검사 
+		// 1. 정규표현식 만들기 [ 영대소문자(1개필수) + 숫자(1개필수) + 특수문자(1개필수) 조합10~30글자 사이 ]
+		// 정규표현식에서 ( ) 소괄호안에있는건 필수입력이다.
+	let rpwdj = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])(?=.*[0-9]){10,30}$/
+	
+	if(rpwdj.test(rpwd)){ // 1. 비밀번호 정규표현식 검사 
+	
+		// 2. 비밀번호 확인 정규표현식 검사 
+		if(mpwdj.test(rpwdconfirm) ){
+		
+			// 3. 비밀번호 와 비밀번호 확인 일치여부 
+				// 처음에 입력한 비밀번호 rpwd
+				// 비밀번호 확인 - rpwdconfirm
+			if( rpwd == rpwdconfirm ){ // 마냐게 입력한 비밀번호와 비밀번호확인과 일치하면
+				pwdcheckbox.innerHTML = '사용가능한 비밀번호'; checkList[1] = true;
+			}else{
+				pwdcheckbox.innerHTML = '비밀번호가 일치하지 않습니다.'; checkList[1] = false;
+			}
+				
+		}else{
+			pwdcheckbox.innerHTML = '영대소문자1개이상 특수문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요.'; checkList[1] = false;
+		}
+	}else{
+		pwdcheckbox.innerHTML = '영대소문자1개이상 특수문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요.'; checkList[1] = false;
+	}
+	
+}//  f  e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
