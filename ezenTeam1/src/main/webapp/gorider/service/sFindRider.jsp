@@ -11,7 +11,7 @@
      <%@include file="../header.jsp" %>
      <!-- content쿠간 -->
      <div class="contentBox">
-        <h5>라이더 마크 표시하기</h5>
+        <h5>라이더 마크 표시하기ㅎ</h5>
         <div id="map" style="width:100%;height:350px;"></div>
      
      
