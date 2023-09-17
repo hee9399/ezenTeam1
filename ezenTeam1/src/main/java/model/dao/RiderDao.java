@@ -1,5 +1,7 @@
 package model.dao;
 
+import java.time.LocalDateTime;
+
 import model.dto.RiderDto;
 
 public class RiderDao extends Dao{ // 라이더 
@@ -32,11 +34,34 @@ public class RiderDao extends Dao{ // 라이더
 		
 		return false;
 	}
+	// 2. 로그인 ( 세션 저장 ) 
 	
-	// 2. 출력 
+	// 3. 출력 
+	public RiderDto info( String rid ) {
+		
+		try {
+			String sql = "select rno , rname , rid , rphoto , rlicense , rregistration , raccount , rbank , rstatus ,  rcomment from rider where rid = ? ";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, rid);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				RiderDto riderDto = new RiderDto(
+						LocalDateTime.now().toString() 
+						rs.getInt(1) , rs.getString(2) ,
+						rs.getString(3) , rs.getString(4) , 
+						rs.getString(5) , rs.getString(6) ,
+						rs.getString(7) , rs.getString(8) ,
+						rs.getString(9) , rs.getString(10) );
+				return riderDto;
+			}
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return null;
+	}
 	
-	// 3. 수정 
+	// 4. 수정 
 	
-	// 4. 삭제 
+	// 5. 삭제 
 	
 }// class e
