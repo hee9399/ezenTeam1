@@ -37,7 +37,7 @@
             <li class="title">비밀번호 확인</li>
             <li class=""><input onkeyup="pwdcheck()"  maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type="text"></li>
 
-			<li class="title"> 전화번호 
+			<li class="title">전화번호 
 				<input type="text" class="rphone" placeholder="- 제외하고 입력해주세요."/>
 			</li>
 
