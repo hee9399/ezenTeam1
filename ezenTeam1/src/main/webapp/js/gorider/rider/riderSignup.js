@@ -63,8 +63,8 @@ function idcheck(){
 	console.log('idcheck 함수실행됩니다');
 
 	// 1. 값 호출 
-	let rid = document.querySelector('.rid').value;  console.log('rid 입력값가져옴'+rid)
-	let idcheckbox = document.querySelector('idcheckbox'); console.log('idcheckbox 입력값가져옴'+idcheckbox);
+	let rid = document.querySelector('.rid').value;  console.log('rid 입력값가져옴'+rid);
+	let idcheckbox = document.querySelector('.idcheckbox'); console.log('idcheckbox 입력값가져옴'+idcheckbox);
 	
 	// 2. 유호성 검사
 	
@@ -84,13 +84,16 @@ function idcheck(){
       			 success : r => {
 			 	 console.log(r);
 				 // true - 사용가능한
-				 if(r == true){idcheckbox.innerHTML = '사용불가능한 아이디입니다'; checkList[0] = false; }
-				 else{idcheckbox.innerHTML = '사용가능한 아이디 입니다.'; checkList[0] = true;}
+				 if(r == true){idcheckbox.innerHTML = '사용불가능한 아이디입니다'; 
+				 	checkList[0] = false; }
+				 else{idcheckbox.innerHTML = '사용가능한 아이디 입니다.'; 
+					 checkList[0] = true;}
 				   } ,       
       			 error : e => {} ,         
    });
 	}else{ // 입력한값이 일치하지 않으면 
-		idcheckbox.innerHTML = '영문(소문자)+숫자 조합의 5~20글자 가능합니다.'; checkList[0] = false;;
+		idcheckbox.innerHTML = '영문(소문자)+숫자 조합의 5~20글자 가능합니다.'; 
+			checkList[0] = false;
 	}
 	
 }// f e
@@ -110,14 +113,14 @@ function pwdcheck(){
 		console.log('rpwdconfirm'+rpwdconfirm);
 	
 	// 2. 유효성검사 
-		// 1. 정규표현식 만들기 [ 영대소문자(1개필수) + 숫자(1개필수) + 특수문자(1개필수) 조합10~30글자 사이 ]
+		// 1. 정규표현식 만들기 [ 영대소문자(1개필수) + 숫자(1개필수) 조합7~30글자 사이 ]
 		// 정규표현식에서 ( ) 소괄호안에있는건 필수입력이다.
-	let rpwdj = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])(?=.*[0-9]){10,30}$/
+	let rpwdj = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{7,30}$/
 	
 	if(rpwdj.test(rpwd)){ // 1. 비밀번호 정규표현식 검사 
 	
 		// 2. 비밀번호 확인 정규표현식 검사 
-		if(mpwdj.test(rpwdconfirm) ){
+		if(rpwdj.test(rpwdconfirm) ){
 		
 			// 3. 비밀번호 와 비밀번호 확인 일치여부 
 				// 처음에 입력한 비밀번호 rpwd
@@ -129,12 +132,12 @@ function pwdcheck(){
 			}
 				
 		}else{
-			pwdcheckbox.innerHTML = '영대소문자1개이상 특수문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요.'; checkList[1] = false;
+			pwdcheckbox.innerHTML = ' 영대소문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요1.'; checkList[1] = false;
 		}
 	}else{
-		pwdcheckbox.innerHTML = '영대소문자1개이상 특수문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요.'; checkList[1] = false;
+		pwdcheckbox.innerHTML = ' 영대소문자1개이상 숫자1개이상 조합 10~30글자 사이로 입력해주세요.2'; checkList[1] = false;
 	}
-	
+	console.log(checkList[1]);
 }//  f  e
 
 

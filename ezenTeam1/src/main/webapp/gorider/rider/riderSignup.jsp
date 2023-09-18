@@ -35,13 +35,15 @@
             <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="password"></li>
 
             <li class="title" >비밀번호 확인</li>
-            <li class=""><input maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type="password"></li>
+            <li class=""><input onkeyup="pwdcheck()"  maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type=""></li>
 
             <li class="title" >프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
             	<img class="preimg" src="" />
             </li>
-
+			
+			<li class="title"> 전화번호 </li>
+			
             <li class="title" >면허증</li>
             <li class=""><input onchange="" class="rlicense infile" name="rlicense" type="file"></li>
 
