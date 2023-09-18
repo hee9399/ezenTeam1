@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.dao.AdminDao;
+import model.dao.RiderDao;
 import model.dto.RiderDto;
 
 @WebServlet("/AdminController")
@@ -41,8 +42,17 @@ public class AdminController extends HttpServlet {
 	    response.getWriter().print(json);
 	    }else if(type.equals("2")) {
 	    	
-	    	int pno = Integer.parseInt(request.getParameter("pno"));
+	    	int rno = Integer.parseInt(request.getParameter("rno"));
 	    	
+	    	RiderDto result = AdminDao.getInstance().ApprovalView(rno);
+	    	
+	    	response.setContentType("application/json;charset=UTF-8");
+
+		    // Java 객체를 JSON 문자열로 변환
+		    json = objectMapper.writeValueAsString(result);
+		    System.out.println(json);
+		 // JSON 문자열을 응답에 출력
+		    response.getWriter().print(json);
 	    }
 	}
 
