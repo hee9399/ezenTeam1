@@ -13,17 +13,13 @@
      <div class="contentBox">
         <h5>라이더 마크 표시하기</h5>
         <div id="map" style="width:100%;height:350px;"></div>
-        <button id="startButton">이동 시작</button>
-     
-     
-     
+        <button type="button" class="rigjtBtn">앞으로</button>
+     	<button type="button" class="leftBtn">뒤로</button>
+     	<button type="button" class="topBtn">위로</button>
+     	<button type="button" class="bottomBtn">아래로</button>
      </div>
      
      
-     
-     
-     
-
     <%@include file="../footer.jsp" %>
     
     <!-- 59b47c7057625f350189b1cb8369a874 -->
@@ -33,6 +29,6 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59b47c7057625f350189b1cb8369a874"></script>
 
  <!-- js -->
-   <script src="/ezenTeam1/js/gorider/service/service.js" type="text/javascript"></script>
+   <script src="/ezenTeam1/js/gorider/service/service2.js" type="text/javascript"></script>
 </body>
 </html>
