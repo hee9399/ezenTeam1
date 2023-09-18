@@ -4,7 +4,7 @@ public class RiderDto {// 기사 Dto
 
 	// 필드 
 	private int rno;      			// 라이더번호              	
-	private String rname; 			// 라이더이름              		
+	private String rname; 		// 라이더이름              		
 	private String rid;				// 라이더아이디		
 	private String rpwd; 			// 라이더비밀번호 
 	private String rphoto;			// 라이더프로필사진 //이미지
@@ -14,7 +14,7 @@ public class RiderDto {// 기사 Dto
 	private String raccount; 		// 계좌번호
 	private String rbank;			// 은행
 	private String rstatus;			// 승인상태
-	private String rcomment;		// 승인거부시 사유
+	private String rcomment;	// 승인거부시 사유
 	// 생성자
 	public RiderDto() {}
 	// 풀 
@@ -56,6 +56,23 @@ public class RiderDto {// 기사 Dto
 		this.rno = rno;
 		this.rid = rid;
 		this.rdate = rdate;
+	}
+	
+	// 상세정보 불러올때 필요한 생성자
+	public RiderDto(int rno, String rname, String rid, String rphoto, String rlicense, String rregistration,
+			String rdate, String raccount, String rbank, String rstatus, String rcomment) {
+		super();
+		this.rno = rno;
+		this.rname = rname;
+		this.rid = rid;
+		this.rphoto = rphoto;
+		this.rlicense = rlicense;
+		this.rregistration = rregistration;
+		this.rdate = rdate;
+		this.raccount = raccount;
+		this.rbank = rbank;
+		this.rstatus = rstatus;
+		this.rcomment = rcomment;
 	}
 	// 메소드 
 	public int getRno() {
