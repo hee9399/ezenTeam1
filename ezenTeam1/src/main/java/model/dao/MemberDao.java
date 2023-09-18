@@ -12,13 +12,14 @@ public class MemberDao extends Dao{
 	// 1. 쓰기 , 회원가입
 	public boolean signup(MemberDto mDto) {
 		try {
-			String sql = "insert into member(mname, mid, mpwd, memail, mpayinfo) values (?,?,?,?,?);";
+			String sql = "insert into member(mname, mid, mpwd, memail, mpayinfo,mphoto) values (?,?,?,?,?,?);";
 			ps= conn.prepareStatement(sql);
 			ps.setString(1, mDto.getMname());
 			ps.setString(2, mDto.getMid());
 			ps.setString(3, mDto.getMpwd());
 			ps.setString(4, mDto.getMemail());
 			ps.setString(5, mDto.getMpayinfo());
+			ps.setString(6, mDto.getMphoto());
 			System.out.println("SQL M signup() ::" +ps);
 			int rs = ps.executeUpdate();
 			if(rs == 1) {
@@ -35,7 +36,7 @@ public class MemberDao extends Dao{
 
 	// 2. 출력 , 로그인
 	public boolean login(String mid, String mpwd) {
-		
+
 		try {
 			String sql = "select *  from member where mid =? and mpwd=?";
 			ps = conn.prepareStatement(sql);
@@ -49,9 +50,9 @@ public class MemberDao extends Dao{
 			System.out.println("Exception :: "+ e);
 		}
 		return false;
-		
+
 	}
-	
+
 
 	// 3. 아이디/이메일 중복검사 [ 인수 : 검사할아이디 / 반환 : true(중복없이) , false(중복없이) ]
 	public boolean isExist(String search, String key) {
@@ -73,8 +74,53 @@ public class MemberDao extends Dao{
 	}
 
 	// 4. 수정 , 회원수정
+	public boolean updateInfo(String mid) {
+
+		try {
+
+		} catch (Exception e) {
+			System.out.println("Exception :: "+e);
+		}
+		return false;
+	}
 
 	// 5. 삭제 , 회원탈퇴
+	public boolean deleteInfo(String mid) {
 
+		try {
+
+		} catch (Exception e) {
+			System.out.println("Exception :: "+e);
+		}
+		return false;
+	}
+
+	// 6. 세션에 저장할 회원정보 가져오기
+	public MemberDto getLoginInfo(String mid) {
+
+		try {
+			String sql = " select * from member where mid = ? ";
+			ps= conn.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				MemberDto loginDto = new MemberDto(
+						  rs.getInt("mno")
+						, rs.getString("mname")
+						, rs.getString("mid")
+						, rs.getString("memail")
+						, rs.getString("mpayinfo")
+						, rs.getString("mdate")
+						, rs.getString("mphoto"));
+
+				return loginDto;
+			}
+
+
+		} catch (Exception e) {
+			System.out.println("Exception :: "+e);
+		}
+		return null;
+	}
 
 }// class e

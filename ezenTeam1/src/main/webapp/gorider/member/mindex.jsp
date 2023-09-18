@@ -11,8 +11,10 @@
 </head>
 <body>
 <!-- 전체렙 -->
+
 <div  class="wrap">
- <!--  
+ <%@include file="minfo.jsp" %>
+ <!--
    <div class="headerwrap">
       <div class="logo">GoRider</div>
      <div class="btnbox">
@@ -21,7 +23,7 @@
       </div>
    </div>
  -->
-   <%@include file="../header.jsp" %>  
+   <%@include file="../header.jsp" %>
    <!-- Main imge -->
    <div class="mainimg"></div>
    <div class="searchbox" >

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -43,14 +44,16 @@ public class MemberInfoController extends HttpServlet {
     			+ multi.getParameter("mpayinfo2")
     			+ multi.getParameter("mpayinfo3")
     			+ multi.getParameter("mpayinfo4");
+    	String mphoto ="default.png";
 
     	System.out.println("mname ::"+mname);
     	System.out.println("mid ::"+mid);
     	System.out.println("mpwd ::"+mpwd);
     	System.out.println("memail ::"+memail);
     	System.out.println("mpayinfo ::"+mpayinfo);
+    	System.out.println("mphoto ::"+mphoto);
 
-    	MemberDto memberDto = new MemberDto(mname,mid,mpwd,memail, mpayinfo);
+    	MemberDto memberDto = new MemberDto(mname,mid,mpwd,memail, mpayinfo, mphoto);
     	boolean result = MemberDao.getInstance().signup(memberDto);
 
     	response.setContentType(("application/json;charset=UTF-8"));
@@ -72,6 +75,21 @@ public class MemberInfoController extends HttpServlet {
 			String search = request.getParameter("search");
 			result	= MemberDao.getInstance().isExist(search,key);
 			//result = isExist ? "true": "false";
+
+		} else if(type.equals("login")) {
+			Object session = request.getSession().getAttribute("loginDto");
+			MemberDto loginDto = (MemberDto)session;
+
+			ObjectMapper mapper = new ObjectMapper();
+			String json = mapper.writeValueAsString(loginDto);
+
+			response.setContentType("application:json;charset=UTF-8");
+			response.getWriter().print(json);
+			return;
+
+		} else if(type.equals("logout")) {
+			//세션에 저장된 logiDto에 null대입
+			request.getSession().setAttribute("loginDto", null);
 		}
 
     	response.setContentType(("application/json;charset=UTF-8"));

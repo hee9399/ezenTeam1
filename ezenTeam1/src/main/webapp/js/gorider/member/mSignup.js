@@ -6,26 +6,37 @@ console.log('연결');
 //회원가입 정보 저장
 function onSave(){
 	console.log( "onSave()");
-	//폼객체가져오기
-	let signupForm  = document.querySelectorAll('.signupForm')[0]
-	//폼데이터 객체만들기
-	let signupData = new FormData(signupForm);
-	console.log(signupData);
 
-	$.ajax({
-		url:"/ezenTeam1/MemberInfoController",
-		method:"post",
-		data:signupData,
-		contentType:false,
-		processData:false,
-		success: r =>{
 
-			console.log("성공" + r);
-			location.href = '/ezenTeam1/gorider/member/mlogin.jsp'
-		},
-		error : e =>{console.log("실패"+ e)}
-	})
+	if(checkList[0] && checkList[1]&& checkList[2]){
+		//폼객체가져오기
+		let signupForm  = document.querySelectorAll('.signupForm')[0]
+		//폼데이터 객체만들기
+		let signupData = new FormData(signupForm);
+		console.log(signupData);
 
+		$.ajax({
+			url:"/ezenTeam1/MemberInfoController",
+			method:"post",
+			data:signupData,
+			contentType:false,
+			processData:false,
+			success: r =>{
+
+				console.log("성공" + r);
+				if(r) {
+					alert('정상가입 되었습니다.');
+					location.href = '/ezenTeam1/gorider/member/mlogin.jsp'
+				}else {
+					alert('회원가입실패. 관리자에게 문의바랍니다.')
+				}
+
+			},
+				error : e =>{console.log("실패"+ e)}
+			})
+	} else {
+		alert('입력되지 않았거나 잘못 입력된 내용이 있습니다.')
+	}
 
 }
 
@@ -46,7 +57,7 @@ function dupleIdCheck(){
 			data:{type:'isExist', key:mid,search:'mid'},
 			success: r => {
 				console.log(r)
-				if(r == 'true'){
+				if(r == true){
 					idComment.innerHTML ='이미 사용중인 아이디입니다.'
 					checkList[0] = false;
 				} else{
@@ -121,7 +132,7 @@ function emailcheck(){
 			data:{type:'isExist', key:memail,search:'memail'},
 			success: r => {
 				console.log(r)
-				if(r == 'true'){
+				if(r == true){
 					emailComment.innerHTML ='이미 사용중인 이메일입니다.'
 					authBtn.disabled = true;
 					checkList[2] = false;

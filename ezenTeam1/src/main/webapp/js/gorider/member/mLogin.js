@@ -11,9 +11,16 @@ function onLogin(){
 		data:{mid:mid, mpwd:mpwd},
 		success: r =>{
 
-			console.log("성공" + r);
-			alert(mid+'로그인 성공');
-			location.href = '/ezenTeam1/gorider/member/mindex.jsp'
+			//console.log("성공" + r);
+			if(r){
+				//alert(mid+'로그인 성공');
+				location.href = '/ezenTeam1/gorider/member/mindex.jsp'
+			} else {
+				alert('회원정보가 일치하지 않습니다');
+				//초기화 해주기
+				mid='';
+				mpwd='';
+			}
 		},
 		error : e =>{console.log("실패"+ e)}
 	})
