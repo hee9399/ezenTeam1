@@ -72,11 +72,6 @@ public class MemberInfoController extends HttpServlet {
 			String search = request.getParameter("search");
 			result	= MemberDao.getInstance().isExist(search,key);
 			//result = isExist ? "true": "false";
-		} else if(type.equals("login")) {
-			String mid = request.getParameter("mid");
-			String mpwd = request.getParameter("mpwd");
-			
-			 result = MemberDao.getInstance().login(mid, mpwd);
 		}
 
     	response.setContentType(("application/json;charset=UTF-8"));
