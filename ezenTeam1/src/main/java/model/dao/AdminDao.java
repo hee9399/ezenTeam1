@@ -38,6 +38,25 @@ public class AdminDao extends Dao{
 	
 	
 	// 2. 상세보기 
-	
+	public RiderDto ApprovalView(int rno) {
+		try {
+			String sql = "select * from rider where rno = ? ";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, rno);
+			rs= ps.executeQuery();
+			if(rs.next()) {
+				RiderDto riderDto = new RiderDto(
+						rs.getInt("rno"),
+						rs.getString("rname"), rs.getString("rid"),
+						rs.getString("rphoto"),rs.getString("rlicense"),
+						rs.getString("rregistration"),rs.getString("rdate"),
+						rs.getString("raccount"),rs.getString("rbank"),
+						rs.getString("rstatus"),rs.getString("rcomment")
+						);
+				return riderDto;
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return null;
+	}
 	
 }
