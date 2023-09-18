@@ -25,9 +25,10 @@ public class AdminController extends HttpServlet {
 
 	// 1. 회원가입 간단한 정보 최신순으로 조회
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
 		ObjectMapper objectMapper = new ObjectMapper();
 	    String json = "";
-
+	    if(type.equals("1")) {
 	    ArrayList<RiderDto> result = AdminDao.getInstance().ApprovalPrint();
 
 	    // JSON 형식으로 응답 데이터 설정
@@ -38,6 +39,11 @@ public class AdminController extends HttpServlet {
 
 	    // JSON 문자열을 응답에 출력
 	    response.getWriter().print(json);
+	    }else if(type.equals("2")) {
+	    	
+	    	int pno = Integer.parseInt(request.getParameter("pno"));
+	    	
+	    }
 	}
 
 	

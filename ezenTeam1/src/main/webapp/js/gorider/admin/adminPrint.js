@@ -3,7 +3,7 @@ function ApprovalPrint() {
     $.ajax({
         url: "/ezenTeam1/AdminController",
         method: "get",
-        data: {},
+        data: {type : 1},
         success : r =>{    console.log(r);
             let listbox = document.querySelector('.listbox');
             let html = `
@@ -42,7 +42,19 @@ function ApprovalPrint() {
  
  // 1. 라이더가 회원가입했을때 그라이더에 대한 상세보기 함수.
  function ApprovalView(){
-	 console.log('ㅋㅋㅋ');
+	location.href="/ezenTeam1/gorider/admin/aRequestView.jsp";
+	
+	 $.ajax({
+      
+            url: "/ezenTeam1/AdminController",  
+            method : "get",   
+            data : {type : 2, pno : pno},      
+           success : r=>{
+			   
+		   } ,       
+           error : e=>{},                
+   });
+	
  }
  
  
