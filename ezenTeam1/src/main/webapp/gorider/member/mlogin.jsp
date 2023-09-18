@@ -18,8 +18,8 @@
 	<div class="loginWrap ">
         <div class="logo ">GORIDER</div>
         <div class="loginBox">
-            <input class="id" type="text" placeholder="아이디를 입력하세요">
-            <input class="pwd" type="text" placeholder="비밀번호를 입력하세요">
+            <input class="mid" type="text" placeholder="아이디를 입력하세요">
+            <input class="mpwd" type="text" placeholder="비밀번호를 입력하세요">
             <button onclick="onLogin()" class="btn btypeW100H50" type="button">로그인</button>
         </div>
         <div class="loption disFlexEnd">
