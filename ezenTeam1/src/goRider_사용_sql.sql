@@ -11,7 +11,7 @@ create table member(
     mpwd varchar(20) not null,			# 회원비밀번호 
     memail varchar(50) not null unique,	# 회원이메일
 	mpayinfo varchar(16) not null,		# 결제카드번호
-    mdate datetime default now(),		 # 회원등록일
+    mdate datetime default now(),		# 회원등록일
     primary key( mno )
 );
 drop table if exists rider;
@@ -20,6 +20,7 @@ create table rider(
     rname varchar(20) not null ,		# 라이더이름              		
     rid varchar(20) not null,  			# 라이더아이디		
     rpwd varchar(20) not null,			# 라이더비밀번호 
+    rphone int not null , 		# 라이더 전화번호 
 	rphoto longtext,					# 라이더프로필사진 //이미지
     rlicense longtext,					# 면허증  //이미지
     rregistration longtext,				# 차량등록증  //이미지
@@ -78,35 +79,40 @@ select * from deposit;
 
 # member 샘플 
 insert into 
-	member( mname , mid , mpwd , memail , mphone ,  mpayinfo ) 
-    values( '홍길동' , 'qweqwe' , 'qwe1234' , 'qweqwe@naver.com' , '01012341234' , '1234-1234' );
+	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+    values( '홍길동' , 'qweqwe' , 'qwe1234' , 'qweqwe@naver.com' , '1234-1234' );
     
 insert into 
-	member( mname , mid , mpwd , memail , mphone ,  mpayinfo ) 
-    values( '정희락' , 'qweqww' , 'qwe1234' , 'qweasd@naver.com' , '01012341234' , '1234-1234' );
+	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+    values( '정희락' , 'qweqww' , 'qwe1234' , 'qweasd@naver.com' , '1234-1234' );
     
     
 insert into 
-	member( mname , mid , mpwd , memail , mphone ,  mpayinfo ) 
-    values( '박상빈' , 'qweqwa' , 'qwe1234' , 'qweqwa@naver.com' , '01012341234' , '1234-1234' );
+	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+    values( '박상빈' , 'qweqwa' , 'qwe1234' , 'qweqwa@naver.com' , '1234-1234' );
 
 # rider 샘플
 
 insert into 
-	rider( rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank , rstatus , rcomment ) 
-	values ( '이진형 ' , 'ljh401' , '123123' , 'default.webp' , 'default.webp' ,'default.webp', '123123-123123' , '국민' , 0 , '전과자');
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank ) 
+	values ( '이진형 ' , 'ljh401' , '123123' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-123123' , '국민' );
 
 insert into 
-	rider( rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank , rstatus , rcomment ) 
-	values ( '황태웅 ' , 'hw0308' , '456789' , 'default.webp' , 'default.webp' ,'default.webp', '123123-456456' , '국민' , 1 , '전과11범');
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank  ) 
+	values ( '황태웅 ' , 'hw0308' , '456789' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-456456' , '국민' );
 
 insert into 
-	rider( rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank , rstatus , rcomment ) 
-    values ( '김현수 ' , 'itdanja' , '2072' , 'default.webp' , 'default.webp' ,'default.webp', '123123-207272' , '국민' , 0 , '강사');
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank  ) 
+    values ( '김현수 ' , 'itdanja' , '2072' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-207272' , '국민' );
 
+#  라이더 회원가입 
+insert into 
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank ) 
+	values ( ? , ? , ? , ? , ? , ? , ? , ? , ? );
 
-
-
+# 라이더 로그인 
+select * from rider where rid = 'itdanja' and rpwd = '2072';
+# select * from rider where rid = ? and rpwd = ?
 
 
 
