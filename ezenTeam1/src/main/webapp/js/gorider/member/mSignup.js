@@ -43,7 +43,7 @@ function dupleIdCheck(){
 		$.ajax({
 			url:"/ezenTeam1/MemberInfoController",
 			method:"get",
-			data:{type:'isExist', mid:mid,search:'mid'},
+			data:{type:'isExist', key:mid,search:'mid'},
 			success: r => {
 				console.log(r)
 				if(r == 'true'){
