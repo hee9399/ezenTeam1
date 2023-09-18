@@ -29,39 +29,30 @@ public class RiderDao extends Dao{ // 라이더
 			int row = ps.executeUpdate();
 			if(row == 1) return true;
 			
-			
 		} catch (Exception e) {System.out.println(e);}
 		
 		return false;
 	}
-	// 2. 로그인 ( 세션 저장 ) 
 	
-	// 3. 출력 
-	public RiderDto info( String rid ) {
+	
+	// 2. 출력 , 로그인 
+	public boolean info( String rid , String rpwd ) {
 		
 		try {
-			String sql = "select rno , rname , rid , rphoto , rlicense , rregistration , raccount , rbank , rstatus ,  rcomment from rider where rid = ? ";
+			String sql = "select * from rider where rid = ? and rpwd = ? ";
+			// 실행한다. 
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, rid);
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				RiderDto riderDto = new RiderDto(
-						LocalDateTime.now().toString() 
-						rs.getInt(1) , rs.getString(2) ,
-						rs.getString(3) , rs.getString(4) , 
-						rs.getString(5) , rs.getString(6) ,
-						rs.getString(7) , rs.getString(8) ,
-						rs.getString(9) , rs.getString(10) );
-				return riderDto;
-			}
-			
+			ps.setString(1, rid); ps.setString(2, rpwd);
+		
 		} catch (Exception e) {System.out.println(e);}
 		
-		return null;
+		return false;
 	}
 	
-	// 4. 수정 
+	// 3. 수정 
 	
-	// 5. 삭제 
+	
+	// 4. 삭제 
+	
 	
 }// class e
