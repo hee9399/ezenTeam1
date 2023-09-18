@@ -34,6 +34,18 @@ public class MemberDao extends Dao{
 
 
 	// 2. 출력 , 로그인
+	public boolean login(String mid, String mpwd) {
+		
+		try {
+			String sql = "select *  from member where mid =? and mpwd=?";;
+					ps = conn.prepareStatement(sql);
+		} catch (Exception e) {
+			System.out.println("Exception :: "+ e);
+		}
+		return false;
+		
+	}
+	
 
 	// 3. 아이디/이메일 중복검사 [ 인수 : 검사할아이디 / 반환 : true(중복없이) , false(중복없이) ]
 	public boolean isExist(String search, String key) {

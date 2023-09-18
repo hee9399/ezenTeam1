@@ -97,7 +97,7 @@ function pwdCheck(){
 }
 let authBtn = document.querySelector('.authBtn');
 //authBtn.disabled = true; //인증버튼의 기본값을 사용불가 상태로 세팅disabled = true;
-if(authBtn.disabled==true){ //사용불가 상태일때 스타일 적용
+if(authBtn.disabled ==true){ //사용불가 상태일때 스타일 적용
 	authBtn.style.backgroundColor='#666'
 	authBtn.style.cursor = 'none';
 	authBtn.style.borderRadius = '5px';
@@ -244,3 +244,4 @@ function auth(){
 	}
 	console.log( checkList )
 }
+
