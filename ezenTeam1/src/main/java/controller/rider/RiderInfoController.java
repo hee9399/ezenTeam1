@@ -108,6 +108,16 @@ public class RiderInfoController extends HttpServlet {
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
+		MultipartRequest multi = new MultipartRequest(
+				request, 
+				request.getServletContext().getRealPath("gorider/rider/img") ,
+				1024 * 1024 * 10 ,
+				"UTF-8" ,
+				new DefaultFileRenamePolicy()
+				);
+		String mimg = multi.getFilesystemName("rimg");
 	}
 
 	// 삭제 
