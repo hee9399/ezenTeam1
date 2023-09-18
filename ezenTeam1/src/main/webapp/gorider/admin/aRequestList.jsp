@@ -11,7 +11,7 @@
 
      <div class="wrap">
      <%@include file="aheader.jsp" %>
-        <h5 class="ptitle">라이더 승인 요청 목록</h5>
+        <h5 class="ptitle">라이더 승인 요모록모모몱청 목록</h5>
         <div class="listbox">
 
          <!-- title -->
