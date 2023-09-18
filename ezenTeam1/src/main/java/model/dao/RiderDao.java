@@ -16,16 +16,17 @@ public class RiderDao extends Dao{ // 라이더
 		System.out.println("RiderDao 도착");
 		try {
 			String sql = "insert into \r\n"
-					+ "	rider( rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank ) \r\n"
-					+ "	values ( ? , ? , ? , ? , ? , ? , ? , ? ) ";
+					+ "	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank ) \r\n"
+					+ "	values ( ? , ? , ? , ? , ? , ? , ? , ? , ? ); ";
 			System.out.println("sql 입력받았어요"+sql);
 			// sql 실행
 			ps = conn.prepareStatement(sql);
 			// 입력받을 데이터
-			ps.setString(1 , dto.getRname() );		ps.setString(2 , dto.getRid() );
-			ps.setString(3 , dto.getRpwd() );		ps.setString(4 , dto.getRphoto() );
-			ps.setString(5 , dto.getRlicense() );	ps.setString(6 , dto.getRregistration() );
-			ps.setString(7 , dto.getRaccount() );	ps.setString(8 , dto.getRbank() );
+			ps.setString(1 , dto.getRname() );			ps.setString(2 , dto.getRid() );
+			ps.setString(3 , dto.getRpwd() );			ps.setInt(4, dto.getRphone());
+			ps.setString(5 , dto.getRphoto() );			ps.setString(6 , dto.getRlicense() );
+			ps.setString(7 , dto.getRregistration() );	ps.setString(8 , dto.getRaccount() );	
+			ps.setString(9 , dto.getRbank() );
 			int row = ps.executeUpdate();
 			if(row == 1) return true;
 			

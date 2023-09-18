@@ -32,25 +32,27 @@
                 <button  class="idcheck" type="button">중복체크</button></li>
 
             <li class="title" >비밀번호<span class="pwdcheckbox">  </span> </li>
-            <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="password"></li>
+            <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="text"></li>
 
-            <li class="title" >비밀번호 확인</li>
-            <li class=""><input onkeyup="pwdcheck()"  maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type=""></li>
+            <li class="title">비밀번호 확인</li>
+            <li class=""><input onkeyup="pwdcheck()"  maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type="text"></li>
 
-            <li class="title" >프로필사진</li>
+			<li class="title"> 전화번호 
+				<input type="text" class="rphone" placeholder="- 제외하고 입력해주세요."/>
+			</li>
+
+            <li class="title">프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
             	<img class="preimg" src="" />
             </li>
 			
-			<li class="title"> 전화번호 </li>
-			
-            <li class="title" >면허증</li>
+            <li class="title">면허증</li>
             <li class=""><input onchange="" class="rlicense infile" name="rlicense" type="file"></li>
 
              <li class="title" >차량등록증</li>
             <li class=""><input onchange="" class="rregistration " name="rregistration" type="file"></li>
 
-            <li class="title" >계좌번호</li>
+            <li class="title" > 계좌번호 </li>
             <li class="dflex">
                 <select class="inselect rbank" name="rbank">
                     <option value=""> 은행선택 </option>
@@ -70,7 +72,8 @@
         <div class="btnbox">
             <button  class="btn50 colorW" onclick="" type="reset"> 다시쓰기</button>
             <button  class="btn50" onclick="signup()" type="button"> 지원서제출</button>
-        </div>    </form>
+        </div>    
+       </form>
     </div><!-- 라이더 회원가입 전체구역 e -->
 
 </div><!-- 전체구역 e -->

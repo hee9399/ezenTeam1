@@ -49,6 +49,8 @@ public class RiderInfoController extends HttpServlet {
 		String rid = mulit.getParameter("rid"); 	    			System.out.println("rid"+rid);
 			// 비밀번호
 		String rpwd = mulit.getParameter("rpwd"); 					System.out.println("rpwd"+rpwd);
+			// 라이더 전화번호 
+		int rphone = Integer.parseInt( mulit.getParameter("rphone") ); System.out.println("rphone"+rphone);
 			// 프로필사진 
 		String rphoto = mulit.getFilesystemName("rphoto");   			System.out.println("rphoto"+rphoto);	
 			// 면허증 
@@ -61,7 +63,8 @@ public class RiderInfoController extends HttpServlet {
 		String rbank = mulit.getParameter("rbank");					System.out.println("rbank"+rbank);
 		
 		// 2. 객체화
-		RiderDto riderDto = new RiderDto(rname, rid, rpwd, rphoto, rlicense, rregistration, raccount, rbank, raccount, rbank);
+		// RiderDto riderDto = new RiderDt
+		RiderDto riderDto = new RiderDto(rname, rid, rpwd, rphone, rphoto, rlicense, rregistration, raccount, rbank);
 		
 		// 3. Dao 객체 전달후 결과 응답받기 
 		boolean result = RiderDao.getInstance().RiderSignup(riderDto);
