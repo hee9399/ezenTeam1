@@ -9,7 +9,7 @@
 <body>
 
 <div class="wrap">
-	<%@include file="../header.jsp" %>
+	<%@include file="../member/header.jsp" %>
 
 	<div class="contentBox">
 	
@@ -20,7 +20,7 @@
 		<button type = "button" class = "decline">거절</button>
 	</div>
 	
-	<%@include file="../footer.jsp" %>
+	<%@include file="../member/footer.jsp" %>
 </div>	
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59b47c7057625f350189b1cb8369a874"></script>

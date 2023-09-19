@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="wrap">
-     <%@include file="../header.jsp" %>
+     <%@include file="../member/header.jsp" %>
      <!-- content구간 -->
      <div class="contentBox">
         <h5>라이더 마크 표시하기</h5>
@@ -17,7 +17,7 @@
      </div>
      
      
-    <%@include file="../footer.jsp" %>
+    <%@include file="../member/footer.jsp" %>
     
     <!-- 59b47c7057625f350189b1cb8369a874 -->
 </div>
