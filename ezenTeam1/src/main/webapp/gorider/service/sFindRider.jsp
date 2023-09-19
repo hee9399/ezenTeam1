@@ -17,8 +17,8 @@
      </div>
      
      
-    <%@include file="../member/footer.jsp" %>
-    
+    <%-- <%@include file="../member/footer.jsp" %>
+     --%>
 
 </div>
 <!--  -->
@@ -27,5 +27,6 @@
 
  <!-- js -->
    <script src="/ezenTeam1/js/gorider/service/service.js" type="text/javascript"></script>
+   
 </body>
 </html>

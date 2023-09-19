@@ -1,4 +1,5 @@
 
+let 클라이언트소켓 = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
 
 let 현재위도 = 37.320682
 let 현재경도 = 126.832668
@@ -41,8 +42,6 @@ var markerImageUrl = '/ezenTeam1/img/gorider/icon.png',
 // 마커 이미지를 생성한다
 var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
 
-
-
 function 마커셋팅(){
 	
 	현재마커.setMap(null); // 기존 마커 없애고
@@ -65,34 +64,6 @@ function 마커셋팅(){
 	현재마커.setMap(map);
 	
 }
-
-
-let 클라이언트소켓 = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
-
-document.querySelector('.rigjtBtn').addEventListener('click' , (e)=>{
-	console.log('앞으로');
-	현재경도 += 0.0001; 
-	클라이언트소켓.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.leftBtn').addEventListener('click' , (e)=>{
-	console.log('뒤로')
-	현재경도 -= 0.0001; 
-	클라이언트소켓.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.topBtn').addEventListener('click' , (e)=>{
-	console.log('위로')
-	현재위도 += 0.0001; 
-	클라이언트소켓.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
-	console.log('아래로')
-	현재위도 -= 0.0001; 
-	클라이언트소켓.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
 
 클라이언트소켓.onmessage = (e)=>{
 	let data =  JSON.parse(e.data); console.log( data );
