@@ -34,7 +34,7 @@ public class MemberFindController extends HttpServlet {
 
  			//세션확인
  			MemberDto mDto = (MemberDto)request.getSession().getAttribute("loginDto");
- 			System.out.println("Sesstion LgonDto :: "+ loginDto);
+ 			System.out.println("Session LoginDto :: "+ loginDto);
  		}
  		response.setContentType(("application/json;charset=UTF-8"));
     	response.getWriter().print(result);

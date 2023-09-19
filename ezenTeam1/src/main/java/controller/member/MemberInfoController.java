@@ -83,11 +83,12 @@ public class MemberInfoController extends HttpServlet {
 			ObjectMapper mapper = new ObjectMapper();
 			String json = mapper.writeValueAsString(loginDto);
 
-			response.setContentType("application:json;charset=UTF-8");
+			response.setContentType(("application/json;charset=UTF-8"));
 			response.getWriter().print(json);
 			return;
 
 		} else if(type.equals("logout")) {
+			System.out.println("type : "+ type);
 			//세션에 저장된 logiDto에 null대입
 			request.getSession().setAttribute("loginDto", null);
 		}

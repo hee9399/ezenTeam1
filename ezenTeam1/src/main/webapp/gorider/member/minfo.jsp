@@ -9,10 +9,8 @@
    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
 </head>
 <body>
-<div  class="wrap ">
-
     <!-- ajax  -->
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-    <script  src="/ezenTeam1/js/member/minfo.js"></script>
+<!--     <script  src="/ezenTeam1/js/gorider/member/minfo.js"></script> -->
 </html>

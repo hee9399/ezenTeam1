@@ -13,17 +13,8 @@
 <!-- 전체렙 -->
 
 <div  class="wrap">
- <%@include file="minfo.jsp" %>
- <!--
-   <div class="headerwrap">
-      <div class="logo">GoRider</div>
-     <div class="btnbox">
-        <div onclick="onSignUp()"  class="btn r2">회원<br>가입</div>
-        <div onclick="onLogin()"  class="btn r1">로그인</div>
-      </div>
-   </div>
- -->
-   <%@include file="../header.jsp" %>
+
+   <%@include file="header.jsp" %>
    <!-- Main imge -->
    <div class="mainimg"></div>
    <div class="searchbox" >
@@ -36,15 +27,11 @@
 
 
    <!-- bottom -->
-   <div class="footer" >
-    푸터
-
-   </div>
-
+   <%@include file="footer.jsp" %>
 
 
 
 </div>
-<script src="../js/gorider/index.js"></script>
+<script src="/ezenTeam1/js/gorider/index.js"></script>
 </body>
 </html>

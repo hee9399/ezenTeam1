@@ -59,7 +59,42 @@ h5{ padding:30px; text-align: center;}
     font-weight: 900;
 }
 
-
+.headerwrap .hbtnbox{
+	
+	display:flex;
+}
+.headerwrap .hbtnbox img {
+	width:40px;
+	height:40px;
+	object-fit:cover;
+	vertical-align: text-bottom;
+	border-radius: 50%;
+	cursor: pointer;
+	}
+.heardwrap .minfo{
+	display: flex;
+	align-items: center;
+}
+.minfo span{
+/* 	margin-bottom: 10px; */
+}
+.mname {
+	font-family: 'LINESeedKR-Bd';
+	font-size:0.9rem;
+	color:var(--white);
+	display: inline-block;
+	height:75%;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.sayhello{
+	font-family: 'LINESeedKR-Bd';
+	font-size:0.8rem;
+	display: inline-block;
+	height:75%;
+	vertical-align: middle;
+	margin-right: 5px;
+}
 /*--------------------------------------------*/
 
 body{
@@ -261,5 +296,9 @@ BUTTON{ border: none;}
     font-size: 0.8rem;
 }
 .findBox div:hover{
+	cursor:pointer;
 	color:var(--main03)
 }
+
+
+
