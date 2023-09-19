@@ -47,11 +47,11 @@ public class AdminDao extends Dao{
 			if(rs.next()) {
 				RiderDto riderDto = new RiderDto(
 						rs.getInt("rno"),
-						rs.getString("rname"), rs.getString("rid"),
+						rs.getString("rname"), rs.getString("rid"),rs.getString("rphone"),
 						rs.getString("rphoto"),rs.getString("rlicense"),
 						rs.getString("rregistration"),rs.getString("rdate"),
 						rs.getString("raccount"),rs.getString("rbank"),
-						rs.getString("rstatus"),rs.getString("rcomment")
+						rs.getString("rstatus"),rs.getString("rcomment"), rs.getString("rbikenum")
 						);
 				return riderDto;
 			}
