@@ -39,7 +39,7 @@ public class RiderInfoController extends HttpServlet {
 				1024*1024*10 ,  // 3. 첨부파일 용량 허용 범위 [ 바이트단위 ]
 				"UTF-8" ,
 				new DefaultFileRenamePolicy() // 5. [ 파일명중복제거 ]
-				);
+			);
 	// 2. from 안에 있는 각 데이터 호출 
 		//  rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank 
 		// 1. ajax 통신받은 data객체의 '속성명' 요헝한다. 
