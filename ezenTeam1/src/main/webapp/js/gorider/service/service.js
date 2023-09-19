@@ -41,21 +41,7 @@ var markerImageUrl = '/ezenTeam1/img/gorider/icon.png',
 // 마커 이미지를 생성한다
 var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
 
-function accept() {
-	let contentBox = document.querySelector('.contentBox');
-	
-	let html =``;
-	
-	html = `
-	 
-		<button type="button" class="rigjtBtn">앞으로</button>
-     	<button type="button" class="leftBtn">뒤로</button>
-     	<button type="button" class="topBtn">위로</button>
-     	<button type="button" class="bottomBtn">아래로</button>
-	`;
-	
-	contentBox.innerHTML = html;
-}
+
 
 function 마커셋팅(){
 	
