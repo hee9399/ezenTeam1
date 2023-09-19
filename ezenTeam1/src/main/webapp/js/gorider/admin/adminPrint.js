@@ -1,3 +1,4 @@
+
 ApprovalPrint();
 function ApprovalPrint() {
     $.ajax({
@@ -34,42 +35,14 @@ function ApprovalPrint() {
             
         },
         error: function (e) {
-            console.error(e);
+            console.error('에러이유 : '+e);
         }
     });
 }
 
- 
  // 1. 라이더가 회원가입했을때 그라이더에 대한 상세보기 함수.
 function ApprovalView(rno) {
-    location.href = "/ezenTeam1/gorider/admin/aRequestView.jsp";
-
-    $.ajax({
-        url: "/ezenTeam1/AdminController",
-        method: "get",
-        data: { type: 2, rno: rno },
-        success: r => {
-            let rPhotobox = document.querySelector('.rPhotobox');
-            let html = `
-                <div class="rInfo">
-                	
-                    <div><span>이름</span> </div>
-                </div>`;
-
-            for (let i = 0; i < r.length; i++) {
-                let rname = r[i].rname; // rname 변수 설정
-                html += `
-                			 
-                            <div><span>이름</span> : ${rname}</div>  
-                            <img src="/ezenTeam1/gorider/rider/img/${rphoto}">
-                         `;
-            }
-            rPhotobox.innerHTML = html;
-        },
-        error: e => {
-            console.error(e);
-        }
-    });
+     location.href = "/ezenTeam1/gorider/admin/aRequestView.jsp?rno="+rno;
 }
  
  

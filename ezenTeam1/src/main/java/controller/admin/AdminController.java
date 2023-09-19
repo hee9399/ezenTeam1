@@ -46,13 +46,16 @@ public class AdminController extends HttpServlet {
 	    	
 	    	RiderDto result = AdminDao.getInstance().ApprovalView(rno);
 	    	
-	    	response.setContentType("application/json;charset=UTF-8");
-
-		    // Java 객체를 JSON 문자열로 변환
-		    json = objectMapper.writeValueAsString(result);
-		    System.out.println(json);
-		 // JSON 문자열을 응답에 출력
-		    response.getWriter().print(json);
+	    	 // JSON 형식으로 응답 데이터 설정
+	        response.setContentType("application/json;charset=UTF-8");
+	        
+	        // Jackson ObjectMapper를 사용하여 객체를 JSON 문자열로 변환
+	        ObjectMapper objectMapper2 = new ObjectMapper();
+	        String json2 = objectMapper.writeValueAsString(result);
+	        
+	        // JSON 문자열을 응답에 출력
+	        response.getWriter().print(json2);
+	        System.out.println(json2);
 	    }
 	}
 

@@ -16,19 +16,19 @@ create table member(
 );
 drop table if exists rider;
 create table rider(
-    rno int auto_increment ,     		# 라이더번호
+    rno int auto_increment ,     			# 라이더번호
     rname varchar(20) not null ,		# 라이더이름
     rid varchar(20) not null,  			# 라이더아이디
     rpwd varchar(20) not null,			# 라이더비밀번호
-    rphone int not null , 		# 라이더 전화번호
-	rphoto longtext,					# 라이더프로필사진 //이미지
-    rlicense longtext,					# 면허증  //이미지
-    rregistration longtext,				# 차량등록증  //이미지
+    rphone int not null , 					# 라이더 전화번호
+	rphoto longtext,							# 라이더프로필사진 //이미지
+    rlicense longtext,							# 면허증  //이미지
+    rregistration longtext,					# 차량등록증  //이미지
     rdate datetime default now(),		# 등록일
-    raccount varchar(20),				# 계좌번호
-     rbank varchar(3) , 				# 라이더 은행명
-    rstatus varchar(1),					# 승인상태
-    rcomment text,						# 승인거부시 사유
+    raccount varchar(20),					# 계좌번호
+     rbank varchar(3) , 					# 라이더 은행명
+    rstatus varchar(1),						# 승인상태
+    rcomment text,							# 승인거부시 사유
     primary key( rno )
 );
 

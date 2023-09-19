@@ -19,21 +19,21 @@
         <div class="viewbox">
             <div class="disFlexStart sec1">
                 <div class="rPhotobox">
-                    <img src="/ezenTeam1/gorider/rider/img/psample.png">
+                    <img class="rimg1">
                 </div>
                 <div class="rInfo">
-                    <div><span>이름</span> : 홍길동</div>
-                    <div><span>연락처</span> : 010-1234-1234</div>
+                    <div><span class="rname"></span> </div>
+                    <div><span class="rphone"></span> </div>
                 </div>
 
             </div>
             <div class="sec2">
                 <div class="title"><span> 운전면허증 </span></div>
-                <div> <img src="/ezenTeam1/gorider/rider/img/lsample.jpg"></div>
+                <div> <img class="rimg2" ></div>
             </div>
             <div class="sec2">
                 <div><span> 자동차등록증 </span></div>
-                <div> <img src="/ezenTeam1/gorider/rider/img/rsample.png"></div>
+                <div> <img class="rimg3"></div>
             </div>
             <div class="btnsec">
                 <button onclick="ondeny()"class="btnA btypeW50H50" onclick="" type="button">거부</button>
@@ -49,6 +49,7 @@
      </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/ezenTeam1/js/gorider/admin/adminView.js"></script>
      
 </body>
 </html>
