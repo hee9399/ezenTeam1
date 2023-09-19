@@ -23,7 +23,7 @@ function onLogin(){
 			}
 		},
 		error : e =>{console.log("실패"+ e)}
-	})
+	})   
 }
 
 
