@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+   <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -12,7 +14,7 @@
 	<%@include file="../header.jsp" %>
 
 	<div class="contentBox">
-	
+
 	</div>
 
 	<div class = "choicebox">
