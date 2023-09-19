@@ -7,7 +7,7 @@ public class RiderDto {// 기사 Dto
 	private String rname; 		// 라이더이름              		
 	private String rid;				// 라이더아이디		
 	private String rpwd; 			// 라이더비밀번호 
-	private String rphone;				// 라이더전화번호 
+	private String rphone;		// 라이더전화번호 
 	private String rphoto;			// 라이더프로필사진 //이미지
 	private String rlicense;		// 면허증  //이미지
 	private String rregistration;	// 차량등록증  //이미지
@@ -16,7 +16,7 @@ public class RiderDto {// 기사 Dto
 	private String rbank;			// 은행
 	private String rstatus;			// 승인상태
 	private String rcomment;	// 승인거부시 사유
-	private String rbikenum;	// 라이더 차량번호 
+	private String rbikenum;		// 라이더 차량번호 
 	
 	// 생성자
 	public RiderDto() {}
@@ -66,10 +66,29 @@ public class RiderDto {// 기사 Dto
 	}
 	
 	// 상세정보 불러올때 필요한 생성자
+	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rlicense,
+			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
+			String rbikenum) {
+		super();
+		this.rno = rno;
+		this.rname = rname;
+		this.rid = rid;
+		this.rphone = rphone;
+		this.rphoto = rphoto;
+		this.rlicense = rlicense;
+		this.rregistration = rregistration;
+		this.rdate = rdate;
+		this.raccount = raccount;
+		this.rbank = rbank;
+		this.rstatus = rstatus;
+		this.rcomment = rcomment;
+		this.rbikenum = rbikenum;
+	}
 	// 메소드 
 	public int getRno() {
 		return rno;
 	}
+	
 	public void setRno(int rno) {
 		this.rno = rno;
 	}

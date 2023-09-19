@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 drop database if exists gorider;
 create database gorider;
 use gorider;
@@ -130,17 +129,6 @@ delete from rider where rno = and rpwd = 'As13511351';
 
 
 
-
-
-
-
-
-
-
-
-
-
-=======
 drop database if exists gorider;
 create database gorider;
 use gorider;
@@ -271,4 +259,4 @@ insert into member(mname, mid, mpwd, memail, mpayinfo,mphoto) values (?,?,?,?,?,
 
 
 
->>>>>>> branch '박상빈2' of https://github.com/hee9399/ezenTeam1.git
+
