@@ -25,3 +25,30 @@ function onLogin(){
 		error : e =>{console.log("실패"+ e)}
 	})
 }
+
+
+//2 .아이디 비밀번호 화면출력
+function findInfo(type){
+	
+	if (type =='id'){
+		document.querySelector('.logo').innerHTML = '아이디 찾기' 
+		let loginBox = document.querySelector('.loginBox');
+		let html =``;
+		html += `<input class="mname1" type="text" placeholder="이름을 입력하세요">
+            <input class="memail" type="text" placeholder="이메일주소를 입력하세요">
+            <button onclick="onFindA('id')" class="btn btypeW100H50" type="button">아이디 찾기</button>`
+		
+		
+		loginBox.innerHTML = html;
+	} else if(type =='pwd'){
+		document.querySelector('.logo').innerHTML = '비밀번호 찾기' 
+		let loginBox = document.querySelector('.loginBox');
+		let html =``;
+		html += `<input class="mid" type="text" placeholder="아이디를 입력하세요">
+            <input class="memail" type="text" placeholder="이메일주소를 입력하세요">
+            <button onclick="onFindA('pwd')" class="btn btypeW100H50" type="button">비밀번호 찾기</button>`
+		
+		
+		loginBox.innerHTML = html;
+	}
+}
