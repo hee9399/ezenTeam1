@@ -41,7 +41,7 @@ function signup(){
 				   
 				   if(r){ // 마냐게 컨트롤러에서 들어온값이 성공이면
 					   alert('회원가입 성공');
-					    // location.href = '/exenTeam1//';
+					   location.href = '/ezenTeam1/gorider/rider/rlogin.jsp';
 				   }else{
 					   alert('회원가입 실패[관리자에게 문의]')
 				   }

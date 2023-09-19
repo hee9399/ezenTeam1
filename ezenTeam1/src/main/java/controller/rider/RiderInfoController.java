@@ -28,7 +28,7 @@ public class RiderInfoController extends HttpServlet {
 		System.out.println("doPost 도착");
     	
 		// 첨부파일 있을때 회원가입
-		String uploadpath = request.getSession().getServletContext().getRealPath("gorider/rider/img");
+		String uploadpath = request.getSession().getServletContext().getRealPath("/gorider/rider/img");
 		System.out.println("rider 폴더 img 폴더 실제(서버) 경로 : "+uploadpath);
 		
 		// 첨부파일 전송 했을때 
@@ -44,27 +44,30 @@ public class RiderInfoController extends HttpServlet {
 		//  rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank 
 		// 1. ajax 통신받은 data객체의 '속성명' 요헝한다. 
 			// 이름
-		String rname = mulit.getParameter("rname");     			System.out.println("rname"+rname);
+		String rname = mulit.getParameter("rname");     			System.out.println("rname: "+rname);
 			// 아이디
-		String rid = mulit.getParameter("rid"); 	    			System.out.println("rid"+rid);
+		String rid = mulit.getParameter("rid"); 	    			System.out.println("rid: "+rid);
 			// 비밀번호
-		String rpwd = mulit.getParameter("rpwd"); 					System.out.println("rpwd"+rpwd);
+		String rpwd = mulit.getParameter("rpwd"); 					System.out.println("rpwd: "+rpwd);
 			// 라이더 전화번호 
-		int rphone = Integer.parseInt( mulit.getParameter("rphone") ); System.out.println("rphone"+rphone);
+		String rphone = mulit.getParameter("rphone"); 				System.out.println("rphone: "+rphone);
 			// 프로필사진 
-		String rphoto = mulit.getFilesystemName("rphoto");   			System.out.println("rphoto"+rphoto);	
+		String rphoto = mulit.getFilesystemName("rphoto");   			System.out.println("rphoto: "+rphoto);	
 			// 면허증 
-		String rlicense = mulit.getFilesystemName("rlicense");			System.out.println("rlicense"+rlicense);
+		String rlicense = mulit.getFilesystemName("rlicense");			System.out.println("rlicense: "+rlicense);
 			// 차량등록증 
-		String rregistration = mulit.getFilesystemName("rregistration"); System.out.println("rregistration"+rregistration);
+		String rregistration = mulit.getFilesystemName("rregistration"); System.out.println("rregistration: "+rregistration);
 			// 계좌번호
-		String raccount = mulit.getParameter("raccount"); 			System.out.println("raccount"+raccount);
+		String raccount = mulit.getParameter("raccount"); 			System.out.println("raccount: "+raccount);
 			// 은행명 
-		String rbank = mulit.getParameter("rbank");					System.out.println("rbank"+rbank);
+		String rbank = mulit.getParameter("rbank");					System.out.println("rbank: "+rbank);
+			// 라이더 차량번호
+		String rbikenum = mulit.getParameter("rbikenum"); 			System.out.println("rbikenum: "+rbikenum);
 		
 		// 2. 객체화
-		// RiderDto riderDto = new RiderDt
-		RiderDto riderDto = new RiderDto(rname, rid, rpwd, rphone, rphoto, rlicense, rregistration, raccount, rbank);
+			// 입력받을 dto 설계 부르기 
+		RiderDto riderDto = new RiderDto(rname, rid, rpwd, rphone, rphoto, 
+				rlicense, rregistration, raccount, rbank, rbikenum);
 		
 		// 3. Dao 객체 전달후 결과 응답받기 
 		boolean result = RiderDao.getInstance().RiderSignup(riderDto);
@@ -117,7 +120,21 @@ public class RiderInfoController extends HttpServlet {
 				"UTF-8" ,
 				new DefaultFileRenamePolicy()
 				);
-		String mimg = multi.getFilesystemName("rimg");
+		String rphoto = multi.getFilesystemName("rphoto");
+		
+		// Dao [ 로그인된 라이더번호 , 수정할 값 ]
+		Object object = request.getSession().getAttribute("loginDto");
+		RiderDto riderDto = (RiderDto)object;
+		int loginRno = riderDto.getRno();
+		
+		// 만약에 수정할 첨부파일 없으면 
+		if(rphoto == null) { // 기존 이미지 그대로 사용 
+			
+			rphoto = riderDto.getRphoto(); // 세션에 있던 이미지 그대로 사용 
+			
+		}
+		
+		
 	}
 
 	// 삭제 

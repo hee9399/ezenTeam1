@@ -37,9 +37,9 @@
             <li class="title">비밀번호 확인</li>
             <li class=""><input onkeyup="pwdcheck()"  maxlength="30" class="rpwdconfirm" name="rpwdconfirm" type="text"></li>
 
-			<li class="title">전화번호 
-				<input type="text" class="rphone" placeholder="- 제외하고 입력해주세요."/>
-			</li>
+			<li class="title">전화번호 </li>
+			<li class=""> <input type="text" class="rphone" name="rphone" placeholder="- 제외하고 입력해주세요."/> </li>
+			
 
             <li class="title">프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
@@ -68,6 +68,10 @@
                 </select>
                 <input class="raccount intext75" name="raccount" type="number">
             </li>
+            
+            <li class="title"> 차량번호 </li>
+			<li class=""> <input type="text" class="rbikenum" name="rbikenum" placeholder="차량번호를 입력해주세요."/> </li>
+            
         </ul>
         <div class="btnbox">
             <button  class="btn50 colorW" onclick="" type="reset"> 다시쓰기</button>
@@ -77,6 +81,8 @@
     </div><!-- 라이더 회원가입 전체구역 e -->
 
 </div><!-- 전체구역 e -->
+
+
    <!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
