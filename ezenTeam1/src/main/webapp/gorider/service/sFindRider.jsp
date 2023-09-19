@@ -9,14 +9,11 @@
 <body>
 <div class="wrap">
      <%@include file="../header.jsp" %>
-     <!-- content쿠간 -->
+     <!-- content구간 -->
      <div class="contentBox">
         <h5>라이더 마크 표시하기</h5>
         <div id="map" style="width:100%;height:350px;"></div>
-        <button type="button" class="rigjtBtn">앞으로</button>
-     	<button type="button" class="leftBtn">뒤로</button>
-     	<button type="button" class="topBtn">위로</button>
-     	<button type="button" class="bottomBtn">아래로</button>
+       
      </div>
      
      
