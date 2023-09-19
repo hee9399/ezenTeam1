@@ -5,7 +5,7 @@ use gorider;
 # ---------------------------------------------------  정의어 ------------------------------------------------------------------------------
 drop table if exists member;
 create table member(
-    mno int auto_increment ,     		# 회원번호              	
+    mno int auto_increment ,     		 # 회원번호              	
     mname varchar(20) not null ,		# 회원이름              		
     mid varchar(20) not null,  			# 회원아이디		
     mpwd varchar(20) not null,			# 회원비밀번호 
