@@ -38,8 +38,8 @@ alter table rider add rbikenum varchar(20);
 drop table if exists riderstate;
 create table riderstate( 
 	 rno int ,     			# 라이더번호  
-     rstart varchar(5) ,    # 라이더출근상태  
-     rcall varchar(5) ,  	# 라이더콜가능상태
+     rstart varchar(2) ,    # 라이더출근상태  
+     rcall varchar(2) ,  	# 라이더콜가능상태
      foreign key(rno) references rider(rno) on delete cascade on update cascade
 );
 
@@ -131,8 +131,8 @@ delete from rider where rno = 13 and rpwd = 'As13511351';
 
 
 # 라이더 상태 샘플 
-insert into riderstate( rstart , rcall ) values( '출근' , '콜가능' );
-insert into riderstate( rstart , rcall ) values( '퇴근' , '불가능' );
+insert into riderstate( rno ,  rstart , rcall ) values( 9 , 'y' , 'y' );
+insert into riderstate( rno , rstart , rcall ) values( 12 , 'n' , 'n' );
 
 select rno from rider natural join riderstate where rid = 'hee9399';
 
