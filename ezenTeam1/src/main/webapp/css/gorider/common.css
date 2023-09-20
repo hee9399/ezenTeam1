@@ -181,10 +181,13 @@ BUTTON{ border: none;}
     color:#FFF;
 }
 .rheaderwrap{
-	font-family: 'Pretendard-Regular';
+	display:flex;
+	justify-content:space-between;
+    font-family: 'LINESeedKR-Bd';
 	font-size:1.2rem;
 	color:var(--white);
-	padding:15px ;
+	padding:30px 20px;
+	border-bottom: solid 3px var(--main02);
 }
 .rheaderwrap p{
 	text-align: right;
@@ -215,6 +218,11 @@ BUTTON{ border: none;}
     justify-content: space-between;
     align-items: center;
 }
+.disFlexCC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .disFlexStCent{
     display: flex;
     justify-content:flex-start;
@@ -235,7 +243,7 @@ BUTTON{ border: none;}
     font-size: 2rem;
     cursor: pointer;
 }
-/*admin_header S*/
+/*----------(admin_header)----------*/
 
 .wrapH{
     max-width:400px;
@@ -273,6 +281,14 @@ BUTTON{ border: none;}
     width:100%;
     background-color: #40514E
 
+}
+.footerR{
+	display:flex;
+	justify-content:space-between;
+    position:absolute;
+    bottom:0;
+    height:12vh;
+    width:100%;
 }
 
 /*-------------------(login)-------------------*/

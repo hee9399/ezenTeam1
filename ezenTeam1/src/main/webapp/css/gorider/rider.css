@@ -1,4 +1,16 @@
-@charset "UTF-8";
+@charset "UTF-8";.
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KBO-Dia-Gothic_bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
 .rSignupBox{
     font-family: 'LINESeedKR-Bd';
 
@@ -55,3 +67,68 @@ BUTTON{
 	border:solid 1px #30E3CA;
 }
 .btnbox{ padding-bottom: 30px;}
+
+/*---------------- (상단 버튼) ----------------*/
+
+
+/*---------------- (푸터 버튼) ----------------*/
+.fbtn{
+    display:flex;
+    height:100%;
+    font-family: 'LINESeedKR-Bd';
+    justify-content:center;
+    align-items:center;
+    font-size: 2rem;
+    margin: auto 0;
+
+
+}
+.btn100{
+	width:100%
+}
+.btn50{
+    width:50%
+}
+.bgm02{
+    background-color:var(--main02);
+    color:var(--white);
+
+}
+/*---------------- ( rindex ) ----------------*/
+.rcontBox{
+	display:flex;
+	justify-content:center;
+	padding:20px;
+    width:100%;
+    margin: 0 auto;
+    font-family: 'LINESeedKR-Bd';
+    height:72vh;
+    color:#fff;
+}
+.rcont{width: 80%;}
+.rtitle h2{
+    padding:10px 10px 8px;
+}
+.numbox{
+	font-family: 'LINESeedKR-Bd';
+	border:solid 1px var(--main02);
+	border-radius:10px;
+    padding:30px 0;
+    text-align: center;
+    letter-spacing : 0.3em;
+}
+.numbox2{padding-top:10px;}
+.numbox2 span{ display: inline-block; letter-spacing : 0.3em;}
+..numbox2 .col60{ text-align: left;}
+.fs18m02{font-size: 1.8rem; color:var(--main02);}
+.fs15m02{font-size: 1.5rem; color:var(--main02);}
+.fs22m02{font-size: 2.2rem; color:var(--main02);}
+
+
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
