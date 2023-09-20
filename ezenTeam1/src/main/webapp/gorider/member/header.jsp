@@ -10,7 +10,7 @@
 <body>
 <%--  <%@include file="./member/minfo.jsp" %> --%>
 	<div class="headerwrap">
-      <div class="logo">GoRider</div>
+      <div class="logo" onclick="onMove('M')">GoRider</div>
        <div class="hbtnbox">
     	<!-- 로그인 여부에 따른 출력 -->
       </div>

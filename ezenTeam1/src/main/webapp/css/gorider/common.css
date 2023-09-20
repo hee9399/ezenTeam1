@@ -75,9 +75,10 @@ h5{ padding:30px; text-align: center;}
 	display: flex;
 	align-items: center;
 }
-.minfo span{
-/* 	margin-bottom: 10px; */
+.minfo img{
+	margin-right: 5px;
 }
+
 .mname {
 	font-family: 'LINESeedKR-Bd';
 	font-size:0.9rem;
@@ -95,6 +96,15 @@ h5{ padding:30px; text-align: center;}
 	vertical-align: middle;
 	margin-right: 5px;
 }
+.logout{
+	display: inline-block;
+	font-size:0.7rem;
+	text-align:right;
+	margin-left: 15px;
+	cursor: pointer;
+}
+.logout:hover {color:#FFFA00;}
+
 /*--------------------------------------------*/
 
 body{
@@ -205,6 +215,11 @@ BUTTON{ border: none;}
     justify-content: space-between;
     align-items: center;
 }
+.disFlexStCent{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
 .disFlexStart{
     display: flex;
     justify-content: space-between;
@@ -218,6 +233,7 @@ BUTTON{ border: none;}
 .logo{
     font-family: 'Giants-Inline';
     font-size: 2rem;
+    cursor: pointer;
 }
 /*admin_header S*/
 

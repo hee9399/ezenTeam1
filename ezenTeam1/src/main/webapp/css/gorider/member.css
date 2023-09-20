@@ -73,3 +73,41 @@ BUTTON{
 	font-size: .7rem;
 	color:orange;
 }
+
+
+/*마이페이지-----------------------------------*/
+.myInfoBox{
+	font-family: 'LINESeedKR-Bd';
+	text-align:center;
+	padding:20px 10px;
+	background-color: var(--lgray);
+}
+.myInfoBox .col30{
+	display:flex;
+	justify-content:center;
+	margin: 0 auto;
+	
+}
+.myInfoBox img {
+	width:100%; 
+
+	object-fit:cover;
+	border-radius: 50%;
+}
+.myInfoBox .minfo{
+	padding:10px;
+}
+
+.myMenuBox{ 
+	font-family: 'LINESeedKR-Bd';
+	padding:20px 0;
+}
+.myMenuBox .disFlexStCent{
+	margin-bottom: 10px;
+	padding:20px 10px;
+	background-color: var(--main01);
+	border-radius: 5px;
+	font-size:1.2rem;
+	color:var(--main02)
+}
+	

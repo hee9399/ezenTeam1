@@ -53,7 +53,7 @@ function findInfo(type){
 
 		html += `<input class="id" type="text" placeholder="아이디를 입력하세요">
             <input class="email" type="text" placeholder="이메일주소를 입력하세요">
-            <button onclick="onFindA('findPwd')" class="btn btypeW100H50" type="button">비밀번호 찾기</button>`
+            <button onclick="onFind('findPwd')" class="btn btypeW100H50" type="button">비밀번호 찾기</button>`
 		loginBox.innerHTML = html;
 
 		html2 += `<div onclick="findInfo('id')" class="findInfo">아이디 찾기</div>
@@ -99,14 +99,14 @@ function onFind(type){
 			data:{type:type, mid:mid.value, memail:memail.value},
 			success: r =>{
 
-				//console.log("성공" + r);
+				console.log(r);
 				if(r){
 					alert('비밀번호는 ' + r.mpwd + '입니다.');
 					location.href = '/ezenTeam1/gorider/member/mlogin.jsp'
 				} else {
 					alert('회원정보가 일치하지 않습니다');
 					//초기화 해주기
-					mname.value='';
+					mid.value='';
 					memail.value='';
 				}
 			},

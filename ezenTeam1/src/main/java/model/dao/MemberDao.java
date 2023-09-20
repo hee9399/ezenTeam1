@@ -129,20 +129,25 @@ public class MemberDao extends Dao{
 			String sql = " select * from member where memail = ? ";
 
 			if (type.equals("findId")) { //아이디찾기
-				sql += "and mname = " + req1;
+				sql += "and mname = ?";
 			} else if(type.equals("findPwd")) { //비밀번호찾기
-				sql += "and mid = " + req1 ;
+				sql += "and mid = ? " ;
 			}
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, req1);
+			ps.setString(2, req2);
+			
 			System.out.println(" MemberDao :: onFind :: "+ ps);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				MemberDto memberDto = new MemberDto(
-						rs.getInt("mno"), rs.getString("mname"),
-						 rs.getString("mid"),  rs.getString("memail"),
-						 rs.getString("mpayinfo"),  rs.getString("mdate"),
-						 rs.getString("mphoto"));
+				//public MemberDto(String mname, String mid, String mpwd, String memail, String mpayinfo)
+				MemberDto memberDto = new MemberDto( 
+						  rs.getString("mname")
+						, rs.getString("mid")
+						, rs.getString("mpwd")
+						, rs.getString("memail")
+						, rs.getString("mpayinfo"));
+				
 				return memberDto;
 			}
 		} catch (Exception e) {
