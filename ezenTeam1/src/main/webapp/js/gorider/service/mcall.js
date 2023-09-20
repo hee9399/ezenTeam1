@@ -1,5 +1,5 @@
 
-let 클라이언트소켓 = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
+let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 // 사용자가 콜 버튼으로 라이더에게 메시지 전송.
 
@@ -16,11 +16,38 @@ navigator.geolocation.getCurrentPosition( e => {
 	 
 });
 
-클라이언트소켓.onmessage = (e)=>{
-	let data =  JSON.parse(e.data); console.log( data );
-	현재위도 = data.현재위도
-	현재경도 = data.현재경도
-	
-}
+	gpsClientSocket.onmessage = (e)=>{
+		let data =  JSON.parse(e.data); console.log( data );
+		현재위도 = data.현재위도
+		현재경도 = data.현재경도
+		
+	}
 
 }
+
+
+
+
+let 현재위도 = 0;
+let 현재경도 = 0;
+navigator.geolocation.getCurrentPosition( e => {
+	 현재위도 = e.coords.latitude;
+	 현재경도 = e.coords.longitude;
+} );
+
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
+
+document.querySelector('.call').addEventListener('click' , (e)=>{
+	let callInfo = {
+		출발위도 : 현재위도 , 출발경도 : 현재경도 , mno : 1 , 도착위도 : 현재위도 , 도착경도 : 현재경도 , 요청내용 : '잘부탁드립니다.'
+	}
+	callClientSocket.send( JSON.stringify(callInfo) );
+})
+
+
+
+
+
+
+
+

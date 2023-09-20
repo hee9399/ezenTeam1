@@ -12,6 +12,12 @@
      <!-- content구간 -->
      <div class="contentBox">
         
+        <div id="map" style="width:100%;height:350px;"></div>
+        
+        
+        
+        
+      
       	<button type = "button" class = "call">콜</button>
   		<button type = "button" class = "back">뒤로가기</button>
  
