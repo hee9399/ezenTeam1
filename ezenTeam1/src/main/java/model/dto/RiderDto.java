@@ -17,13 +17,15 @@ public class RiderDto {// 기사 Dto
 	private String rstatus;			// 승인상태
 	private String rcomment;	// 승인거부시 사유
 	private String rbikenum;		// 라이더 차량번호 
+	private String rstart;    	 // 라이더출근상태  
+	private String rcall;   		// 라이더콜가능상태
 	
 	// 생성자
 	public RiderDto() {}
 	// 풀 
 	public RiderDto(int rno, String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
-			String rbikenum) {
+			String rbikenum, String rstart, String rcall) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
@@ -39,9 +41,26 @@ public class RiderDto {// 기사 Dto
 		this.rstatus = rstatus;
 		this.rcomment = rcomment;
 		this.rbikenum = rbikenum;
+		this.rstart = rstart;
+		this.rcall = rcall;
 	}
 	// 라이더 로그인 객체 만들때 필요한 생성자 
-	
+	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rregistration,
+			String raccount, String rbank, String rstatus, String rbikenum, String rstart, String rcall) {
+		super();
+		this.rno = rno;
+		this.rname = rname;
+		this.rid = rid;
+		this.rphone = rphone;
+		this.rphoto = rphoto;
+		this.rregistration = rregistration;
+		this.raccount = raccount;
+		this.rbank = rbank;
+		this.rstatus = rstatus;
+		this.rbikenum = rbikenum;
+		this.rstart = rstart;
+		this.rcall = rcall;
+	}
 	// 등록/회원가입 할때 필요한 생성자 
 	public RiderDto(String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String raccount, String rbank, String rbikenum) {
@@ -57,6 +76,7 @@ public class RiderDto {// 기사 Dto
 		this.rbank = rbank;
 		this.rbikenum = rbikenum;
 	}
+	
 	// 라이더 간단한 정보 출력할때 생성자
 	public RiderDto(int rno, String rid, String rdate) {
 		super();
@@ -88,7 +108,6 @@ public class RiderDto {// 기사 Dto
 	public int getRno() {
 		return rno;
 	}
-	
 	public void setRno(int rno) {
 		this.rno = rno;
 	}
@@ -170,13 +189,26 @@ public class RiderDto {// 기사 Dto
 	public void setRbikenum(String rbikenum) {
 		this.rbikenum = rbikenum;
 	}
+	public String getRstart() {
+		return rstart;
+	}
+	public void setRstart(String rstart) {
+		this.rstart = rstart;
+	}
+	public String getRcall() {
+		return rcall;
+	}
+	public void setRcall(String rcall) {
+		this.rcall = rcall;
+	}
 	@Override
 	public String toString() {
 		return "RiderDto [rno=" + rno + ", rname=" + rname + ", rid=" + rid + ", rpwd=" + rpwd + ", rphone=" + rphone
 				+ ", rphoto=" + rphoto + ", rlicense=" + rlicense + ", rregistration=" + rregistration + ", rdate="
 				+ rdate + ", raccount=" + raccount + ", rbank=" + rbank + ", rstatus=" + rstatus + ", rcomment="
-				+ rcomment + ", rbikenum=" + rbikenum + "]";
+				+ rcomment + ", rbikenum=" + rbikenum + ", rstart=" + rstart + ", rcall=" + rcall + "]";
 	}
+
 	
 	
 	

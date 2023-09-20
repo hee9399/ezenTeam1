@@ -19,7 +19,7 @@ public class RiderFindController extends HttpServlet {
     
     public RiderFindController() {}
 
-	
+	// 로그인 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	// 1. js매개변수 요청 
@@ -34,13 +34,35 @@ public class RiderFindController extends HttpServlet {
     	if(result == true) {
     		
     		// 1. 세션에 저장할 데이터를 만든다.
-    		// RiderDto loginDto = RiderDao.getInstance()
+    		RiderDto loginDto = RiderDao.getInstance().info(rid); System.out.println("세션에 저장할데이터: "+loginDto);
     		
-    	}
+    		// 2. 세션에 저장한다. 
+    		request.getSession().setAttribute("loginDto", loginDto);
+    		
+    		// 세션 상태 확인 
+    		 	// 강제 타입변환 
+    		RiderDto dto = (RiderDto)request.getSession().getAttribute("loginDto");  
+    		System.out.println("세션 상태: "+dto);
+    		
+    	}// if  e
     	
+    	// 4. 결과를 응답한다.
+    	response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
+		
 	}
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 1. 요청 
+		String type = request.getParameter("type");
+		String data = request.getParameter("data");
+		
+		// 3. DAO 요청 결과 
+		boolean result = RiderDao.getInstance().findId(type, data);
+		// 4. 결과 응답한다.
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
 		
 	}
 

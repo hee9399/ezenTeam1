@@ -15,7 +15,12 @@ function rlogin(){
 		      success : r => {
 				  console.log(r);
 				  
-				  
+				  if(r){ location.href="/ezenTeam1/gorider/rider/rmain.jsp"; }
+				  else{
+					  
+					  document.querySelector('.rlogincheckbox').innerHTML = '동일한 회원정보가 없습니다';
+					  
+				  }
 			  } ,       
 		      error : e => {} ,         
 		   });

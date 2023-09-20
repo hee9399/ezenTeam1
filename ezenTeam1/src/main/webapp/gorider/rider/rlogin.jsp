@@ -21,6 +21,7 @@
             <input class="rid" type="text" placeholder="아이디를 입력하세요">
             <input class="rpwd" type="text" placeholder="비밀번호를 입력하세요">
             <button onclick="rlogin()" class="btn btypeW100H50" type="button">로그인</button>
+            <div class="rlogincheckbox"></div>
         </div>
         <div class="loption disFlexEnd">
             <div hidden><input type="radio" class="lsave"> 로그인정보 저장</div>

@@ -5,7 +5,7 @@ use gorider;
 # ---------------------------------------------------  정의어 ------------------------------------------------------------------------------
 drop table if exists member;
 create table member(
-    mno int auto_increment ,     		 # 회원번호              	
+    mno int auto_increment ,     		# 회원번호              	
     mname varchar(20) not null ,		# 회원이름              		
     mid varchar(20) not null,  			# 회원아이디		
     mpwd varchar(20) not null,			# 회원비밀번호 
@@ -36,10 +36,10 @@ alter table rider add rbikenum varchar(20);
 
 # 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
 drop table if exists riderstate;
-create table riderstate(
+create table riderstate( 
 	 rno int ,     			# 라이더번호  
-     rstart varchar(2) ,    # 라이더출근상태  
-     rcall varchar(2) ,  	# 라이더콜가능상태
+     rstart varchar(5) ,    # 라이더출근상태  
+     rcall varchar(5) ,  	# 라이더콜가능상태
      foreign key(rno) references rider(rno) on delete cascade on update cascade
 );
 
@@ -76,6 +76,8 @@ select * from member;
 select * from rider;
 select * from service;
 select * from deposit;
+
+select * from rider where rid = 'hee9399';
 
 # -------------------------------------------------------- 조작어 ------------------------------------------------------------------------------------- 
 
@@ -124,12 +126,15 @@ select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider
 -- select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider where rid = ?
 
 # 라이더 계정 삭제 
-delete from rider where rno = and rpwd = 'As13511351';
+delete from rider where rno = 13 and rpwd = 'As13511351';
 # delete from rider where rno = ? and rpwd = ? 
 
 
+# 라이더 상태 샘플 
+insert into riderstate( rstart , rcall ) values( '출근' , '콜가능' );
+insert into riderstate( rstart , rcall ) values( '퇴근' , '불가능' );
 
-
+select rno from rider natural join riderstate where rid = 'hee9399';
 
 
 
