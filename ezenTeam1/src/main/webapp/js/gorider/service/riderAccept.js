@@ -10,7 +10,7 @@ navigator.geolocation.getCurrentPosition( e => {
 function accept() {
 	
 	
-	let 클라이언트소켓 = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+	let 클라이언트소켓 = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 	
 	let contentBox = document.querySelector('.contentBox');
 	
