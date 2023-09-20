@@ -22,7 +22,7 @@ public class MemberDto { // 회원 Dto
 
 
 
-	// 등록할때
+	//수정할때
 	public MemberDto(String mname, String mid, String mpwd, String memail, String mpayinfo, String mphoto) {
 		super();
 		this.mname = mname;

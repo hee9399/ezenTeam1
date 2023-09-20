@@ -3,6 +3,8 @@ function onMove(type){
 	
 	if(type =='S') {location.href='/ezenTeam1/gorider/member/mSignup.jsp'}
 	if(type =='L') {location.href='/ezenTeam1/gorider/member/mlogin.jsp'}
+	if(type =='M') {location.href='/ezenTeam1/gorider/member//mindex.jsp'}
+	if(type =='MY') {location.href='/ezenTeam1/gorider/member//mMyPage.jsp'}
 }
 
 
@@ -33,14 +35,12 @@ function getMemberInfo(){
 				let mphoto = r.mphoto == null? 'default.png': r.mphoto;
 				html += ` <div class="minfo">
 							<span class="mname">${r.mname}님</span>
-							<span class="sayhello">반갑습니다. <br> <span onclick="logout()"> 로그아웃</span></span> 
-						    <img src="/ezenTeam1/gorider/member/file/${mphoto}"/>
+							<span class="sayhello">반갑습니다. <br> <span class="logout" onclick="logout()"> 로그아웃</span></span> 
+						    <img onclick="onMove('MY')" src="/ezenTeam1/gorider/member/file/${mphoto}"/>
 						   </div>`
 				console.log("loginState :: "+loginState);
 				console.log("loginMid :: "+loginMid);
 				console.log("loginMname :: "+r.mname);
-				
-				
 			}
 			btnBox.innerHTML = html;
 			
