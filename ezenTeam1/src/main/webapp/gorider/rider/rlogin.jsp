@@ -39,7 +39,6 @@
             <input class="rname" type="text" placeholder="이름을 입력하세요">
             <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
             <button onclick="onFind('findId')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>
-           
         </div>
         
         <div class="logo"> 비밀번호찾기 </div>
