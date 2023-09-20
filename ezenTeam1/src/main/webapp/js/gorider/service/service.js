@@ -1,5 +1,5 @@
 
-let 클라이언트소켓 = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+let 클라이언트소켓 = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 let 현재위도 = 37.320682
 let 현재경도 = 126.832668

@@ -11,17 +11,22 @@
      <%@include file="../member/header.jsp" %>
      <!-- content구간 -->
      <div class="contentBox">
-        <h5>라이더 마크 표시하기</h5>
-        <div id="map" style="width:100%;height:350px;"></div>
-       
-     
+        <h5>도착지 설정</h5>
+        <div id="map" style="width:100%;height:350px;">
+        
+        
+        </div>
+
+		<h6>도착지 확인</h6>
+        <a href = "/ezenTeam1/gorider/service/mcall.jsp"><button type = "button" class = "yes">네</button></a>
+        <a href = "/ezenTeam1/gorider/member/mindex.jsp"><button type = "button" class = "no">아니요</button></a>    
+ 
        
        
      </div>
      
      
-    <%-- <%@include file="../member/footer.jsp" %>
-     --%>
+   <%@include file="../member/footer.jsp"%>
 
 </div>
 <!--  -->
@@ -29,7 +34,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59b47c7057625f350189b1cb8369a874"></script>
 
  <!-- js -->
-   <script src="/ezenTeam1/js/gorider/service/service.js" type="text/javascript"></script>
+   <script src="/ezenTeam1/js/gorider/service/mdestination.js" type="text/javascript"></script>
    
 </body>
 </html>
