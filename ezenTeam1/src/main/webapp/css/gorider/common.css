@@ -60,7 +60,7 @@ h5{ padding:30px; text-align: center;}
 }
 
 .headerwrap .hbtnbox{
-	
+
 	display:flex;
 }
 .headerwrap .hbtnbox img {
@@ -126,8 +126,9 @@ BUTTON{ border: none;}
 .r2{padding:8px 12px 0px;}
 .btypeW50H50 {width:50%; height:50px;}
 .btypeW100H50{width:100%; height:70px; font-size:1.2rem;}
-.btn:hover{ color:var(--main03);}
 
+/* .btn:hover{ color:var(--main03);} */
+.btn:hover{ color:#FFFA00;}
 
 .col10 {width: 10%;}
 .col15 {width: 15%;}

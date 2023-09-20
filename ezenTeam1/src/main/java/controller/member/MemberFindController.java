@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.dao.MemberDao;
 import model.dto.MemberDto;
 
@@ -41,8 +43,34 @@ public class MemberFindController extends HttpServlet {
 
  	}
 
- 	// 아이디/이메일 중복검사
+ 	// 아이디/비밀번호/서비스이용내역/내정보
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
+		String json = null;
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		if(type.equals("findId")) {
+			String mname = request.getParameter("mname");
+			String memail = request.getParameter("memail");
+
+			MemberDto mDto = MemberDao.getInstance().onFind(type,memail,mname);
+			json = objectMapper.writeValueAsString(mDto);
+
+		} else if(type.equals("findPwd")) {
+			String mid = request.getParameter("mid");
+			String memail = request.getParameter("memail");
+
+			MemberDto mDto = MemberDao.getInstance().onFind(type,memail,mid);
+			json = objectMapper.writeValueAsString(mDto);
+		} else if(type.equals("findHistory")) {
+
+		} else if(type.equals("findMyinfo")) {
+
+		}
+
+		response.setContentType(("application/json;charset=UTF-8"));
+    	response.getWriter().print(json);
+
 
 	}
 

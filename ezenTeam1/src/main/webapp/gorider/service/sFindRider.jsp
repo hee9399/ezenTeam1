@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="wrap">
-     <%@include file="../header.jsp" %>
+     <%@include file="../member/header.jsp" %>
      <!-- content구간 -->
      <div class="contentBox">
         <h5>라이더 마크 표시하기</h5>
@@ -17,9 +17,9 @@
      </div>
      
      
-    <%@include file="../footer.jsp" %>
-    
-    <!-- 59b47c7057625f350189b1cb8369a874 -->
+    <%-- <%@include file="../member/footer.jsp" %>
+     --%>
+
 </div>
 <!--  -->
 <!-- 카카오지도 -->
@@ -27,5 +27,6 @@
 
  <!-- js -->
    <script src="/ezenTeam1/js/gorider/service/service.js" type="text/javascript"></script>
+   
 </body>
 </html>
