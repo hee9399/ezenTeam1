@@ -58,5 +58,34 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return null;
 	}
-	
+	// 3. 승인 거부 함수
+	public boolean ApprovalReject(int rno, String rcomment) {
+		RiderDto dto = new RiderDto();
+		try {
+			 String sql = "UPDATE rider SET rstatus = '0', rcomment = ? WHERE rno = ?";
+			  ps = conn.prepareStatement(sql);
+		        ps.setString(1, rcomment);
+		        ps.setInt(2, rno);
+		        int count = ps.executeUpdate();
+
+		        // 업데이트가 성공하면 rowCount는 1이상의 값을 가집니다.
+		        if (count > 0) {
+		            return true; // 승인 거부 성공
+		        }
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	public boolean approval(int rno) {
+		try {
+			String sql="UPDATE rider SET rstatus = '1' WHERE rno = ? ";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, rno);
+			int count = ps.executeUpdate();
+			
+			if(count >0) {
+				return true;
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 }

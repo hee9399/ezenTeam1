@@ -61,10 +61,25 @@ public class AdminController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String type = request.getParameter("type");
+		int rno = Integer.parseInt(request.getParameter("rno"));
+		String rcomment = request.getParameter("rcomment");
+		if(type.equals("1")) {
+			 boolean result = AdminDao.getInstance().ApprovalReject(rno, rcomment);
+			 response.setContentType("application/json;charset=UTF-8");
+			 response.getWriter().print(result);
+			
+			
+		}else if(type.equals("2")) {
+			
+			boolean result = AdminDao.getInstance().approval(rno);
+			 response.setContentType("application/json;charset=UTF-8");
+			 response.getWriter().print(result);
+			
+		}
 	}
 
-	
+	// 3.  라이더 승인 요청 수락/거부
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
