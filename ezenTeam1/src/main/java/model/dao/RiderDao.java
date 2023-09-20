@@ -128,6 +128,18 @@ public class RiderDao extends Dao{ // 라이더
 		return false;
 	}
 	
+	// 7. 아이디 , 비밀번호 찾기 
+	public RiderDto onFind() {
+		
+		try {
+			
+			
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return null;
+	}
+	
 	
 }// class e
 

@@ -16,19 +16,38 @@
 <div  class="wrap">
 
 	<div class="loginWrap">
+	
         <div class="logo">GORIDER</div>
+        
         <div class="loginBox">
             <input class="rid" type="text" placeholder="아이디를 입력하세요">
             <input class="rpwd" type="text" placeholder="비밀번호를 입력하세요">
             <button onclick="rlogin()" class="btn btypeW100H50" type="button">로그인</button>
             <div class="rlogincheckbox"></div>
         </div>
+        
         <div class="loption disFlexEnd">
             <div hidden><input type="radio" class="lsave"> 로그인정보 저장</div>
             <div class="findBox disFlexEnd">
-	            <div>아이디 찾기</div>
-	            <div>비밀번호 찾기</div>
+	            <div onclick="findid('id')">아이디 찾기</div>
+	            <div onclick="findpw('pwd')">비밀번호 찾기</div>
 	        </div>
+        </div>
+        
+        <div class="logo"> 아이디찾기 </div>
+        <div class="idFindBox">
+            <input class="rname" type="text" placeholder="이름을 입력하세요">
+            <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
+            <button onclick="onFind('findId')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>
+           
+        </div>
+        
+        <div class="logo"> 비밀번호찾기 </div>
+        <div class="pwdFindBox">
+            <input class="rname" type="text" placeholder="이름을 입력하세요">
+            <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
+            <button onclick="onFind('findPwd')" class="btn btypeW100H50" type="button"> 비밀번호찾기 </button>
+           
         </div>
 
 	</div>

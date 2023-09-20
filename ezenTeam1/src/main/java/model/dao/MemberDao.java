@@ -156,7 +156,8 @@ public class MemberDao extends Dao{
 		return null;
 	}
 
-	// 8 내 정보가져오기
+	// 8  내 정보가져오기
 
-	// 9.  결제정보 변경하기
+	// 9. 결제정보 변경하기
+	
 }// class e

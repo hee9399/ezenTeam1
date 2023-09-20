@@ -70,7 +70,7 @@ function findInfo(type){
 function onFind(type){
 	if(type == 'findId'){
 		let mname = document.querySelector('.name')
-		let memail = document.querySelector('.email')
+		let memail =  document.querySelector('.email')
 		$.ajax({
 			url:"/ezenTeam1/MemberFindController",
 			method:"get",
