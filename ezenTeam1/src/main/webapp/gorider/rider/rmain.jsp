@@ -20,6 +20,8 @@
             <div class="rbtn">나의 메뉴</div>
 
         </div>
+        <div class="hbutton">상단고정버튼</div>
+        <div class="requestwrap"></div>
 <%-- 	 <%@include file="rfooter.jsp" %> --%>
     </div>
 </body>
