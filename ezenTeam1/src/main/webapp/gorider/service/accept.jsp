@@ -14,7 +14,12 @@
 	<%@include file="../member/header.jsp" %>
 
 	<div class="contentBox">
-
+		<div class = "callcontent">
+		
+		</div>
+		<div class = "accept">
+		
+		</div>
 	</div>
 
 	<div class = "choicebox">
