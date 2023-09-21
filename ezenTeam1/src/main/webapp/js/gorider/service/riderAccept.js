@@ -101,7 +101,9 @@ kakao.maps.event.addListener(arriveMarker, 'dragend', function() {
 function accept() {
 	
 	
+
 	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
+
 	
 	let contentBox = document.querySelector('.accept');
 	

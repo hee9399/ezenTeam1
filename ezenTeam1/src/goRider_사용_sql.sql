@@ -36,7 +36,7 @@ alter table rider add rbikenum varchar(20);
 
 # 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
 drop table if exists riderstate;
-create table riderstate(
+create table riderstate( 
 	 rno int ,     			# 라이더번호  
      rstart varchar(2) ,    # 라이더출근상태  
      rcall varchar(2) ,  	# 라이더콜가능상태
@@ -76,6 +76,8 @@ select * from member;
 select * from rider;
 select * from service;
 select * from deposit;
+
+select * from rider where rid = 'hee9399';
 
 # -------------------------------------------------------- 조작어 ------------------------------------------------------------------------------------- 
 
@@ -124,12 +126,15 @@ select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider
 -- select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider where rid = ?
 
 # 라이더 계정 삭제 
-delete from rider where rno = and rpwd = 'As13511351';
+delete from rider where rno = 13 and rpwd = 'As13511351';
 # delete from rider where rno = ? and rpwd = ? 
 
 
+# 라이더 상태 샘플 
+insert into riderstate( rno ,  rstart , rcall ) values( 9 , 'y' , 'y' );
+insert into riderstate( rno , rstart , rcall ) values( 12 , 'n' , 'n' );
 
-
+select rno from rider natural join riderstate where rid = 'hee9399';
 
 
 

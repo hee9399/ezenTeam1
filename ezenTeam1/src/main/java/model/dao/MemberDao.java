@@ -122,5 +122,42 @@ public class MemberDao extends Dao{
 		}
 		return null;
 	}
+	// 7. 아이디 or 비밀번호 찾기
+	public MemberDto onFind (String type, String req1, String req2) {
 
+		try {
+			String sql = " select * from member where memail = ? ";
+
+			if (type.equals("findId")) { //아이디찾기
+				sql += "and mname = ?";
+			} else if(type.equals("findPwd")) { //비밀번호찾기
+				sql += "and mid = ? " ;
+			}
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, req1);
+			ps.setString(2, req2);
+			
+			System.out.println(" MemberDao :: onFind :: "+ ps);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				//public MemberDto(String mname, String mid, String mpwd, String memail, String mpayinfo)
+				MemberDto memberDto = new MemberDto( 
+						  rs.getString("mname")
+						, rs.getString("mid")
+						, rs.getString("mpwd")
+						, rs.getString("memail")
+						, rs.getString("mpayinfo"));
+				
+				return memberDto;
+			}
+		} catch (Exception e) {
+			System.out.println("Exception :: " + e);
+		}
+		return null;
+	}
+
+	// 8  내 정보가져오기
+
+	// 9. 결제정보 변경하기
+	
 }// class e

@@ -2,7 +2,6 @@ package model.dao;
 
 
 
-import java.time.LocalDateTime;
 
 import model.dto.RiderDto;
 
@@ -45,19 +44,24 @@ public class RiderDao extends Dao{ // 라이더
 			String sql = "select * from rider where rid = ? and rpwd = ? ";
 			// 실행한다. 
 			ps = conn.prepareStatement(sql);
+			
 			ps.setString(1, rid); ps.setString(2, rpwd);
-		
+			rs = ps.executeQuery();
+			if(rs.next() )return true;
+		System.out.println("Riderlogin: "+ps);
+			
 		} catch (Exception e) {System.out.println(e);}
 		
 		return false;
 	}
 	
-	// 3. 내정보 출력 
+	// 3. 내정보(라이더) 출력 
 	public RiderDto info( String rid ) {
 		
 		try {
 			
-			String sql = "select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider where rid = ? ";
+			String sql = "select rno , rname , rid , rphone , rphoto , rlicense , rregistration , "
+					+ "raccount , rbank , rstatus , rbikenum , rstart , rcall from rider natural join riderstate where rid = ? ";
 			ps = conn.prepareStatement(sql);
 			// 입력받을것 
 			ps.setString(1, rid);
@@ -65,9 +69,15 @@ public class RiderDao extends Dao{ // 라이더
 			// 하나의 정보만 출력할꺼기 때문에 if 사용 
 			if(rs.next() ) {
 				
-				
-				
+				RiderDto riderDto = new RiderDto(	
+				rs.getInt(1) , rs.getString(2) , rs.getString(3) ,
+				rs.getString(4) , rs.getString(5) , rs.getString(6) ,
+				rs.getString(7) , rs.getString(8) , rs.getString(9) ,
+				rs.getString(10) , rs.getString(11) , rs.getString(12) , 
+				rs.getString(13) );
+				return riderDto;
 			}
+			System.out.println("info: "+ps);
 			
 		} catch (Exception e) {System.out.println(e);}
 		
@@ -101,4 +111,53 @@ public class RiderDao extends Dao{ // 라이더
 		return false; // 회원번호 또는 입력받은 패스워드 일치하지 않거나 
 	}
 	
+	// 6. 아이디 중복검사 [ 인수 : 검사할아이디 , 반환 : true(중복없이) , false(중복없이) ]
+	public boolean findId( String type , String data ) {
+		
+		try {
+			// "+type+" 함수를하나더 만들필요없이 type 을 넣어줘서 아이디 선택하에 중복검사를한다
+			String sql = "select * from rider where "+type+" = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, data); System.out.println("findId: "+ps);
+			rs = ps.executeQuery();
+			// 아이디 하나만확인하기 때문에 if 사용 
+			if( rs.next() )return true;
+			
+		} catch (Exception e) {System.out.println("findId: "+e);}
+		
+		return false;
+	}
+	
+	// 7. 아이디 , 비밀번호 찾기 
+	public RiderDto onFind() {
+		
+		try {
+			
+			
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return null;
+	}
+	
+	
 }// class e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

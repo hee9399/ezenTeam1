@@ -4,7 +4,7 @@ function ApprovalPrint() {
     $.ajax({
         url: "/ezenTeam1/AdminController",
         method: "get",
-        data: {type : 1},
+        data: {type : 1} ,
         success : r =>{    console.log(r);
             let listbox = document.querySelector('.listbox');
             let html = `
