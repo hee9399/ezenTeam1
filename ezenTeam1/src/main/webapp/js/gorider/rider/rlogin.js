@@ -116,7 +116,7 @@ function onFind(type){
 			      error : e => {console.log('실패'+e)} ,         
 			   });
 					
-	}else if( type == 'findPwd' ){ // type매개변수에 비밀번호 찾기버튼이 들어오면
+	}else if( type == 'findPwd' ){ // type매개변수에 비밀번호 찾기버튼이 들어오면 
 		// 1. 아이디 찾기 
 		let rname = document.querySelector('.rname');	
 			console.log('rname가져옴'+rname);
