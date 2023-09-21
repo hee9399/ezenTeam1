@@ -108,8 +108,9 @@ callClientSocket.onmessage = (e)=>{
     // 콜 도착 후에 지도를 생성하고 해당 div에 추가
     let mapContainer = document.getElementById('map');
     let mapOption = {
-        center: new kakao.maps.LatLng(jsonData.출발위도, jsonData.출발경도),
-        level: 3 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도),
+        level: 7 // 지도의 확대 레벨
+        
     };
     let map = new kakao.maps.Map(mapContainer, mapOption);
     
@@ -137,7 +138,7 @@ var startDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red
 var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
 
 // 출발 마커가 표시될 위치입니다 
-var startPosition = new kakao.maps.LatLng(jsonData.출발위도, jsonData.출발경도); 
+var startPosition = new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도); 
 
 // 출발 마커를 생성합니다
 var startMarker = new kakao.maps.Marker({
