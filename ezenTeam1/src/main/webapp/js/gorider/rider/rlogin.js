@@ -47,12 +47,12 @@ function findInfo(type){
 	if(type == 'id'){ // type에 'id'가 들어오면 
 	
 		// <div class="logo"> 아이디찾기 </div> 가져오기 
-		document.querySelector('logo').innerHTML = '아이디 찾기'; 
+		document.querySelector('.logo').innerHTML = '아이디 찾기'; 
 		
 		// html 입력 , 버튼 출력 
 		html += `<input class="rname" type="text" placeholder="이름을 입력하세요">
             <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
-            <button onclick="onFind('findId')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>`;
+            <button onclick="onFind('findid')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>`;
 			loginBox.innerHTML = html;
 		
 		// html 페이지전환 클릭 출력  
@@ -65,7 +65,7 @@ function findInfo(type){
 	}else if(type == 'pwd'){ // type에 'pwd'가 들어오면 
 		
 		//  <div class="logo"> 비밀번호찾기 </div> 로고 가져와서 출력 
-		document.querySelector('logo').innerHTML = '비밀번호 찾기'; 
+		document.querySelector('.logo').innerHTML = '비밀번호 찾기'; 
 		
 		// html 입력 , 버튼 출력 
 		html += `<input class="rname" type="text" placeholder="이름을 입력하세요">
@@ -75,7 +75,7 @@ function findInfo(type){
 		
 		// html 페이지전환 클릭 출력 
 		html2 += `<div onclick="findid('id')">아이디찾기</div>
-	            <div onclick="findpw('pwd')">비밀번호 찾기</div>`;	
+	            <div onclick="findPwd('pwd')">비밀번호 찾기</div>`;	
 	    	findBox.innerHTML = html2;
 	}else if( type == 'login' ){
 		location.href = '/ezenTeam1/gorider/rider/rlogin.jsp';
@@ -87,24 +87,62 @@ function findInfo(type){
 // 2. 아이디 , 비밀번호 찾기
 function onFind(type){
 	 
-	if(type == 'findId'){ // type에 아이디찾기 가 들어오면 
+	if(type == 'findid'){ // type에 아이디찾기 가 들어오면 
 		
 		// 1. 아이디 찾기 
 		let rname = document.querySelector('.rname');	
 			console.log('rname가져옴'+rname);
 		let rphone = document.querySelector('.rphone');
-			console.log('rphone가져옴'+rphone);
+			console.log('rphone가져옴'+rphone.value);
 	
 			   $.ajax({
 			      url : "/ezenTeam1/RiderFindController",      
-			      data : {type:type , rname:rname.value , rphone:rphone.value },      
+			      data : { type:"findid" , rname:rname.value , rphone:rphone.value },      
 			      method : "get",   
-			      success : r => { console.log(r) 
-			      	alert('')
-			      } ,       
-			      error : e => {} ,         
+			      success : r => { 
+					  console.log('r성공'+r) 
+			      
+			      if(r){ // r함수에 아이디찾기가 성공하면
+			      	alert('아이디는 '+ r.rid + '입니다.');
+			      	location.href = '/ezenTeam1/gorider/rider/rider.jsp';
+			       }else{ // r함수에 아이디찾기가 실패하면 
+					   alert('회원정보가 일치하지 않습니다.');
+					   // 초기화 해주기
+					   rname.value = '';
+					   rphone.value = '';
+					   
+				   }
+			     } ,       
+			      error : e => {console.log('실패'+e)} ,         
 			   });
 					
+	}else if( type == 'findPwd' ){ // type매개변수에 비밀번호 찾기버튼이 들어오면
+		// 1. 아이디 찾기 
+		let rname = document.querySelector('.rname');	
+			console.log('rname가져옴'+rname);
+			
+		let rid = document.querySelector('.rid');
+			console.log('rid가져옴'+rid);
+		
+		$.ajax({
+			
+			      url : "/ezenTeam1/RiderFindController",      
+			      data : { type:"findPwd" , rname:rname.value , rid:rid.value },      
+			      method : "get" ,   
+			      success : r => { console.log(r);
+			      
+			      	alert('비밀번호는'+ r.rpwd + '입니다.');
+			      	
+			      	// 초기화 해주기
+					rname.value = '';
+					rphone.value = '';
+					
+			      } ,       
+			      
+			      error : e => {} ,        
+			       
+			   });
+		
 	}
 	
 }//f e

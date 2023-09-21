@@ -79,14 +79,14 @@ function idcheck(){
 		// -- 입력한 아이디가 패턴과 일치하면 중복검사 
 			   $.ajax({
      			 url : "/ezenTeam1/RiderFindController",      
-      			 data : { type : "rid" , data : rid },      
+      			 data : { type : "ridcheck" , data : rid },      
       			 method : "get",   
       			 success : r => {
 			 	 console.log(r);
 				 // true - 사용가능한
-				 if(r == true){idcheckbox.innerHTML = '사용불가능한 아이디입니다'; 
+				 if(r == true){ idcheckbox.innerHTML = '사용불가능한 아이디입니다'; 
 				 	checkList[0] = false; }
-				 else{idcheckbox.innerHTML = '사용가능한 아이디 입니다.'; 
+				 else{ idcheckbox.innerHTML = '사용가능한 아이디 입니다.'; 
 					 checkList[0] = true;}
 				   } ,       
       			 error : e => {} ,         

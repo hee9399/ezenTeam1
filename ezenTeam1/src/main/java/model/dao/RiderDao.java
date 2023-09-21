@@ -41,7 +41,9 @@ public class RiderDao extends Dao{ // 라이더
 	public boolean Riderlogin( String rid , String rpwd ) {
 		
 		try {
+			
 			String sql = "select * from rider where rid = ? and rpwd = ? ";
+			
 			// 실행한다. 
 			ps = conn.prepareStatement(sql);
 			
@@ -129,10 +131,40 @@ public class RiderDao extends Dao{ // 라이더
 	}
 	
 	// 7. 아이디 , 비밀번호 찾기 
-	public RiderDto onFind() {
+	public RiderDto onFind( String type , String idfind , String pwdfind ) {
 		
 		try {
 			
+			// sql 정의
+			// 아이디 비번찾기에서 공통으로 이름을 입력한다.
+				// 가입된 라이더의 이름 알려줘 
+			String sql = "select * from rider where rname = ? ";
+			
+			if( type.equals("findid") ) { //아이디 찾기 
+				sql += "and rphone = ? "; 
+			}else if( type.equals("findPwd") ) { // 비밀번호 찾기 
+				sql += "and rid = ? ";	
+			}
+			ps = conn.prepareStatement(sql);
+			ps.setString( 1 , idfind );
+			ps.setString( 2 , pwdfind );
+			
+			System.out.println("onFind: "+ps);
+			// 실행 
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				
+				RiderDto dto = new RiderDto(
+						
+					rs.getString("rname") , rs.getString("rid") ,
+					rs.getString("rpwd") , rs.getString("rphone") ,
+					rs.getString("rphoto") , rs.getString("rlicense") ,
+					rs.getString("rregistration") , rs.getString("raccount") ,
+					rs.getString("rbank") , rs.getString("rbikenum") 
+						
+				);
+				return dto;
+			}
 			
 			
 		} catch (Exception e) {System.out.println(e);}

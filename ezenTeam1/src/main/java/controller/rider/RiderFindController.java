@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.dao.RiderDao;
 import model.dto.RiderDto;
 
@@ -54,17 +56,71 @@ public class RiderFindController extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 1. 요청 
 		String type = request.getParameter("type");
+		String json = null;
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		if( type.equals("ridcheck") ) {
+		// 1. 요청 
+		String type1 = request.getParameter("type");
 		String data = request.getParameter("data");
 		
 		// 3. DAO 요청 결과 
 		boolean result = RiderDao.getInstance().findId(type, data);
+		
 		// 4. 결과 응답한다.
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
 		
+		
+		}else if( type.equals("findid") ) {
+			
+			String rname = request.getParameter("rname"); 
+				System.out.println("rname: "+rname);
+				
+			String rphone = request.getParameter("rphone");
+				System.out.println("rphone: "+rphone);
+			
+		 // dao 
+		 RiderDto riderDto = RiderDao.getInstance().onFind(type, rname, rphone);
+		 
+		 json = objectMapper.writeValueAsString(riderDto);
+				
+		// 4. 결과 응답한다.
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(json);
+				
+		}else if( type.equals("findPwd") ) {
+			
+			String rname = request.getParameter("rname");
+				System.out.println("rname: "+rname);
+			
+			String rid = request.getParameter("rid");
+				System.out.println("rid: "+rid);
+			
+			// dao 전달 
+			RiderDto riderDto = RiderDao.getInstance().onFind(type, rname, rid); 
+			
+			json = objectMapper.writeValueAsString(riderDto); 
+			
+			// 4. 결과 응답한다.
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print(json);
+		}
+		
 	}
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,8 +29,8 @@
         <div class="loption disFlexEnd">
             <div hidden><input type="radio" class="lsave"> 로그인정보 저장</div>
             <div class="findBox disFlexEnd">
-	            <div onclick="findid('id')">아이디 찾기</div>
-	            <div onclick="findpw('pwd')">비밀번호 찾기</div>
+	            <div onclick="findInfo('id')">아이디 찾기</div>
+	            <div onclick="findInfo('pwd')">비밀번호 찾기</div>
 	        </div>
         </div>
         
