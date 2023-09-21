@@ -125,7 +125,7 @@ public class RiderDao extends Dao{ // 라이더
 			// 아이디 하나만확인하기 때문에 if 사용 
 			if( rs.next() )return true;
 			
-		} catch (Exception e) {System.out.println("findId: "+e);}
+		} catch (Exception e) {System.out.println("findId: "+e); }
 		
 		return false;
 	}
