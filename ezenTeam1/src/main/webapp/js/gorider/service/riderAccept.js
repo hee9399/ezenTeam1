@@ -90,7 +90,7 @@ callClientSocket.onmessage = (e)=>{
 		<h3> 콜 도착 </h3>
 	 	<div id="map" style="width:100%;height:350px;"></div><br/>
 	 	<div class = "mname">${jsonData.mno}</div><br/>
-	 	<div class = "start">${jsonData.출발위도},${jsonData.출발경도}</div><br/>
+	 	<div class = "start">${jsonData.현재위도},${jsonData.현재경도}</div><br/>
 	 	<div class = "end">${jsonData.도착위도},${jsonData.도착경도}</div><br/>
 	 	<div class = "call">${jsonData.요청내용}</div>
 		
@@ -113,6 +113,9 @@ callClientSocket.onmessage = (e)=>{
     };
     let map = new kakao.maps.Map(mapContainer, mapOption);
     
+	
+
+	
 
 
 	var startSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
@@ -197,7 +200,7 @@ kakao.maps.event.addListener(arriveMarker, 'dragend', function() {
     arriveMarker.setImage(arriveImage);  
 });
 	
-			
+
 	
 }
 

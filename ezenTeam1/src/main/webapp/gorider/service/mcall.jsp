@@ -14,6 +14,8 @@
         
         <div id="map" style="width:100%;height:350px;"></div>
         
+        <div id="clickLatlng"></div>
+        
       <div class = "addrInput">
         <input class = "장소"type = "text" placeholder = "장소검색">
  		<button type = "button" class = "call">콜</button>
