@@ -35,6 +35,10 @@ navigator.geolocation.getCurrentPosition( e => {
 	 현재경도 = e.coords.longitude;
 } );
 
+
+
+
+
 let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 
 document.querySelector('.call').addEventListener('click' , (e)=>{

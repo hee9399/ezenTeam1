@@ -14,13 +14,11 @@
         
         <div id="map" style="width:100%;height:350px;"></div>
         
-        
-        
-        
-      
-      	<button type = "button" class = "call">콜</button>
+      <div class = "addrInput">
+        <input class = "장소"type = "text" placeholder = "장소검색">
+ 		<button type = "button" class = "call">콜</button>
   		<button type = "button" class = "back">뒤로가기</button>
- 
+ 	</div>
 
        
      
