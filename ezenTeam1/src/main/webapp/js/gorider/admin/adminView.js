@@ -8,11 +8,15 @@ console.log(rno);
         success: r => { console.log(r);
          
         
-       
+       		 // 1. 해당 라이더에 면허증이미지 출력
 			 document.querySelector('.rimg1').src=`/ezenTeam1/gorider/rider/img/${r.rlicense}`;
+			 // 1. 해당 라이더에 프로필이미지 출력
 			 document.querySelector('.rimg2').src=`/ezenTeam1/gorider/rider/img/${r.rphoto}`;
+			 // 1. 해당 라이더에 차량등록증 출력
 			 document.querySelector('.rimg3').src=`/ezenTeam1/gorider/rider/img/${r.rregistration}`;
+			 // 1. 해당 라이더에 이름 출력
          	 document.querySelector('.rname').innerHTML=`이름 : ${r.rname}`;
+         	 // 1. 해당 라이더에 연락처 출력
          	 document.querySelector('.rphone').innerHTML=`연락처 : ${r.rphone}`;	
 
         
@@ -31,8 +35,7 @@ function ondeny(){
         data: { type: 1, rno: rno, rcomment : rejectionReason},
         success: r => { console.log(r);
         	
-				location.href="/ezenTeam1/gorider/admin/aRequestList.jsp"
-			
+				
         },
         error: e => {
             console.error(e);
@@ -54,7 +57,3 @@ function onapprove(){
 	});
 }
 
-function serer(){
-	$.ajax
-	
-}

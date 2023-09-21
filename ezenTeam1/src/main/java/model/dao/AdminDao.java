@@ -67,8 +67,8 @@ public class AdminDao extends Dao{
 		        ps.setString(1, rcomment);
 		        ps.setInt(2, rno);
 		        int count = ps.executeUpdate();
-
-		        // 업데이트가 성공하면 rowCount는 1이상의 값을 가집니다.
+ 
+		        // 업데이트가 성공하면 count는 1이상의 값을 가집니다.
 		        if (count > 0) {
 		            return true; // 승인 거부 성공
 		        }
@@ -83,8 +83,25 @@ public class AdminDao extends Dao{
 			int count = ps.executeUpdate();
 			
 			if(count >0) {
-				return true;
+				return onapprove(rno);
 			}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+		
+	public boolean onapprove(int rno) { 
+		try {
+			String sql = "insert into riderstate (rno, rstart, rcall) values (?, ?, ?)";
+	        ps = conn.prepareStatement(sql);
+	        ps.setInt(1, rno);
+	        ps.setString(2, "1"); // 예시로 '1' 값을 설정
+	        ps.setString(3, "1"); // 예시로 '1' 값을 설정
+
+	        int count = ps.executeUpdate();
+
+	        if (count > 0) {
+	            return true;
+	        }
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
