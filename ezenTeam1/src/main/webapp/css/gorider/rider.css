@@ -1,4 +1,4 @@
-@charset "UTF-8";.
+@charset "UTF-8";
 @font-face {
     font-family: 'LeferiPoint-BlackA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
@@ -80,15 +80,12 @@ BUTTON{
     align-items:center;
     font-size: 2rem;
     margin: auto 0;
+    cursor: pointer;
 
 
 }
-.btn100{
-	width:100%
-}
-.btn50{
-    width:50%
-}
+.btn100{ width:100% }
+.btn50{width:50%} 
 .bgm02{
     background-color:var(--main02);
     color:var(--white);
@@ -98,11 +95,11 @@ BUTTON{
 .rcontBox{
 	display:flex;
 	justify-content:center;
-	padding:20px;
+	padding:15px;
     width:100%;
     margin: 0 auto;
     font-family: 'LINESeedKR-Bd';
-    height:72vh;
+    height:70vh;
     color:#fff;
 }
 .rcont{width: 80%;}
@@ -119,14 +116,102 @@ BUTTON{
 }
 .numbox2{padding-top:10px;}
 .numbox2 span{ display: inline-block; letter-spacing : 0.3em;}
-..numbox2 .col60{ text-align: left;}
+.numbox2 .col60{ text-align: left;}
 .fs18m02{font-size: 1.8rem; color:var(--main02);}
 .fs15m02{font-size: 1.5rem; color:var(--main02);}
 .fs22m02{font-size: 2.2rem; color:var(--main02);}
 
 
-/*---------------- ( rindex ) ----------------*/
-/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rWorking ) ----------------*/
+.bcp{cursor: pointer;}
+.hbutton{
+	padding-top:10px;
+	
+	width:100%;
+	display: flex;
+	justify-content: space-between;
+}
+.hbutton div{
+	border-radius: 10px;
+	color:var(--white);
+	padding:15px 10px;
+	font-size: 1.2rem;
+}
+.hbutton div:nth-of-type(1){ background-color: var(--dgray); margin: 0 10px;}
+.hbutton div:nth-of-type(2){ 
+	background-color: var(--main02); 
+	margin: 0 10px;
+	color: var(--main04);
+}
+
+.hbutton i {
+	font-size: 1.2rem;
+	margin-right: 10px;
+	margin-bottom: 3px;
+}
+.rstate{
+	font-size:4rem;
+	color:#EBC12F
+}
+/*
+#4D421B / #90772B /#EBC12F
+*/
+.rstatebox{ 
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	align-content: flex-start;
+	flex-wrap:wrap;
+	height:100%;
+	padding-top:100px;
+	
+}
+.rstatebox div{ 
+	width:100%; 
+	height:auto;
+	text-align: center;
+}
+.rstate {margin-bottom: 30px;}
+/*---------------- ( rRequestCall ) ----------------*/
+.rRequestbox{
+	width:100%;
+	height:100%;
+	background-color: var(--dgray);
+	border-radius: 10px;
+	padding:50px 15px;
+	
+}
+.rRequestbox div{
+	text-align: center;
+}
+.rRequestbox i {
+	font-size:2rem;
+	color:var(--main02);
+}
+.rfrom{
+	font-size:2rem;
+	text-align: center;
+}
+.rto{
+	padding-top:30px;
+	font-size:2.2rem;
+	text-align: center;
+	color:#ffce1f;
+}
+.toname{
+	display: inline-block;
+width:100%;
+padding-top:20px ;
+}
+.cbtnBox{padding:0 15px ;}
+.cbtnBox div{border-radius: 10px;}
+ .cbtnBox .col40{
+ 	background-color: var(--dgray);
+ 	margin-right: 10px;
+ }
+  .cbtnBox .col60{
+ 	background-color:#ffce1f;
+ }
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/

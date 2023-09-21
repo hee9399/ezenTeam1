@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gorider</title>
-<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
-<link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
+
+<title>Insert title here</title>
+
+    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
+        <link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
 <!-- <style>*{border:solid 1px red;}</style> -->
 </head>
 <body>
@@ -17,25 +19,27 @@
             <div onclick="onMove('MyMenu')" class="bcp mymenu">나의 메뉴</div>
         </div>
 
-        <div class="hbutton" hidden>
+        <div class="hbutton">
 			<div onclick="onMove('MyMenu')" class="fbtn col50 bcp"><i class="fa-solid fa-ban"></i> 콜 멈추기</div>
 			<div onclick="onMove('MyMenu')"class="fbtn col50 bcp "><i class="fa-solid fa-list"></i> 콜 리스트</div>
 		</div>
 
         <div class="rcontBox ">
-            <div class="rRequestbox ">
+            <div class="rstatebox ">
 
-               <div class="rfrom"> 안산 본오동  <br/>상록수역 </div>
-               <div class="rarrow"><i class="fa-solid fa-sort-down"></i> </div>
-               <div class="rto"> 안산 이동 <br> <span class="toname">이젠아카데미 <br>컴퓨터학원 </span></div>
-               
+               <div class="rstate"> 콜 대기중 </div>
+               <div on="interval" class="dotBox"> 
+               		<i class="fa-solid fa-circle dot1"></i>
+               		<i class="fa-solid fa-circle dot2"></i>
+               		<i class="fa-solid fa-circle dot3"></i>
+               </div>
+
 	            
 
             </div>
         </div>
-		<div class="footerR cbtnBox" >
-	       <div onclick="" class="fbtn col40 bcp ">거 부</div>
-		   <div onclick=""class="fbtn col60 bcp "> 콜 수락</div>
+		<div class="footerR" >
+	       <div  onclick="outWork()"class="fbtn btn100 bgm02">퇴근하기</div>
 	    </div>
     </div>
 <script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>   
