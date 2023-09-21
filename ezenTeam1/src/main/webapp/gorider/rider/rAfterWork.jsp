@@ -42,9 +42,12 @@
 
             </div>
         </div>
-	 <div class="footerR" >
-       <div class="fbtn btn100 bgm02">출근하기</div>
-   </div>
+		<div class="footerR" >
+	       <div  onclick="goWork()"class="fbtn btn100 bgm02">출근하기</div>
+	    </div>
     </div>
+    
+<script src="../../js/gorider/rider/rAfterWork.js"></script>
+    
 </body>
 </html>

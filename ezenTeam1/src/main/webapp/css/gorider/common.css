@@ -189,6 +189,16 @@ BUTTON{ border: none;}
 	padding:30px 20px;
 	border-bottom: solid 3px var(--main02);
 }
+.rheaderwrapA{
+	display:flex;
+	justify-content:flex-end;
+    font-family: 'LINESeedKR-Bd';
+	font-size:1.2rem;
+	color:var(--white);
+	padding:10px 20px;
+	border-bottom: solid 3px var(--main02);
+}
+
 .rheaderwrap p{
 	text-align: right;
 }
