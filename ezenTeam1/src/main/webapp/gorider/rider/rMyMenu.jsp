@@ -25,18 +25,19 @@
 
         <div class="rcontBox">
 	        <div class="rcont">
-	            <div> 내정보수정 </div>
-	            <div> 차량번호수정 </div>
-	            <div> 주행기록 </div>
-	            <div> 입금내역 </div>
+	            <div class=""> 내정보수정 </div>
+	            <div class=""> 차량번호수정 </div>
+	            <div class=""> 주행기록 </div>
+	            <div class=""> 입금내역 </div>
 
             </div>
 
         </div>
 	 <div class="footerR" >
-       <div class="fbtn btn50 bgm02">콜리스트</div>
-       <div class="fbtn btn50 bgm02">돌아가기</div>
+       <div onclick="onMove('callList')" class="fbtn btn50 bgm02">콜리스트</div>
+       <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
    </div>
     </div>
+    <script src="../../js/gorider/rider/rAfterWork.js"></script>
 </body>
 </html>

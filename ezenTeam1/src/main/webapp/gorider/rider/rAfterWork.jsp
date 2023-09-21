@@ -18,7 +18,7 @@
         <div class="rheaderwrap ">
 
             <p><span class="colorY">김짱꾸</span> 라이더님 반갑습니다. </p>
-            <div class="rbtn">나의 메뉴</div>
+            <div  onclick="onMove('myMenu')" class="rbtn">나의 메뉴</div>
 
         </div>
 
@@ -46,8 +46,8 @@
 	       <div  onclick="goWork()"class="fbtn btn100 bgm02">출근하기</div>
 	    </div>
     </div>
-    
+
 <script src="../../js/gorider/rider/rAfterWork.js"></script>
-    
+
 </body>
 </html>

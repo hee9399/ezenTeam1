@@ -15,8 +15,8 @@
 <body>
 	<div class="wrapR ">
 <%--      <%@include file="rheader.jsp" %> --%>
-        <div class="rheaderwrapA ">            
-            <div onclick="onMove('MyMenu')" class="bcp mymenu">나의 메뉴</div>
+        <div class="rheaderwrapA ">
+            <div  onclick="onMove('myMenu')" class="bcp mymenu">나의 메뉴</div>
         </div>
 
         <div class="hbutton">
@@ -28,22 +28,25 @@
             <div class="rstatebox ">
 
                <div class="rstate"> 콜 대기중 </div>
-               <div on="interval" class="dotBox"> 
+               <div on="interval" class="dotBox">
+
                		<i class="fa-solid fa-circle dot1"></i>
                		<i class="fa-solid fa-circle dot2"></i>
                		<i class="fa-solid fa-circle dot3"></i>
                </div>
 
-	            
+
+
 
             </div>
+
         </div>
 		<div class="footerR" >
 	       <div  onclick="outWork()"class="fbtn btn100 bgm02">퇴근하기</div>
 	    </div>
     </div>
-<script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>   
+<script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
 <script src="../../js/gorider/rider/rAfterWork.js"></script>
-    
+
 </body>
 </html>
