@@ -34,20 +34,7 @@
 	        </div>
         </div>
         
-        <div class="logo"> 아이디찾기</div>
-        <div class="idFindBox">
-            <input class="rname" type="text" placeholder="이름을 입력하세요">
-            <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
-            <button onclick="onFind('findId')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>
-        </div>
         
-        <div class="logo"> 비밀번호찾기 </div>
-        <div class="pwdFindBox">
-            <input class="rname" type="text" placeholder="이름을 입력하세요">
-            <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
-            <button onclick="onFind('findPwd')" class="btn btypeW100H50" type="button"> 비밀번호찾기 </button>
-           
-        </div>
 
 	</div>
 
@@ -62,3 +49,23 @@
 <!-- <script src="../js/gorider/index.js"></script> -->
 </body>
 </html>
+
+<!-- 
+
+		<div class="logo"> 아이디찾기</div>
+        <div class="idFindBox">
+            <input class="rname" type="text" placeholder="이름을 입력하세요">
+            <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
+            <button onclick="onFind('findId')" class="btn btypeW100H50" type="button"> 아이디찾기 </button>
+        </div>
+        
+        <div class="logo"> 비밀번호찾기 </div>
+        <div class="pwdFindBox">
+            <input class="rname" type="text" placeholder="이름을 입력하세요">
+            <input class="rid" type="text" placeholder="아이디를 입력하세요">
+            <button onclick="onFind('findPwd')" class="btn btypeW100H50" type="button"> 비밀번호찾기 </button>
+           
+        </div>
+
+ -->
+
