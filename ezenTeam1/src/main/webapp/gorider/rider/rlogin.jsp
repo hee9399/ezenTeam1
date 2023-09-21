@@ -34,7 +34,7 @@
 	        </div>
         </div>
         
-        <div class="logo"> 아이디찾기 </div>
+        <div class="logo"> 아이디찾기</div>
         <div class="idFindBox">
             <input class="rname" type="text" placeholder="이름을 입력하세요">
             <input class="rphone" type="text" placeholder="전화번호를 입력하세요">
