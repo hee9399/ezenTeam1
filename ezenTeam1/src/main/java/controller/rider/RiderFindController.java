@@ -62,8 +62,10 @@ public class RiderFindController extends HttpServlet {
 		
 		if( type.equals("ridcheck") ) {
 		// 1. 요청 
-		String type1 = request.getParameter("type");
+		String type1 = request.getParameter("type1");
+			System.out.println("type1: "+type1);
 		String data = request.getParameter("data");
+			System.out.println("data: "+data);
 		
 		// 3. DAO 요청 결과 
 		boolean result = RiderDao.getInstance().findId(type, data);
