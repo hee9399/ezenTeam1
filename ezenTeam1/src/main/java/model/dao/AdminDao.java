@@ -76,16 +76,16 @@ public class AdminDao extends Dao{
 		return false;
 	}
 	
-	public boolean approval(int rno) {
+	public boolean approval(String type, int rno) {
 		RiderDto riderDto = new RiderDto();
 		System.out.println("11111"+riderDto);
 		try {
 			String sql="UPDATE rider SET rstatus =? WHERE rno = ? ";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, riderDto.getRno());
-			ps.setString(2, riderDto.getRstatus());
+			ps.setString(1, riderDto.getRstatus());
+			ps.setInt(2, riderDto.getRno());
 			int count = ps.executeUpdate();
-				System.out.println("11111222"+count);
+				System.out.println("count"+count);
 			if(count>0) {
 				// return onapprove(rno);	
 				return true;
