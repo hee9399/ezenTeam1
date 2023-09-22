@@ -15,6 +15,7 @@ public class RiderDao extends Dao{ // 라이더
 	// 1. 쓰기 / 라이더 회원가입 
 	public boolean RiderSignup( RiderDto dto ) {
 		System.out.println("RiderDao 도착");
+		
 		try {
 			String sql = "insert into \r\n"
 					+ "	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum ) \r\n"
@@ -63,7 +64,7 @@ public class RiderDao extends Dao{ // 라이더
 		try {
 			
 			String sql = "select rno , rname , rid , rphone , rphoto , rlicense , rregistration , "
-					+ "raccount , rbank , rstatus , rbikenum , rstart , rcall from rider natural join riderstate where rid = ? ";
+					+ "raccount , rbank , rbikenum , rstatus , rstart , rcall from rider natural join riderstate where rid = ? ";
 			ps = conn.prepareStatement(sql);
 			// 입력받을것 
 			ps.setString(1, rid);
@@ -77,9 +78,11 @@ public class RiderDao extends Dao{ // 라이더
 				rs.getString(7) , rs.getString(8) , rs.getString(9) ,
 				rs.getString(10) , rs.getString(11) , rs.getString(12) , 
 				rs.getString(13) );
+				System.out.println("info: "+riderDto);
 				return riderDto;
+				
 			}
-			System.out.println("info: "+ps);
+			
 			
 		} catch (Exception e) {System.out.println(e);}
 		

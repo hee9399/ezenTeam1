@@ -38,20 +38,29 @@ public class RiderFindController extends HttpServlet {
     		// 1. 세션에 저장할 데이터를 만든다.
     		RiderDto loginDto = RiderDao.getInstance().info(rid); System.out.println("세션에 저장할데이터: "+loginDto);
     		
-    		// 2. 세션에 저장한다. 
-    		request.getSession().setAttribute("loginDto", loginDto);
-    		
-    		// 세션 상태 확인 
-    		 	// 강제 타입변환 
-    		RiderDto dto = (RiderDto)request.getSession().getAttribute("loginDto");  
-    		System.out.println("세션 상태: "+dto);
-    		
+    		if(loginDto.getRstatus().equals("n") ) { // 마냐게 관리자의 승인상태가 n이면 로그인 실패 
+    			response.setContentType("application/json;charset=UTF-8");
+    			response.getWriter().print(false);
+    			
+    		}else { // n이아닌 다른값이면 로그인 성공 
+    			
+    			// 
+    			ObjectMapper objectMapper = new ObjectMapper();
+    			
+    			response.setContentType("application/json;charset=UTF-8");
+    			response.getWriter().print(objectMapper.writeValueAsString(loginDto) );
+    			
+    			// 2. 세션에 저장한다. 
+        		request.getSession().setAttribute("loginDto", loginDto);
+        		
+        		// 세션 상태 확인 
+        		 	// 강제 타입변환 
+        		RiderDto dto = (RiderDto)request.getSession().getAttribute("loginDto");  
+        		System.out.println("세션 상태: "+dto);
+    		}
+    			
     	}// if  e
     	
-    	// 4. 결과를 응답한다.
-    	response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(result);
-		
 	}
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -91,6 +100,7 @@ public class RiderFindController extends HttpServlet {
 		// 4. 결과 응답한다.
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(json);
+		System.out.println("json: "+json);
 				
 		}else if( type.equals("findPwd") ) {
 			

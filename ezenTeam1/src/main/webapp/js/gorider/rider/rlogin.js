@@ -1,5 +1,14 @@
 console.log('js실행됩니다.')
 
+
+/*
+
+	라이더가 회원가입을하고 로그인을 진행기전에 관리자가 승인을 해줘야 로그인이 가능하다.
+
+*/ 
+
+
+
 // 1. 라이더 로그인
 function rlogin(){
 	
@@ -10,15 +19,24 @@ function rlogin(){
 	// 2. ajax에게 전달해서 회원이 존재하는지 반환 받는다
 		// 2-1 : 로그인 성공시 
 		   $.ajax({
-		      url : "/ezenTeam1/RiderFindController",      
-		      data : {rid : rid , rpwd : rpwd},      
+		      url : "/ezenTeam1/RiderFindController" ,      
+		      data : {rid : rid , rpwd : rpwd} ,      
 		      method : "post",   
 		      success : r => {
-				  console.log(r);
 				  
-				  if(r){ location.href="/ezenTeam1/gorider/rider/rmain.jsp"; }
-				  else{
+				  console.log(r);
+				    if(!r){ // 관리자가 승인 안했을시
+						console.log('로그인실패');
 					  
+					  	alert('관리자의 승인이필요합니다');
+					  
+					  }
+				  else if(r){ // 관리자가 승인했을시
+					  console.log('로그인성공');
+					  
+					  alert('로그인성공');
+					  
+				  }else{
 					  document.querySelector('.rlogincheckbox').innerHTML = '동일한 회원정보가 없습니다';
 					  
 				  }
@@ -104,7 +122,8 @@ function onFind(type){
 			      
 			      if(r){ // r함수에 아이디찾기가 성공하면
 			      	alert('아이디는 '+ r.rid + '입니다.');
-			      	location.href = '/ezenTeam1/gorider/rider/rider.jsp';
+			      	location.href = '/ezenTeam1/gorider/rider/rlogin.jsp';
+			      	
 			       }else{ // r함수에 아이디찾기가 실패하면 
 					   alert('회원정보가 일치하지 않습니다.');
 					   // 초기화 해주기
@@ -132,6 +151,7 @@ function onFind(type){
 			      success : r => { console.log(r);
 			      
 			      	alert('비밀번호는'+ r.rpwd + '입니다.');
+			      	location.href = '/ezenTeam1/gorider/rider/rlogin.jsp';
 			      	
 			      	// 초기화 해주기
 					rname.value = '';
