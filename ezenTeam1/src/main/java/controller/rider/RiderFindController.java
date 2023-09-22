@@ -76,7 +76,7 @@ public class RiderFindController extends HttpServlet {
 		}else if( type.equals("findid") ) {
 			
 			String rname = request.getParameter("rname"); 
-				System.out.println("rname: "+rname);
+				 System.out.println("rname: "+rname);
 				
 			String rphone = request.getParameter("rphone");
 				System.out.println("rphone: "+rphone);
