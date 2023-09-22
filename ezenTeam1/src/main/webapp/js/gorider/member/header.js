@@ -10,6 +10,8 @@ function onMove(type){
 
 let loginState = false; //로그인상태 기본값 false로 세팅
 let loginMid = ''; // 전역변수로 선언
+let loginMname = '';
+let loginMeamil = ''
 getMemberInfo();
 // 1. 세션에 있는 로그인정보 유무에 따라  화면수정
 function getMemberInfo(){
@@ -32,6 +34,8 @@ function getMemberInfo(){
 			} else {//세션정보가 있으면 회원명 프로필사진 출력
 				loginState = true;
 				loginMid = r.mid;
+				loginMname = r.mname;
+				loginMeamil = r.memail
 				let mphoto = r.mphoto == null? 'default.png': r.mphoto;
 				html += ` <div class="minfo">
 							<span class="mname">${r.mname}님</span>

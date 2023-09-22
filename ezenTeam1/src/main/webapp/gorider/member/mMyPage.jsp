@@ -21,8 +21,8 @@
 	   		<img src="/ezenTeam1/gorider/member/file/default.png"/>
 	   	</div>
 	   	<div class="minfo">
-			<div> 김둔희</div>
-		   	<div> aaa111@ggg.com</div>
+			<div class="mi_mname"> 김둔희</div>
+		   	<div class="mi_memail"> aaa111@ggg.com</div>
 	   	</div>
 
 	   	
@@ -53,6 +53,9 @@
 
 
 </div>
-<script src="/ezenTeam1/js/gorider/index.js"></script>
+    <!-- ajax  -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>	
+<script src="/ezenTeam1/js/gorider/member/header.js"></script>
+<script src="/ezenTeam1/js/gorider/member/minfo.js"></script>
 </body>
 </html>

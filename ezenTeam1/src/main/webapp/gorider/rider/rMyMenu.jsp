@@ -15,20 +15,20 @@
 <body>
 	<div class="wrapR ">
 <%--      <%@include file="rheader.jsp" %> --%>
-        <div class="rheaderwrap ">
+        <div class="rheaderwrapA ">
 
-            <div class="rbtn">나의 메뉴</div>
+            <div class="rmTitle">나의 메뉴</div>
 
         </div>
 
         <div class="hbutton">상단고정버튼</div>
 
         <div class="rcontBox">
-	        <div class="rcont">
-	            <div class=""> 내정보수정 </div>
-	            <div class=""> 차량번호수정 </div>
-	            <div class=""> 주행기록 </div>
-	            <div class=""> 입금내역 </div>
+	        <div class="rmyBtnBox">
+	            <div class="rmyBtn"> 내정보수정 </div>
+	            <div class="rmyBtn"> 차량번호수정 </div>
+	            <div class="rmyBtn"> 주행기록 </div>
+	            <div class="rmyBtn"> 입금내역 </div>
 
             </div>
 
