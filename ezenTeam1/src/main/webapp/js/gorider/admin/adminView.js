@@ -48,7 +48,7 @@ function onapprove(){
         url: "/ezenTeam1/AdminController",
         method: "post",
         data: { type: 2, rno: rno },
-        success: r => { console.log(r);
+        success: r => { console.log(r.rno);
         	
         },
         error: e => {

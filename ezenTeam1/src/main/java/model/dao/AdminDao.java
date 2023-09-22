@@ -75,20 +75,25 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
+	
 	public boolean approval(int rno) {
+		RiderDto riderDto = new RiderDto();
+		System.out.println("11111"+riderDto);
 		try {
-			String sql="UPDATE rider SET rstatus = '1' WHERE rno = ? ";
+			String sql="UPDATE rider SET rstatus =? WHERE rno = ? ";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, rno);
+			ps.setInt(1, riderDto.getRno());
+			ps.setString(2, riderDto.getRstatus());
 			int count = ps.executeUpdate();
-			
-			if(count >0) {
-				return onapprove(rno);
+				System.out.println("11111222"+count);
+			if(count>0) {
+				// return onapprove(rno);	
+				return true;
 			}
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-		
+	/*	
 	public boolean onapprove(int rno) { 
 		try {
 			String sql = "insert into riderstate (rno, rstart, rcall) values (?, ?, ?)";
@@ -99,10 +104,11 @@ public class AdminDao extends Dao{
 
 	        int count = ps.executeUpdate();
 
-	        if (count > 0) {
+	        if (count > 0) { 
 	            return true;
 	        }
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
+	*/
 }
