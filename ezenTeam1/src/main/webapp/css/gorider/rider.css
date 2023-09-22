@@ -215,7 +215,32 @@ padding-top:20px ;
   .cbtnBox .col60{
  	background-color:#ffce1f;
  }
-/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rMyMenu ) ----------------*/
+.rmTitle{
+	text-align: center;
+	width:100%;
+	color:var(--white);
+	font-size: 2rem;
+}
+.rmyBtnBox{
+	width:100%;
+	
+}
+.rmyBtn{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height: 70px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	border: solid 1px #EBC12F;
+	font-size: 2rem;
+	letter-spacing: 0.2rem;
+}
+.rmyBtn:hover{
+	color:#000;
+	background-color: #EBC12F;
+}
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/
