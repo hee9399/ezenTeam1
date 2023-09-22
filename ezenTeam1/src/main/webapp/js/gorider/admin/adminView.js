@@ -32,7 +32,7 @@ function ondeny(){
 	$.ajax({
         url: "/ezenTeam1/AdminController",
         method: "post",
-        data: { type: 1, rno: rno, rcomment : rejectionReason},
+        data: { type: "거부", rno: rno, rcomment : rejectionReason},
         success: r => { console.log(r);
         	
 				
@@ -47,8 +47,8 @@ function onapprove(){
 	$.ajax({
         url: "/ezenTeam1/AdminController",
         method: "post",
-        data: { type: 2, rno: rno },
-        success: r => { console.log(r);
+        data: { type: "성공", rno: rno },
+        success: r => { console.log(r.rno);
         	
         },
         error: e => {

@@ -112,6 +112,11 @@ public class RiderDto {// 기사 Dto
 	}
 	
 	
+	public RiderDto(int rno, String rstatus) {
+		super();
+		this.rno = rno;
+		this.rstatus = rstatus;
+	}
 	// 메소드 
 	public int getRno() {
 		return rno;
