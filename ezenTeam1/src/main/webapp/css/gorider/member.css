@@ -86,11 +86,19 @@ BUTTON{
 	display:flex;
 	justify-content:center;
 	margin: 0 auto;
-	
+	position: relative;
+
+}
+.myInfoBox .col30 div{
+	position:absolute;
+	right: 0;
+	bottom: 0;
+	cursor: pointer;
+
 }
 .myInfoBox img {
-	width:100%; 
-
+	width:100%;
+    height:100%;
 	object-fit:cover;
 	border-radius: 50%;
 }
@@ -98,7 +106,7 @@ BUTTON{
 	padding:10px;
 }
 
-.myMenuBox{ 
+.myMenuBox{
 	font-family: 'LINESeedKR-Bd';
 	padding:20px 0;
 }
@@ -110,4 +118,3 @@ BUTTON{
 	font-size:1.2rem;
 	color:var(--main02)
 }
-	
