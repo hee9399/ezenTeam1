@@ -17,7 +17,10 @@
         <div id="clickLatlng"></div>
         
       <div class = "addrInput">
-        <input class = "장소"type = "text" placeholder = "장소검색">
+		<div class = "placeinfo">
+		
+		
+		</div>
  		<button type = "button" class = "call">콜</button>
   		<button type = "button" class = "back">뒤로가기</button>
  	</div>
