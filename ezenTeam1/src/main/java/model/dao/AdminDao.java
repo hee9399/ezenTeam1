@@ -62,7 +62,7 @@ public class AdminDao extends Dao{
 	public boolean ApprovalReject(int rno, String rcomment) {
 		RiderDto dto = new RiderDto();
 		try {
-			 String sql = "UPDATE rider SET rstatus = '0', rcomment = ? WHERE rno = ?";
+			 String sql = "UPDATE rider SET rstatus = 'n', rcomment = ? WHERE rno = ?";
 			  ps = conn.prepareStatement(sql);
 		        ps.setString(1, rcomment);
 		        ps.setInt(2, rno);
@@ -76,22 +76,22 @@ public class AdminDao extends Dao{
 		return false;
 	}
 	
-	public boolean approval(String type, int rno) {
-		RiderDto riderDto = new RiderDto();
-		System.out.println("11111"+riderDto);
+	public boolean approval( int rno) {
+		
 		try {
-			String sql="UPDATE rider SET rstatus =? WHERE rno = ? ";
-			ps=conn.prepareStatement(sql);
-			ps.setString(1, riderDto.getRstatus());
-			ps.setInt(2, riderDto.getRno());
-			int count = ps.executeUpdate();
-				System.out.println("count"+count);
-			if(count>0) {
-				// return onapprove(rno);	
-				return true;
-			}
-		}catch (Exception e) {System.out.println(e);}
-		return false;
+	        String sql = "UPDATE rider SET rstatus = 'y' WHERE rno = ?";
+	        ps = conn.prepareStatement(sql);
+	        ps.setInt(1, rno); // Set the value for the first (and only) parameter
+	        
+	        int count = ps.executeUpdate();
+	        
+	        if (count > 0) {
+	            return true; // Approval success
+	        }
+	    } catch (Exception e) {
+	        System.out.println(e);
+	    }
+	    return false;
 	}
 	/*	
 	public boolean onapprove(int rno) { 
