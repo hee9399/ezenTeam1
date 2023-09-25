@@ -29,7 +29,7 @@ function ApprovalPrint() {
                     <li class="col20"><button class="btnPd6" type="button" onclick="ApprovalView(${rno})">상세보기</button></li>
                 </ul>
                 `;
-            } 
+            }
 
             listbox.innerHTML = html;
             

@@ -17,7 +17,7 @@ public class AdminDao extends Dao{
 		ArrayList<RiderDto> list = new ArrayList<>();
 		try {
 			// 2.  최신순으로 라이더가 회원가입 요청했을때 간단한 라이더 정보 가져오는 쿼리문
-			String sql ="select rno , rid , rdate from rider order by rdate asc";
+			String sql ="select rno , rid , rdate from rider where rstatus='n' order by rdate asc";
 			ps = conn.prepareStatement(sql);
 			rs=ps.executeQuery();
 			
@@ -111,4 +111,17 @@ public class AdminDao extends Dao{
 		return false;
 	}
 	*/
+	// 승인요청 가져오는 함수
+	public boolean Request(int rno) {
+		try {
+			String sql="SELECT SUM(rno) AS total_rno FROM rider WHERE rstatus = 'n' ";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, rno);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 }
