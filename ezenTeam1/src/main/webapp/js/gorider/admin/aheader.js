@@ -18,4 +18,16 @@
 	 }
 	 
  }
- 
+ function Request(){
+	 console.log('Request() 실행');
+	     $.ajax({
+      
+            url : "/jspweb/AdminController",   
+            async : false ,
+            method : "get",
+            data : {type : "findByAll"},      
+           success : jsonArray=>{console.log(jsonArray)} ,
+                          
+   });
+   
+ }

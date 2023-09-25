@@ -56,6 +56,8 @@ public class AdminController extends HttpServlet {
 	        // JSON 문자열을 응답에 출력
 	        response.getWriter().print(json2);
 	        System.out.println(json2);
+	    }else if(type.equals("3")) {
+	    	
 	    }
 	}
 

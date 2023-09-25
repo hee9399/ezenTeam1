@@ -40,8 +40,8 @@
                 <div> <img class="rimg3"></div>
             </div>
             <div class="btnsec">
-                <button onclick="onapprove()"class="btnA btypeW50H50" type="button">승인</button>
-                <button onclick="ondeny()"class="btnA btypeW50H50" type="button">거부</button>
+                <button id="approveButton" onclick="onapprove()"class="btnA btypeW50H50" type="button">승인</button>
+                <button id="denyButton" onclick="ondeny()"class="btnA btypeW50H50" type="button">거부</button>
             </div>
 
         </div>
