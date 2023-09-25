@@ -47,7 +47,7 @@ function onapprove(){
 	$.ajax({
         url: "/ezenTeam1/AdminController",
         method: "post",
-        data: { type: 2, rno: rno },
+        data: { type: 2, rno: rno  },
         success: r => { console.log(r);
         	
         },
