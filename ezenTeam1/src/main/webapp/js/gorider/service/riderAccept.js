@@ -13,7 +13,7 @@ function accept() {
 	
 	
 
-	let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 	
 	let contentBox = document.querySelector('.accept');
@@ -70,7 +70,7 @@ document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
 
 
 
-let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 
 callClientSocket.onmessage = (e)=>{
 	

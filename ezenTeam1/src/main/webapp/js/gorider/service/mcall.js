@@ -1,5 +1,5 @@
 
-let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 function call (){
 
@@ -72,7 +72,7 @@ if (JsonInfo) {
                 // 현재 위치 마커 생성
                 let currentLocationMarker = new kakao.maps.Marker({
                     position: currentLocation,
-                    draggable: true,
+  
                     map: map,
                     image: startImage
                 });
@@ -111,7 +111,7 @@ if (JsonInfo) {
                 // 도착지 마커 생성
                 let destinationMarker = new kakao.maps.Marker({
                     position: destinationLocation,
-                    draggable: true,
+
                     map: map,
                     image: arriveDragImage
                 });
@@ -179,7 +179,7 @@ if (JsonInfo) {
 }
 
 
-let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 
 document.querySelector('.call').addEventListener('click' , (e)=>{
 	
