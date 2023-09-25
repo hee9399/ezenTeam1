@@ -8,12 +8,17 @@ navigator.geolocation.getCurrentPosition( e => {
 	 
 });
 
+// 변수를 선언하여 정보를 저장합니다.
+let currentInfo = null;
 
+// 정보를 업데이트하는 함수
+function updateInfo(newInfo) {
+  currentInfo = newInfo;
+}
 function accept() {
 	
-	
 
-	let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 	
 	let contentBox = document.querySelector('.accept');
@@ -70,7 +75,7 @@ document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
 
 
 
-let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 
 callClientSocket.onmessage = (e)=>{
 	
@@ -93,7 +98,7 @@ callClientSocket.onmessage = (e)=>{
 	 	
 	 	<div class = "choicebox">	
 	 		<button onclick = "accept()" type = "button" class = "accept">수락</button>
-			<button type = "button" class = "decline">거절</button>
+			<button onclick = "reject()" type = "button" class = "reject">거절</button>
 		</div>`;
 	
 	
@@ -250,8 +255,14 @@ callClientSocket.onmessage = (e)=>{
 }
 
 
-
-
+// 수락버튼을 누르기 전까지는 화면 업데이트 X
+// 거절버튼을 누르면 화면 업데이트
+// 수락버튼을 누르면 라이더는 현재위치에서 사용자의 출발지 좌표 지도에 찍어 화면에 출력
+// 사용자도 마찬가지로 라이더가 있는 곳과 1초마다 움직이는 좌표 생성, 메시지 출력
+// 사용자와 라이더의 거리가 100m ? 쯤 되면 메시지 전송(거의 다왔습니다!!)
+// 탑승시 라이더가 탑승 버튼 클릭? 라이더의 gps가 목적지에 도착하여 하차를 클릭하면 종료
+// 타고 가는 동안 사용자화면은 출발지, 목적지 , 움직이는 라이더 좌표 출력
+// 하차와 동시에 사용자에게 리뷰요청 화면 출력
 
 
 

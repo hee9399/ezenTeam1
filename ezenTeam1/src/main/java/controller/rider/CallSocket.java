@@ -29,6 +29,10 @@ public class CallSocket {
 	@OnMessage
 	public void OnMessage( Session session , String msg ) {
 		System.out.println( msg );
+		
+		//String(json형식)을 Dto로 바꾼다.
+		
+		
 		callList.forEach( s ->{
 			try {s.getBasicRemote().sendText(msg);} 
 			catch (IOException e) { e.printStackTrace(); }
