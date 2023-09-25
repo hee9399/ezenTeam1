@@ -118,3 +118,31 @@ BUTTON{
 	font-size:1.2rem;
 	color:var(--main02)
 }
+/*----------- 모달-----------------*/
+
+.modalwrap {
+	position: fixed; /*화면고정*/
+	width:33%;
+	height: 50%;
+	top:0px;
+	background-color: rgba(0,0,0,0.4); /*검정색바탕에 투명도 50%*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+.modal{
+	background-color: #fff;
+	width:80%; 
+	height:300px;
+	border-radius: 30px;
+	padding:30px 15px;	
+}
+.modal .minputBox {
+	padding:30px 0 ;
+}
+.mbtnBox button { 
+	padding:10px; 
+	border-radius: 5px;
+}
+
+
