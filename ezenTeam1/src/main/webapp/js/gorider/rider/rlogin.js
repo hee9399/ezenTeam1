@@ -31,7 +31,7 @@ function rlogin(){
 					  	alert('관리자의 승인이필요합니다');
 					  
 					  }
-				  else if(r){ // 관리자가 승인했을시
+				  else if(r){ //관리자가 승인했을시
 					  console.log('로그인성공');
 					  
 					  alert('로그인성공');
