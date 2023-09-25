@@ -8,7 +8,7 @@ console.log('js실행됩니다.')
 */ 
 
 
-
+rlogin();
 // 1. 라이더 로그인
 function rlogin(){
 	
@@ -74,10 +74,10 @@ function findInfo(type){
 			loginBox.innerHTML = html;
 		
 		// html 페이지전환 클릭 출력  
-			// <div onclick="findid('login')">로그인하기</div> - 눌렸을때 로그인페이지전환 
+			// <div onclick="location.href='/ezenTeam1/gorider/rider/rlogin.jsp'">로그인하기</div> - 눌렸을때 로그인페이지전환 
 			// <div onclick="findpw('pwd')">비밀번호 찾기</div> - 눌렀을때 비밀번호찾기페이지 전환 
-		html2 += `<div onclick="findid('login')">로그인하기</div>
-	            <div onclick="findpw('pwd')">비밀번호 찾기</div>`;
+		html2 += `<div onclick="location.href='/ezenTeam1/gorider/rider/rlogin.jsp'">로그인하기</div>
+	            <div onclick="findInfo('pwd')">비밀번호 찾기</div>`;
 	    	findBox.innerHTML = html2;  
 		
 	}else if(type == 'pwd'){ // type에 'pwd'가 들어오면 
@@ -92,8 +92,8 @@ function findInfo(type){
 		loginBox.innerHTML = html;
 		
 		// html 페이지전환 클릭 출력 
-		html2 += `<div onclick="findid('id')">아이디찾기</div>
-	            <div onclick="findPwd('pwd')">비밀번호 찾기</div>`;	
+		html2 += `<div onclick="findInfo('id')">아이디찾기</div>
+	            <div onclick="location.href='/ezenTeam1/gorider/rider/rlogin.jsp'">로그인하기</div>`;	
 	    	findBox.innerHTML = html2;
 	}else if( type == 'login' ){
 		location.href = '/ezenTeam1/gorider/rider/rlogin.jsp';
