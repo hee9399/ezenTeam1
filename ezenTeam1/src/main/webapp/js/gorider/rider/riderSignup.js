@@ -17,9 +17,43 @@ let checkList = [ false , false ] // 아이디 , 비밀번호 체크여부
 // 1. 유효성 검사없는 회원가입 Form데이터전송시 
 function signup(){
 		
+		if( document.querySelector('.rname').value == ''){
+			alert('이름을 입력해주세요.');
+			return; 
+		}else if( document.querySelector('.rid').value == ''){
+			alert('아이디를 입력해주세요.');
+			return;
+		}else if( document.querySelector('.rpwd').value == '' ){
+			alert('비밀번호를 입력해주세요.')
+			return;
+		}else if( document.querySelector('.rpwdconfirm').value == '' ){
+			alert('비밀번호확인 해주세요.')
+		}else if( document.querySelector('.rphone').value == '' ){
+			alert('전화번호 입력해주세요.')
+			return;
+		}else if( document.querySelector('.rphoto').value == '' ){
+			alert('프로필사진 등록해주세요.');
+			return;
+		}else if( document.querySelector('.rlicense').value == ''  ){
+			alert('면허증을 등록해주세요.');
+			return;
+		}else if( document.querySelector('.rbank').value == ''  ){
+			alert('은행을 선택해주세요');
+			return;
+		}else if( document.querySelector('.raccount').value == ''  ){
+			alert('계좌번호를 입력해주세요.');
+			return;
+		}else if( document.querySelector('.rbikenum').value == '' ){
+			alert('차량번호를 입력해주세요');
+			return;
+		}
+		
+		
 	// 1. 아이디 / 비밀번호 유효성검사 통과 체크
 		console.log(checkList);
 	if(checkList[0] && checkList[1] ){
+		
+		
 		
 	// 1. 입력받은 데이터를 한번에 가져오기 
 		// 1. form객체 호출 

@@ -1,7 +1,6 @@
-/**
- *
- */
+
 console.log('rAfterWork.js');
+
 let callstate = 'Y';
 function goWork(){
 
@@ -44,3 +43,11 @@ function changeColor() {
 	currentIndex = (currentIndex + 1) % colors.length;
 }
 setInterval(changeColor, 800);
+
+
+
+
+
+
+
+

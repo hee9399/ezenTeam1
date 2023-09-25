@@ -28,8 +28,8 @@
             <li class="title" >아이디<span class="idcheckbox"> </span></li> 
             <li class="dflex">
             	<!-- onkeyup="idcheck()" -->
-                <input onkeyup="idcheck()" class="rid intext80" name="rid" type="text">
-                <button  class="idcheck" type="button">중복체크</button></li>
+                <input onkeyup="idcheck()" class="rid" name="rid" type="text">
+              
 
             <li class="title" >비밀번호<span class="pwdcheckbox">  </span> </li>
             <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="text"></li>
