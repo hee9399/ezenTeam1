@@ -5,9 +5,7 @@ function call (){
 
 
 	gpsClientSocket.onmessage = (e)=>{
-		let data =  JSON.parse(e.data); console.log( data );
-		현재위도 = data.현재위도;
-		현재경도 = data.현재경도;	
+		alert('수락')
 	}
 
 }

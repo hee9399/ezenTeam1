@@ -34,6 +34,19 @@ public class ServiceDto {// 서비스 Dto
 		this.sreview = sreview;
 		this.spoint = spoint;
 	}
+	
+	// 라이더가 콜을 누르기 전에 저장되는 생성자
+	public ServiceDto(int mno, double sfromla, double sfromlo, double stola, double stolo) {
+		super();
+		this.mno = mno;
+		this.sfromla = sfromla;
+		this.sfromlo = sfromlo;
+		this.stola = stola;
+		this.stolo = stolo;
+	}
+	
+	// 라이더가 콜을 누른 후에 저장되는 생성자
+	
 	// 메소드 
 	public int getSno() {
 		return sno;
