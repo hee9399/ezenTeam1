@@ -64,15 +64,15 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		String rcomment = request.getParameter("rcomment");
-		if(type.equals("거부")) {
+		if(type.equals("1")) {
 			 boolean result = AdminDao.getInstance().ApprovalReject(rno, rcomment);
 			 response.setContentType("application/json;charset=UTF-8");
 			 response.getWriter().print(result);
 			
 			
-		}else if(type.equals("성공")) {
+		}else if(type.equals("2")) {
 
-			boolean result = AdminDao.getInstance().approval(type, rno);
+			boolean result = AdminDao.getInstance().approval(rno);
 			 response.setContentType("application/json;charset=UTF-8");
 			 response.getWriter().print(result);
 			 System.out.println("result에 머들어있니? "+result);
