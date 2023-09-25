@@ -17,7 +17,7 @@
 <%--      <%@include file="rheader.jsp" %> --%>
         <div class="rheaderwrap ">
 
-            <p><span class="colorY">김짱꾸</span> 라이더님 반갑습니다. </p>
+            <p><span class="colorY">김짱꾸</span> 라이더님 반갑습니다.s</p>
             <div onclick="onMove('myMenu')" class="rbtn">나의 메뉴</div>
 
         </div>
