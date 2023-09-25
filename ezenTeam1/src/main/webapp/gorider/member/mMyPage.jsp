@@ -12,9 +12,9 @@
 </head>
 <body>
 <!-- 전체렙 -->
- <%@include file="mBHeader.jsp" %>
- <div  class="wrap">
 
+ <div  class="wrap">
+ <%@include file="mBHeader.jsp" %>
 
    	<div class="myInfoBox"> <!-- 클릭시 수정페이지로. -->
 		<div class="col30">
@@ -30,17 +30,17 @@
 
    	<div class="myMenuBox">
    		<div class="disFlexStCent ">
-   			<div>img</div>
-   			<div>공지/이벤트</div>
+   			<div><i class="fa-solid fa-bullhorn"> </i></div>
+   			<div> 공지/이벤트</div>
    		</div>
 
    		<div class="disFlexStCent">
-   			<div>img</div>
-   			<div>이용기록</div>
+   			<div><i class="fa-solid fa-clock-rotate-left"> </i> </div>
+   			<div> 이용기록</div>
    		</div>
    		<div class="disFlexStCent">
-   			<div>img</div>
-   			<div>결제수단관리변경</div>
+   			<div><i class="fa-regular fa-credit-card"> </i></div>
+   			<div> 결제수단관리변경</div>
    		</div>
 
 
@@ -48,26 +48,26 @@
 	<!-- 모달영역 -->
 	<div class="modalwrap modalPhoto">
 		<div class="modal">
-			<form name="myform">
+			<form class="myform">
 				<div class="previewBox">
-				
+                    <img class=preview alt="" src="/ezenTeam1/gorider/member/file/default.png">
 				</div>
 				<div class="minputBox">
-					<input onchange="preview(this)" class="mphoto" type="file" accept="image/*">
+					<input onchange="preview(this)" class="mphoto" name="mphoto" type="file" accept="image/*">
 				</div>
-				
+
 				<div class="mbtnBox">
 					<button onclick="onChangePhoto()" type="button">프로필변경</button>
 					<button onclick="onModalClose()" type="button">취소</button>
 				</div>
 			</form>
 		</div>
-		
+
 	</div>
 
    <!-- bottom -->
    <%@include file="footer.jsp" %>
-	
+
 
 
 </div>

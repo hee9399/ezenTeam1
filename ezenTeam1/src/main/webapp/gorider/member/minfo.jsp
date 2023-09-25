@@ -9,8 +9,11 @@
    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
 </head>
 <body>
-    <!-- ajax  -->
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<!--     <script  src="/ezenTeam1/js/gorider/member/minfo.js"></script> -->
+ <div  class="wrap">
+ <%@include file="mBHeader.jsp" %>
+
+
+ </div>
+
 </html>

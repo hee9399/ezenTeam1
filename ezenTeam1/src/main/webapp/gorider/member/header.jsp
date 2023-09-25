@@ -16,9 +16,9 @@
       </div>
 
 	</div>
-	
+
     <!-- ajax  -->
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>	
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!--       <script  src="/ezenTeam1/js/gorider/member/minfo.js"></script> -->
    <script src="/ezenTeam1/js/gorider/member/header.js"></script>
 

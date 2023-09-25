@@ -122,7 +122,7 @@ BUTTON{
 
 .modalwrap {
 	position: fixed; /*화면고정*/
-	width:33%;
+	min-width:400px;
 	height: 50%;
 	top:0px;
 	background-color: rgba(0,0,0,0.4); /*검정색바탕에 투명도 50%*/
@@ -131,18 +131,32 @@ BUTTON{
 	align-items: center;
 }
 .modal{
+
 	background-color: #fff;
-	width:80%; 
-	height:300px;
+	width:80%;
+/* 	height:300px; */
 	border-radius: 30px;
-	padding:30px 15px;	
+	padding:30px 15px;
 }
 .modal .minputBox {
-	padding:30px 0 ;
+	text-align:center;
+	padding:20px 0 ;
 }
-.mbtnBox button { 
-	padding:10px; 
-	border-radius: 5px;
-}
+.mbtnBox{      text-align:center;
 
+}
+.mbtnBox button {
+	padding:10px;
+	border-radius: 5px;
+	letter-spacing: 0.15rem;
+}
+.previewBox{
+	text-align: center;}
+.previewBox img{
+	width:100px;
+	height:100px;
+	border-radius: 50%;
+	object-fit:contain;
+
+}
 

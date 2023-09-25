@@ -97,8 +97,24 @@ public class MemberInfoController extends HttpServlet {
     	response.getWriter().print(result);
 	}
 
-	// 수정
+	// 수정:
+	// 1. 프로필사진 수정
+	// 2. 결제수단변경
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String uploadPath = request.getSession().getServletContext().getRealPath("/member/file");
+		MemberDto loginDto = (MemberDto) request.getSession().getAttribute("loginDto");
+		MultipartRequest multi = new MultipartRequest( //cos라이브러리
+
+
+					request,			// 1. 요청방식
+					uploadPath,			// 2. 첨부파일을 저장할 경로
+					1024*1024*10,		// 3. 첨부파일 용량 허용 범위 [ 바이트 단위 ]10mb
+					"UTF-8",			// 4.한글인코딩타입
+					new DefaultFileRenamePolicy());
+			String mphoto = multi.getFilesystemName("mphoto");
+			int mno = loginDto.getMno();
+			System.out.println(mphoto);
 
 	}
 
