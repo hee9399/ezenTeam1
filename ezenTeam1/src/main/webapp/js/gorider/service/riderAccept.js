@@ -13,7 +13,7 @@ function accept() {
 	
 	
 
-	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
+	let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
 
 	
 	let contentBox = document.querySelector('.accept');
@@ -70,137 +70,181 @@ document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
 
 
 
-let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
 
 callClientSocket.onmessage = (e)=>{
 	
-	
-	
+	alert('통신');
 
-	
-	console.log(e);
 	let jsonData =  JSON.parse( e.data ) ;
 	console.log(jsonData);
-	
 	let callcontent = document.querySelector('.callcontent');
 	
-	let html1 =``;
+	let html =``;
 	
-	html1 = `
+	html = `
 		<h3> 콜 도착 </h3>
-	 	<div id="map" style="width:100%;height:350px;"></div><br/>
-	 	<div class = "mname">${jsonData.mno}</div><br/>
-	 	<div class = "start">${jsonData.현재위도},${jsonData.현재경도}</div><br/>
-	 	<div class = "end">${jsonData.도착위도},${jsonData.도착경도}</div><br/>
-	 	<div class = "call">${jsonData.요청내용}</div>
-		
-	`;
+	 	<div id="map" style="width:100%;height:350px;"></div>
+	 	
+	 	<div class = "mno">고객 아이디 : ${jsonData.mno}</div>
+	 	<div class = "start">고객 위치 : ${jsonData.출발지.address_name}</div>
+	 	<div class = "end">목적지 : ${jsonData.목적지.주소} ${jsonData.목적지.장소명}</div>
+	 	<div class = "call">요청내용 : ${jsonData.요청내용}</div>
+	 	
+	 	<div class = "choicebox">	
+	 		<button onclick = "accept()" type = "button" class = "accept">수락</button>
+			<button type = "button" class = "decline">거절</button>
+		</div>`;
 	
 	
 	
-	callcontent.innerHTML = html1;
-	
+	callcontent.innerHTML = html;
 
-  
-    
- 
-
-    // 콜 도착 후에 지도를 생성하고 해당 div에 추가
-    let mapContainer = document.getElementById('map');
-    let mapOption = {
-        center: new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도),
-        level: 7 // 지도의 확대 레벨
-        
-    };
-    let map = new kakao.maps.Map(mapContainer, mapOption);
-    
+	var mapContainer = document.getElementById('map');
+	var mapOption = {
+		center: new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도), // 현재 위치를 중심으로 지도 생성
+		level: 4
+	};
+	var map = new kakao.maps.Map(mapContainer, mapOption);
 	
-
-	
-
-
 	var startSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
-    startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
-    startOption = { 
-        offset: new kakao.maps.Point(15, 43) // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
-    };
+		startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
+		startOption = {
+			offset: new kakao.maps.Point(15, 43) // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+		};
 
-// 출발 마커 이미지를 생성합니다
-var startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
+	var startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
 
-var startDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png', // 출발 마커의 드래그 이미지 주소입니다    
-    startDragSize = new kakao.maps.Size(50, 64), // 출발 마커의 드래그 이미지 크기입니다 
-    startDragOption = { 
-        offset: new kakao.maps.Point(15, 54) // 출발 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
-    };
+	var startDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png', // 출발 마커의 드래그 이미지 주소입니다    
+		startDragSize = new kakao.maps.Size(50, 64), // 출발 마커의 드래그 이미지 크기입니다 
+		startDragOption = {
+			offset: new kakao.maps.Point(15, 54) // 출발 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+		};
 
-// 출발 마커의 드래그 이미지를 생성합니다
-var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
-
-// 출발 마커가 표시될 위치입니다 
-var startPosition = new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도); 
-
-// 출발 마커를 생성합니다
-var startMarker = new kakao.maps.Marker({
-    map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
-    position: startPosition,
-    draggable: true, // 출발 마커가 드래그 가능하도록 설정합니다
-    image: startImage // 출발 마커이미지를 설정합니다
-});
-
-// 출발 마커에 dragstart 이벤트를 등록합니다
-kakao.maps.event.addListener(startMarker, 'dragstart', function() {
-    // 출발 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
-    startMarker.setImage(startDragImage);
-});
-
-// 출발 마커에 dragend 이벤트를 등록합니다
-kakao.maps.event.addListener(startMarker, 'dragend', function() {
-     // 출발 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
-    startMarker.setImage(startImage);
-});
-
-var arriveSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png', // 도착 마커이미지 주소입니다    
-arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다 
-arriveOption = { 
-    offset: new kakao.maps.Point(15, 43) // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
-};
-
-// 도착 마커 이미지를 생성합니다
-var arriveImage = new kakao.maps.MarkerImage(arriveSrc, arriveSize, arriveOption);
-
-var arriveDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_drag.png', // 도착 마커의 드래그 이미지 주소입니다    
-    arriveDragSize = new kakao.maps.Size(50, 64), // 도착 마커의 드래그 이미지 크기입니다 
-    arriveDragOption = { 
-        offset: new kakao.maps.Point(15, 54) // 도착 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
-    };
- 
-// 도착 마커의 드래그 이미지를 생성합니다
-var arriveDragImage = new kakao.maps.MarkerImage(arriveDragSrc, arriveDragSize, arriveDragOption);
-
-// 도착 마커가 표시될 위치입니다 
-var arrivePosition = new kakao.maps.LatLng(jsonData.도착위도, jsonData.도착경도);    
- 
-// 도착 마커를 생성합니다 
-var arriveMarker = new kakao.maps.Marker({  
-    map: map, // 도착 마커가 지도 위에 표시되도록 설정합니다
-    position: arrivePosition,
-    draggable: true, // 도착 마커가 드래그 가능하도록 설정합니다
-    image: arriveImage // 도착 마커이미지를 설정합니다
-});
-
-// 도착 마커에 dragstart 이벤트를 등록합니다
-kakao.maps.event.addListener(arriveMarker, 'dragstart', function() {
-    // 도착 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
-    arriveMarker.setImage(arriveDragImage);
-});
-
-// 도착 마커에 dragend 이벤트를 등록합니다
-kakao.maps.event.addListener(arriveMarker, 'dragend', function() {
-     // 도착 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
-    arriveMarker.setImage(arriveImage);  
-});
+	// 출발 마커의 드래그 이미지를 생성합니다
+	var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
 	
+    
+    // 마커가 표시될 위치입니다 
+	var markerPosition1  = new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도); 
+
+	// 마커를 생성합니다
+	var marker1 = new kakao.maps.Marker({
+   		 position: markerPosition1,
+   		 
+   		  map: map,
+   		   image: startImage
+   		  
+	});
+	
+	// 출발 마커에 dragstart 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker1, 'dragstart', function() {
+		// 출발 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
+		marker1.setImage(startDragImage);
+	});
+
+	// 출발 마커에 dragend 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker1, 'dragend', function() {
+		// 출발 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
+		marker1.setImage(startImage);
+	});
+
+	var arriveSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png', // 도착 마커이미지 주소입니다    
+		arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다 
+		arriveOption = {
+			offset: new kakao.maps.Point(15, 43) // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+		};
+
+	// 도착 마커 이미지를 생성합니다
+	var arriveImage = new kakao.maps.MarkerImage(arriveSrc, arriveSize, arriveOption);
+
+	var arriveDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_drag.png', // 도착 마커의 드래그 이미지 주소입니다    
+		arriveDragSize = new kakao.maps.Size(50, 64), // 도착 마커의 드래그 이미지 크기입니다 
+		arriveDragOption = {
+			offset: new kakao.maps.Point(15, 54) // 도착 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+		};
+
+
+	var arriveDragImage = new kakao.maps.MarkerImage(arriveDragSrc, arriveDragSize, arriveDragOption);
+
+	
+	// 마커가 표시될 위치입니다 
+	var markerPosition2  = new kakao.maps.LatLng(jsonData.도착위도, jsonData.도착경도); 
+
+	// 마커를 생성합니다
+	var marker2 = new kakao.maps.Marker({
+   		 position: markerPosition2,
+   		 
+   		  map: map,
+   		   image: arriveDragImage
+	});
+	
+	// 도착 마커에 dragstart 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker2, 'dragstart', function() {
+		// 도착 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
+		marker2.setImage(arriveDragImage);
+	});
+
+	// 도착 마커에 dragend 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker2, 'dragend', function() {
+		// 도착 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
+		marker2.setImage(arriveImage);
+	});
+	
+	/*
+	
+	let position = {
+		title: '라이더1',
+		latlng: new kakao.maps.LatLng(현재위도, 현재경도)
+	}
+	// 마커가 표시될 위치입니다 
+	var markerPosition = position.latlng
+
+	let 현재마커 = new kakao.maps.Marker({
+		position: markerPosition,
+		image: markerImage, // 마커의 이미지
+	});
+
+
+	var markerImageUrl = '/ezenTeam1/img/gorider/icon.png',
+		markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
+		markerImageOptions = {
+			offset: new kakao.maps.Point(20, 42)// 마커 좌표에 일치시킬 이미지 안의 좌표
+		};
+
+	// 마커 이미지를 생성한다
+	var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
+
+	function 마커셋팅() {
+
+		현재마커.setMap(null); // 기존 마커 없애고
+
+		let position = {
+			title: '라이더1',
+			latlng: new kakao.maps.LatLng(현재위도, 현재경도)
+		}
+
+		// 마커가 표시될 위치입니다 
+		var markerPosition = position.latlng
+
+		// 마커를 생성합니다
+		현재마커 = new kakao.maps.Marker({
+			position: markerPosition,
+			image: markerImage, // 마커의 이미지
+		});
+
+	// 마커가 지도 위에 표시되도록 설정합니다
+	현재마커.setMap(map);
+	
+	}
+ */
+	
+
+	// 지도 영역 설정
+    let bounds = new kakao.maps.LatLngBounds();
+    bounds.extend(markerPosition1);
+    bounds.extend(markerPosition2);
+    map.setBounds(bounds);		
 
 	
 }

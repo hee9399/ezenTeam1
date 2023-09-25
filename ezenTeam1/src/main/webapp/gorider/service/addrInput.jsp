@@ -67,11 +67,7 @@
     			
     	
 			</div>
-       		 <div> 
-            	<!-- <a href = "/ezenTeam1/gorider/service/mcall.jsp"> --><button class = "choice" type = "button">선택</button></a>
-            </div>
-       
-        
+       		
         
  	</div>
 

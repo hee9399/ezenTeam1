@@ -23,8 +23,7 @@
 	</div>
 
 	<div class = "choicebox">
-		<button onclick = "accept()" type = "button" class = "accept">수락</button>
-		<button type = "button" class = "decline">거절</button>
+		
 	</div>
 	
 

@@ -131,7 +131,7 @@ function getListItem(index, places) {
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-function addMarker(position, idx, title) {
+function addMarker(position, idx) {
     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
         imgOptions =  {
@@ -205,7 +205,7 @@ function removeAllChildNods(el) {
     }
 }
 
-let choice1 = null;
+let info = null;
 
 function selectedPlaceInfo(index){
 	console.log("index :: "+index);
@@ -224,30 +224,30 @@ function selectedPlaceInfo(index){
 
 	
 	html += `
+	<div>
 		<div>장소명 : ${pName} </div>
 		<div>주소 : ${pAddress} </div>
 		<div>전화번호 : ${pPhone} </div>
-	`;
+		<button onclick = "choice(info)" type = "button">선택</button>
+	</div>`;
 	
 	selectedPlaceInfo.innerHTML = html;
 	
-	choice1 = selectedPlaceInfo.innerHTML;
+	
+	
+	info = {
+        name: pName,
+        address: pAddress,
+        phone: pPhone,
+    };
 }
 
-function choice(){
+function choice(info) {
 	
-	let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
-	
-	
-	
-	document.querySelector('.choice').addEventListener('click' , (e)=>{
-	let 도착 = {
-		choice1 : choice1 
-	}
-	console.log(도착)
-	
-	callClientSocket.send( JSON.stringify(도착) );
-	
-})
-	
+    sessionStorage.setItem('info', JSON.stringify(info));
+    console.log(info)
+    
+    window.location.href = '/ezenTeam1/gorider/service/mcall.jsp';
 }
+
+	
