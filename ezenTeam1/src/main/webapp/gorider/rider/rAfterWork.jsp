@@ -13,11 +13,16 @@
 <!-- <style>*{border:solid 1px red;}</style> -->
 </head>
 <body>
-	<div class="wrapR ">
-<%--      <%@include file="rheader.jsp" %> --%>
-        <div class="rheaderwrap ">
 
-            <p><span class="colorY">김짱꾸</span> 라이더님 반갑습니다. </p>
+	<div class="wrapR ">
+<%--  <%@include file="rheader.jsp" %> --%>
+ <%@include file="rheader.jsp" %>
+        <div class="rheaderwrap ">
+        
+				<div class="riderinformation">
+            		<p><span class="colorY rname"></span> 라이더님 반갑습니다. </p>
+            	</div>
+            	
             <div  onclick="onMove('myMenu')" class="rbtn">나의 메뉴</div>
 
         </div>
@@ -33,8 +38,8 @@
 
 	               <p class="fs18m02">경기 안산</p>
 		           <div class="numbox2">
-			           <span class="col20 fs15m02">하</span>
-			           <span class="col50 fs22m02">5771</span>
+			           <span class="col20 fs15m02 rbikenum">하</span>
+			           <span class="col50 fs22m02 rbikenum">5771</span>
 		           </div>
 
                 </div>
@@ -43,11 +48,15 @@
             </div>
         </div>
 		<div class="footerR" >
-	       <div  onclick="goWork()"class="fbtn btn100 bgm02">출근하기</div>
+	       <div onclick="goWork()"class="fbtn btn100 bgm02">출근하기</div>
 	    </div>
     </div>
+    
+    <!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script src="../../js/gorider/rider/rAfterWork.js"></script>
+	<script src="../../js/gorider/rider/rAfterWork.js"></script>
+	<script src="../../js/gorider/rider/rheader.js"></script>
 
 </body>
 </html>

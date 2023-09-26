@@ -1,11 +1,7 @@
 console.log('js실행됩니다.')
 
 
-/*
 
-	라이더가 회원가입을하고 로그인을 진행기전에 관리자가 승인을 해줘야 로그인이 가능하다.
-
-*/ 
 
 
 rlogin();
@@ -35,6 +31,7 @@ function rlogin(){
 					  console.log('로그인성공');
 					  
 					  alert('로그인성공');
+					  location.href="/ezenTeam1/gorider/rider/rAfterWork.jsp";
 					  
 				  }else{
 					  document.querySelector('.rlogincheckbox').innerHTML = '동일한 회원정보가 없습니다';

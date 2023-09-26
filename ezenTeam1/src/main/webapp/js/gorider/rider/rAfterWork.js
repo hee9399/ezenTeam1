@@ -1,5 +1,13 @@
-
 console.log('rAfterWork.js');
+
+if(loginState == true){
+	document.querySelector('.rname').innerHTML = loginRname;
+}else{
+	alert('로그인 후 사용해주세요.');
+	location.href="/ezenTeam1/gorider/rider/rlogin.jsp";
+}
+
+
 
 let callstate = 'Y';
 function goWork(){
@@ -15,7 +23,6 @@ function outWork(){
 	/* riderState 테이블 업데이트 후 */arguments
 	window.close();
 
-
 }
 function onMove(to){
 
@@ -28,7 +35,7 @@ function onMove(to){
 	}
 
 
-
+ 
 
 }
 let currentIndex = 0;
@@ -42,7 +49,7 @@ function changeColor() {
 
 	currentIndex = (currentIndex + 1) % colors.length;
 }
-setInterval(changeColor, 800);
+// setInterval(changeColor, 800);
 
 
 
