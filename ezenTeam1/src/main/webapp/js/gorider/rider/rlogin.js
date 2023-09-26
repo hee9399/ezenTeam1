@@ -20,7 +20,7 @@ function rlogin(){
 		// 2-1 : 로그인 성공시 
 		   $.ajax({
 		      url : "/ezenTeam1/RiderFindController" ,      
-		      data : {rid : rid , rpwd : rpwd} ,      
+		      data : {rid : rid , rpwd : rpwd}  ,      
 		      method : "post",   
 		      success : r => {
 				  
