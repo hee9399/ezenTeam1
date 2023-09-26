@@ -1,5 +1,6 @@
 let 현재위도 = 0;
 let 현재경도 = 0;
+let rmessage = "";
 
 navigator.geolocation.getCurrentPosition( e => {
 
@@ -19,7 +20,7 @@ function accept() {
 	
 
 	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
-
+	let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 	
 	let contentBox = document.querySelector('.accept');
 	
@@ -60,12 +61,35 @@ document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
 	})
 	
 	
+	
 	gpsClientSocket.onmessage = (e)=>{
 	let data =  JSON.parse(e.data); console.log( data );
 	현재위도 = data.현재위도
 	현재경도 = data.현재경도
 	
-}
+	}
+	
+	let callcontent = document.querySelector('.callcontent');
+	
+	html = `
+	<h3> 고객과의 거리 </h3>
+	<div id="map" style="width:100%;height:350px;"></div>
+	<input class = "rmessage" placeholder = "고객에게 메시지 보내기">
+	
+	`;
+	
+	
+	callcontent.innerHTML = html;
+	
+	
+
+	
+	
+	rmessage = document.querySelector('.rmessage').value;
+	
+	callClientSocket.send(JSON.stringify(rmessage));
+		
+
 }
 
 

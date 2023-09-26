@@ -11,11 +11,11 @@ function call (){
 }
 
 
-let 현재위도 = 0;
-let 현재경도 = 0;
+let sfromla = 0;
+let sfromlo = 0;
 let 현재주소 = "";
-let 도착위도 = 0;
-let 도착경도 = 0;
+let stola = 0;
+let stolo = 0;
 let destination = "";
 let 요청내용 = "";
 
@@ -153,14 +153,14 @@ if (JsonInfo) {
                 
                 
             }
-            도착위도 =result[0].y;
-    		도착경도 =result[0].x;
+            stola =result[0].y;
+    		stolo =result[0].x;
         });
         
-        현재위도 = position.coords.latitude;
-   		현재경도 = position.coords.longitude;
+        sfromla = position.coords.latitude;
+   		sfromlo = position.coords.longitude;
    		
-		geocoder.coord2Address(현재경도, 현재위도, function(result, status) {
+		geocoder.coord2Address(sfromlo, sfromla, function(result, status) {
 			if (status === kakao.maps.services.Status.OK) {
 				현재주소 = result[0].address;
 				}
@@ -183,8 +183,8 @@ document.querySelector('.call').addEventListener('click' , (e)=>{
 	
 	
 	requestContent = document.querySelector('.ccontent').value;	
-	let callInfo = {
-		현재위도 : 현재위도 , 현재경도 : 현재경도 , mno : 1 , 도착위도 : 도착위도 , 도착경도 : 도착경도 , 요청내용 : requestContent
+	let callInfo = { type : 1,
+		sfromla : sfromla , sfromlo : sfromlo , mno : 1 , stola : stola , stolo : stolo , 요청내용 : requestContent
 		, 목적지 : destination , 출발지 : 현재주소
 	}
 	callClientSocket.send( JSON.stringify(callInfo) );

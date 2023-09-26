@@ -15,6 +15,7 @@ public class ServiceDto {// 서비스 Dto
 	private boolean spayYN;		// 결제여부
 	private String sreview;		// 리뷰
 	private int spoint;			// 별점
+	private int type;			// 타입
 	// 생성자 
 	public ServiceDto() {}
 	// 풀 
@@ -120,11 +121,19 @@ public class ServiceDto {// 서비스 Dto
 	public void setSpoint(int spoint) {
 		this.spoint = spoint;
 	}
+	
+	
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
 		return "ServiceDto [sno=" + sno + ", mno=" + mno + ", rno=" + rno + ", sdate=" + sdate + ", sfromla=" + sfromla
 				+ ", sfromlo=" + sfromlo + ", stola=" + stola + ", stolo=" + stolo + ", spayment=" + spayment
-				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + "]";
+				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + ", type=" + type + "]";
 	}
 	
 	

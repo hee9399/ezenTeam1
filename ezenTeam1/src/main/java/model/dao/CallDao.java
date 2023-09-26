@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.dto.ServiceDto;
+
 
 public class CallDao extends Dao{
 
@@ -11,22 +11,21 @@ public class CallDao extends Dao{
 	
 
 	// 2. 상세보기 
-	public ServiceDto ApprovalView(int mno) {
+	public boolean MemberCall(int mno, double sfromla,double sfromlo,double stola, double stolo ) {
 		try {
-			String sql = "select * from service where mno = ? ";
+			String sql = "insert mno,sfromla,sfromlo,stola,stolo into values(?,?,?,?,?) ";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, mno);
-			rs= ps.executeQuery();
-			if(rs.next()) {
-				ServiceDto serviceDto = new ServiceDto(
-						rs.getInt(1),
-						rs.getDouble(2), rs.getDouble(3),rs.getDouble(4),
-						rs.getDouble(5)
-						
-						);
-				return serviceDto;
-			}
+			ps.setDouble(2, sfromla);
+			ps.setDouble(3, sfromlo);
+			ps.setDouble(4, stola);
+			ps.setDouble(5, stolo);
+			
+			int count = ps.executeUpdate();
+			if(count == 1) return true;
+	
+
 		}catch (Exception e) {System.out.println(e);}
-		return null;
+		return false;
 	}
 }
