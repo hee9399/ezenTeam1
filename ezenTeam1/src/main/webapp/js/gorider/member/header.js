@@ -12,6 +12,7 @@ let loginState = false; //로그인상태 기본값 false로 세팅
 let loginMid = ''; // 전역변수로 선언
 let loginMname = '';
 let loginMeamil = '';
+let loginMphoto ='';
 getMemberInfo();
 // 1. 세션에 있는 로그인정보 유무에 따라  화면수정
 function getMemberInfo(){
@@ -36,11 +37,11 @@ function getMemberInfo(){
 				loginMid = r.mid;
 				loginMname = r.mname;
 				loginMeamil = r.memail
-				let mphoto = r.mphoto == null? 'default.png': r.mphoto;
+				loginMphoto = r.mphoto == null? 'default.png': r.mphoto;
 				html += ` <div class="minfo">
 							<span class="mname">${r.mname}님</span>
 							<span class="sayhello">반갑습니다. <br> <span class="logout" onclick="logout()"> 로그아웃</span></span>
-						    <img onclick="onMove('MY')" src="/ezenTeam1/gorider/member/file/${mphoto}"/>
+						    <img onclick="onMove('MY')" src="/ezenTeam1/gorider/member/file/${loginMphoto}"/>
 						   </div>`
 				console.log("loginState :: "+loginState);
 				console.log("loginMid :: "+loginMid);
@@ -56,8 +57,7 @@ function getMemberInfo(){
 function logout(){
 
 
-	if(confirm("로그아웃 하시겠습니까?")){
-
+	
 		$.ajax({
 			url:"/ezenTeam1/MemberInfoController",
 			method:"get",
@@ -65,11 +65,11 @@ function logout(){
 			success: r =>{
 
 				console.log(loginState);
-				alert('로그아웃 되었습니다.');
+				//alert('로그아웃 되었습니다.');
 				location.href = '/ezenTeam1/gorider/member/mindex.jsp'
 
 			},
 			error : e =>{console.log("실패 :: "+ e)}
 		})
-	}
+	
 }

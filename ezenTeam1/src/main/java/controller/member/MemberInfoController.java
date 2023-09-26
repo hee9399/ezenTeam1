@@ -102,20 +102,37 @@ public class MemberInfoController extends HttpServlet {
 	// 2. 결제수단변경
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String uploadPath = request.getSession().getServletContext().getRealPath("/member/file");
+		String uploadPath = request.getSession().getServletContext().getRealPath("/gorider/member/file");
+		// 사진. 결제정보 두가지를 수정해야 함으로.
+		String changeType = null; // 수정할 필드의 정보를 담을 변수를 선언
+		String changeData = null; // 수정할 데이터값을  담을 변수를 선언
+		
 		MemberDto loginDto = (MemberDto) request.getSession().getAttribute("loginDto");
+		int mno = loginDto.getMno(); //세션에서 회원의 번호를 가져옴.
 		MultipartRequest multi = new MultipartRequest( //cos라이브러리
-
-
-					request,			// 1. 요청방식
-					uploadPath,			// 2. 첨부파일을 저장할 경로
-					1024*1024*10,		// 3. 첨부파일 용량 허용 범위 [ 바이트 단위 ]10mb
-					"UTF-8",			// 4.한글인코딩타입
-					new DefaultFileRenamePolicy());
-			String mphoto = multi.getFilesystemName("mphoto");
-			int mno = loginDto.getMno();
-			System.out.println(mphoto);
-
+			request,			// 1. 요청방식
+			uploadPath,			// 2. 첨부파일을 저장할 경로
+			1024*1024*10,		// 3. 첨부파일 용량 허용 범위 [ 바이트 단위 ]10mb
+			"UTF-8",			// 4.한글인코딩타입
+			new DefaultFileRenamePolicy());
+		
+		if(multi.getFilesystemName("mphoto") != null) { //프로필 사진을 수정할 경우
+			changeType = "mphoto";
+			changeData = multi.getFilesystemName("mphoto");
+			
+		} else if(multi.getParameter("mpayinfo1") != null) {
+			changeType = "mpayinfo";
+			changeData = multi.getParameter("mpayinfo1")
+	    			+ multi.getParameter("mpayinfo2")
+	    			+ multi.getParameter("mpayinfo3")
+	    			+ multi.getParameter("mpayinfo4");
+		}
+		System.out.println("changeType  :: "+ changeType);
+		System.out.println("changeData  :: "+ changeData);
+	
+		boolean result = MemberDao.getInstance().changeMyInfo(mno, changeType, changeData);
+		response.setContentType(("application/json;charset=UTF-8"));
+    	response.getWriter().print(result);
 	}
 
 	// 삭제

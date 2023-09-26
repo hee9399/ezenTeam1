@@ -157,7 +157,26 @@ public class MemberDao extends Dao{
 	}
 
 	// 8  내 정보가져오기
+	public boolean getMyInfo(int mno) {
+		return false;
+	}
 
-	// 9. 결제정보 변경하기
+	// 9. 정보 변경하기
+	public boolean changeMyInfo(int mno, String type, String data) {
+		
+		try {
+			String sql = "update member set " + type + " = ? where mno = ? " ;
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, data);
+			ps.setInt(2, mno);
+			System.out.println("changeMyInfo SQL :: " +ps);
+			int rs = ps.executeUpdate();
+			if(rs == 1) { return true;	}
+			
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
+		return false;
+	}
 	
 }// class e
