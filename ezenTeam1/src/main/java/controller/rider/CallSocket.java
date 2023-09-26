@@ -46,8 +46,9 @@ public class CallSocket {
 			
 			
 			
-			ServiceDto result = CallDao.getInstance().MemberCall(mno, sfromla, sfromlo, stola, stolo);
-			System.out.println(result);
+			boolean result = CallDao.getInstance().MemberCall(servicedto.getMno(), servicedto.getSfromla(), servicedto.getSfromlo(), servicedto.getStola(), servicedto.getStolo());
+			if(result) {System.out.println("성공");}
+			else {System.out.println("실패");}
 			
 		}
 		else if(servicedto.getType() == 2) {

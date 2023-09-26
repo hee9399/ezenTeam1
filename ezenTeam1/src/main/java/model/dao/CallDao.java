@@ -13,7 +13,7 @@ public class CallDao extends Dao{
 	// 2. 상세보기 
 	public boolean MemberCall(int mno, double sfromla,double sfromlo,double stola, double stolo ) {
 		try {
-			String sql = "insert mno,sfromla,sfromlo,stola,stolo into values(?,?,?,?,?) ";
+			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo) values(?,?,?,?,?)";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, mno);
 			ps.setDouble(2, sfromla);

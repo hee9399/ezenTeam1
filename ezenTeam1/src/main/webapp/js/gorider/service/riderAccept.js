@@ -1,31 +1,27 @@
-let 현재위도 = 0;
-let 현재경도 = 0;
+let sfromla = 0;
+let sfromlo = 0;
 let rmessage = "";
+let 라이더 = null;
+let 라이더위도 = 37.320682;
+let 라이더경도 = 126.832668;
+navigator.geolocation.getCurrentPosition(e => {
 
-navigator.geolocation.getCurrentPosition( e => {
+	sfromla = e.coords.latitude;
+	sfromlo = e.coords.longitude;
 
-	 현재위도 = e.coords.latitude;
-	 현재경도 = e.coords.longitude;
-	 
 });
 
-// 변수를 선언하여 정보를 저장합니다.
-let currentInfo = null;
 
-// 정보를 업데이트하는 함수
-function updateInfo(newInfo) {
-  currentInfo = newInfo;
-}
 function accept() {
-	
 
-	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
-	let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
-	
+
+	let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+
+
 	let contentBox = document.querySelector('.accept');
-	
-	let html =``;
-	
+
+	let html = ``;
+
 	html = `
 	 
 		<button type="button" class="rigjtBtn">앞으로</button>
@@ -33,62 +29,45 @@ function accept() {
      	<button type="button" class="topBtn">위로</button>
      	<button type="button" class="bottomBtn">아래로</button>
 	`;
-	
+
 	contentBox.innerHTML = html;
+
+	document.querySelector('.rigjtBtn').addEventListener('click', (e) => {
+		console.log('앞으로');
+		라이더경도 += 0.0001;
 	
-	document.querySelector('.rigjtBtn').addEventListener('click' , (e)=>{
-	console.log('앞으로');
-	현재경도 += 0.0001; 
-	gpsClientSocket.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.leftBtn').addEventListener('click' , (e)=>{
-	console.log('뒤로')
-	현재경도 -= 0.0001; 
-	gpsClientSocket.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.topBtn').addEventListener('click' , (e)=>{
-	console.log('위로')
-	현재위도 += 0.0001; 
-	gpsClientSocket.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
-})
-
-document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
-	console.log('아래로')
-	현재위도 -= 0.0001; 
-	gpsClientSocket.send( JSON.stringify( { 현재위도 : 현재위도 , 현재경도 : 현재경도 } ) );
+		gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
 	})
-	
-	
-	
-	gpsClientSocket.onmessage = (e)=>{
-	let data =  JSON.parse(e.data); console.log( data );
-	현재위도 = data.현재위도
-	현재경도 = data.현재경도
-	
-	}
-	
-	let callcontent = document.querySelector('.callcontent');
-	
-	html = `
-	<h3> 고객과의 거리 </h3>
-	<div id="map" style="width:100%;height:350px;"></div>
-	<input class = "rmessage" placeholder = "고객에게 메시지 보내기">
-	
-	`;
-	
-	
-	callcontent.innerHTML = html;
-	
-	
 
+	document.querySelector('.leftBtn').addEventListener('click', (e) => {
+		console.log('뒤로')
+		라이더경도 -= 0.0001;
 	
-	
-	rmessage = document.querySelector('.rmessage').value;
-	
-	callClientSocket.send(JSON.stringify(rmessage));
+		gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+	})
+
+	document.querySelector('.topBtn').addEventListener('click', (e) => {
+		console.log('위로')
+		라이더위도 += 0.0001;
 		
+		gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+	})
+
+	document.querySelector('.bottomBtn').addEventListener('click', (e) => {
+		console.log('아래로')
+		라이더위도 -= 0.0001;
+	
+		gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+	})
+
+
+
+	gpsClientSocket.onmessage = (e) => {
+		let data = JSON.parse(e.data); console.log(data);
+		라이더위도 = data.sfromla
+		라이더경도 = data.sfromlo
+		마커셋팅();
+	}
 
 }
 
@@ -99,18 +78,18 @@ document.querySelector('.bottomBtn').addEventListener('click' , (e)=>{
 
 
 
-let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
 
-callClientSocket.onmessage = (e)=>{
-	
+callClientSocket.onmessage = (e) => {
+
 	alert('통신');
 
-	let jsonData =  JSON.parse( e.data ) ;
+	let jsonData = JSON.parse(e.data);
 	console.log(jsonData);
 	let callcontent = document.querySelector('.callcontent');
-	
-	let html =``;
-	
+
+	let html = ``;
+
 	html = `
 		<h3> 콜 도착 </h3>
 	 	<div id="map" style="width:100%;height:350px;"></div>
@@ -124,18 +103,19 @@ callClientSocket.onmessage = (e)=>{
 	 		<button onclick = "accept()" type = "button" class = "accept">수락</button>
 			<button onclick = "reject()" type = "button" class = "reject">거절</button>
 		</div>`;
-	
-	
-	
+
+
+
 	callcontent.innerHTML = html;
 
 	var mapContainer = document.getElementById('map');
 	var mapOption = {
-		center: new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도), // 현재 위치를 중심으로 지도 생성
+		center: new kakao.maps.LatLng(jsonData.sfromla, jsonData.sfromlo), // 현재 위치를 중심으로 지도 생성
 		level: 4
 	};
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 	
+
 	var startSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
 		startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
 		startOption = {
@@ -152,20 +132,20 @@ callClientSocket.onmessage = (e)=>{
 
 	// 출발 마커의 드래그 이미지를 생성합니다
 	var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
-	
-    
-    // 마커가 표시될 위치입니다 
-	var markerPosition1  = new kakao.maps.LatLng(jsonData.현재위도, jsonData.현재경도); 
+
+
+	// 마커가 표시될 위치입니다 
+	var markerPosition1 = new kakao.maps.LatLng(jsonData.sfromla, jsonData.sfromlo);
 
 	// 마커를 생성합니다
 	var marker1 = new kakao.maps.Marker({
-   		 position: markerPosition1,
-   		 
-   		  map: map,
-   		   image: startImage
-   		  
+		position: markerPosition1,
+
+		map: map,
+		image: startImage
+
 	});
-	
+
 	// 출발 마커에 dragstart 이벤트를 등록합니다
 	kakao.maps.event.addListener(marker1, 'dragstart', function() {
 		// 출발 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
@@ -196,18 +176,18 @@ callClientSocket.onmessage = (e)=>{
 
 	var arriveDragImage = new kakao.maps.MarkerImage(arriveDragSrc, arriveDragSize, arriveDragOption);
 
-	
+
 	// 마커가 표시될 위치입니다 
-	var markerPosition2  = new kakao.maps.LatLng(jsonData.도착위도, jsonData.도착경도); 
+	var markerPosition2 = new kakao.maps.LatLng(jsonData.stola, jsonData.stolo);
 
 	// 마커를 생성합니다
 	var marker2 = new kakao.maps.Marker({
-   		 position: markerPosition2,
-   		 
-   		  map: map,
-   		   image: arriveDragImage
+		position: markerPosition2,
+
+		map: map,
+		image: arriveDragImage
 	});
-	
+
 	// 도착 마커에 dragstart 이벤트를 등록합니다
 	kakao.maps.event.addListener(marker2, 'dragstart', function() {
 		// 도착 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
@@ -219,64 +199,74 @@ callClientSocket.onmessage = (e)=>{
 		// 도착 마커의 드래그가 종료될 때 마커 이미지를 원래 이미지로 변경합니다
 		marker2.setImage(arriveImage);
 	});
-	
-	/*
-	
-	let position = {
-		title: '라이더1',
-		latlng: new kakao.maps.LatLng(현재위도, 현재경도)
-	}
-	// 마커가 표시될 위치입니다 
-	var markerPosition = position.latlng
 
-	let 현재마커 = new kakao.maps.Marker({
-		position: markerPosition,
-		image: markerImage, // 마커의 이미지
-	});
-
-
-	var markerImageUrl = '/ezenTeam1/img/gorider/icon.png',
-		markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
-		markerImageOptions = {
-			offset: new kakao.maps.Point(20, 42)// 마커 좌표에 일치시킬 이미지 안의 좌표
+	var riderSrc = '/ezenTeam1/img/gorider/icon.png',    
+		riderSize = new kakao.maps.Size(50, 45),
+		riderOption = {
+			offset: new kakao.maps.Point(15, 43) 
 		};
 
-	// 마커 이미지를 생성한다
-	var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
-
-	function 마커셋팅() {
-
-		현재마커.setMap(null); // 기존 마커 없애고
-
-		let position = {
-			title: '라이더1',
-			latlng: new kakao.maps.LatLng(현재위도, 현재경도)
-		}
-
-		// 마커가 표시될 위치입니다 
-		var markerPosition = position.latlng
-
-		// 마커를 생성합니다
-		현재마커 = new kakao.maps.Marker({
-			position: markerPosition,
-			image: markerImage, // 마커의 이미지
-		});
-
-	// 마커가 지도 위에 표시되도록 설정합니다
-	현재마커.setMap(map);
 	
-	}
- */
+	var riderImage = new kakao.maps.MarkerImage(riderSrc, riderSize, riderOption);
+
+	// 마커가 표시될 위치입니다 
+	var 라이더위치 = new kakao.maps.LatLng(라이더위도, 라이더경도);
+
+	// 마커를 생성합니다
+		라이더 = new kakao.maps.Marker({
+		position: 라이더위치,
+		map: map,
+		image: riderImage
+	});
 	
+	
+
+
+
 
 	// 지도 영역 설정
-    let bounds = new kakao.maps.LatLngBounds();
-    bounds.extend(markerPosition1);
-    bounds.extend(markerPosition2);
-    map.setBounds(bounds);		
+	let bounds = new kakao.maps.LatLngBounds();
+	bounds.extend(markerPosition1);
+	bounds.extend(markerPosition2);
+	map.setBounds(bounds);
+
+
+}
+
+
+function 마커셋팅(){
+	if(라이더) {
+	라이더.setMap(null);
+	}
+	var riderSrc = '/ezenTeam1/img/gorider/icon.png',    
+		riderSize = new kakao.maps.Size(50, 45),
+		riderOption = {
+			offset: new kakao.maps.Point(15, 43) 
+		};
 
 	
+	var riderImage = new kakao.maps.MarkerImage(riderSrc, riderSize, riderOption);
+
+	// 마커가 표시될 위치입니다 
+	var 라이더위치 = new kakao.maps.LatLng(라이더위도, 라이더경도);
+
+	// 마커를 생성합니다
+		라이더 = new kakao.maps.Marker({
+		position: 라이더위치,
+		map: map,
+		image: riderImage
+	});
+	
+	라이더.setMap(map);
+	
 }
+
+
+
+/*
+수락 버튼을 눌렀을 시
+1. 라이더 화면에는 사용자의 위치(출발지) , 사용자의 도착지, 라이더 현재 위치를 포함하는 마커를 띄우는 지도(js -> js)
+2. 소켓으로 전달하는 내용은 수락정보, 라이더 위치(라이더가 보내는 메시지는 언제라도)*/
 
 
 // 수락버튼을 누르기 전까지는 화면 업데이트 X
