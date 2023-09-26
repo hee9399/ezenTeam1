@@ -12,7 +12,7 @@
 
       <div class="headerwrapA">
         <div class="logoA" onclick="goMain()">GoRider</div>
-        <div class="hinfo"> 신규요청 : 10 건</div>
+        <div class="hinfo" onclick="Request()"> 신규요청 : 10 건</div>
 
 
 

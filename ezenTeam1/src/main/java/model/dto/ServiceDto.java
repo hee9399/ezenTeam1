@@ -46,12 +46,23 @@ public class ServiceDto {// 서비스 Dto
 		this.stolo = stolo;
 	}
 	
+	// 서비스 정보 조회 생성자
+	public ServiceDto(int sno, int rno, String sdate, String sreview, int spoint) {
+		super();
+		this.sno = sno;
+		this.rno = rno;
+		this.sdate = sdate;
+		this.sreview = sreview;
+		this.spoint = spoint;
+	}
+	
 	// 라이더가 콜을 누른 후에 저장되는 생성자
 	
 	// 메소드 
 	public int getSno() {
 		return sno;
 	}
+
 	public void setSno(int sno) {
 		this.sno = sno;
 	}

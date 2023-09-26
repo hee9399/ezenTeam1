@@ -1,8 +1,10 @@
 package model.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 public class AdminDao extends Dao{
 	// 0. 싱글톤
@@ -112,16 +114,35 @@ public class AdminDao extends Dao{
 	}
 	*/
 	// 승인요청 가져오는 함수
-	public boolean Request(int rno) {
-		try {
-			String sql="SELECT SUM(rno) AS total_rno FROM rider WHERE rstatus = 'n' ";
-			ps=conn.prepareStatement(sql);
-			ps.setInt(1, rno);
-			rs=ps.executeQuery();
-			if(rs.next()) {
-				return true;
-			}
+	public boolean Request() {
+		 try {
+		        String sql = "SELECT COUNT(*) AS new_request_count FROM rider WHERE rstatus = 'n'";
+		        ps = conn.prepareStatement(sql);
+		        rs = ps.executeQuery();
+		        
+		        if (rs.next()) {
+		            int newRequestCount = rs.getInt("new_request_count");
+		        }
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
+	/*
+	public List<ServiceDto> ServicePrint(){
+		ArrayList<ServiceDto> list = new ArrayList<>();
+		try {
+			String sql="select * from service order by sdate desc ";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				ServiceDto dto = new ServiceDto(
+						dto.getSno(),
+						dto.getRno(),dto.getSdate(),
+						dto.getSreview(),dto.getSpoint());
+				
+			}
+		}catch (Exception e) {System.out.println(e);}
+		
+	}
+	*/
 }

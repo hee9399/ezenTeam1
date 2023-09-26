@@ -58,6 +58,15 @@ public class AdminController extends HttpServlet {
 	        System.out.println(json2);
 	    }else if(type.equals("3")) {
 	    	
+	    	boolean result=AdminDao.getInstance().Request();
+	    	response.setContentType("application/json;charset=UTF-8");
+			 response.getWriter().print(result);
+			 System.out.println(result);
+	    
+	    }else if(type.equals("4")) {
+	    	ObjectMapper objectMappe2r = new ObjectMapper();
+		    String json2 = "";
+		    
 	    }
 	}
 

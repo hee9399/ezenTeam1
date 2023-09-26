@@ -1,4 +1,5 @@
-
+let rno = new URL( location.href ).searchParams.get("rno")
+console.log(rno);
  function goMain(){
 	 location.href='amain.jsp';
  }
@@ -19,15 +20,18 @@
 	 
  }
  function Request(){
-	 console.log('Request() 실행');
+	 console.log('Request() 실행')
+
 	     $.ajax({
       
             url : "/jspweb/AdminController",   
-            async : false ,
             method : "get",
-            data : {type : "findByAll"},      
-           success : jsonArray=>{console.log(jsonArray)} ,
+            data : {type : 3},      
+           success: function (count) {
+   
+    			$(".hinfo").text("신규요청 : " + count + " 건");
+		},
                           
-   });
+   })
    
  }
