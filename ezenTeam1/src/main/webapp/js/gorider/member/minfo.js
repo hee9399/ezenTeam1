@@ -57,12 +57,12 @@ function onModalClose(type){
 	} else{
 		document.querySelector('.modalwrap2').style.display = 'none';
 	}
-	
+
 
 }
 //4. 프로필미리보기
 function preview(obj){
-	
+
 	//2. JS파일클래스 선언
 	let file = new FileReader(); //파일 읽기
 	file.readAsDataURL(obj.files[0]);
@@ -90,7 +90,7 @@ function onPayModal(){
 			error : e =>{ console.log(e ) }
 
 		});
-	
+
 
 }
 
@@ -115,7 +115,7 @@ function onChangePhoto(){
 			processData:false,
 			success : r =>{
 				//document.querySelector('.modalwrap').style.display = 'none';
-				alert('결제정보가 수정되었습니다..')
+				alert('프로필정보가 수정되었습니다.')
 				logout()
 			},
 			error : e =>{ console.log(e ) }
@@ -130,7 +130,7 @@ function onChangePay(){
 	let cPay02 = document.querySelector('.cpay02').value;
 	let cPay03 = document.querySelector('.cpay03').value;
 	let cPay04 = document.querySelector('.cpay04').value;
-	
+
 	if(cPay01==''||cPay02==''||cPay03==''||cPay04==''){
 		alert('카드번호를 정확히 입력해주세요');
 		return;
@@ -160,10 +160,10 @@ function onChangePay(){
 	}
 }
 //8.이용내역 리스트로 이동
-function onHistoryList(){
-	location.href ='/ezenTeam1/gorider/member/mSignup.jsp';
+function onUsedList(){
+	location.href ='/ezenTeam1/gorider/member/mUsedList.jsp';
 }
 //9.공지사항 리스트로 이동
 function onBoardList(){
-	location.href ='/ezenTeam1/gorider/member/mSignup.jsp';
+	location.href ='/ezenTeam1/gorider/member/mindex.jsp';
 }

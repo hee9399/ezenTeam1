@@ -55,9 +55,6 @@ function getMemberInfo(){
 }
 
 function logout(){
-
-
-	
 		$.ajax({
 			url:"/ezenTeam1/MemberInfoController",
 			method:"get",
@@ -71,5 +68,9 @@ function logout(){
 			},
 			error : e =>{console.log("실패 :: "+ e)}
 		})
-	
+
+}
+
+function goBack(){
+	window.history.back();
 }
