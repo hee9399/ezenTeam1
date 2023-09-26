@@ -42,7 +42,6 @@ public class RiderDao extends Dao{ // 라이더
 	public boolean Riderlogin( String rid , String rpwd ) {
 		
 		try {
-			
 			String sql = "select * from rider where rid = ? and rpwd = ? ";
 			
 			// 실행한다. 
