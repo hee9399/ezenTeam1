@@ -3,12 +3,20 @@ package controller.rider;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import model.dao.CallDao;
+import model.dto.ServiceDto;
+
 
 @ServerEndpoint("/callsocket")
 public class CallSocket {
@@ -27,16 +35,33 @@ public class CallSocket {
 	}
 	
 	@OnMessage
-	public void OnMessage( Session session , String msg ) {
+	public void OnMessage( Session session , String msg ) throws JsonProcessingException {
 		System.out.println( msg );
 		
 		//String(json형식)을 Dto로 바꾼다.
+		ObjectMapper mapper = new ObjectMapper();
+		ServiceDto servicedto = mapper.readValue(msg, ServiceDto.class);
 		
+		if(servicedto.getType() == 1) {
+			
+			
+			
+			ServiceDto result = CallDao.getInstance().MemberCall(mno, sfromla, sfromlo, stola, stolo);
+			System.out.println(result);
+			
+		}
+		else if(servicedto.getType() == 2) {
+			
+		}
+		
+	
+	
 		
 		callList.forEach( s ->{
 			try {s.getBasicRemote().sendText(msg);} 
 			catch (IOException e) { e.printStackTrace(); }
 		});
+		
 	}
 	
 	
