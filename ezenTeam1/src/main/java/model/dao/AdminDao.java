@@ -120,13 +120,11 @@ public class AdminDao extends Dao{
 		        ps = conn.prepareStatement(sql);
 		        rs = ps.executeQuery();
 		        
-		        if (rs.next()) {
-		            int newRequestCount = rs.getInt("new_request_count");
-		        }
+		       
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-	/*
+	
 	public List<ServiceDto> ServicePrint(){
 		ArrayList<ServiceDto> list = new ArrayList<>();
 		try {
@@ -136,13 +134,14 @@ public class AdminDao extends Dao{
 			
 			while(rs.next()) {
 				ServiceDto dto = new ServiceDto(
-						dto.getSno(),
-						dto.getRno(),dto.getSdate(),
-						dto.getSreview(),dto.getSpoint());
+						rs.getInt("sno"),rs.getInt("rno"),
+						rs.getString("sdate"),rs.getString("sreview"),
+						rs.getInt("spoint"));
+				list.add(dto);
 				
 			}
 		}catch (Exception e) {System.out.println(e);}
-		
+		return list;
 	}
-	*/
+	
 }
