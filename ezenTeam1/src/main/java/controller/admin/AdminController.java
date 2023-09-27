@@ -2,6 +2,7 @@ package controller.admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import model.dao.AdminDao;
 import model.dao.RiderDao;
 import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 @WebServlet("/AdminController")
 public class AdminController extends HttpServlet {
@@ -63,10 +65,6 @@ public class AdminController extends HttpServlet {
 			 response.getWriter().print(result);
 			 System.out.println(result);
 	    
-	    }else if(type.equals("4")) {
-	    	ObjectMapper objectMappe2r = new ObjectMapper();
-		    String json2 = "";
-		    
 	    }
 	}
 
@@ -78,7 +76,7 @@ public class AdminController extends HttpServlet {
 		if(type.equals("1")) {
 			 boolean result = AdminDao.getInstance().ApprovalReject(rno, rcomment);
 			 response.setContentType("application/json;charset=UTF-8");
-			 response.getWriter().print(result);
+			 response.getWriter().print("머있어"+result);
 			
 			
 		}else if(type.equals("2")) {

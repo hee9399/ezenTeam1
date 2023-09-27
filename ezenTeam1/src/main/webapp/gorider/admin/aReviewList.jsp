@@ -17,58 +17,22 @@
 
          <!-- title -->
             <ul class="listTitle rlistR">
-                <li class="col15">R번호</li>
-                <li class="col15">S번호</li>
-                <li class="col10">★</li>
-                <li class="col40">리뷰</li>
-                <li class="col20">서비스일자</li>
+               
            </ul>
-
+			 
         <!-- 1 content start -->
             <ul class="listContent rlistR">
-               <li class="col15">53</li>
-                <li class="col15">1235</li>
-                <li class="col10">3</li>
-                <li class="col40">굿서비스</li>
-                <li class="col20">2023-09-14</li>
+               
            </ul>
            
-            <ul class="listContent rlistR">
-               <li class="col15">53</li>
-                <li class="col15">1235</li>
-                <li class="col10">3</li>
-                <li class="col40">굿서비스</li>
-                <li class="col20">2023-09-14</li>
-           </ul>
            
-            <ul class="listContent rlistR">
-               <li class="col15">53</li>
-                <li class="col15">1235</li>
-                <li class="col10">3</li>
-                <li class="col40">굿서비스</li>
-                <li class="col20">2023-09-14</li>
-           </ul>
-          <ul class="listContent rlistR">
-               <li class="col15">53</li>
-                <li class="col15">1235</li>
-                <li class="col10">3</li>
-                <li class="col40">굿서비스</li>
-                <li class="col20">2023-09-14</li>
-           </ul>
-           
-            <ul class="listContent rlistR">
-               <li class="col15">53</li>
-                <li class="col15">1235</li>
-                <li class="col10">3</li>
-                <li class="col40">굿서비스</li>
-                <li class="col20">2023-09-14</li>
-           </ul>
            
            
         </div>   
         
         
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/ezenTeam1/js/gorider/admin/adminService.js" type="text/javascript"></script>
       <%@include file="afooter.jsp" %>
      </div>
 </body>

@@ -1,5 +1,4 @@
-let rno = new URL( location.href ).searchParams.get("rno")
-console.log(rno);
+
  function goMain(){
 	 location.href='amain.jsp';
  }
