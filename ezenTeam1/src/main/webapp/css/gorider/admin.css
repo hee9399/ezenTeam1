@@ -135,3 +135,161 @@
 /*------------------입금관리------------------*/
 
 /*------------------결산관리------------------*/
+
+/*------------------공지쓰기------------------*/
+.apageinfo{
+	padding:20px; 	
+	font-family: 'LINESeedKR-Bd';
+	font-size: 1.5rem;
+	color: var(--dgray);
+}
+.apageinfo i{ 
+	position: absolute;
+	padding:3px;
+
+}
+.writeBox{
+	font-family: 'LINESeedKR-Bd';
+	padding:10px;
+	font-size: 0.8rem;
+	color: var(--dgray);
+	
+}
+.aptitle{ 
+	display:inline-block; 
+	width:100%;
+	text-align: center;
+}
+
+.writeBox li{padding:10px 0 5px;;}
+.writeBox textarea, input[type="text"]{
+	border:solid 1px var(--lgray);
+	width:100%;
+	padding:10px;
+	border-radius: 5px;
+	font-family: 'NanumSquareNeo-Variable';
+
+}
+.writeBox textarea, input[type="text"]:focus{
+	outline: none;
+
+}
+.writeBox textarea{ 
+	height:35vh;
+	resize: none;
+	
+}
+.writeBox input[type="radio"]{
+	margin:0px 5px 3px 0;
+}
+
+.writeBox .bfiles{
+	height:150px;
+	border:solid 1px var(--lgray);
+	padding:10px;
+	font-family: 'NanumSquareNeo-Variable'; 
+}
+.btypeBox span{
+	display: inline-block;
+	margin-right: 30px;
+}
+.btargetBox,.btypeBox {border-bottom: solid 1px var(--lgray);}
+.btargetBox span{
+	display: inline-block;
+	margin-right: 37px;
+}
+.bePeriodBox i{
+	font-size: 1.2rem;
+	margin-left: 5px;
+}
+.gubun{margin: 0 10px;}
+.bbtnBox {
+		display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.bbtnBox button {
+	font-family: 'LINESeedKR-Bd';
+	color:solid 1px var(--dgray);
+	width:49%;
+	padding:15px;
+	border-radius: 10px;
+}
+
+/*모달 달력*/
+.modalBox{
+	padding:30px;
+	position:absolute;
+	display: none;
+	background-color: var(--main01);	
+	top:20vh;
+	left:20%;
+	right:20%;
+	border-radius: 10px;
+}
+.modalcal{
+	width:200px;
+	margin: 0 auto;
+}
+
+/* 캘린더 상단 메뉴 */
+.caltop{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+	height:30px;
+}
+
+/* 캘린더 상단 버튼 둘*/
+.caltop button{
+	background-color: white;
+	border:solid 1px #eee;
+	border-radius:50%;
+	padding:0 9px;
+	font-size: 0.7rem; color:var(--main03);
+	/*
+		커서 마우스 모양 설정
+		pointer: 손모양
+		move: 상하좌우방향의 화살표 
+		help: 화살표에 ? 모양 
+		zoom in / out
+	*/
+	cursor: pointer;
+}
+.caltop .caldate{margin:auto 15px;}
+/* 달력 구역 */
+.calendar{
+	display: flex;
+/* 	justify-content: space-between; */
+	flex-wrap: wrap;
+}
+.calendar div{
+	width:14%;
+/* 	text-align: center; */
+	border: solid 1px #eee;
+	height:26px;
+	font-size: 0.7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.week{
+	height:23px !important;
+	font-weight: bold;
+	font-size: 0.8rem;
+	text-align: center;
+	background-color: #e8e8e8;	
+	
+}
+.sunday{ background-color: red; color:#fff;}
+.today{background-color: var(--main02); font-weight: bold; color:#fff;}
+.days{background-color: var(--white);}
+.caltop{ 
+	display: flex;
+	
+}
+
+/*------------------공지리스트------------------*/
+
+/*------------------공지출력------------------*/
