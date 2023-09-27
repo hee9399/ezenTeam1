@@ -1,5 +1,5 @@
 
-let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
 function call() {
 
@@ -177,7 +177,7 @@ if (JsonInfo) {
 }
 
 
-let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
 
 document.querySelector('.call').addEventListener('click', (e) => {
 

@@ -10,14 +10,14 @@ navigator.geolocation.getCurrentPosition(e => {
 	sfromlo = e.coords.longitude;
 
 });
-
+/*2. 소켓으로 전달하는 내용은 수락정보, 라이더 위치(라이더가 보내는 메시지는 언제라도)*/
 
 function accept() {
 
 
-	let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+	let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
 
-
+	
 	let contentBox = document.querySelector('.accept');
 
 	let html = ``;
@@ -78,7 +78,12 @@ function accept() {
 
 
 
-let callClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/callsocket");
+let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
+
+
+
+
+
 
 callClientSocket.onmessage = (e) => {
 
@@ -228,6 +233,7 @@ callClientSocket.onmessage = (e) => {
 	let bounds = new kakao.maps.LatLngBounds();
 	bounds.extend(markerPosition1);
 	bounds.extend(markerPosition2);
+	
 	map.setBounds(bounds);
 
 
@@ -263,11 +269,12 @@ function 마커셋팅(){
 
 
 
+
 /*
 수락 버튼을 눌렀을 시
 1. 라이더 화면에는 사용자의 위치(출발지) , 사용자의 도착지, 라이더 현재 위치를 포함하는 마커를 띄우는 지도(js -> js)
-2. 소켓으로 전달하는 내용은 수락정보, 라이더 위치(라이더가 보내는 메시지는 언제라도)*/
 
+*/
 
 // 수락버튼을 누르기 전까지는 화면 업데이트 X
 // 거절버튼을 누르면 화면 업데이트
