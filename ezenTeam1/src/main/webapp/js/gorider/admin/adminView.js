@@ -19,7 +19,7 @@ let approvalDenied = false; // 승인 또는 거부 여부를 추적하는 변�
          	 document.querySelector('.rname').innerHTML=`이름 : ${r.rname}`;
          	 // 1. 해당 라이더에 연락처 출력
          	 document.querySelector('.rphone').innerHTML=`연락처 : ${r.rphone}`;	
-
+			
         
         },
         error: e => {
@@ -41,6 +41,8 @@ function onapprove() {
         success: r => {
             console.log(r);
             // 성공한 후에 아무것도 하지 않습니다.
+            location.href="/ezenTeam1/gorider/admin/aRequestList.jsp"
+            alert('승인 성공 했습니다.')
         },
         error: e => {
             console.error(e);
@@ -72,9 +74,11 @@ function ondeny() {
         success: r => {
             console.log(r);
             // 성공한 후에 아무것도 하지 않습니다.
+            location.href="/ezenTeam1/gorider/admin/aRequestList.jsp"
+            alert('승인 거부 했습니다.');
         },
         error: e => {
-            console.error(e);
+            console.log(e);
         }
     });
 

@@ -125,7 +125,7 @@ public class AdminDao extends Dao{
 		return false;
 	}
 	
-	public List<ServiceDto> ServicePrint(){
+	public ArrayList<ServiceDto> ServicePrint(){
 		ArrayList<ServiceDto> list = new ArrayList<>();
 		try {
 			String sql="select * from service order by sdate desc ";
@@ -138,7 +138,7 @@ public class AdminDao extends Dao{
 						rs.getString("sdate"),rs.getString("sreview"),
 						rs.getInt("spoint"));
 				list.add(dto);
-				
+				System.out.println(list);
 			}
 		}catch (Exception e) {System.out.println(e);}
 		return list;
