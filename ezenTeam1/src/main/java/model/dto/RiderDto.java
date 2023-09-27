@@ -19,13 +19,17 @@ public class RiderDto {// 기사 Dto
 	private String rbikenum;		// 라이더 차량번호 
 	private String rstart;    	 // 라이더출근상태  
 	private String rcall;   		// 라이더콜가능상태
+	private int type;				// 타입
+	private String accept;			// 라이더가 사용자 요청 수락했을때.
+	private double 라이더위도;			// 라이더 수락하고 사용자 위치까지 가기 전.
+	private double 라이더경도;			// 라이더 수락하고 사용자 위치까지 가기 전.
 	
 	// 생성자
 	public RiderDto() {}
 	// 풀 
 	public RiderDto(int rno, String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
-			String rbikenum, String rstart, String rcall) {
+			String rbikenum, String rstart, String rcall, int type, String accept, double 라이더위도, double 라이더경도) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
@@ -43,9 +47,11 @@ public class RiderDto {// 기사 Dto
 		this.rbikenum = rbikenum;
 		this.rstart = rstart;
 		this.rcall = rcall;
+		this.type = type;
+		this.accept = accept;
+		this.라이더위도 = 라이더위도;
+		this.라이더경도 = 라이더경도;
 	}
-	
-	
 	// 라이더 로그인 객체 만들때 필요한 생성자 
 	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rregistration,
 			String raccount, String rbank, String rstatus, String rbikenum, String rstart, String rcall) {
@@ -64,7 +70,7 @@ public class RiderDto {// 기사 Dto
 		this.rcall = rcall;
 	}
 	
-	
+
 	// 등록/회원가입 할때 필요한 생성자 
 	
 	public RiderDto(String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
@@ -112,12 +118,22 @@ public class RiderDto {// 기사 Dto
 		this.rbikenum = rbikenum;
 	}
 	
+	// 라이더가 사용자에 대한 콜을 수락했을때 생성자
+	public RiderDto(int rno, String accept, double 라이더위도, double 라이더경도) {
+		super();
+		this.rno = rno;
+		this.accept = accept;
+		this.라이더위도 = 라이더위도;
+		this.라이더경도 = 라이더경도;
+	}
+	
 	
 	public RiderDto(int rno, String rstatus) {
 		super();
 		this.rno = rno;
 		this.rstatus = rstatus;
 	}
+	
 	// 메소드 
 	public int getRno() {
 		return rno;
@@ -215,16 +231,41 @@ public class RiderDto {// 기사 Dto
 	public void setRcall(String rcall) {
 		this.rcall = rcall;
 	}
+	
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	
+	public String getAccept() {
+		return accept;
+	}
+	public void setAccept(String accept) {
+		this.accept = accept;
+	}
+	
+	public double get라이더위도() {
+		return 라이더위도;
+	}
+	public void set라이더위도(double 라이더위도) {
+		this.라이더위도 = 라이더위도;
+	}
+	public double get라이더경도() {
+		return 라이더경도;
+	}
+	public void set라이더경도(double 라이더경도) {
+		this.라이더경도 = 라이더경도;
+	}
 	@Override
 	public String toString() {
 		return "RiderDto [rno=" + rno + ", rname=" + rname + ", rid=" + rid + ", rpwd=" + rpwd + ", rphone=" + rphone
 				+ ", rphoto=" + rphoto + ", rlicense=" + rlicense + ", rregistration=" + rregistration + ", rdate="
 				+ rdate + ", raccount=" + raccount + ", rbank=" + rbank + ", rstatus=" + rstatus + ", rcomment="
-				+ rcomment + ", rbikenum=" + rbikenum + ", rstart=" + rstart + ", rcall=" + rcall + "]";
+				+ rcomment + ", rbikenum=" + rbikenum + ", rstart=" + rstart + ", rcall=" + rcall + ", type=" + type
+				+ ", accept=" + accept + ", 라이더위도=" + 라이더위도 + ", 라이더경도=" + 라이더경도 + "]";
 	}
-
-	
-	
 	
 
 	
