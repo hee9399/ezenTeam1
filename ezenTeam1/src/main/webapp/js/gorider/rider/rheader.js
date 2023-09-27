@@ -18,7 +18,7 @@ function getRiderInfo(){
       	let riderinformation = document.querySelector('.riderinformation');
       	let html = ``;
       	
-      	if( r == null ){// 비로그인 , 로그인이 안된상태 
+      	if( r == null ){ // 비로그인 , 로그인이 안된상태 
 			  loginState = false; loginRname = ''; loginRbikenum = '';
 			  	html += `<span><a href="/ezenTeam1/gorider/rider/riderSignup.jsp"> 회원가입 </a> </span>
 			  			 <span><a href="/ezenTeam1/gorider/rider/rlogin.jsp"> 로그인 </a> </span>`;

@@ -97,8 +97,8 @@ BUTTON{
 
 }
 .myInfoBox img {
-	width:100%;
-    height:100%;
+	width:100px;
+    height:100px;
 	object-fit:cover;
 	border-radius: 50%;
 }
@@ -119,7 +119,7 @@ BUTTON{
 	color:var(--main02)
 }
 .myMenuBox i{padding:0 10px 0 20px;}
-/*----------- 모달-----------------*/
+/* 모달-------------------------------------*/
 
 .modalwrap {
 	position: absolute; /*화면고정*/
@@ -200,3 +200,56 @@ BUTTON{
 .usedPayBox div{ padding:10px 0;}
 .newPayBox div{padding: 10px 0; text-align: center;}
 .newPayBox {padding-bottom: 10px;}
+
+/* 이용내역--------------------------------------*/
+.hcontBox{
+	overflow-y: scroll;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
+.hcontBox::-webkit-scrollbar {
+    display:none /* Chrome , Safari , Opera */
+}
+.pageInfo{
+
+	font-family: 'LINESeedKR-Bd';
+    font-size: 1.2rem;
+    letter-spacing:0.2rem;
+	padding:25px;
+	background-color: var(--main01);
+	color: var(--dgray);
+
+}
+.pageInfo i {
+font-size: 1.5rem;
+
+	margin-right: 20px;
+}
+
+.histroyBox{
+	background-color: var(--lgray);
+	padding:10px;
+	overflow-y: auto;
+	scrollwidth:1px;
+}
+.hContBox{
+	font-family: 'NanumSquareNeo-Variable';
+	background-color: var(--white);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding:20px;
+	font-size: 0.8rem;
+}
+.hContBox li:not(:last-child){
+	padding-bottom: 5px;
+
+}
+.hTitle{
+    letter-spacing: 0.67rem;
+    color: var(--dgray);
+}
+.hTitleA{
+	margin-right: 8px;
+    color: var(--dgray);
+}
+.hContent{}

@@ -16,11 +16,96 @@ public class ServiceDto {// 서비스 Dto
 	private String sreview;		// 리뷰
 	private int spoint;			// 별점
 	private int type;			// 타입
+	private String 요청내용;		// 요청내용
+	private Destination 목적지;		// 목적지
+	private Departure 출발지;		// 출발지
+	
+	public static class Destination {
+	    private String 장소명;
+	    private String 주소;
+	    
+		public String get장소명() {
+			return 장소명;
+		}
+		public void set장소명(String 장소명) {
+			this.장소명 = 장소명;
+		}
+		public String get주소() {
+			return 주소;
+		}
+		public void set주소(String 주소) {
+			this.주소 = 주소;
+		}
+}
+	
+	 public static class Departure {
+	        private String address_name;
+	        private String region_1depth_name;
+	        private String region_2depth_name;
+	        private String region_3depth_name;
+	        private String mountain_yn;
+	        private String main_address_no;
+	        private String sub_address_no;
+	        private String zip_code;
+			public String getAddress_name() {
+				return address_name;
+			}
+			public void setAddress_name(String address_name) {
+				this.address_name = address_name;
+			}
+			public String getRegion_1depth_name() {
+				return region_1depth_name;
+			}
+			public void setRegion_1depth_name(String region_1depth_name) {
+				this.region_1depth_name = region_1depth_name;
+			}
+			public String getRegion_2depth_name() {
+				return region_2depth_name;
+			}
+			public void setRegion_2depth_name(String region_2depth_name) {
+				this.region_2depth_name = region_2depth_name;
+			}
+			public String getRegion_3depth_name() {
+				return region_3depth_name;
+			}
+			public void setRegion_3depth_name(String region_3depth_name) {
+				this.region_3depth_name = region_3depth_name;
+			}
+			public String getMountain_yn() {
+				return mountain_yn;
+			}
+			public void setMountain_yn(String mountain_yn) {
+				this.mountain_yn = mountain_yn;
+			}
+			public String getMain_address_no() {
+				return main_address_no;
+			}
+			public void setMain_address_no(String main_address_no) {
+				this.main_address_no = main_address_no;
+			}
+			public String getSub_address_no() {
+				return sub_address_no;
+			}
+			public void setSub_address_no(String sub_address_no) {
+				this.sub_address_no = sub_address_no;
+			}
+			public String getZip_code() {
+				return zip_code;
+			}
+			public void setZip_code(String zip_code) {
+				this.zip_code = zip_code;
+			}
+	        
+	        
+	        
+	    }
+	
 	// 생성자 
 	public ServiceDto() {}
 	// 풀 
 	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
-			double stolo, int spayment, boolean spayYN, String sreview, int spoint) {
+			double stolo, int spayment, boolean spayYN, String sreview, int spoint, int type, String 요청내용, Destination 목적지,
+			Departure 출발지) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
@@ -34,6 +119,10 @@ public class ServiceDto {// 서비스 Dto
 		this.spayYN = spayYN;
 		this.sreview = sreview;
 		this.spoint = spoint;
+		this.type = type;
+		this.요청내용 = 요청내용;
+		this.목적지 = 목적지;
+		this.출발지 = 출발지;
 	}
 	
 	// 라이더가 콜을 누르기 전에 저장되는 생성자
@@ -46,6 +135,7 @@ public class ServiceDto {// 서비스 Dto
 		this.stolo = stolo;
 	}
 	
+
 	// 서비스 정보 조회 생성자
 	public ServiceDto(int sno, int rno, String sdate, String sreview, int spoint) {
 		super();
@@ -55,6 +145,7 @@ public class ServiceDto {// 서비스 Dto
 		this.sreview = sreview;
 		this.spoint = spoint;
 	}
+
 	
 	// 라이더가 콜을 누른 후에 저장되는 생성자
 	
@@ -132,6 +223,13 @@ public class ServiceDto {// 서비스 Dto
 	public void setSpoint(int spoint) {
 		this.spoint = spoint;
 	}
+	public String get요청내용() {
+        return 요청내용;
+    }
+
+    public void set요청내용(String 요청내용) {
+        this.요청내용 = 요청내용;
+    }
 	
 	
 	public int getType() {
@@ -140,12 +238,28 @@ public class ServiceDto {// 서비스 Dto
 	public void setType(int type) {
 		this.type = type;
 	}
+	
+	
+	public Destination get목적지() {
+		return 목적지;
+	}
+	public void set목적지(Destination 목적지) {
+		this.목적지 = 목적지;
+	}
+	public Departure get출발지() {
+		return 출발지;
+	}
+	public void set출발지(Departure 출발지) {
+		this.출발지 = 출발지;
+	}
 	@Override
 	public String toString() {
 		return "ServiceDto [sno=" + sno + ", mno=" + mno + ", rno=" + rno + ", sdate=" + sdate + ", sfromla=" + sfromla
 				+ ", sfromlo=" + sfromlo + ", stola=" + stola + ", stolo=" + stolo + ", spayment=" + spayment
-				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + ", type=" + type + "]";
+				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + ", type=" + type + ", 요청내용="
+				+ 요청내용 + ", 목적지=" + 목적지 + ", 출발지=" + 출발지 + "]";
 	}
+	
 	
 	
 }// class

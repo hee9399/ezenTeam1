@@ -112,7 +112,11 @@ h5{ padding:30px; text-align: center;}
 
 body{
 	font-family: NanumSquareNeo-Variable';
+	overflow: hidden;
 
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 /*버튼--------------------------------------------*/
 BUTTON{ border: none;}
@@ -167,6 +171,9 @@ BUTTON{ border: none;}
     height:100vh;
     margin: 0 auto;
     position: relative;
+    overflow-y: none;;
+    -ms-overflow-style:none;
+    scrollbar-width:0;
 }
 
 .wrapR{
@@ -356,7 +363,7 @@ BUTTON{ border: none;}
 	  color:var(--main02);
 	  text-align: center;
 	  padding-bottom: 50px;
-	  
+
 }
 .gmainBtn{
 	width:100%;
@@ -365,7 +372,7 @@ BUTTON{ border: none;}
 	margin-bottom: 10px;
 	display: flex;
 	align-content: center;
-	justify-content: center;	
+	justify-content: center;
 	align-items: center;
 	font-size: 2rem;
 	font-family: 'LINESeedKR-Bd';
