@@ -45,7 +45,7 @@ public class RiderFindController extends HttpServlet {
     		}else { // n이아닌 다른값이면 로그인 성공 
     			
     			// 
-    			ObjectMapper objectMapper = new ObjectMapper();
+    			ObjectMapper objectMapper = new ObjectMapper() ;
     			
     			response.setContentType("application/json;charset=UTF-8");
     			response.getWriter().print(objectMapper.writeValueAsString(loginDto) );
