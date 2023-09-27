@@ -245,3 +245,63 @@ padding-top:20px ;
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/
 /*---------------- ( rindex ) ----------------*/
+
+
+/* 라이더 프로필 버튼사이즈 */
+.backimg img{
+	width: 60px;
+    padding: 6px 6px;
+    background-color: white;
+    margin: 10px 10px 5px;
+    border-radius: 15px;
+}
+.backimg{ 
+	border-bottom: solid 3px var(--main02); 
+	color:var(--white);
+}
+.rphoto img{
+	margin-top: 65px;
+    margin-left: 79px;
+    border-radius: 118px;
+}
+.rname{
+	font-size: 50px;
+    color: white;
+    margin-left: 125px;
+    margin-top: 18px;
+}
+.rzone{
+	font-size: 16px;
+    margin-left: 134px;
+    margin-top: 7px;
+    color: #FBC22B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

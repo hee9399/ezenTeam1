@@ -25,7 +25,7 @@
 
         <div class="rcontBox">
 	        <div class="rmyBtnBox">
-	            <div class="rmyBtn"> 내정보수정 </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div>
 	            <div class="rmyBtn"> 차량번호수정 </div>
 	            <div class="rmyBtn"> 주행기록 </div>
 	            <div class="rmyBtn"> 입금내역 </div>
