@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
  <div  class="wrap">
  <%@include file="mBHeader.jsp" %>
     <div class="hcontBox">

@@ -159,10 +159,11 @@ function onChangePay(){
 
 	}
 }
-//8.이용내역 리스트로 이동
+// 8.이용내역 리스트로 이동
 function onUsedList(){
 	location.href ='/ezenTeam1/gorider/member/mUsedList.jsp';
 }
+
 //9.공지사항 리스트로 이동
 function onBoardList(){
 	location.href ='/ezenTeam1/gorider/member/mindex.jsp';
