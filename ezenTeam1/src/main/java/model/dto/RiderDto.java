@@ -66,6 +66,7 @@ public class RiderDto {// 기사 Dto
 	
 	
 	// 등록/회원가입 할때 필요한 생성자 
+	
 	public RiderDto(String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String raccount, String rbank, String rbikenum) {
 		super();

@@ -2,9 +2,6 @@ console.log('js실행됩니다.')
 
 
 
-
-
-rlogin();
 // 1. 라이더 로그인
 function rlogin(){
 	
