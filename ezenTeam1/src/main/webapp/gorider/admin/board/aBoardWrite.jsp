@@ -47,7 +47,7 @@
 			</li>
 		</ul>
 	</form>
-	</div>
+	</div>  
 	
 	<!-- 모달 달력 -->
 	<div class="modalBox">
