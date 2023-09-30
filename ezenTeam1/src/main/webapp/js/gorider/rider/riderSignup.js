@@ -10,7 +10,7 @@ console.log('js실행됩니다.');
 
  */
 
-// 회원가입 체크여부 
+// 회원가입  체크여부 
 let checkList = [ false , false ] // 아이디 , 비밀번호 체크여부
 
 
