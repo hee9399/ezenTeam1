@@ -25,29 +25,29 @@ bfiles.addEventListener("drop", (e)=>{
 	console.log('드래그상자위를  떨어짐');
 	console.log(e);
 	e.preventDefault(); // 브라우저가 가진 이벤트를 실행하지 못하도록 prevent!!
-	
-	
+
+
 	//------------------드랍된 파일의 정보??------------------------//
-	
+
 	// 1. 드랍된 데이터 정보를 이벤트 결과에서 찾기
 		console.log(e.dataTransfer)
 		console.log(e.dataTransfer.files)
 		console.log(e.dataTransfer.files[0])
 		console.log(e.dataTransfer.files[0].name)
-		
+
 	let files =	e.dataTransfer.files
 		for(let i=0; i <files.length; i++){
 			if(files[i] != null && files[i] != undefined){
-				bfileList.push(files[i])	
+				bfileList.push(files[i])
 			}
 		}
 	bfiles.style.bakcgroundColor = '#ffffff';
-	fileListPrint();	
+	fileListPrint();
 }); //f
 
 
  function fileListPrint(){
-	 
+
 	 let html = ``;
 	 bfileList.forEach((f,i)=>{
 		 let fname = f.name;
@@ -57,30 +57,30 @@ bfiles.addEventListener("drop", (e)=>{
 				<span>${fname}</span>
 				<span>${fsize}</span>
 				<span><button onclick="fileDelete(${i})" type="button">삭제</button></span>
-			
+
 			</div>`
-		 
-		 
+
+
 	 })
 	 // 3 대입
 	 bfiles.innerHTML= html;
-	 
-	 
+
+
  }
- 
-function fileDelete(index){	 
+
+function fileDelete(index){
 	 bfileList.splice(index, 1);
 	 fileListPrint();
-	 
+
  }
 
 
-/* 캘린더------------------------------------------------*/  
+/* 캘린더------------------------------------------------*/
 
 
 let year = new Date().getFullYear(); //현재연도
 let month = new Date().getMonth()+1;  // 현재 월[0~11] +1 (7월)
-	month = month < 10 ? '0'+month : month; 
+	month = month < 10 ? '0'+month : month;
 let date = new Date().getDate();// 현재 날. (10일)
 let eDateType= ''; // 이벤트 시작일과 종료일을 선택하기위한 구분자 s이면 시작일 / e 종료일
 let eStartDate = '';
@@ -88,7 +88,7 @@ let eEndDate = '';
 
 function onCalendar(se){
 	document.querySelector('.modalBox').style.display = 'flex';
-	
+
 	eDateType = se;
 	console.log('eDateType :: '+eDateType)
 }
@@ -99,20 +99,20 @@ function calPrint(){
 	//1. 현재 연도와 월을 출력
 	document.querySelector('.caldate').innerHTML = `${year}년 ${month}`;
 	console.log('현재 날짜의 getDate()  :  '+new Date().getDate());
-	
+
 	let now = new Date( year, month-1, 1); //month의 경우 +1했던 값이므로 원상태로 돌려줌. 2023년의 1일을 반환
 	console.log('현재 날짜의 now  :  '+now);
  	//2. 요일과 일 출력
  		//현재의 달이 시작되는 요일
  	let sWeek = now.getDay(); // 현재 월의 시작 요일/
 	console.log('요일 :(0일요일~6토요일)  :'+sWeek)
-	
+
 		//현재달에 해당하는 마지막 날 구하기 ( 30? 28? 31 ? 29??)
-	let now2= new Date(year, month, 0); //  현재달 +1 (8월)	,  이전달의  뒤로(0) 
+	let now2= new Date(year, month, 0); //  현재달 +1 (8월)	,  이전달의  뒤로(0)
 	let eDay = now2.getDate();
     console.log('eDay'+eDay);
-    
-    	
+
+
 	let calendar = document.querySelector('.calendar');
 	let html ='';
 		//1. 요일 출력
@@ -124,42 +124,42 @@ function calPrint(){
 					<div class="week"> 금 </div>
 					<div class="week"> 토 </div>	`
 		// ** 현재 달력 1일의 요일까지 공백 출력
-		
+
 		for (let b = 1 ; b <= sWeek ; b++  ){ // 1일이 시작되는 요일이 되기 전까지 공란으로 만들어주기
 			html +=`<div class="days">  </div>`;
-		}		
-		// 일 출력. 
-	
+		}
+		// 일 출력.
+
 		for(let i = 1 ; i <=eDay ;  i++){
-			
+
 			if(date == i) {
-				
-				
-				html += 
-					`<div onclick="setEDate(${i})" class="today"> 	
-						${i} 			
+
+
+				html +=
+					`<div onclick="setEDate(${i})" class="today">
+						${i}
 
 					</div>`
-			} else{ html += 
-					`<div onclick="setEDate(${i})" class="days"> 
-				  		${i} 
-							
-				
+			} else{ html +=
+					`<div onclick="setEDate(${i})" class="days">
+				  		${i}
+
+
 					</div>`;
 			}
-			//		
-		}			
-		
+			//
+		}
+
 	calendar.innerHTML = html;
-	
+
 }
- 
+
 function onNext(check){
 	console.log(check);
 	if(check == 0){
 		month--;
 		//만약에 월을 차감했는데 1보다 작아지면 12월로 변경하되 연도 1 차람
-		//23년도 1월	인데 1차감되면 2022년 12월로 
+		//23년도 1월	인데 1차감되면 2022년 12월로
 		if(month < 1 ){ month=12; year--;}
 
 	} else {
@@ -167,13 +167,13 @@ function onNext(check){
 		if(month>12){month=1; year++;}
 	}
 	calPrint();
-} 
+}
 function setEDate(eday){
 	document.querySelector('.modalBox').style.display = 'none';
-	
+
 	eday = eday < 10 ? '0'+eday: eday;
 	console.log(year +'/'+month+'/'+eday);
-	
+
 	if(eDateType == 'S') { //시작일 설정하는 경우
 		eStartDate = year+month+eday;
 		document.querySelector('.startdate').innerHTML = eStartDate;
@@ -192,36 +192,90 @@ function setEDate(eday){
 //	console.log('btype :: '+ btype )
 
  //저장
- 
+
+function onSave(){
+    //폼객체 가져오기 * querySelectorAll(선택자)[0]
+    let bWriteForm = document.querySelectorAll('.bWriteForm')[0];
+
+    //폼데이터 객체에 담기
+    let bWriteData = new  FormData(bWriteForm);
+
+    //파일이 있으면
+    if(bfileList.length >= 1 ){
+        //파일의 갯수만큼
+        bfileList.forEach(f=>{
+            //파일리스트라는 키값으로 bWriteData객체에 데이터 추가하기
+            bWriteData.append('fileList',f);
+        })
+    }
+
+    //아작스함수 (저장)호출
+    $.ajax({
+        url:"/jspweb/BoardController",
+        method:"post",
+        data: bWriteData,
+        contentType:false,
+        processData : false,
+        success: r => {
+            console.log("성공"+ r)
+            if(r == true){
+                alert('등록');
+                //location.href = '/ezenTeam1/gorider/admin/board/aBoardList.jsp'
+            }else{
+                alert('등록실패');
+            }
+        },
+        error: e => { console.log("에러"+ e)}
+
+    });
+
+}
+
  //출력
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+function onViewList(){
+
+}
+
+//상세보기
+function onViewDetails(){
+
+}
+
+//수정하기
+function onUpdate(){
+
+}
+
+//삭제하기
+function onDelete(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
