@@ -15,7 +15,7 @@ public class ServiceDto {// 서비스 Dto
 	private boolean spayYN;		// 결제여부
 	private String sreview;		// 리뷰
 	private int spoint;			// 별점
-	private int type;			// 타입
+	private String type;			// 타입
 	private String 요청내용;		// 요청내용
 	private Destination 목적지;		// 목적지
 	private Departure 출발지;		// 출발지
@@ -104,7 +104,7 @@ public class ServiceDto {// 서비스 Dto
 	public ServiceDto() {}
 	// 풀 
 	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
-			double stolo, int spayment, boolean spayYN, String sreview, int spoint, int type, String 요청내용, Destination 목적지,
+			double stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용, Destination 목적지,
 			Departure 출발지) {
 		super();
 		this.sno = sno;
@@ -232,10 +232,10 @@ public class ServiceDto {// 서비스 Dto
     }
 	
 	
-	public int getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	

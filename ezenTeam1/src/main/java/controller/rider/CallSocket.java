@@ -2,25 +2,25 @@ package controller.rider;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.dao.CallDao;
-
+import model.dto.RiderDto;
 import model.dto.ServiceDto;
 
 
-@ServerEndpoint("/callsocket")
+@ServerEndpoint("/callsocket/{userType}")
 public class CallSocket {
 	
 	public static List<Session> callList = new ArrayList<>(); 
@@ -28,74 +28,81 @@ public class CallSocket {
 	
 	
 
-	// 세션을 라이더 또는 사용자로 식별하는 메서드
-	private boolean isRider(Session session) {
-	    // 세션에서 "userType" 속성 값을 가져옵니다.
-	    String userType = (String) session.getUserProperties().get("userType");
-
-	    // "userType" 속성이 "rider"인 경우 라이더로 식별합니다.
-	    return "rider".equals(userType);
-	}
-	
 	@OnOpen
-	public void OnOpen( Session session ) {
+	public void OnOpen( Session session, @PathParam("userType") String userType ) {
 		
-		if(isRider(session)) {
+
+		
+		if ("rider".equals(userType)) {
+            // 라이더인 경우 riderList에 세션 추가
 			riderlist.add(session);
-		} else  {
-			callList.add(session);
-		}
-		
-		
-		
-		// 접속했을때 라이더인지 사용자인지 식별
-			// 1. 서로 다른 접속명단 리스트 2개 사용
-			// 2. Map컬렉션을 이용해서 < 라이더 , [] >   < 사용자 , [] >
-		
-		callList.add(session);
-		System.out.println( session );
+            System.out.println("라이더 세션 : " + session);
+            System.out.println(riderlist);
+        } else {
+            // 사용자인 경우 callList에 세션 추가
+            callList.add(session);
+            System.out.println("사용자 세션 : " + session);
+            System.out.println(callList);
+        }
 	}
 	
 	
+
 	@OnClose
 	public void OnClose( Session session ) {
+		riderlist.remove(session);
 		callList.remove(session);
 	}
 	
 	@OnMessage
-	public void OnMessage( Session session , String msg ) throws JsonProcessingException {
-		System.out.println( msg );
-		
-		//String(json형식)을 Dto로 바꾼다.
+	public void OnMessage(Session session, String msg) {
+		System.out.println(msg);
+
+		// String(json형식)을 Dto로 바꾼다.
 		ObjectMapper mapper = new ObjectMapper();
-		ServiceDto servicedto = mapper.readValue(msg, ServiceDto.class);
-		
-		
-		
-		 if ( servicedto.getType() == 1 ) { // 사용자가 -> 콜요청
-		        boolean result = CallDao.getInstance().MemberCall(servicedto.getMno(), servicedto.getSfromla(), servicedto.getSfromlo(), servicedto.getStola(), servicedto.getStolo());
-		        if (result) {
-		            System.out.println("성공");
-		            // 라이더들에게 메시지 보내기.
-		        } else {
-		            System.out.println("실패");
-		        }
-		    }
-		 else if( servicedto.getType() == 2 ) { // 라이더가 -> 콜 수락
-			 
-		 }else if( servicedto.getType() == 3 ) {  // 라이더가 -> 콜 거절
-			 
-		 }else if( servicedto.getType() == 4 ) {  // 라이더의 위치
-			 
-		 }
-	
-		
-		callList.forEach( s ->{
-			try {s.getBasicRemote().sendText(msg);} 
-			catch (IOException e) { e.printStackTrace(); }
-		});
-		
+		try {
+			JsonNode jsonNode = mapper.readTree(msg);
+			String type = jsonNode.get("type").asText();
+
+			if ("call".equals(type)) { // 사용자가 -> 콜 요청
+				ServiceDto servicedto = mapper.convertValue(jsonNode, ServiceDto.class);
+				boolean result = CallDao.getInstance().MemberCall(servicedto.getMno(), servicedto.getSfromla(),
+						servicedto.getSfromlo(), servicedto.getStola(), servicedto.getStolo());
+				if (result) {
+					System.out.println("사용자 정보 성공");
+					// 라이더들에게 메시지 보내기.
+					callList.forEach(s -> {
+						try {
+							s.getBasicRemote().sendText(msg);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					});
+				} else {
+					System.out.println("실패");
+				}
+			} else if ("accept".equals(type)) { // 라이더가 -> 콜 수락
+				RiderDto riderDto = mapper.convertValue(jsonNode, RiderDto.class);
+				boolean result = CallDao.getInstance().RiderAccept(riderDto.getRno(),riderDto.get라이더위도(),riderDto.get라이더경도());
+				 if (result) {
+			            System.out.println("라이더 정보 성공");
+			            // 라이더들에게 메시지 보내기.
+			            riderlist.forEach( s ->{
+			    			try {s.getBasicRemote().sendText(msg);} 
+			    			catch (IOException e) { e.printStackTrace(); }
+			    		});
+			        } else {
+			            System.out.println("라이더 실패");
+			        }
+			} else {
+				System.out.println("알 수 없는 메시지 타입: " + type);
+			}
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
+
 }
+	
+
+

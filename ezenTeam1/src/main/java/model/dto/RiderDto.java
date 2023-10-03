@@ -19,7 +19,7 @@ public class RiderDto {// 기사 Dto
 	private String rbikenum;		// 라이더 차량번호 
 	private String rstart;    	 // 라이더출근상태  
 	private String rcall;   		// 라이더콜가능상태
-	private int type;				// 타입
+	private String type;				// 타입
 	private String accept;			// 라이더가 사용자 요청 수락했을때.
 	private double 라이더위도;			// 라이더 수락하고 사용자 위치까지 가기 전.
 	private double 라이더경도;			// 라이더 수락하고 사용자 위치까지 가기 전.
@@ -29,7 +29,7 @@ public class RiderDto {// 기사 Dto
 	// 풀 
 	public RiderDto(int rno, String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
-			String rbikenum, String rstart, String rcall, int type, String accept, double 라이더위도, double 라이더경도) {
+			String rbikenum, String rstart, String rcall, String type, String accept, double 라이더위도, double 라이더경도) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
@@ -119,15 +119,17 @@ public class RiderDto {// 기사 Dto
 	}
 	
 	// 라이더가 사용자에 대한 콜을 수락했을때 생성자
-	public RiderDto(int rno, String accept, double 라이더위도, double 라이더경도) {
+
+	public RiderDto(int rno, String rname, String rphone, String rphoto, String accept, double 라이더위도, double 라이더경도) {
 		super();
 		this.rno = rno;
+		this.rname = rname;
+		this.rphone = rphone;
+		this.rphoto = rphoto;
 		this.accept = accept;
 		this.라이더위도 = 라이더위도;
 		this.라이더경도 = 라이더경도;
 	}
-	
-	
 	public RiderDto(int rno, String rstatus) {
 		super();
 		this.rno = rno;
@@ -232,10 +234,10 @@ public class RiderDto {// 기사 Dto
 		this.rcall = rcall;
 	}
 	
-	public int getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	

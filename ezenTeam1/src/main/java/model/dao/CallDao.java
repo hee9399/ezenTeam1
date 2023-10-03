@@ -29,23 +29,29 @@ public class CallDao extends Dao{
 		return false;
 	}
 	
-	// 2. 콜정보에 대한 수락정보 INSERT
-	public boolean RiderAccept(int rno , double 라이더위도 , double 라이더경도 , String accept ) {
+	// 2. 콜했을때 두가지
+		// 1. 라이더의 위치 DB에 담아주기
+		// 2. 담아준 위치와 라이더의 정보들을 조회하기
+	
+	public boolean RiderAccept(int rno,double 라이더위도,
+			double 라이더경도) {
 		try {
-			String sql = "insert into rider ( rno, 라이더위도,라이더경도,accept) values (?,?,?,?) ";
-			ps.setInt(1, rno);
-			ps.setDouble(2, 라이더위도);
-			ps.setDouble(3, 라이더경도);
-			ps.setString(4, accept);
+			String sql = "update rider set 라이더위도 = ?,라이더경도 =? where rno = ?;";
+			ps = conn.prepareStatement(sql);
+			
+			ps.setDouble(1, 라이더위도);
+			ps.setDouble(2, 라이더경도);
+			ps.setInt(3, rno);
+			
 			
 			int count = ps.executeUpdate();
 			if(count == 1) return true;
 		} catch (Exception e) {
-			System.out.println();
+			System.out.println(e);
 		}
 		
-		
 		return false;
-		
 	}
+	
+
 }

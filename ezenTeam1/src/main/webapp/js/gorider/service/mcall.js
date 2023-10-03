@@ -1,5 +1,5 @@
 
-let gpsClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/gpssocket");
+let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
 
 function call() {
 
@@ -176,17 +176,17 @@ if (JsonInfo) {
 
 }
 
-
-let callClientSocket = new WebSocket("ws://localhost:80/ezenTeam1/callsocket");
+let userType = "user";
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 
 document.querySelector('.call').addEventListener('click', (e) => {
 
 
 	requestContent = document.querySelector('.ccontent').value;
 	let callInfo = {
-		type: 1,
+		type: "call",
 		sfromla: sfromla, sfromlo: sfromlo, mno: 1, stola: stola, stolo: stolo, 요청내용: requestContent
-		, 목적지: destination, 출발지: 현재주소
+		, 목적지: destination, 출발지: 현재주소  
 	}
 	
 	callClientSocket.send(JSON.stringify(callInfo));
