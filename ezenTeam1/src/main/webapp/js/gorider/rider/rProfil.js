@@ -7,7 +7,7 @@ console.log('js실행됩니다.');
 
    $.ajax({
       url : "/ezenTeam1/RiderInfoController",      
-      data : {type: "info" },      
+      data : {type: "info" },  // 로그인정보를 갖고있는 info 로 보낸다.  
       method : "get",   
       success : r => {console.log(r);
       
