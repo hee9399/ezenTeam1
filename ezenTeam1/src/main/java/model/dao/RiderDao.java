@@ -97,6 +97,7 @@ public class RiderDao extends Dao{ // 라이더
 			
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, rno);
+			System.out.println("rupdate SQL:: "+ps);
 			// 실행시킨다 
 			rs = ps.executeQuery();
 			if( rs.next() ) return true;

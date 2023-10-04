@@ -111,13 +111,14 @@ public class RiderInfoController extends HttpServlet {
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+	
 		
 		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
 		MultipartRequest multi = new MultipartRequest(
-				request, 
-				request.getServletContext().getRealPath("gorider/rider/img") ,
-				1024 * 1024 * 10 ,
-				"UTF-8" ,
+				request, 	// 1. 요청방식
+				request.getServletContext().getRealPath("gorider/rider/img") , // 2. 첨부파일을 저장할 경로
+				1024 * 1024 * 10 ,		// 3. 첨부파일 용량 허용 번위 [ 바이트 단위 ] 10mb
+				"UTF-8" ,			// 4. 한글 인코딩타입 
 				new DefaultFileRenamePolicy()
 				);
 		String rphoto = multi.getFilesystemName("rphoto");
@@ -125,17 +126,26 @@ public class RiderInfoController extends HttpServlet {
 		// Dao [ 로그인된 라이더번호 , 수정할 값 ]
 		Object object = request.getSession().getAttribute("loginDto");
 		RiderDto riderDto = (RiderDto)object;
-		int loginRno = riderDto.getRno();
+		int rno = riderDto.getRno();
 		
-		// 만약에 수정할 첨부파일 없으면 
-		if(rphoto == null) { // 기존 이미지 그대로 사용 
+		String type = request.getParameter("type");
 			
-			rphoto = riderDto.getRphoto(); // 세션에 있던 이미지 그대로 사용 
+		String json = null; 
+	
+		// 만약에 프로필사진을 수정할경우
+		if(multi.getFilesystemName("rphoto") != null ) {
+				
+				type = "rphoto";
 			
-		}
+		 	}
+		System.out.println("type: "+type);
 		
+		boolean result = RiderDao.getInstance().rupdate(rno, type);
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(json);
 		
-	}
+		}// doPut e
+	
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
