@@ -40,7 +40,7 @@ function onapprove() {
         data: { type: 2, rno: rno },
         success: r => {
             console.log(r);
-            // 성공한 후에 아무것도 하지 않습니다.
+       
             location.href="/ezenTeam1/gorider/admin/aRequestList.jsp"
             alert('승인 성공 했습니다.')
         },
@@ -59,23 +59,23 @@ function ondeny() {
         return; // 이미 승인 또는 거부한 경우 함수를 종료합니다.
     }
 
-    let rejectionReason = prompt('승인거부 사유를 알려주세요: ');
+    let rcomment = prompt('승인거부 사유를 알려주세요: ');
 
-    if (!rejectionReason) {
+    if (!rcomment) {
         return; // 거부 사유를 입력하지 않은 경우 함수를 종료합니다.
     }
 
     approvalDenied = true; // 승인 또는 거부함을 표시합니다.
 
     $.ajax({
-        url: "/ezenTeam1/AdminController",
+		url: "/ezenTeam1/AdminController",
         method: "post",
-        data: { type: 1, rno: rno, rcomment: rejectionReason },
+        data: { type: 1, rno: rno, rcomment: rcomment },
         success: r => {
             console.log(r);
             // 성공한 후에 아무것도 하지 않습니다.
             location.href="/ezenTeam1/gorider/admin/aRequestList.jsp"
-            alert('승인 거부 했습니다.');
+            alert('승인 거부 했습니다.'); 
         },
         error: e => {
             console.log(e);

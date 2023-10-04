@@ -143,5 +143,23 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return list;
 	}
+	public ArrayList<ServiceDto> getServiceUsageStatus(){
+		ArrayList<ServiceDto> list = new ArrayList<>();
+		try {
+			
+			String sql ="select * from service";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				ServiceDto serviceDto = new ServiceDto(
+						rs.getInt("rno"),rs.getInt("mno"),
+						rs.getInt("rno"),rs.getString("sdate"));
+				list.add(serviceDto);
+			}
+			
+		}catch (Exception e) {System.out.println(e);}
+		return list;
+	}
 	
 }

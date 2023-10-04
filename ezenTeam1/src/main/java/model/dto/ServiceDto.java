@@ -5,7 +5,7 @@ public class ServiceDto {// 서비스 Dto
 	// 필드 
 	private int sno;			// 서비스번호
 	private int mno; 			// 회원번호  
-	private int rno;     		// 회원번호              	
+	private int rno;     		// 라이더번호              	
 	private String sdate; 		// 서비스이용일
 	private double sfromla; 	// 서비스 시작위치 위도
 	private double sfromlo;		// 서비스 시작위치 경도
@@ -145,9 +145,18 @@ public class ServiceDto {// 서비스 Dto
 		this.sreview = sreview;
 		this.spoint = spoint;
 	}
+	// 서비스이용현황 조희 생성자
+	public ServiceDto(int sno, int mno, int rno, String sdate) {
+		super();
+		this.sno = sno;
+		this.mno = mno;
+		this.rno = rno;
+		this.sdate = sdate;
+	}
 
 	
 	// 라이더가 콜을 누른 후에 저장되는 생성자
+	
 	
 	// 메소드 
 	public int getSno() {

@@ -18,11 +18,7 @@
 
          <!-- title -->
             <ul class="listTitle rlistR">
-                <li class="col20">현상태</li>
-                <li class="col20">S번호</li>
-                <li class="col20">M번호</li>
-                <li class="col20">R번호</li>
-                <li class="col20">요청일</li>
+             
            </ul>
 
         <!-- 1 content start -->
@@ -71,6 +67,7 @@
         
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/ezenTeam1/js/gorider/admin/adminService.js" type="text/javascript"></script>
       <%@include file="afooter.jsp" %>
      </div>
 </body>
