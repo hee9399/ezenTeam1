@@ -30,9 +30,13 @@ create table rider(
      rbank varchar(3) , 				# 라이더 은행명
     rstatus varchar(1),					# 승인상태
     rcomment text,						# 승인거부시 사유
+    라이더위도 varchar(30),			
+	라이더경도 varchar(30),	
     primary key( rno )
 );
 alter table rider add rbikenum varchar(20);
+alter table rider add 라이더위도 varchar(30)
+alter table rider add 라이더경도 varchar(30)
 
 # 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
 drop table if exists riderstate;
@@ -45,7 +49,7 @@ create table riderstate(
 
 drop table if exists service;
 create table service(
-	sno	int auto_increment,				# 서비스번호
+	sno	 int auto_increment,				       # 서비스번호
 	mno int, 				    		# 회원번호  
     rno int  ,     						# 회원번호              	
     sdate datetime default now(),		# 서비스이용일
