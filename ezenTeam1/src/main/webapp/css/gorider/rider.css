@@ -259,15 +259,15 @@ padding-top:20px ;
 	border-bottom: solid 3px var(--main02); 
 	color:var(--white);
 }
+.rphoto{width: 100%;}
 .rphoto img{
-	margin-top: 65px;
-    margin-left: 79px;
     border-radius: 118px;
+    margin: 25px;
 }
-.rname{
-	font-size: 50px;
-    color: white;
-    margin-left: 125px;
+.rpcontent{width: 100%}
+.rpcontent input{width: 100px;}
+.rpname{
+	color: black;
     margin-top: 18px;
 }
 .rzone{
