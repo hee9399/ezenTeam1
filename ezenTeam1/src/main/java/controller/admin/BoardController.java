@@ -74,15 +74,14 @@ public class BoardController extends HttpServlet {
 
 			//업로드
 			int i = 0;
+			int j = 0;
 			for(FileItem item : fileList) {
-				System.out.println("for시작");
-				System.out.println( item.isFormField());
 				//item.write(new File(uploadPath));
 				//일반필드이면
-				System.out.println("아이템"+i+ " : "+ fileList.get(i).getString() );
+				System.out.println("fileList아이템"+j+ " : "+ fileList.get(j).getString() );
 				if(item.isFormField()) {
-					
-					
+
+
 				} else {//파일필드면
 					//파일이름 가져오기 : itetm.getName();
 					System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
@@ -99,19 +98,19 @@ public class BoardController extends HttpServlet {
 					i++;
 
 					imgList.put(i, filename);
-				System.out.println("filename :: "+ filename);
+					System.out.println("filename :: "+ filename);
 				}
+				j++;
 			}
 			//BoardDto에 담기
 			BoardDto boardDto = new BoardDto(
-					  fileList.get(0).getString()
-					, fileList.get(1).getString()
-					, fileList.get(2).getString()
-					, fileList.get(3).getString()
-					, fileList.get(4).getString()
-					, fileList.get(5).getString()
-					, imgList);
-
+					fileList.get(0).getString(),
+					fileList.get(1).getString(),
+					fileList.get(2).getString(),
+					fileList.get(3).getString(),
+					fileList.get(4).getString(),
+					fileList.get(5).getString(),
+					imgList	);
 			System.out.println("BoardDto :: "+ boardDto);
 			boolean result = BoardDao.getInstance().save(boardDto);
 
@@ -121,7 +120,7 @@ public class BoardController extends HttpServlet {
 			e.getStackTrace();
 		}
 
-
+		//BoardDto :: BoardDto [bno=0, btarget=N, btype=U, btitle=11111, bcontent=22222222222, bdate=null, bview=0, bstartdate=N, benddate=U, fileList={}, bfno=0, bfile=null]
 
 
 

@@ -5,23 +5,24 @@ use gorider;
 # ---------------------------------------------------  정의어 ------------------------------------------------------------------------------
 drop table if exists member;
 create table member(
-    mno int auto_increment ,     		# 회원번호              	
-    mname varchar(20) not null ,		# 회원이름              		
-    mid varchar(20) not null,  			# 회원아이디		
-    mpwd varchar(20) not null,			# 회원비밀번호 
-    memail varchar(50) not null unique,	# 회원이메일
-	mpayinfo varchar(16) not null,		# 결제카드번호
-    mdate datetime default now(),		# 회원등록일
+    mno int auto_increment ,                # 회원번호
+    mname varchar(20) not null ,           # 회원이름
+    mid varchar(20) not null,              # 회원아이디
+    mpwd varchar(20) not null,             # 회원비밀번호
+    memail varchar(50) not null unique,   # 회원이메일
+    mpayinfo varchar(16) not null,         # 결제카드번호
+    mdate datetime default now(),           # 회원등록일
+    mphoto longtext,                         # 회원프로필
     primary key( mno )
 );
 
 drop table if exists rider;
 create table rider(
-    rno int auto_increment ,     		# 라이더번호              	
-    rname varchar(20) not null ,		# 라이더이름              		
-    rid varchar(20) not null,  			# 라이더아이디		
-    rpwd varchar(20) not null,			# 라이더비밀번호 
-    rphone varchar(11) not null , 		# 라이더 전화번호 
+    rno int auto_increment ,     		# 라이더번호
+    rname varchar(20) not null ,		# 라이더이름
+    rid varchar(20) not null,  			# 라이더아이디
+    rpwd varchar(20) not null,			# 라이더비밀번호
+    rphone varchar(11) not null , 		# 라이더 전화번호
 	rphoto longtext,					# 라이더프로필사진 //이미지
     rlicense longtext,					# 면허증  //이미지
     rregistration longtext,				# 차량등록증  //이미지
@@ -30,19 +31,19 @@ create table rider(
      rbank varchar(3) , 				# 라이더 은행명
     rstatus varchar(1),					# 승인상태
     rcomment text,						# 승인거부시 사유
-    라이더위도 varchar(30),			
-	라이더경도 varchar(30),	
+    라이더위도 varchar(30),
+	라이더경도 varchar(30),
     primary key( rno )
 );
 alter table rider add rbikenum varchar(20);
 alter table rider add 라이더위도 varchar(30)
 alter table rider add 라이더경도 varchar(30)
 
-# 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
+# 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태
 drop table if exists riderstate;
-create table riderstate( 
-	 rno int ,     			# 라이더번호  
-     rstart varchar(2) ,    # 라이더출근상태  
+create table riderstate(
+	 rno int ,     			# 라이더번호
+     rstart varchar(2) ,    # 라이더출근상태
      rcall varchar(2) ,  	# 라이더콜가능상태
      foreign key(rno) references rider(rno) on delete cascade on update cascade
 );
@@ -50,8 +51,8 @@ create table riderstate(
 drop table if exists service;
 create table service(
 	sno	 int auto_increment,				       # 서비스번호
-	mno int, 				    		# 회원번호  
-    rno int  ,     						# 회원번호              	
+	mno int, 				    		# 회원번호
+    rno int  ,     						# 회원번호
     sdate datetime default now(),		# 서비스이용일
     sfromla varchar(30) ,						# 서비스 시작위치 위도
     sfromlo varchar(30),						# 서비스 시작위치 경도
@@ -67,7 +68,7 @@ create table service(
 );
 
 drop table if exists deposit;
-create table deposit ( # 결제 테이블 
+create table deposit ( # 결제 테이블
 	dno int auto_increment,			# 입금번호
     rno int  ,     					# 라이더번호
     ddate datetime default now(),	# 입금일
@@ -76,65 +77,90 @@ create table deposit ( # 결제 테이블
     foreign key( rno) references rider(rno) on delete cascade on update cascade
 );
 
+# 게시판(공지사항/이벤트)
+drop table if exists board;
+create table board (
+   bno int auto_increment,
+   btarget varchar(2) not null,
+   btype varchar(3) not null,
+   btitle varchar(100) not null,
+   bcontent text not null,
+   bdate datetime default now(),
+   bview int default 0 ,
+   bstartdate datetime,
+   benddate datetime,
+    primary key(bno)
+);
+
+drop table if exists boardfiles;
+create table boardfiles(
+   bfno int auto_increment,
+    bno int,
+    bfile longtext,
+    primary key(bfno),
+    foreign key(bno) references board(bno) on delete cascade
+);
 select * from member;
 select * from rider;
 select * from service;
 select * from deposit;
+selelct * from board;
+select * from boardfiles
 
 select * from rider where rid = 'hee9399';
 
-# -------------------------------------------------------- 조작어 ------------------------------------------------------------------------------------- 
+# -------------------------------------------------------- 조작어 -------------------------------------------------------------------------------------
 
-# member 샘플 
-insert into 
-	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+# member 샘플
+insert into
+	member( mname , mid , mpwd , memail ,  mpayinfo )
     values( '홍길동' , 'qweqwe' , 'qwe1234' , 'qweqwe@naver.com' , '1234-1234' );
-    
-insert into 
-	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+
+insert into
+	member( mname , mid , mpwd , memail ,  mpayinfo )
     values( '정희락' , 'qweqww' , 'qwe1234' , 'qweasd@naver.com' , '1234-1234' );
-    
-    
-insert into 
-	member( mname , mid , mpwd , memail ,  mpayinfo ) 
+
+
+insert into
+	member( mname , mid , mpwd , memail ,  mpayinfo )
     values( '박상빈' , 'qweqwa' , 'qwe1234' , 'qweqwa@naver.com' , '1234-1234' );
 
 # rider 샘플
 
-insert into 
-	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum ) 
+insert into
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum )
 	values ( '이진형 ' , 'ljh401' , '123123' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-123123' , '국민' , '바3583' );
 
-insert into 
-	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum ) 
+insert into
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum )
 	values ( '황태웅 ' , 'hw0308' , '456789' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-456456' , '국민' , '바3583' );
 
-insert into 
-	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum  ) 
+insert into
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum  )
     values ( '김현수 ' , 'itdanja' , '2072' , '01012341234' , 'default.webp' , 'default.webp' ,'default.webp', '123123-207272' , '국민' , '바3583' );
 
-#  라이더 회원가입 
-insert into 
-	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum ) 
+#  라이더 회원가입
+insert into
+	rider( rname , rid , rpwd , rphone , rphoto , rlicense ,  rregistration , raccount , rbank , rbikenum )
 	values ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
 
-# 라이더 로그인 
+# 라이더 로그인
 select * from rider where rid = 'itdanja' and rpwd = '2072';
 # select * from rider where rid = ? and rpwd = ?
 
 select * from rider;
 
-# 라이더(내정보) 호출 
+# 라이더(내정보) 호출
 	-- 호출시 라이더번호 , 아이디 , 프로필사진 , 면허증 , 차량등록증 출력
 select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider where rid = 'hee9399';
 -- select rno , rname , rid , rphone , rphoto , rlicense , rregistration from rider where rid = ?
 
-# 라이더 계정 삭제 
+# 라이더 계정 삭제
 delete from rider where rno = 13 and rpwd = 'As13511351';
-# delete from rider where rno = ? and rpwd = ? 
+# delete from rider where rno = ? and rpwd = ?
 
 
-# 라이더 상태 샘플 
+# 라이더 상태 샘플
 insert into riderstate( rno ,  rstart , rcall ) values( 9 , 'y' , 'y' );
 insert into riderstate( rno , rstart , rcall ) values( 12 , 'n' , 'n' );
 
@@ -142,7 +168,10 @@ select rno from rider natural join riderstate where rid = 'hee9399';
 
 
 
-
+#board 추가/ 삭제
+insert into board (btarget,btype,btitle,bcontent,bstartdate,benddate) values('U','N','ddddddd','aaaaaaa',null,null);
+delete from board where bno = '1';
+select * from board b natural join boardfiles bf order by desc;
 
 
 

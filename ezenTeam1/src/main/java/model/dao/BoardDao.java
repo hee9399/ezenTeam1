@@ -22,6 +22,7 @@ public class BoardDao extends Dao{
 		 this.benddate = benddate;
 		 this.fileList = fileList;
 		 */
+		System.out.println("DAO :: dto:: "+ dto);
 		try {
 			String sql = "insert into board (btarget,btype,btitle,bcontent,bstartdate,benddate) values(?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -31,7 +32,7 @@ public class BoardDao extends Dao{
 			ps.setString(4, dto.getBcontent());
 			ps.setString(5, dto.getBstartdate());
 			ps.setString(6, dto.getBenddate());
-			
+
 			int count = ps.executeUpdate();
 			rs = ps.getGeneratedKeys();
 			System.out.println("save ps");
@@ -39,11 +40,11 @@ public class BoardDao extends Dao{
 			if(count == 1) {
 				for(String file:dto.getFileList().values()) {
 					sql = "insert into boardfiles(bno, bfile) values( ?,?) ";
-					ps= conn.prepareStatement(sql);					
+					ps= conn.prepareStatement(sql);
 					ps.setInt(1, rs.getInt(1));
 					ps.setString(2,file);
 					ps.executeUpdate();
-					
+
 				}return true;
 			}
 		}catch(Exception e){

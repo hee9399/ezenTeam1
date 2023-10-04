@@ -200,19 +200,19 @@ function getBtype(){
 			 //체크된 요소의 value를 btype변수에 대입
 			 btype = bt.value
 			 console.log(btype)
-			 
+
 			 let bePeriodBox = document.querySelector('.bePeriodBox');
 			 //이벤트가 선택된 경우
 			 if(btype == 'E'){
 				 //해당위치에 캘린터 출력하기
-				 bePeriodBox.style.display='block';	
-				 let html = `<span class="startdate">Event시작일</span><i onclick="onCalendar('S')" class="fa-regular fa-calendar-check"></i> 
+				 bePeriodBox.style.display='block';
+				 let html = `<span class="startdate">Event시작일</span><i onclick="onCalendar('S')" class="fa-regular fa-calendar-check"></i>
 							<span class="gubun"> - </span>
 							<span class="enddate">Event 종료일</span><i onclick="onCalendar('E')"class="fa-solid fa-calendar-check"></i>`
-					bePeriodBox.innerHTML = html;		
-							
+					bePeriodBox.innerHTML = html;
+
 			 } else{
-				 bePeriodBox.style.display='none';		
+				 bePeriodBox.style.display='none';
 			 }
 		 }
 	 })
@@ -228,7 +228,7 @@ function getBtarget(){
 			 console.log(btarget)
 		 }
 	 })
-}		
+}
 
 
  //저장
@@ -239,20 +239,24 @@ function onSave(){
 
     //폼데이터 객체에 담기
     let bWriteData = new  FormData(bWriteForm);
-
+    bWriteData.append('btype',btype);
+    bWriteData.append('btarget',btarget);
+    bWriteData.append('bstartdate',eStartDate);
+    bWriteData.append('benddate',eEndDate);
+    console.log("btype  :: "+ btype);
+    console.log("btarget  :: "+ btarget);
+    console.log("bstartdate  :: "+ eStartDate);
+    console.log("benddate  :: "+ eEndDate);
     //파일이 있으면
     if(bfileList.length >= 1 ){
         //파일의 갯수만큼
         bfileList.forEach(f=>{
             //파일리스트라는 키값으로 bWriteData객체에 데이터 추가하기
             bWriteData.append('fileList',f);
+            console.log(f);
         })
     }
 
-    bWriteData.append('btype',btype);
-    bWriteData.append('btarget',btarget);
-    bWriteData.append('bstartdate',eStartDate);
-    bWriteData.append('benddate',eEndDate);
 
 
     //아작스함수 (저장)호출
