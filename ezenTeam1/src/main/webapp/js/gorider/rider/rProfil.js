@@ -3,7 +3,7 @@ console.log('js실행됩니다.');
 
 // - 로그인된 라이더 이름과 프로필사진이 등록되야한다. 
 
-// 1. 라이더 식별번호 전역변수 선언 
+// 1.  라이더 식별번호 전역변수 선언 
 
    $.ajax({
       url : "/ezenTeam1/RiderInfoController",      
