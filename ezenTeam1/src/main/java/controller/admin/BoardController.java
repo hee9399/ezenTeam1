@@ -51,8 +51,8 @@ public class BoardController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//1.저장경로 지정
-		String uploadPath = request.getServletContext().getRealPath("/board/bfiles");
-
+		String uploadPath = request.getServletContext().getRealPath("/gorider/admin/board/bfiles");
+		System.out.println("uploadPath :: "+uploadPath);
 		// 2. 디스크파일아이템팩토리  객체 생성
 		DiskFileItemFactory itemFactory = new DiskFileItemFactory();
 
@@ -65,6 +65,7 @@ public class BoardController extends HttpServlet {
 		ServletFileUpload fileUpload = new ServletFileUpload(itemFactory);
 
 		try {
+			System.out.println("try시작");
 			//업로드된 파일명을 저장할 map컬렉션
 			Map<Integer,String> imgList = new HashMap<>();
 
@@ -73,18 +74,23 @@ public class BoardController extends HttpServlet {
 
 			//업로드
 			int i = 0;
-			for(FileItem item:fileList) {
-				item.write(new File(uploadPath));
+			for(FileItem item : fileList) {
+				System.out.println("for시작");
+				System.out.println( item.isFormField());
+				//item.write(new File(uploadPath));
 				//일반필드이면
+				System.out.println("아이템"+i+ " : "+ fileList.get(i).getString() );
 				if(item.isFormField()) {
-
+					
+					
 				} else {//파일필드면
 					//파일이름 가져오기 : itetm.getName();
 					System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
 
 					//파일명 UUID로 식별id만들기
 					UUID uuid = UUID.randomUUID();
-					// 파일명에 "-"하이픈이 있으면 "_"언더바로 바꿔주고 uuid합쳐
+					System.out.println("uuid  : "+uuid);
+					// 파일명에 "-"하이픈이 있으면 "_"언더바로 바꿔주고 uuid로 생성된 식별자 더해서 파일명 생성하기
 					String filename = uuid+"-"+item.getName().replaceAll("-","_");
 
 					//파일업로드 경로를 파일경로+파일명으로 파일타입설정
@@ -93,7 +99,7 @@ public class BoardController extends HttpServlet {
 					i++;
 
 					imgList.put(i, filename);
-
+				System.out.println("filename :: "+ filename);
 				}
 			}
 			//BoardDto에 담기
@@ -106,7 +112,7 @@ public class BoardController extends HttpServlet {
 					, fileList.get(5).getString()
 					, imgList);
 
-			System.out.println(boardDto);
+			System.out.println("BoardDto :: "+ boardDto);
 			boolean result = BoardDao.getInstance().save(boardDto);
 
 			response.setContentType("application/json;charset=utf-8");

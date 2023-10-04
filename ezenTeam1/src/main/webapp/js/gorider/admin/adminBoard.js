@@ -83,8 +83,8 @@ let month = new Date().getMonth()+1;  // 현재 월[0~11] +1 (7월)
 	month = month < 10 ? '0'+month : month;
 let date = new Date().getDate();// 현재 날. (10일)
 let eDateType= ''; // 이벤트 시작일과 종료일을 선택하기위한 구분자 s이면 시작일 / e 종료일
-let eStartDate = '';
-let eEndDate = '';
+let eStartDate = null;
+let eEndDate = null;
 
 function onCalendar(se){
 	document.querySelector('.modalBox').style.display = 'flex';
@@ -168,6 +168,7 @@ function onNext(check){
 	}
 	calPrint();
 }
+
 function setEDate(eday){
 	document.querySelector('.modalBox').style.display = 'none';
 
@@ -175,21 +176,60 @@ function setEDate(eday){
 	console.log(year +'/'+month+'/'+eday);
 
 	if(eDateType == 'S') { //시작일 설정하는 경우
-		eStartDate = year+month+eday;
+		eStartDate = year+''+month+''+eday;
 		document.querySelector('.startdate').innerHTML = eStartDate;
 	} else if(eDateType == 'E') { //종료일설정하는 경우
-		eEndDate = year+month+eday;
+		eEndDate = year+''+month+''+eday;
 		document.querySelector('.enddate').innerHTML = eEndDate;
 	}
 }
 
 
-/* radio버튼 가져오기------------------------- */
+/* 게시글의 타입(공지사항인지 이벤트인지) radio버튼 가져오기------------------------- */
+let btype;
+if(btype == null){
+	document.querySelector('.bePeriodBox').style.display = 'none'
+}
+function getBtype(){
+	//class명이 'btarget'인요소 모두 가져오기
+	let type = document.querySelectorAll('.btype')
 
-	let btype = document.querySelector('input[name="btype"]')
- 	var selected = Array.from(btype).find(b => b.checked);
-	alert(selected.value);
-//	console.log('btype :: '+ btype )
+	//반복분을 사용해서 각 요소의 checked값을 확인
+ 	type.forEach((bt)=> {
+		 if(bt.checked){
+			 //체크된 요소의 value를 btype변수에 대입
+			 btype = bt.value
+			 console.log(btype)
+			 
+			 let bePeriodBox = document.querySelector('.bePeriodBox');
+			 //이벤트가 선택된 경우
+			 if(btype == 'E'){
+				 //해당위치에 캘린터 출력하기
+				 bePeriodBox.style.display='block';	
+				 let html = `<span class="startdate">Event시작일</span><i onclick="onCalendar('S')" class="fa-regular fa-calendar-check"></i> 
+							<span class="gubun"> - </span>
+							<span class="enddate">Event 종료일</span><i onclick="onCalendar('E')"class="fa-solid fa-calendar-check"></i>`
+					bePeriodBox.innerHTML = html;		
+							
+			 } else{
+				 bePeriodBox.style.display='none';		
+			 }
+		 }
+	 })
+}
+/* 게시글의 타겟(사용자인지.라이더인지)radio버튼 가져오기------------------------- */
+let btarget;
+function getBtarget(){
+	let type = document.querySelectorAll('.btarget')
+
+ 	type.forEach((bt)=> {
+		 if(bt.checked){
+			 btarget = bt.value
+			 console.log(btarget)
+		 }
+	 })
+}		
+
 
  //저장
 
@@ -209,9 +249,15 @@ function onSave(){
         })
     }
 
+    bWriteData.append('btype',btype);
+    bWriteData.append('btarget',btarget);
+    bWriteData.append('bstartdate',eStartDate);
+    bWriteData.append('benddate',eEndDate);
+
+
     //아작스함수 (저장)호출
     $.ajax({
-        url:"/jspweb/BoardController",
+        url:"/ezenTeam1/BoardController",
         method:"post",
         data: bWriteData,
         contentType:false,
