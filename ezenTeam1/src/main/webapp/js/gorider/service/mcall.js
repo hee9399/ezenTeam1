@@ -191,6 +191,8 @@ document.querySelector('.call').addEventListener('click', (e) => {
 	
 	callClientSocket.send(JSON.stringify(callInfo));
 	
+	 window.location.href = "/ezenTeam1/gorider/service/mwaiting.jsp";
+	
 });
 
 

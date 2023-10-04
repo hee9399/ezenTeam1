@@ -1,6 +1,6 @@
 
 
-let userType = null;
+let userType = "rider";
 let sfromla = 0;
 let sfromlo = 0;
 let rmessage = "";
@@ -19,7 +19,7 @@ navigator.geolocation.getCurrentPosition(e => {
 
 function accept() {
 	
-	userType = "rider";
+	//userType = "rider";
 	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
     let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
 
@@ -85,11 +85,14 @@ function accept() {
     
 }
 
+//let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 
 callClientSocket.onmessage = (e) => {
+	
     alert('통신');
     let jsonData = JSON.parse(e.data);
+    console.log('userType : ' + userType)
     console.log(jsonData);
     let callcontent = document.querySelector('.callcontent');
     let html = `

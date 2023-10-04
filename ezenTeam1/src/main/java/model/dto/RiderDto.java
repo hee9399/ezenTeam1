@@ -130,6 +130,7 @@ public class RiderDto {// 기사 Dto
 		this.라이더위도 = 라이더위도;
 		this.라이더경도 = 라이더경도;
 	}
+
 	public RiderDto(int rno, String rstatus) {
 		super();
 		this.rno = rno;

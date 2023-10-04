@@ -35,6 +35,8 @@ create table rider(
     primary key( rno )
 );
 alter table rider add rbikenum varchar(20);
+alter table rider add 라이더위도 varchar(30)
+alter table rider add 라이더경도 varchar(30)
 
 # 	 라이더상태테이블 - 라이더번호 , 라이더출근상태 , 라이더콜가능상태 
 drop table if exists riderstate;

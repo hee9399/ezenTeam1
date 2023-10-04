@@ -2,7 +2,9 @@ package controller.rider;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -11,6 +13,7 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,7 +26,7 @@ import model.dto.ServiceDto;
 @ServerEndpoint("/callsocket/{userType}")
 public class CallSocket {
 	
-	public static List<Session> callList = new ArrayList<>(); 
+	public static Map<String,Session> callList = new HashMap<>(); 
 	public static List<Session> riderlist = new ArrayList<>();
 	
 	
@@ -71,7 +74,7 @@ public class CallSocket {
 				if (result) {
 					System.out.println("사용자 정보 성공");
 					// 라이더들에게 메시지 보내기.
-					callList.forEach(s -> {
+					riderlist.forEach(s -> {
 						try {
 							s.getBasicRemote().sendText(msg);
 						} catch (IOException e) {
@@ -87,8 +90,10 @@ public class CallSocket {
 				 if (result) {
 			            System.out.println("라이더 정보 성공");
 			            // 라이더들에게 메시지 보내기.
-			            riderlist.forEach( s ->{
-			    			try {s.getBasicRemote().sendText(msg);} 
+			            callList.forEach( (id,ses) ->{
+			    			try {id.getBasicRemote().sendText(msg);
+			    				ses.getBasicRemote().sendText(msg);
+			    			} 
 			    			catch (IOException e) { e.printStackTrace(); }
 			    		});
 			        } else {

@@ -1,6 +1,6 @@
 package model.dao;
 
-
+import model.dto.RiderDto;
 
 public class CallDao extends Dao{
 
@@ -53,5 +53,48 @@ public class CallDao extends Dao{
 		return false;
 	}
 	
-
+	public RiderDto SendRiderInfo(int rno) {
+		try {
+			String sql = "select  rno,  rname,  rphone,  rphoto,  accept,  라이더위도,  라이더위도 from rider where rno = ? ";
+			ps.setInt(1, rno);
+			rs= ps.executeQuery();
+			if(rs.next()) {
+				RiderDto riderDto = new RiderDto(
+						rs.getInt("rno"),
+						rs.getString("rname"),rs.getString("rphone"),
+						rs.getString("rphoto"),rs.getString("accept"),
+						rs.getDouble("라이더위도"),rs.getDouble("라이더위도")
+						
+						);
+				return riderDto;
+		} 
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		return null;
+	}
+	
+	
+	public RiderDto ApprovalView(int rno) {
+		try {
+			String sql = "select * from rider where rno = ? ";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, rno);
+			rs= ps.executeQuery();
+			if(rs.next()) {
+				RiderDto riderDto = new RiderDto(
+						rs.getInt("rno"),
+						rs.getString("rname"), rs.getString("rid"),rs.getString("rphone"),
+						rs.getString("rphoto"),rs.getString("rlicense"),
+						rs.getString("rregistration"),rs.getString("rdate"),
+						rs.getString("raccount"),rs.getString("rbank"),
+						rs.getString("rstatus"),rs.getString("rcomment"), rs.getString("rbikenum")
+						);
+				return riderDto;
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return null;
+	}
 }
