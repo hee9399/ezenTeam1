@@ -21,7 +21,7 @@ public class RiderInfoController extends HttpServlet {
        
    
     public RiderInfoController() {}
-
+    
     // 저장
     // 1. 첨부파일 있을때 회원가입
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,6 +40,7 @@ public class RiderInfoController extends HttpServlet {
 				"UTF-8" ,
 				new DefaultFileRenamePolicy() // 5. [ 파일명중복제거 ]
 			);
+		
 	// 2. from 안에 있는 각 데이터 호출 
 		//  rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank 
 		// 1. ajax 통신받은 data객체의 '속성명' 요헝한다. 
@@ -111,8 +112,6 @@ public class RiderInfoController extends HttpServlet {
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
-		
 		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
 		MultipartRequest multi = new MultipartRequest(
 				request, 	// 1. 요청방식
@@ -128,24 +127,32 @@ public class RiderInfoController extends HttpServlet {
 		RiderDto riderDto = (RiderDto)object;
 		int rno = riderDto.getRno();
 		
-		String type = request.getParameter("type");
-			
-		String json = null; 
+		// 
+		String change = multi.getParameter("type");
 	
-		// 만약에 프로필사진을 수정할경우
-		if(multi.getFilesystemName("rphoto") != null ) {
-				
-				type = "rphoto";
+		String type = null;
+		String value = null;
+		
+		if(change.equals("프로필사진") ) { // 프로필사진수정할경우
 			
-		 	}
+			type = "rphoto";
+			value = multi.getFilesystemName("rphoto");
+			
+		}else if(change.equals("라이더차량번호") ) { // 라이더 차량번호 수정할경우
+				
+			type = "rphoto";
+			
+		 }
+		
+		
 		System.out.println("type: "+type);
 		
-		boolean result = RiderDao.getInstance().rupdate(rno, type);
+		boolean result = RiderDao.getInstance().rupdate(rno , type , value);
 		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(json);
+		response.getWriter().print(result);
 		
 		}// doPut e
-	
+		
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

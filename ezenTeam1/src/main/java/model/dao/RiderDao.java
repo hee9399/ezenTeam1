@@ -88,19 +88,21 @@ public class RiderDao extends Dao{ // 라이더
 	}
 	
 	// 4. 라이더 정보 수정 
-	public boolean rupdate( int rno , String type ) {
+	public boolean rupdate( int rno , String type , String value) {
 		
 		try {
 			// sql문 작성 
 			// type 을 넣어서 라이더가 수정하고싶은 것을 수정한다.
 			String sql = "update rider set "+type+" = ? where rno = ? ";
-			
+			System.out.println("type: "+sql);
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, rno);
+			ps.setString( 1 , value);
+			ps.setInt(2, rno);
+			
 			System.out.println("rupdate SQL:: "+ps);
 			// 실행시킨다 
-			rs = ps.executeQuery();
-			if( rs.next() ) return true;
+		    int count = ps.executeUpdate();
+			if( count == 1 ) return true;
 			
 		} catch (Exception e) {System.out.println(e);}
 		
