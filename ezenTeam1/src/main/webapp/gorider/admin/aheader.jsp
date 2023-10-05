@@ -12,7 +12,7 @@
 
       <div class="headerwrapA">
         <div class="logoA" onclick="goMain()">GoRider</div>
-        <div class="hinfo" onclick="Request()"> 신규요청 : 10 건</div>
+        <div class="hinfo"> </div>
 
 
 
@@ -22,6 +22,7 @@
 <!-- ajax  -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/ezenTeam1/js/gorider/admin/aheader.js"></script>
+<script src="/ezenTeam1/js/gorider/admin/adminView.js"></script>
 
 </body>
 </html>

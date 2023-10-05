@@ -1,5 +1,5 @@
 // 서비스 이용 현황 함수
- 
+ ServiceStatus();
 function ServiceStatus(){
 	    $.ajax({
       
@@ -37,32 +37,6 @@ function ServiceStatus(){
    });
    
 }
- getServiceUsageStatus();
-function getServiceUsageStatus(){
-	    $.ajax({
-      
-            url : "/ezenTeam1/AdminServiceControoler",   
-            method : "get",
-            data : {type : 2},      
-           success : r=>{
-			   console.log(r);
-			      let listbox =document.querySelector('.listbox');
-			  	  let html =`<ul class="listTitle rlistR">
-                					<li class="col20">현상태</li>
-                					<li class="col20">S번호</li>
-                					<li class="col20">M번호</li>
-                					<li class="col20">R번호</li>
-                					<li class="col20">요청일</li>
-           						</ul>`;
-          					 
-          					
-						listbox.innerHTML = html;
-			   } ,
-                          
-   });
-   
-}
-
 
 
 

@@ -63,7 +63,7 @@ public class AdminController extends HttpServlet {
 	    	boolean result=AdminDao.getInstance().Request();
 	    	response.setContentType("application/json;charset=UTF-8");
 			 response.getWriter().print(result);
-			 System.out.println(result);
+			 System.out.println("result ="+result);
 	    
 	    }
 	}

@@ -23,51 +23,17 @@
 
         <!-- 1 content start -->
             <ul class="listContent rlistR">
-                <li class="col20">요청</li>
-                <li class="col20">1025</li>
-                <li class="col20">66</li>
-                <li class="col20">15</li>
-                <li class="col20">2023-09-14 17:25</li>
+                
            </ul>
            
-           <ul class="listContent rlistR">
-                <li class="col20">대기</li>
-                <li class="col20">1025</li>
-                <li class="col20">66</li>
-                <li class="col20">15</li>
-                <li class="col20">2023-09-14 17:25</li>
-           </ul>
-           
-           <ul class="listContent rlistR">
-                <li class="col20">진행</li>
-                <li class="col20">1025</li>
-                <li class="col20">66</li>
-                <li class="col20">15</li>
-                <li class="col20">2023-09-14 17:25</li>
-           </ul>
-           
-           <ul class="listContent rlistR">
-                <li class="col20">종료</li>
-                <li class="col20">1025</li>
-                <li class="col20">66</li>
-                <li class="col20">15</li>
-                <li class="col20">2023-09-14 17:25</li>
-           </ul>
-           
-           <ul class="listContent rlistR">
-                <li class="col20">요청</li>
-                <li class="col20">1025</li>
-                <li class="col20">66</li>
-                <li class="col20">15</li>
-                <li class="col20">2023-09-14 17:25</li>
-           </ul>
+        
            
            
         </div>   
         
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="/ezenTeam1/js/gorider/admin/adminService.js" type="text/javascript"></script>
+        <script src="/ezenTeam1/js/gorider/admin/SeviceCurrent.js" type="text/javascript"></script>
       <%@include file="afooter.jsp" %>
      </div>
 </body>

@@ -18,19 +18,3 @@
 	 }
 	 
  }
- function Request(){
-	 console.log('Request() 실행')
-
-	     $.ajax({
-      
-            url : "/jspweb/AdminController",   
-            method : "get",
-            data : {type : 3},      
-           success: function (count) {
-   
-    			$(".hinfo").text("신규요청 : " + count + " 건");
-		},
-                          
-   })
-   
- }
