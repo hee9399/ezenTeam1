@@ -168,7 +168,7 @@ BUTTON{ border: none;}
     max-width:400px;
     height:100vh;
     margin: 0 auto;
-    position: relative;
+    position: relative; 
     overflow-y: none;;
     -ms-overflow-style:none;
     scrollbar-width:0;

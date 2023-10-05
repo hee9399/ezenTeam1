@@ -58,7 +58,7 @@ public class BoardController extends HttpServlet {
 
 		} else if(type.equals("getDetail")) { //상세페이지 출력
 			
-		}
+		}  
 		
 		// 4. 응답
 		response.setContentType("application/json;charset=UTF-8");

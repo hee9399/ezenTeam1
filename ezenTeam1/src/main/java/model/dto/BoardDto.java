@@ -62,7 +62,7 @@ public class BoardDto {
 		this.fileList = fileList;
 		this.bfno = bfno;
 		this.bfile = bfile;
-	}
+	}   
 
 	//게시물 저장용
 	public BoardDto(String btarget, String btype, String btitle, String bcontent, String bstartdate, String benddate,
