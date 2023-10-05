@@ -14,7 +14,7 @@ function onViewList(){
             console.log("성공"+ r)
             if(r == true){
              let listbody = document.querySelector('.listbody');
-             let html = ``;
+             let html = ``;  
              r.boardList.forEach( b => {
              html +=	`	<ul class="listcont">
 						<li class="btype">${b.btype == 'N'? 공지 :이벤트 }</li>
