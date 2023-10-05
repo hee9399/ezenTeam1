@@ -146,12 +146,17 @@ public class ServiceDto {// 서비스 Dto
 		this.spoint = spoint;
 	}
 	// 서비스이용현황 조희 생성자
-	public ServiceDto(int sno, int mno, int rno, String sdate) {
+	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
+			double stolo) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
 		this.rno = rno;
 		this.sdate = sdate;
+		this.sfromla = sfromla;
+		this.sfromlo = sfromlo;
+		this.stola = stola;
+		this.stolo = stolo;
 	}
 
 	
@@ -162,7 +167,6 @@ public class ServiceDto {// 서비스 Dto
 	public int getSno() {
 		return sno;
 	}
-
 	public void setSno(int sno) {
 		this.sno = sno;
 	}

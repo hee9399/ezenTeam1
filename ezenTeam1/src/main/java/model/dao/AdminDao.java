@@ -64,7 +64,7 @@ public class AdminDao extends Dao{
 	public boolean ApprovalReject(int rno, String rcomment) {
 		RiderDto dto = new RiderDto();
 		try {
-			 String sql = "UPDATE rider SET rstatus = 'n', rcomment = ? WHERE rno = ?";
+			 String sql = "UPDATE rider SET rstatus = 'D', rcomment = ? WHERE rno = ?";
 			  ps = conn.prepareStatement(sql);
 		        ps.setString(1, rcomment);
 		        ps.setInt(2, rno);
@@ -77,11 +77,11 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-	
+	// 승인 수락 함수
 	public boolean approval( int rno) {
 		
 		try {
-	        String sql = "UPDATE rider SET rstatus = 'y' WHERE rno = ?";
+	        String sql = "UPDATE rider SET rstatus = 'Y' WHERE rno = ?";
 	        ps = conn.prepareStatement(sql);
 	        ps.setInt(1, rno); // Set the value for the first (and only) parameter
 	        
@@ -116,10 +116,10 @@ public class AdminDao extends Dao{
 	// 승인요청 가져오는 함수
 	public boolean Request() {
 		 try {
-		        String sql = "SELECT COUNT(*) AS new_request_count FROM rider WHERE rstatus = 'n'";
+		        String sql = "SELECT COUNT(*) FROM rider WHERE rstatus = 'n'";
 		        ps = conn.prepareStatement(sql);
 		        rs = ps.executeQuery();
-		        
+		        System.out.println("rs = "+rs);
 		       
 		}catch (Exception e) {System.out.println(e);}
 		return false;
@@ -152,10 +152,12 @@ public class AdminDao extends Dao{
 			rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ServiceDto serviceDto = new ServiceDto(
-						rs.getInt("rno"),rs.getInt("mno"),
-						rs.getInt("rno"),rs.getString("sdate"));
-				list.add(serviceDto);
+				ServiceDto dto = new ServiceDto(
+						rs.getInt("sno"),rs.getInt("mno"),
+						rs.getInt("rno"),rs.getString("sdate"),
+						rs.getDouble("sfromla"),rs.getDouble("sfromlo"),
+						rs.getDouble("stola"),rs.getDouble("stolo"));
+				list.add(dto);	
 			}
 			
 		}catch (Exception e) {System.out.println(e);}

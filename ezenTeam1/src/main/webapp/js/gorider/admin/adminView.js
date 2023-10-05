@@ -85,3 +85,20 @@ function ondeny() {
     // 거부 버튼을 비활성화합니다.
     document.getElementById("denyButton").disabled = true;
 }
+Request();
+function Request(){
+	$.ajax({
+      
+            url : "/ezenTeam1/AdminController",   
+            method : "get",
+            data : {type : 3},      
+           success : r=>{
+			   console.log(r)
+			   
+			
+			   document.querySelector('.hinfo').innerHTML=`신규요청 : ${rno}건`;
+			   
+			   } ,
+                          
+   });
+}
