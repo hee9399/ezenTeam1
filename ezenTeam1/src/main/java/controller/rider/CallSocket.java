@@ -26,7 +26,7 @@ import model.dto.ServiceDto;
 @ServerEndpoint("/callsocket/{userType}")
 public class CallSocket {
 	
-	public static Map<String,Session> callList = new HashMap<>(); 
+	public static List<Session> callList = new ArrayList<>();
 	public static List<Session> riderlist = new ArrayList<>();
 	
 	
@@ -87,12 +87,16 @@ public class CallSocket {
 			} else if ("accept".equals(type)) { // 라이더가 -> 콜 수락
 				RiderDto riderDto = mapper.convertValue(jsonNode, RiderDto.class);
 				boolean result = CallDao.getInstance().RiderAccept(riderDto.getRno(),riderDto.get라이더위도(),riderDto.get라이더경도());
+				
 				 if (result) {
 			            System.out.println("라이더 정보 성공");
-			            // 라이더들에게 메시지 보내기.
-			            callList.forEach( (id,ses) ->{
-			    			try {id.getBasicRemote().sendText(msg);
-			    				ses.getBasicRemote().sendText(msg);
+			            RiderDto riderinfo = CallDao.getInstance().ShowRiderInfo(riderDto.getRno());
+			            ObjectMapper objectMapper = new ObjectMapper();
+			            String riderInfoJson = objectMapper.writeValueAsString(riderinfo);
+			            callList.forEach( s ->{
+			    			try {s.getBasicRemote().sendText(msg);
+			    				s.getBasicRemote().sendText(riderInfoJson);
+			    				
 			    			} 
 			    			catch (IOException e) { e.printStackTrace(); }
 			    		});
