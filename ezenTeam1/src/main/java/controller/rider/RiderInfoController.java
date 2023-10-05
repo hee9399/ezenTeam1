@@ -89,9 +89,12 @@ public class RiderInfoController extends HttpServlet {
 			// 섹션에 저장된 로그인 객체를 꺼낸다.
 			// 1. 세션호출한다. [ 세션타입은 object ]
 			Object session = request.getSession().getAttribute("loginDto");
+			System.out.println((Object)session);
 			// 2. 타입변환한다. [ 부모 -> 자식 ( 캐스팅 / 강제타입변환 ) ]
 			RiderDto loginDto = (RiderDto) session ;
-			
+			System.out.println(111111);
+			System.out.println(loginDto);
+			System.out.println(222222);
 		// Dto는 JS가 이해살수 없는 언어이기 때문에 JS가 이해할수 있게 JS언어로 변환해줘야한다. [ jackson 라이브러리사용 ]
 			ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writeValueAsString(loginDto);

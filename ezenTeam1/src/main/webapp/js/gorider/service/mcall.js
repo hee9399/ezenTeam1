@@ -19,7 +19,6 @@ let stolo = 0;
 let destination = "";
 let 요청내용 = "";
 
-console.log( mno );
 
 
 
