@@ -239,8 +239,7 @@ function onSave(){
 
     //폼데이터 객체에 담기
     let bWriteData = new  FormData(bWriteForm);
-    bWriteData.append('btype',btype);
-    bWriteData.append('btarget',btarget);
+
     bWriteData.append('bstartdate',eStartDate);
     bWriteData.append('benddate',eEndDate);
     console.log("btype  :: "+ btype);
@@ -270,7 +269,7 @@ function onSave(){
             console.log("성공"+ r)
             if(r == true){
                 alert('등록');
-                //location.href = '/ezenTeam1/gorider/admin/board/aBoardList.jsp'
+                location.href = '/ezenTeam1/gorider/admin/board/aBoardList.jsp'
             }else{
                 alert('등록실패');
             }
@@ -301,8 +300,10 @@ function onUpdate(){
 function onDelete(){
 
 }
-
-
+//글작성하기 페이지로
+function onWrite(){
+	location.href="aBoardWrite.jsp"
+}
 
 
 

@@ -115,9 +115,7 @@ body{
 	overflow : hidden;
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
+
 /*버튼--------------------------------------------*/
 BUTTON{ border: none;}
 .btnbox{display: flex;}
