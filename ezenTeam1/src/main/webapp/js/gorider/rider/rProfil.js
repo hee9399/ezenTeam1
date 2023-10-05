@@ -28,7 +28,7 @@ console.log('js실행됩니다.');
 	 
 	 // 1. from 객체 호출 
 	 let rpChange = document.querySelectorAll('.rpChange')[0];
-	 	console.log('from객체 호출 했습니다.'+rpChange);
+	 console.log('from객체 호출 했습니다.'+rpChange);
 	 // 2. from 데이터 객체화 
 	 let rpData = new FormData(rpChange);
 	 	console.log(rpData);
