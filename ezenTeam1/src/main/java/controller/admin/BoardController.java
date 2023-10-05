@@ -45,25 +45,25 @@ public class BoardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청
 		String type = request.getParameter("type");
-		
-		
+
+
 		String json= null;
 		ObjectMapper objectMapper = new ObjectMapper();
-		
-		
+
+
 		if(type.equals("getList")) { //리스트출력
-			
+
 			ArrayList<BoardDto> result = BoardDao.getInstance().boardList();
 			json = objectMapper.writeValueAsString( result );
 
 		} else if(type.equals("getDetail")) { //상세페이지 출력
-			
-		}  
-		
+
+		}
+
 		// 4. 응답
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(  json );
-				
+
 	}
 
 	/**
@@ -124,6 +124,7 @@ public class BoardController extends HttpServlet {
 				j++;
 			}
 			//BoardDto에 담기
+
 			BoardDto boardDto = new BoardDto(
 					fileList.get(0).getString(),
 					fileList.get(1).getString(),

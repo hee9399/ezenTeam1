@@ -63,9 +63,22 @@ public class BoardDao extends Dao{
 	public ArrayList<BoardDto> boardList(){
 		ArrayList<BoardDto> list = new ArrayList<>();
 		try {
-			String sql = "select * from board order by desc";
+			String sql = "select "
+					+ "  bno "
+					+ ", btarget "
+					+ ", btype "
+					+ ", btitle "
+					+ ", bview "
+					+ ", DATE_FORMAT(bdate, '%y-%m-%d') as bdate "
+					+ ", DATE_FORMAT(bstartdate, '%y-%m-%d') as bstartdate "
+					+ ", DATE_FORMAT(benddate, '%y-%m-%d') as benddate  "
+					+ "from board "
+					+ "order by bno desc ";
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
+
+			System.out.println(" boardList SQL :: " + ps);
+
 			while(rs.next()) {
 				BoardDto boardDto = new BoardDto(
 					rs.getInt("bno")
@@ -78,19 +91,30 @@ public class BoardDao extends Dao{
 					, rs.getString("benddate"));
 				list.add(boardDto);
 			}
-			
+
 		}catch(Exception e) {
-			
-			
+
+			System.out.println("Exception :: "+ e);
 		} return list;
-		
+
 	}
 	// 수정
 	public boolean update(BoardDao dto) {
+		try {
+
+		} catch (Exception e) {
+			System.out.println("Exception :: "+ e);
+		}
 		return false;
 	}
+
 	// 삭제
 	public boolean delete(BoardDao dto) {
+		try {
+
+		} catch (Exception e) {
+			System.out.println("Exception :: "+ e);
+		}
 		return false;
 	}
 	// 조회수

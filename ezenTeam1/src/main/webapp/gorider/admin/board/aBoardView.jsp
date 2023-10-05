@@ -15,27 +15,11 @@
 <div class="wrap">
  <%@include file="../aheader.jsp" %>
 	<div class="apageinfo"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i><span class="aptitle"> 공지사항 /이벤트 </span>  </div>
-	<div class="listBox">
-		<div class="listbtnBox">
-			<button onclick="onWrite()" type="button">글작성하기</button>
-		</div>
-		<!-- 리스트 head -->
-		<ul class="listhead">
-			<li class="btype">종류</li>
-			<li class="btarget">T</li>
-			<li class="btitle">제목</li>
-			<li class="bdate">작성일</li>
-		</ul>
-		<!-- 리스트 body -->
-		<div class="listbody">
-			<!-- 리스트목록 출력 -->
-
-
-		</div>
+	<div class="writeBox">
 
 	</div>
 </div>
-<script src="/ezenTeam1/js/gorider/admin/adminBoardList.js"></script>
+<script src="/ezenTeam1/js/gorider/admin/adminBoard.js"></script>
 
 </body>
 </html>
