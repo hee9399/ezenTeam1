@@ -111,10 +111,10 @@ h5{ padding:30px; text-align: center;}
 /*--------------------------------------------*/
 
 body{
-	font-family: NanumSquareNeo-Variable';
-	overflow: hidden;
-
+	font-family: 'NanumSquareNeo-Variable';
+	overflow : hidden;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }

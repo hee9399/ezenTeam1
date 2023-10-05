@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxDEORKD-v__p56sxVx-HvISYdmjGD4GY&libraries=places"></script>
 
 </head>
 <body>

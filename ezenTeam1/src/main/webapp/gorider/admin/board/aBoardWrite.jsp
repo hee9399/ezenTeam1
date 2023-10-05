@@ -19,16 +19,19 @@
 	<form class="bWriteForm">
 		<ul>
 			<li class="btypeBox">
-				<input type="radio" name="btype" class="btype" value='N' ><span>공지사항</span>
-				<input type="radio" name="btype" class="btype" value='E'> 이벤트 </li>
+				<input type="radio" name="btype" class="btype" value='N' onclick="getBtype()"><span>공지사항</span>
+				<input type="radio" name="btype" class="btype" value='E' onclick="getBtype()"> 이벤트 </li>
 			<li class="btargetBox">
-				<input type="radio" name="btarget" class="btarget" value='U' checked ><span>사용자</span>
-				<input type="radio" name="btarget" class="btarget" value='R'> 라이더 </li>
+				<input type="radio" name="btarget" class="btarget" value='U' onclick="getBtarget()" ><span>사용자</span>
+				<input type="radio" name="btarget" class="btarget" value='R' onclick="getBtarget()"> 라이더 </li>
 			<!-- 이벤트 선택시 달력-->
 			<li class="bePeriodBox"> 
+			<!-- 
 				<span class="startdate">Event시작일</span><i onclick="onCalendar('S')" class="fa-regular fa-calendar-check"></i> 
 				<span class="gubun"> - </span>
-				<span class="enddate">Event 종료일</span><i onclick="onCalendar('E')"class="fa-solid fa-calendar-check"></i></li>
+				<span class="enddate">Event 종료일</span><i onclick="onCalendar('E')"class="fa-solid fa-calendar-check"></i>
+			-->	
+			</li>
 			
 			<li><input type="text" class="btitle"  name ="btitle" placeholder="제목을 입력하세요"></li>
 			<li><textarea class="bcontent"  name ="bcontent" placeholder="내용을 입력하세요"></textarea></li>
@@ -42,8 +45,8 @@
 			</div>
 			</div></li>
 			<li class="bbtnBox">
-				<button type="button">다시쓰기</button>
-				<button type="button">저장하기</button>
+				<button type="reset">다시쓰기</button>
+				<button type="button" onclick="onSave()">저장하기</button>
 			</li>
 		</ul>
 	</form>
