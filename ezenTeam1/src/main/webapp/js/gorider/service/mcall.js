@@ -19,6 +19,9 @@ let stolo = 0;
 let destination = "";
 let 요청내용 = "";
 
+console.log( mno );
+
+
 
 let JsonInfo = sessionStorage.getItem('info');
 if (JsonInfo) {

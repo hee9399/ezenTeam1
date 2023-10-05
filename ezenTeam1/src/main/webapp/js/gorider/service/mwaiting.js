@@ -1,57 +1,72 @@
-//// 변수를 선언하여 라이더와 매칭 상태를 저장합니다.
-//let isMatching = false;
-//let message = "";
-//// 매칭 상태를 업데이트하는 함수
-//function updateMatchingStatus(matched) {
-//  isMatching = matched;
-//
-//  // 매칭 상태가 변경될 때 화면을 업데이트합니다.
-//  updateScreen();
-//}
-//
-//// 화면을 업데이트하는 함수
-//function updateScreen() {
-//  if (isMatching) {
-//    // 매칭된 상태일 때 지도를 표시하고, "라이더의 위치"를 출력합니다.
-//    displayMap();
-//    message = document.querySelector('.message')
-//  
-//  	let html = `<div>매칭 성공</div>`;
-//  
-//  	message.innerHTML = html;
-//    
-//  } else {
-//    // 매칭되지 않은 상태일 때 "라이더와 매칭 대기 중"을 출력합니다.
-//    message = document.querySelector('.message')
-//  
-//  	let html = `<div>라이더와 매칭 대기중</div>`;
-//  
-//  	message.innerHTML = html;
-//  }
-//}
-//
-//
-//// 지도를 화면에 표시하는 함수
-//function displayMap() {
-//  // 지도를 표시하는 코드를 작성합니다.
-//  // 예를 들어 Kakao 지도 API를 사용하여 지도를 표시합니다.
-//}
-//
-//// 예시: 초기 상태 설정
-//updateMatchingStatus(false);
-//
-//// 예시: 매칭 시작 시 매칭 상태를 업데이트
-//// updateMatchingStatus(true);
+
 let message = document.querySelector('.message');
 
 let html = `<h1>매칭 대기중입니다 잠시만 기다려주세요</h1>`;
 
 message.innerHTML = html;
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket`);
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/user`);
 
 callClientSocket.onmessage = (e) => {
+    let jsonData = JSON.parse(e.data);
+    console.log(jsonData);
+    if (jsonData.type === "accept") {
+        // 매칭 성공 시 라이더 정보 가져오기
+        $.ajax({
+            url: "/ezenTeam1/RiderInfoController",
+            data: { type: "info" },
+            method: "get",
+            success: riderData => {
+                if (riderData && riderData.loginState) { // 로그인 상태 체크
+                    let riderName = riderData.loginRname;
+                    let bikeNum = riderData.loginRbikenum;
+                    let 라이더위도 = jsonData.라이더위도;
+                    let 라이더경도 = jsonData.라이더경도;
+                    
+                    // 화면 업데이트 함수 호출
+                    handleMatchSuccess(riderName,bikeNum, 라이더위도, 라이더경도);
+                } else {
+                    // 로그인되어 있지 않은 경우에 대한 처리
+                }
+            },
+            error: e => {
+                // 에러 처리
+            }
+        });
+    }
+};
 
+
+// 매칭 성공 시 화면 업데이트 함수
+function handleMatchSuccess(riderName,bikeNum, 라이더위도, 라이더경도) {
+    let message = document.querySelector('.message');
+
+    let html = `
+        <h3> 매칭 성공 </h3>
+        <div id="map" style="width:100%;height:350px;"></div>
+        <div class="riderName">라이더 이름: ${riderName}</div>
+        <div class="bikeNum">오토바이 번호: ${bikeNum}</div>
+        
+    `;
+    message.innerHTML = html;
+
+    // 라이더 위치를 지도에 표시
+    showRiderLocationOnMap(라이더위도, 라이더경도);
 }
 
+// 라이더 위치를 지도에 표시하는 함수 (카카오맵 API를 사용한 예제)
+function showRiderLocationOnMap(latitude, longitude) {
+    let mapContainer = document.getElementById('map');
+    let mapOption = {
+        center: new kakao.maps.LatLng(latitude, longitude),
+        level: 4
+    };
+    let map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 라이더 마커 추가
+    let riderMarker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(latitude, longitude),
+        map: map
+    });
+}
 
