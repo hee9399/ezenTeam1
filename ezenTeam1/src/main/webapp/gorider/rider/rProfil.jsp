@@ -29,9 +29,9 @@
 			<input type="file">
 		</div> <!-- 라이더 프로필 사진 구역 e -->
 	
-		<div class=""> <!-- 라이더 이름 -->
+		<div class="rpcontent"> <!-- 라이더 이름 -->
 			
-			<input class="rname" type="text" />  
+			<input class="rpname" type="text" />  
 			<div class="rzone"> 안산 상록구 , KOR </div>
 			
 		</div>  <!-- 라이더 이름 e -->
