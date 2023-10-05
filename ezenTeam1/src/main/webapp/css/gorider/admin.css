@@ -153,7 +153,13 @@
 	padding:10px;
 	font-size: 0.8rem;
 	color: var(--dgray);
-	
+	overflow-y: auto;
+	height:calc(100vh - 110px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.writeBox::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 .aptitle{ 
 	display:inline-block; 
@@ -291,5 +297,59 @@
 }
 
 /*------------------공지리스트------------------*/
+.listBox{
+	
+	padding:10px;
+}
+.listhead,.listcont{
+	display: flex;
+	justify-content: space-between;
+	
+	
+}
+.listhead {
+	font-family: 'LINESeedKR-Bd';
+	text-align: center;
+	font-size: 0.8rem;
+}
+.listhead li{
+	padding:10px 0;
+	background-color: var(--main03);
+	border-right: solid 1px var(--white);
+	color:var(--white);
+	letter-spacing: 0.1rem;
+}
+.listBox .btype{width:12%;}
+.listBox .btarget{width:8%;}
+.listBox .btitle{width:60%;}
+.listBox .bdate{width:20%; }
+
+.listbody{	overflow-y: auto;
+	height:calc(90vh - 190px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.listbody::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.listcont .bdate{ font-size: 0.6rem;}
+.listcont li{
+	border-bottom:solid 1px var(--main03);
+	padding:10px 0;
+	font-size: 0.7rem;
+	text-align: center;
+}
+.listbtnBox{
+	padding:10px 0 5px;
+	text-align: right;
+}
+.listbtnBox button{
+	padding:10px 20px;
+	background-color: var(--dgray);
+	color:var(--white);
+	font-family: 'LINESeedKR-Bd';
+	border-radius: 10px;
+	cursor: pointer;
+}
 
 /*------------------공지출력------------------*/

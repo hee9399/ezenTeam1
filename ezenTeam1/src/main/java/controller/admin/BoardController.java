@@ -2,6 +2,7 @@ package controller.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.ValueInstantiator.Gettable;
 
 import model.dao.BoardDao;
@@ -41,8 +43,27 @@ public class BoardController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// 요청
+		String type = request.getParameter("type");
+		
+		
+		String json= null;
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		
+		if(type.equals("getList")) { //리스트출력
+			
+			ArrayList<BoardDto> result = BoardDao.getInstance().boardList();
+			json = objectMapper.writeValueAsString( result );
+
+		} else if(type.equals("getDetail")) { //상세페이지 출력
+			
+		}  
+		
+		// 4. 응답
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(  json );
+				
 	}
 
 	/**
@@ -84,11 +105,11 @@ public class BoardController extends HttpServlet {
 
 				} else {//파일필드면
 					//파일이름 가져오기 : itetm.getName();
-					System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
+					//System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
 
 					//파일명 UUID로 식별id만들기
 					UUID uuid = UUID.randomUUID();
-					System.out.println("uuid  : "+uuid);
+					//System.out.println("uuid  : "+uuid);
 					// 파일명에 "-"하이픈이 있으면 "_"언더바로 바꿔주고 uuid로 생성된 식별자 더해서 파일명 생성하기
 					String filename = uuid+"-"+item.getName().replaceAll("-","_");
 
@@ -98,7 +119,7 @@ public class BoardController extends HttpServlet {
 					i++;
 
 					imgList.put(i, filename);
-					System.out.println("filename :: "+ filename);
+					//System.out.println("filename :: "+ filename);
 				}
 				j++;
 			}
@@ -120,7 +141,6 @@ public class BoardController extends HttpServlet {
 			e.getStackTrace();
 		}
 
-		//BoardDto :: BoardDto [bno=0, btarget=N, btype=U, btitle=11111, bcontent=22222222222, bdate=null, bview=0, bstartdate=N, benddate=U, fileList={}, bfno=0, bfile=null]
 
 
 

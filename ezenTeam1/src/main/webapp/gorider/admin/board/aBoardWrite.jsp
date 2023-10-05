@@ -47,7 +47,7 @@
 			<li class="bbtnBox">
 				<button type="reset">다시쓰기</button>
 				<button type="button" onclick="onSave()">저장하기</button>
-			</li>
+			</li>  
 		</ul>
 	</form>
 	</div>  

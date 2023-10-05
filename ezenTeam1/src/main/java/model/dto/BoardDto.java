@@ -62,7 +62,7 @@ public class BoardDto {
 		this.fileList = fileList;
 		this.bfno = bfno;
 		this.bfile = bfile;
-	}
+	}   
 
 	//게시물 저장용
 	public BoardDto(String btarget, String btype, String btitle, String bcontent, String bstartdate, String benddate,
@@ -76,7 +76,20 @@ public class BoardDto {
 		this.benddate = benddate;
 		this.fileList = fileList;
 	}
-
+	
+	//리스트 출력용
+	public BoardDto(int bno, String btarget, String btype, String btitle, String bdate, int bview, String bstartdate,
+			String benddate) {
+		super();
+		this.bno = bno;
+		this.btarget = btarget;
+		this.btype = btype;
+		this.btitle = btitle;
+		this.bdate = bdate;
+		this.bview = bview;
+		this.bstartdate = bstartdate;
+		this.benddate = benddate;
+	}
 	//Getter & Setter
 	public int getBno() {
 		return bno;
