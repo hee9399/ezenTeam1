@@ -23,6 +23,8 @@
 						 
 		</div>
 		
+	<form class="rNumChange">
+		
 		<div class="rbikeChangeInfo"> <!-- 차량번호 수정구역 -->
 		
 			<input type="text" class="rBikeChange" name="rBikeChange"> 
@@ -30,21 +32,23 @@
 			
 		</div> <!-- 차량번호 수정구역 e -->
 	
-	<div class="rBankChange"> 
-		<select class="inselect rbankinfo" name="rbankinfo">
-                    <option value=""> 은행선택 </option>
-                    <option value="KM"> 국민 </option>
-                    <option value="IB"> 기업 </option>
-                    <option value="NH"> 농협 </option>
-                    <option value="SH"> 신한 </option>
-                    <option value="WR"> 우리 </option>
-                    <option value="KE"> 외환 </option>
-                    <option value="KA"> 카카오 </option>
-                    <option value="TS"> 토스 </option>
-                    <option value="HN"> 하나 </option>
-        </select>
-           <input class="raccountinfo intext75" name="raccountinfo" type="number">
-	</div>
+	
+		<div class="rBankChange"> 
+			<select class="inselect rbankinfo" name="rbankinfo">
+	                    <option value=""> 은행선택 </option>
+	                    <option value="KM"> 국민 </option>
+	                    <option value="IB"> 기업 </option>
+	                    <option value="NH"> 농협 </option>
+	                    <option value="SH"> 신한 </option>
+	                    <option value="WR"> 우리 </option>
+	                    <option value="KE"> 외환 </option>
+	                    <option value="KA"> 카카오 </option>
+	                    <option value="TS"> 토스 </option>
+	                    <option value="HN"> 하나 </option>
+	        </select>
+	           <input class="raccountinfo intext75" name="raccountinfo" type="number">
+		</div>
+	</form>
 	
 	</div> <!-- 라이더 차량번호수정 전체 e -->
 

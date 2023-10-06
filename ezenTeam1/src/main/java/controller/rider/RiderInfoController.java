@@ -162,8 +162,6 @@ public class RiderInfoController extends HttpServlet {
 		if(change.equals("프로필사진") ) { // 프로필사진수정할경우
 			System.out.println("프로필사진if: ");
 			
-					
-			
 			type = "rphoto";
 			value = multi.getFilesystemName("rphoto");
 			
@@ -172,7 +170,7 @@ public class RiderInfoController extends HttpServlet {
 			type = "rbikenum";
 			value = request.getParameter("rbikenum");
 			
-		}else if(change.equals("계좌번호")) {
+		}else if(change.equals("라이더계좌번호")) {
 			
 			
 		}
