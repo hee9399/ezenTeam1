@@ -85,17 +85,17 @@ public class CallSocket {
 					System.out.println("실패");
 				}
 			} else if ("accept".equals(type)) { // 라이더가 -> 콜 수락
-				RiderDto riderDto = mapper.convertValue(jsonNode, RiderDto.class);
-				boolean result = CallDao.getInstance().RiderAccept(riderDto.getRno(),riderDto.get라이더위도(),riderDto.get라이더경도());
+				ServiceDto servicedto = mapper.convertValue(jsonNode, ServiceDto.class);
+				boolean result = CallDao.getInstance().RiderAccept(servicedto.getMno(),servicedto.getSriderla(),servicedto.getSriderlo(),servicedto.getSno());
 				
 				 if (result) {
 			            System.out.println("라이더 정보 성공");
-			            RiderDto riderinfo = CallDao.getInstance().ShowRiderInfo(riderDto.getRno());
+			            ServiceDto riderinfo = CallDao.getInstance().ShowRiderInfo(servicedto.getSno(),servicedto.getRno(),servicedto.getSriderla(),servicedto.getSriderlo(),servicedto.getRname(),servicedto.getRphoto(),servicedto.getRbikenum());
 			            ObjectMapper objectMapper = new ObjectMapper();
-			            String riderInfoJson = objectMapper.writeValueAsString(riderinfo);
+			            String ridermsg = objectMapper.writeValueAsString(riderinfo);
 			            callList.forEach( s ->{
-			    			try {s.getBasicRemote().sendText(msg);
-			    				s.getBasicRemote().sendText(riderInfoJson);
+			    			try {s.getBasicRemote().sendText(ridermsg);
+
 			    				
 			    			} 
 			    			catch (IOException e) { e.printStackTrace(); }

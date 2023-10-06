@@ -21,15 +21,14 @@ public class RiderDto {// 기사 Dto
 	private String rcall;   		// 라이더콜가능상태
 	private String type;			// 타입
 	private String accept;			// 라이더가 사용자 요청 수락했을때.
-	private double 라이더위도;			// 라이더 수락하고 사용자 위치까지 가기 전.
-	private double 라이더경도;			// 라이더 수락하고 사용자 위치까지 가기 전.
+
 	
 	// 생성자
 	public RiderDto() {}
 	// 풀 
 	public RiderDto(int rno, String rname, String rid, String rpwd, String rphone, String rphoto, String rlicense,
 			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
-			String rbikenum, String rstart, String rcall, String type, String accept, double 라이더위도, double 라이더경도) {
+			String rbikenum, String rstart, String rcall, String type, String accept) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
@@ -49,8 +48,7 @@ public class RiderDto {// 기사 Dto
 		this.rcall = rcall;
 		this.type = type;
 		this.accept = accept;
-		this.라이더위도 = 라이더위도;
-		this.라이더경도 = 라이더경도;
+		
 	}
 	// 라이더 로그인 객체 만들때 필요한 생성자 
 	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rregistration,
@@ -120,15 +118,14 @@ public class RiderDto {// 기사 Dto
 	
 	// 라이더가 사용자에 대한 콜을 수락했을때 생성자
 
-	public RiderDto(int rno, String rname, String rphone, String rphoto, String accept, double 라이더위도, double 라이더경도) {
+	public RiderDto(int rno, String rname, String rphone, String rphoto, String accept) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
 		this.rphone = rphone;
 		this.rphoto = rphoto;
 		this.accept = accept;
-		this.라이더위도 = 라이더위도;
-		this.라이더경도 = 라이더경도;
+		
 	}
 
 	public RiderDto(int rno, String rstatus) {
@@ -257,25 +254,14 @@ public class RiderDto {// 기사 Dto
 		this.accept = accept;
 	}
 	
-	public double get라이더위도() {
-		return 라이더위도;
-	}
-	public void set라이더위도(double 라이더위도) {
-		this.라이더위도 = 라이더위도;
-	}
-	public double get라이더경도() {
-		return 라이더경도;
-	}
-	public void set라이더경도(double 라이더경도) {
-		this.라이더경도 = 라이더경도;
-	}
+	
 	@Override
 	public String toString() {
 		return "RiderDto [rno=" + rno + ", rname=" + rname + ", rid=" + rid + ", rpwd=" + rpwd + ", rphone=" + rphone
 				+ ", rphoto=" + rphoto + ", rlicense=" + rlicense + ", rregistration=" + rregistration + ", rdate="
 				+ rdate + ", raccount=" + raccount + ", rbank=" + rbank + ", rstatus=" + rstatus + ", rcomment="
 				+ rcomment + ", rbikenum=" + rbikenum + ", rstart=" + rstart + ", rcall=" + rcall + ", type=" + type
-				+ ", accept=" + accept + ", 라이더위도=" + 라이더위도 + ", 라이더경도=" + 라이더경도 + "]";
+				+ ", accept=" + accept + " ]";
 	}
 	
 

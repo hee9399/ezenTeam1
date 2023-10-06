@@ -1,12 +1,11 @@
 
 let userType = "rider";
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 let rmessage = "";
 let 라이더 = null;
 let markerPosition1 = "";
-let 라이더위도 = 37.320682;
-let 라이더경도 = 126.832668;
+let sriderla = 37.320682;
+let sriderlo = 126.832668;
 
 navigator.geolocation.getCurrentPosition(e => {
     sfromla = e.coords.latitude;
@@ -30,7 +29,7 @@ function accept() {
     let riderInfo = {
 		type: "accept",
 		
-		라이더위도: 라이더위도, 라이더경도: 라이더경도}
+		sriderla: sriderla, sriderlo: sriderlo}
 	
 	
 	callClientSocket.send(JSON.stringify(riderInfo));
@@ -49,39 +48,42 @@ function accept() {
     
     document.querySelector('.rightBtn').addEventListener('click', (e) => {
         console.log('앞으로');
-        라이더경도 += 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+        sriderlo += 0.0001;
+        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
     });
 
     document.querySelector('.leftBtn').addEventListener('click', (e) => {
         console.log('뒤로');
-        라이더경도 -= 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+        sriderlo -= 0.0001;
+        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
     });
 
     document.querySelector('.topBtn').addEventListener('click', (e) => {
         console.log('위로');
-        라이더위도 += 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+        sriderla += 0.0001;
+        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
     });
 
     document.querySelector('.bottomBtn').addEventListener('click', (e) => {
         console.log('아래로');
-        라이더위도 -= 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: 라이더위도, sfromlo: 라이더경도 }));
+        sriderla -= 0.0001;
+        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
     });
 
     gpsClientSocket.onmessage = (e) => {
         let data = JSON.parse(e.data);
         console.log(data);
-        라이더위도 = data.sfromla;
-        라이더경도 = data.sfromlo;
+        sriderla = data.sfromla;
+        sriderlo = data.sfromlo;
         마커셋팅();
     };
     
 
     
 }
+
+
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 
 callClientSocket.onmessage = (e) => {
 	
@@ -98,7 +100,7 @@ callClientSocket.onmessage = (e) => {
         <div class="end">목적지 : ${jsonData.목적지.주소} ${jsonData.목적지.장소명}</div>
         <div class="call">요청내용 : ${jsonData.요청내용}</div>
         <div class="choicebox">
-            <button onclick="accept(sno)" type="button" class="accept">수락</button>
+            <button onclick="accept()" type="button" class="accept">수락</button>
             <button onclick="reject()" type="button" class="reject">거절</button>
         </div>
     `;
@@ -187,7 +189,7 @@ callClientSocket.onmessage = (e) => {
 
     let riderImage = new kakao.maps.MarkerImage(riderSrc, riderSize, riderOption);
 
-    let 라이더위치 = new kakao.maps.LatLng(라이더위도, 라이더경도);
+    let 라이더위치 = new kakao.maps.LatLng(sriderla, sriderlo);
 
     라이더 = new kakao.maps.Marker({
         position: 라이더위치,
@@ -216,7 +218,7 @@ function 마커셋팅() {
 
     let riderImage = new kakao.maps.MarkerImage(riderSrc, riderSize, riderOption);
 
-    let 라이더위치 = new kakao.maps.LatLng(라이더위도, 라이더경도);
+    let 라이더위치 = new kakao.maps.LatLng(sriderla, sriderlo);
 
     라이더 = new kakao.maps.Marker({
         position: 라이더위치,

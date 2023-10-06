@@ -19,6 +19,14 @@ public class ServiceDto {// 서비스 Dto
 	private String 요청내용;		// 요청내용
 	private Destination 목적지;		// 목적지
 	private Departure 출발지;		// 출발지
+	private double sriderla;		// 라이더 출발위치 위도
+	private double sriderlo;		// 라이더 출발위치 경도
+	
+	// 조인할라고 필드만 만듬
+	private String rname;
+	private String rphoto;
+	private String rbikenum;
+	
 	
 	public static class Destination {
 	    private String 장소명;
@@ -104,8 +112,8 @@ public class ServiceDto {// 서비스 Dto
 	public ServiceDto() {}
 	// 풀 
 	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
-			double stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용, Destination 목적지,
-			Departure 출발지) {
+			double stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용,
+			Destination 목적지, Departure 출발지, double sriderla, double sriderlo) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
@@ -123,8 +131,9 @@ public class ServiceDto {// 서비스 Dto
 		this.요청내용 = 요청내용;
 		this.목적지 = 목적지;
 		this.출발지 = 출발지;
+		this.sriderla = sriderla;
+		this.sriderlo = sriderlo;
 	}
-	
 	// 라이더가 콜을 누르기 전에 저장되는 생성자
 	public ServiceDto(int mno, double sfromla, double sfromlo, double stola, double stolo) {
 		super();
@@ -136,6 +145,7 @@ public class ServiceDto {// 서비스 Dto
 	}
 	
 
+	
 	// 서비스 정보 조회 생성자
 	public ServiceDto(int sno, int rno, String sdate, String sreview, int spoint) {
 		super();
@@ -168,13 +178,34 @@ public class ServiceDto {// 서비스 Dto
 	}
 
 	
-	// 라이더가 콜을 누른 후에 저장되는 생성자
+	// 라이더가 콜을 누른 후에 수정
+	public ServiceDto(int sno, int rno, double sriderla, double sriderlo) {
+		super();
+		this.sno = sno;
+		this.rno = rno;
+		this.sriderla = sriderla;
+		this.sriderlo = sriderlo;
+	}
+	// 라이더가 콜을 누른 후에 조회
+	public ServiceDto(int sno, int rno, double sriderla, double sriderlo, String rname, String rphoto,
+			String rbikenum) {
+		super();
+		this.sno = sno;
+		this.rno = rno;
+		this.sriderla = sriderla;
+		this.sriderlo = sriderlo;
+		this.rname = rname;
+		this.rphoto = rphoto;
+		this.rbikenum = rbikenum;
+	}
+	
 	
 	
 	// 메소드 
 	public int getSno() {
 		return sno;
 	}
+
 	public void setSno(int sno) {
 		this.sno = sno;
 	}
@@ -273,12 +304,47 @@ public class ServiceDto {// 서비스 Dto
 	public void set출발지(Departure 출발지) {
 		this.출발지 = 출발지;
 	}
+	
+	
+	public double getSriderla() {
+		return sriderla;
+	}
+	public void setSriderla(double sriderla) {
+		this.sriderla = sriderla;
+	}
+	public double getSriderlo() {
+		return sriderlo;
+	}
+	public void setSriderlo(double sriderlo) {
+		this.sriderlo = sriderlo;
+	}
+	
+	
+	public String getRname() {
+		return rname;
+	}
+	public void setRname(String rname) {
+		this.rname = rname;
+	}
+	public String getRphoto() {
+		return rphoto;
+	}
+	public void setRphoto(String rphoto) {
+		this.rphoto = rphoto;
+	}
+	public String getRbikenum() {
+		return rbikenum;
+	}
+	public void setRbikenum(String rbikenum) {
+		this.rbikenum = rbikenum;
+	}
 	@Override
 	public String toString() {
 		return "ServiceDto [sno=" + sno + ", mno=" + mno + ", rno=" + rno + ", sdate=" + sdate + ", sfromla=" + sfromla
 				+ ", sfromlo=" + sfromlo + ", stola=" + stola + ", stolo=" + stolo + ", spayment=" + spayment
 				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + ", type=" + type + ", 요청내용="
-				+ 요청내용 + ", 목적지=" + 목적지 + ", 출발지=" + 출발지 + "]";
+				+ 요청내용 + ", 목적지=" + 목적지 + ", 출발지=" + 출발지 + ", sriderla=" + sriderla + ", sriderlo=" + sriderlo
+				+ ", rname=" + rname + ", rphoto=" + rphoto + ", rbikenum=" + rbikenum + "]";
 	}
 	
 	
