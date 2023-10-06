@@ -55,6 +55,15 @@ public class AdminServiceControoler extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int rno = Integer.parseInt(request.getParameter("rno"));
+		int sno = Integer.parseInt(request.getParameter("sno"));
+		int spayment = Integer.parseInt(request.getParameter("spayment"));
+		System.out.println("rno"+rno);
+		System.out.println("sno"+sno);
+		System.out.println("spayment"+spayment);
+		
+		boolean result = AdminDao.getInstance().deposit(rno, sno, spayment);
+		response.setContentType("application/json;charset=UTF-8");
+		 response.getWriter().print("머있어"+result);
 		
 	}
 

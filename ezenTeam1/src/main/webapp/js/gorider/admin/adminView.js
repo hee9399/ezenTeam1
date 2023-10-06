@@ -85,17 +85,3 @@ function ondeny() {
 }
 
 
-function deposit(){
-	console.log('deposit() 실행')
-	
-	 $.ajax({
-      
-            url : "/ezenTeam1/AdminServiceControoler",    
-            method : "post",
-            data : {rno : rno},      
-           success : r=>{
-			   console.log(r)
-			   } ,
-                          
-   });
-}

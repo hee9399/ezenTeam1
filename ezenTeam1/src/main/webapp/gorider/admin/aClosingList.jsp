@@ -69,7 +69,8 @@
         </div>   
         
         
-        
+         <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+     	<script src="/ezenTeam1/js/gorider/admin/aDeposit.js"></script>
       <%@include file="afooter.jsp" %>
      </div>
 </body>
