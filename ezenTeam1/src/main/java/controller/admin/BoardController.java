@@ -61,6 +61,11 @@ public class BoardController extends HttpServlet {
 			int bno = Integer.parseInt(request.getParameter("bno"));
 			BoardDto result = BoardDao.getInstance().boardView(bno);
 			json = objectMapper.writeValueAsString( result );
+			
+		} else if(type.equals("N")||type.equals("E")){
+			String btarget = request.getParameter("btarget");
+			ArrayList<BoardDto> result = BoardDao.getInstance().onList(type, btarget);
+			json = objectMapper.writeValueAsString( result );
 		}
 
 		// 4. 응답

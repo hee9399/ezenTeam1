@@ -9,9 +9,10 @@
 </head>
 <body>
 
-    <!-- ajax  -->
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
-   <script src="/ezenTeam1/js/gorider/member/header.js"></script>
+<!-- ajax  -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
+<script src="/ezenTeam1/js/gorider/member/header.js"></script>
 
 </body>

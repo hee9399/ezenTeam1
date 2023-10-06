@@ -19,6 +19,7 @@
             <li onclick="goMenu('V')">리뷰/평점관리</li>
             <li onclick="goMenu('D')">라이더 입금내역</li>
             <li onclick="goMenu('C')">서비스 정산</li>
+            <li onclick="goMenu('B')">공지/이벤트 관리</li>
 
 
         </ul>

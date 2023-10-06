@@ -1,6 +1,6 @@
 
  function goMain(){
-	 location.href='amain.jsp';
+	 location.href='/ezenTeam1/gorider/admin/amain.jsp';
  }
  function goMenu(to){
 	 
@@ -12,10 +12,14 @@
 		 location.href='aReviewList.jsp'
 	 } else if(to == 'D'){
 		 location.href='aDepositList.jsp'
+	 } else if(to == 'B'){
+		 location.href='board/aBoardList.jsp'
+	 	 
 	 } else{
 		 location.href='aClosingList.jsp'
 
 	 }
+	 
 	 
  }
 Request();

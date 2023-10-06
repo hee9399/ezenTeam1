@@ -30,11 +30,27 @@ function depositCount(){
 					                <li class="col15">${sno}</li>
 					                <li class="col25">${sdate}</li>
 					                <li class="col20">${spayment}</li>
-					                <li class="col25"><button class="btnPd6" onclick="deposit()" type="button" >입금</button></li>
+					                <li class="col25"><button class="btnPd6" onclick="deposit(${rno}, ${sno},${spayment})" type="button" >입금</button></li>
            						</ul>`;
 				   }
 			   		listbox.innerHTML=html;
 			   } ,
+                          
+   });
+}
+function deposit(rno, sno, spayment){
+   console.log('deposit() 실행')
+   console.log('rno :: '+ rno);
+   console.log('sno :: '+ sno)
+   console.log('spayment :: '+ spayment)
+   
+    $.ajax({
+            url : "/ezenTeam1/AdminServiceControoler",    
+            method : "post",
+            data : {rno : rno, sno:sno, spayment:spayment},      
+           success : r=>{
+            console.log(r)
+            } ,
                           
    });
 }

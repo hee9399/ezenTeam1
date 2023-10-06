@@ -4,7 +4,8 @@ function onMove(type){
 	if(type =='S') {location.href='/ezenTeam1/gorider/member/mSignup.jsp'}
 	if(type =='L') {location.href='/ezenTeam1/gorider/member/mlogin.jsp'}
 	if(type =='M') {location.href='/ezenTeam1/gorider/member//mindex.jsp'}
-	if(type =='MY') {location.href='/ezenTeam1/gorider/member//mMyPage.jsp'}
+	if(type =='MY') {location.href='/ezenTeam1/gorider/member/mMyPage.jsp'}
+
 }
 
 

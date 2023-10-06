@@ -99,6 +99,46 @@ public class BoardDao extends Dao{
 
 	}
 	
+	// 사용자/라이더 출력
+		public ArrayList<BoardDto> onList(String btype, String btarget){
+			ArrayList<BoardDto> list = new ArrayList<>();
+			try {
+				String sql = "select "
+						+ "  bno "
+						+ ", btarget "
+						+ ", btype "
+						+ ", btitle "
+						+ ", bview "
+						+ ", DATE_FORMAT(bdate, '%y-%m-%d') as bdate "
+						+ ", DATE_FORMAT(bstartdate, '%y-%m-%d') as bstartdate "
+						+ ", DATE_FORMAT(benddate, '%y-%m-%d') as benddate  "
+						+ "from board "
+						+ "order by bno desc ";
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+
+				System.out.println(" boardList SQL :: " + ps);
+
+				while(rs.next()) {
+					BoardDto boardDto = new BoardDto(
+						rs.getInt("bno")
+						, rs.getString("btarget")
+						, rs.getString("btype")
+						, rs.getString("btitle")
+						, rs.getString("bdate")
+						, rs.getInt("bview")
+						, rs.getString("bstartdate")
+						, rs.getString("benddate"));
+					list.add(boardDto);
+				}
+
+			}catch(Exception e) {
+
+				System.out.println("Exception :: "+ e);
+			} return list;
+
+		}
+	
 	// 상세보기
 	public BoardDto boardView(int bno) {
 		

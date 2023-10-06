@@ -14,7 +14,7 @@
 <body>
 <div class="wrap">
  <%@include file="../aheader.jsp" %>
-	<div class="apageinfo"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i><span class="aptitle"> 공지사항 /이벤트 </span>  </div>
+	<div class="apageinfo"><a href="javascript:history.back();"><i onclick="" class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a><span class="aptitle"> 공지사항 /이벤트 </span>  </div>
 	<div class="listBox">
 		<div class="listbtnBox">
 			<button onclick="onWrite()" type="button">글작성하기</button>

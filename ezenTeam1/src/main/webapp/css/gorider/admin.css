@@ -15,14 +15,14 @@
 	text-align: center;
 	font-family: 'LINESeedKR-Bd';
 }
-.fmenu li {padding:10px;}
+.fmenu li {padding: 10px 0;}
 .fmenu a:hover {
 	color:#ff00cc;
 	text-shadow:  3px 3px 3px var(-main01);
 }
 
 .fmenu a{color:var(--white); }
-.fmenu li:nth-child(n+1):nth-child(-n+4){
+.fmenu li:nth-child(n+1):nth-child(-n+5){
 	border-right: solid 1px var(--main01);
 }
 
@@ -102,10 +102,12 @@
 
 /*------------------메인------------------*/
 .menuBox{
-	padding:30px 20px;
+	padding:15px 20px;
+
+	align-items: center;
 }
 .amenu{
-	padding-top:30px;
+	
 
 }
 .amenu li {

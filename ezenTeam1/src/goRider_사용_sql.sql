@@ -61,6 +61,7 @@ create table service(
     spayYN varchar(1),					# 결제여부
     sreview text,						# 리뷰
     spoint int,							# 별점
+    sdepositYN varchar(1) default 'N',	# 라이더에게 입금여부(추가)
     primary key( sno ),
     foreign key( mno) references member(mno) on delete cascade on update cascade ,
 	foreign key( rno) references rider(rno) on delete cascade on update cascade

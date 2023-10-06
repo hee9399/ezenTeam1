@@ -251,4 +251,52 @@ font-size: 1.5rem;
 	margin-right: 8px;
     color: var(--dgray);
 }
-.hContent{}
+/* 공지사항/이벤트 리스트--------------------------------------*/
+.bpageinfo{
+	padding:10px 20px;
+	font-family: 'LINESeedKR-Bd';
+	font-size: 1.2rem;
+	color: var(--dgray);
+}
+.bpageinfo i{
+	position: absolute;
+	padding:3px;
+
+}
+.aptitle{
+	display:inline-block;
+	width:100%;
+	text-align: center;
+}
+
+.btypeBox{
+	padding: 0px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+.btypeBox div{
+	padding: 10px;
+	width: 50%;
+	text-align: center;
+}
+.btypeBox .selected{
+	border-bottom: solid 3px var(--dgray);
+}
+
+.bContBox{
+	padding: 0px 10px;
+	overflow-y: auto;
+	height:calc(90vh - 40px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.bContBox::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.btitle span{
+	font-size: 0.6rem;
+}
+.btitle {
+	padding: 10px 0 ;
+	line-height: 1.4rem;
+}

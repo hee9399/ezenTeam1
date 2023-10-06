@@ -16,6 +16,8 @@
       </div>
 
 	</div>
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
 
 <!-- ajax  -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
