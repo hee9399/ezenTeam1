@@ -21,7 +21,7 @@ public class RiderInfoController extends HttpServlet {
        
    
     public RiderInfoController() {}
-
+    
     // 저장
     // 1. 첨부파일 있을때 회원가입
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,6 +40,7 @@ public class RiderInfoController extends HttpServlet {
 				"UTF-8" ,
 				new DefaultFileRenamePolicy() // 5. [ 파일명중복제거 ]
 			);
+		
 	// 2. from 안에 있는 각 데이터 호출 
 		//  rname , rid , rpwd , rphoto , rlicense ,  rregistration , raccount , rbank 
 		// 1. ajax 통신받은 data객체의 '속성명' 요헝한다. 
@@ -88,9 +89,12 @@ public class RiderInfoController extends HttpServlet {
 			// 섹션에 저장된 로그인 객체를 꺼낸다.
 			// 1. 세션호출한다. [ 세션타입은 object ]
 			Object session = request.getSession().getAttribute("loginDto");
+			System.out.println((Object)session);
 			// 2. 타입변환한다. [ 부모 -> 자식 ( 캐스팅 / 강제타입변환 ) ]
 			RiderDto loginDto = (RiderDto) session ;
-			
+			System.out.println(111111);
+			System.out.println(loginDto);
+			System.out.println(222222);
 		// Dto는 JS가 이해살수 없는 언어이기 때문에 JS가 이해할수 있게 JS언어로 변환해줘야한다. [ jackson 라이브러리사용 ]
 			ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writeValueAsString(loginDto);
@@ -111,8 +115,6 @@ public class RiderInfoController extends HttpServlet {
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
-		
 		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
 		MultipartRequest multi = new MultipartRequest(
 				request, 	// 1. 요청방식
@@ -128,24 +130,32 @@ public class RiderInfoController extends HttpServlet {
 		RiderDto riderDto = (RiderDto)object;
 		int rno = riderDto.getRno();
 		
-		String type = request.getParameter("type");
-			
-		String json = null; 
+		// 
+		String change = multi.getParameter("type");
 	
-		// 만약에 프로필사진을 수정할경우
-		if(multi.getFilesystemName("rphoto") != null ) {
-				
-				type = "rphoto";
+		String type = null;
+		String value = null;
+		
+		if(change.equals("프로필사진") ) { // 프로필사진수정할경우
 			
-		 	}
+			type = "rphoto";
+			value = multi.getFilesystemName("rphoto");
+			
+		}else if(change.equals("라이더차량번호") ) { // 라이더 차량번호 수정할경우
+				
+			type = "rphoto";
+			
+		 }
+		
+		
 		System.out.println("type: "+type);
 		
-		boolean result = RiderDao.getInstance().rupdate(rno, type);
+		boolean result = RiderDao.getInstance().rupdate(rno , type , value);
 		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(json);
+		response.getWriter().print(result);
 		
 		}// doPut e
-	
+		
 
 	// 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

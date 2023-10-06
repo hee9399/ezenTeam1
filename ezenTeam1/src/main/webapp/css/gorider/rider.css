@@ -224,7 +224,6 @@ padding-top:20px ;
 }
 .rmyBtnBox{
 	width:100%;
-	
 }
 .rmyBtn{
 	display:flex;
@@ -267,7 +266,7 @@ padding-top:20px ;
 .rpcontent{width: 100%}
 .rpcontent input{width: 100px;}
 .rpname{
-	color: black;
+	color: white;
     margin-top: 18px;
 }
 .rzone{

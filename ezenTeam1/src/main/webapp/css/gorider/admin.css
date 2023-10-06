@@ -138,12 +138,12 @@
 
 /*------------------공지쓰기------------------*/
 .apageinfo{
-	padding:20px; 	
+	padding:20px;
 	font-family: 'LINESeedKR-Bd';
 	font-size: 1.5rem;
 	color: var(--dgray);
 }
-.apageinfo i{ 
+.apageinfo i{
 	position: absolute;
 	padding:3px;
 
@@ -153,10 +153,16 @@
 	padding:10px;
 	font-size: 0.8rem;
 	color: var(--dgray);
-	
+	overflow-y: auto;
+	height:calc(100vh - 110px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
 }
-.aptitle{ 
-	display:inline-block; 
+.writeBox::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.aptitle{
+	display:inline-block;
 	width:100%;
 	text-align: center;
 }
@@ -174,10 +180,10 @@
 	outline: none;
 
 }
-.writeBox textarea{ 
+.writeBox textarea{
 	height:35vh;
 	resize: none;
-	
+
 }
 .writeBox input[type="radio"]{
 	margin:0px 5px 3px 0;
@@ -187,7 +193,7 @@
 	height:150px;
 	border:solid 1px var(--lgray);
 	padding:10px;
-	font-family: 'NanumSquareNeo-Variable'; 
+	font-family: 'NanumSquareNeo-Variable';
 }
 .btypeBox span{
 	display: inline-block;
@@ -221,7 +227,7 @@
 	padding:30px;
 	position:absolute;
 	display: none;
-	background-color: var(--main01);	
+	background-color: var(--main01);
 	top:20vh;
 	left:20%;
 	right:20%;
@@ -250,8 +256,8 @@
 	/*
 		커서 마우스 모양 설정
 		pointer: 손모양
-		move: 상하좌우방향의 화살표 
-		help: 화살표에 ? 모양 
+		move: 상하좌우방향의 화살표
+		help: 화살표에 ? 모양
 		zoom in / out
 	*/
 	cursor: pointer;
@@ -272,24 +278,83 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+
 }
 .week{
 	height:23px !important;
 	font-weight: bold;
 	font-size: 0.8rem;
 	text-align: center;
-	background-color: #e8e8e8;	
-	
+	background-color: #e8e8e8;
+
 }
 .sunday{ background-color: red; color:#fff;}
 .today{background-color: var(--main02); font-weight: bold; color:#fff;}
 .days{background-color: var(--white);}
-.caltop{ 
+.caltop{
 	display: flex;
-	
+
 }
 
 /*------------------공지리스트------------------*/
+.listBox{
+
+	padding:0 10px;
+}
+.listhead,.listcont{
+	display: flex;
+	justify-content: space-between;
+}
+.listhead {
+	font-family: 'LINESeedKR-Bd';
+	text-align: center;
+	font-size: 0.8rem;
+}
+.listhead li{
+	padding:10px 0;
+	background-color: var(--main03);
+	border-right: solid 1px var(--white);
+	color:var(--white);
+	letter-spacing: 0.1rem;
+}
+.listBox .btype{width:12%;}
+.listBox .btarget{width:8%;}
+.listBox .btitle{width:60%;}
+.listBox .bdate{width:20%; }
+
+.listbody{	overflow-y: auto;
+	height:calc(90vh - 190px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.listbody::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+.listcont li{
+	border-bottom:solid 1px var(--main03);
+	padding:10px 0;
+	font-size: 0.6rem;
+	text-align: center;
+}
+.listcont:hover{
+    background-color: var(--main01);
+}
+.listbtnBox{
+	padding:0px 0 5px;
+	text-align: right;
+}
+.listbtnBox button{
+	padding:10px 15px 5px;
+	background-color: var(--lgray);
+	color:var(--dgray);
+	font-family: 'LINESeedKR-Bd';
+	border-radius: 10px;
+	cursor: pointer;
+}
+.listbtnBox button:hover{
+    background-color: var(--main01);
+    color:var(--main03);
+}
 
 /*------------------공지출력------------------*/

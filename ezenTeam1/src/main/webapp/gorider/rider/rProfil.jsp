@@ -22,16 +22,21 @@
 				<img class="rlogo" src="/ezenTeam1/gorider/rider/img/back.png"/> </a> 
 			
 		</div>
-			
-		<div class="rphoto"> <!-- 라이더 프로필 사진 구역 -->
-			
-			 <img  src="/ezenTeam1/gorider/rider/img/default.webp"/>
-			<input type="file">
-		</div> <!-- 라이더 프로필 사진 구역 e -->
+		
+		<form class="rpChange">
+		
+			<div class="rphoto"> <!-- 라이더 프로필 사진 구역 -->
+				
+				 <img  src="/ezenTeam1/gorider/rider/img/default.webp"/>
+				<input name="rphoto" type="file">
+				<button onclick="changeImg()" type="button"> 수정하기 </button>
+				
+			</div> <!-- 라이더 프로필 사진 구역 e -->
+		</form>
 	
 		<div class="rpcontent"> <!-- 라이더 이름 -->
 			
-			<input class="rpname" type="text" />  
+			<div class="rpname">  </div>
 			<div class="rzone"> 안산 상록구 , KOR </div>
 			
 		</div>  <!-- 라이더 이름 e -->

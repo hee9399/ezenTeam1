@@ -1,8 +1,7 @@
 
 
 let userType = "rider";
-let sfromla = 0;
-let sfromlo = 0;
+
 let rmessage = "";
 let 라이더 = null;
 let markerPosition1 = "";
@@ -23,8 +22,7 @@ function accept() {
 	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
     let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
 
-    
-    
+	
     let contentBox = document.querySelector('.accept');
    
    callClientSocket.onopen = function(event) {
@@ -32,7 +30,7 @@ function accept() {
     let riderInfo = {
 		type: "accept",
 		
-		라이더위도: 라이더위도, 라이더경도: 라이더경도, rno: 1}
+		라이더위도: 라이더위도, 라이더경도: 라이더경도}
 	
 	
 	callClientSocket.send(JSON.stringify(riderInfo));
@@ -103,7 +101,7 @@ callClientSocket.onmessage = (e) => {
         <div class="end">목적지 : ${jsonData.목적지.주소} ${jsonData.목적지.장소명}</div>
         <div class="call">요청내용 : ${jsonData.요청내용}</div>
         <div class="choicebox">
-            <button onclick="accept()" type="button" class="accept">수락</button>
+            <button onclick="accept(sno)" type="button" class="accept">수락</button>
             <button onclick="reject()" type="button" class="reject">거절</button>
         </div>
     `;

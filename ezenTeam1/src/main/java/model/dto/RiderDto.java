@@ -137,6 +137,14 @@ public class RiderDto {// 기사 Dto
 		this.rstatus = rstatus;
 	}
 	
+	// 라이더가 사용자한테 콜 수락했을때 가져와서 조회할때.
+	public RiderDto(int rno, String rname, String rphoto, String rbikenum) {
+		super();
+		this.rno = rno;
+		this.rname = rname;
+		this.rphoto = rphoto;
+		this.rbikenum = rbikenum;
+	}
 	// 메소드 
 	public int getRno() {
 		return rno;

@@ -20,6 +20,8 @@ let destination = "";
 let 요청내용 = "";
 
 
+
+
 let JsonInfo = sessionStorage.getItem('info');
 if (JsonInfo) {
 	let info = JSON.parse(JsonInfo);

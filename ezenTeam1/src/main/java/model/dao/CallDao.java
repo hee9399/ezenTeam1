@@ -31,12 +31,10 @@ public class CallDao extends Dao{
 	
 	// 2. 콜했을때 두가지
 		// 1. 라이더의 위치 DB에 담아주기
-		// 2. 담아준 위치와 라이더의 정보들을 조회하기
-	
 	public boolean RiderAccept(int rno,double 라이더위도,
 			double 라이더경도) {
 		try {
-			String sql = "update rider set 라이더위도 = ?,라이더경도 =? where rno = ?;";
+			String sql = "update service set 라이더위도 = ?,라이더경도 =? ,rno = ? where sno = ?";
 			ps = conn.prepareStatement(sql);
 			
 			ps.setDouble(1, 라이더위도);
@@ -53,31 +51,9 @@ public class CallDao extends Dao{
 		return false;
 	}
 	
-	public RiderDto SendRiderInfo(int rno) {
-		try {
-			String sql = "select  rno,  rname,  rphone,  rphoto,  accept,  라이더위도,  라이더위도 from rider where rno = ? ";
-			ps.setInt(1, rno);
-			rs= ps.executeQuery();
-			if(rs.next()) {
-				RiderDto riderDto = new RiderDto(
-						rs.getInt("rno"),
-						rs.getString("rname"),rs.getString("rphone"),
-						rs.getString("rphoto"),rs.getString("accept"),
-						rs.getDouble("라이더위도"),rs.getDouble("라이더위도")
-						
-						);
-				return riderDto;
-		} 
-		}catch (Exception e) {
-			System.out.println(e);
-		}
-		
-		
-		return null;
-	}
 	
-	
-	public RiderDto ApprovalView(int rno) {
+	// 2. 콜 수락했을때 사용자가 라이더 정보 확인
+	public RiderDto ShowRiderInfo(int rno) {
 		try {
 			String sql = "select * from rider where rno = ? ";
 			ps = conn.prepareStatement(sql);
@@ -86,11 +62,9 @@ public class CallDao extends Dao{
 			if(rs.next()) {
 				RiderDto riderDto = new RiderDto(
 						rs.getInt("rno"),
-						rs.getString("rname"), rs.getString("rid"),rs.getString("rphone"),
-						rs.getString("rphoto"),rs.getString("rlicense"),
-						rs.getString("rregistration"),rs.getString("rdate"),
-						rs.getString("raccount"),rs.getString("rbank"),
-						rs.getString("rstatus"),rs.getString("rcomment"), rs.getString("rbikenum")
+						rs.getString("rname"),
+						rs.getString("rphoto"),
+						 rs.getString("rbikenum")
 						);
 				return riderDto;
 			}
