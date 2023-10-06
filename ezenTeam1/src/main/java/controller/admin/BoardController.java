@@ -57,7 +57,10 @@ public class BoardController extends HttpServlet {
 			json = objectMapper.writeValueAsString( result );
 
 		} else if(type.equals("getDetail")) { //상세페이지 출력
-
+			
+			int bno = Integer.parseInt(request.getParameter("bno"));
+			BoardDto result = BoardDao.getInstance().boardView(bno);
+			json = objectMapper.writeValueAsString( result );
 		}
 
 		// 4. 응답

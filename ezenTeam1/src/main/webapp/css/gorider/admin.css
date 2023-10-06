@@ -357,4 +357,52 @@
     color:var(--main03);
 }
 
-/*------------------공지출력------------------*/
+/*------------------공지 상세보기 출력------------------*/
+.contBox{
+	padding-top:10px;
+}
+.vbtnBox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.vbtnBox button{
+	padding:10px 15px 5px;
+	font-family: 'LINESeedKR-Bd';
+	border-radius: 10px;
+	color:var(--dgray);
+}
+.vbtnBox button:hover{
+	background-color: var(--main01);
+	color: var(--main03);
+}
+.bviewBox{
+	padding: 20px 10px;
+	overflow-y: auto;
+	height:calc(90vh - 40px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.bviewBox::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.bviewBox .bvTitle{
+	font-family: 'LINESeedKR-Bd';
+	font-size: 1.3rem;
+}
+.bviewBox .bvDate{font-size: 0.5rem;}
+.bviewBox .bvEventPeriod{
+	padding:10px 0; 
+	font-family: 'LINESeedKR-Bd';
+	font-size: 0.9rem;
+	color:var(--main03);
+}
+.bviewBox .bvCont{
+	font-size: 0.8rem;
+}
+
+.bviewBox .bvImg img{
+	width: 100%;
+	object-fit:cover;
+}
+

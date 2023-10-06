@@ -98,6 +98,56 @@ public class BoardDao extends Dao{
 		} return list;
 
 	}
+	
+	// 상세보기
+	public BoardDto boardView(int bno) {
+		
+
+		try {
+			
+			String sql ="select "
+					+ "		b.bno as bno "
+					+ "	  , b.btarget as btarget "
+					+ "	  , b.btype as btype "
+					+ "   , b.btitle as btitle "
+					+ "   , b.bcontent as bcontent "
+					+ "   , DATE_FORMAT(bdate, '%Y-%m-%d') as bdate "
+					+ "   , b.bview as bview "
+					+ "   , DATE_FORMAT(b.bstartdate, '%Y-%m-%d') as bstartdate "
+					+ "   , DATE_FORMAT(b.benddate, '%Y-%m-%d') as benddate "
+					+ "   , bf.bfno as bfno "
+					+ "   , bf.bfile as bfile "
+					+ " from board b left outer join boardfiles bf on b.bno = bf.bno where b.bno = ? ";
+			
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			rs = ps.executeQuery();
+			System.out.println("boardView ::ps ::: "+ ps);
+			if(rs.next()) {
+				BoardDto boardDto = new BoardDto(
+						 rs.getInt("bno")
+						,rs.getString("btarget") 
+						,rs.getString("btype") 
+						,rs.getString("btitle") 
+						,rs.getString("bcontent") 
+						,rs.getString("bdate") 
+						,rs.getInt("bview")
+						,rs.getString("bstartdate") 
+						,rs.getString("benddate") 
+						,rs.getInt("bfno")
+						,rs.getString("bfile") );
+				
+				System.out.println("boardView ::boardDto ::: "+ boardDto);
+				return boardDto;
+			}
+		} catch (Exception e) {
+			System.out.println("Exception :: "+ e);
+		}
+		return null;
+	}
+
+	
+	
 	// 수정
 	public boolean update(BoardDao dto) {
 		try {
@@ -109,8 +159,14 @@ public class BoardDao extends Dao{
 	}
 
 	// 삭제
-	public boolean delete(BoardDao dto) {
+	public boolean delete(int bno) {
 		try {
+			String sql ="delete from board where bno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			int cnt = ps.executeUpdate();
+			if(cnt == 1) { 	return true; }
+			
 
 		} catch (Exception e) {
 			System.out.println("Exception :: "+ e);
