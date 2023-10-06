@@ -21,11 +21,11 @@ function getMemberInfo(){
 		url:"/ezenTeam1/MemberInfoController",
 		method:"get",
 		async:false, //동기화설정(waiting)
-		data:{type:'login'},
+		data:{'type':'login'},
 		success: r =>{
 			let btnBox = document.querySelector('.hbtnbox');
 			let html =``;
-
+			
 			console.log(r);
 			if(r == null){ //세션정보가 없으면 회원가입/ 로그인 버튼 활성화
 				loginState = false;
@@ -51,7 +51,7 @@ function getMemberInfo(){
 			btnBox.innerHTML = html;
 
 		},
-		error : e =>{console.log("실패"+ e)}
+		error : e =>{console.log(e)}
 	})
 }
 

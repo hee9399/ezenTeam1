@@ -79,7 +79,7 @@ public class MemberInfoController extends HttpServlet {
 
 		} else if(type.equals("login")) {
 			
-			Object session = request.getSession().getAttribute("loginDto");
+			
 			/*
 			if (session instanceof RiderDto) {
 			    RiderDto riderDto = (RiderDto) session;
@@ -90,13 +90,16 @@ public class MemberInfoController extends HttpServlet {
 			    // RiderDto로 형변환된 객체를 사용할 수 있습니다.
 			} else if (session instanceof MemberDto) {
 			*/
-			    MemberDto memberDto = (MemberDto) session;
-			    ObjectMapper objectMapper = new ObjectMapper();
-				String json = objectMapper.writeValueAsString(memberDto);
-				response.setContentType("application/json;charset=UTF-8");
-				response.getWriter().print(json);
+			Object session = request.getSession().getAttribute("loginDto");
+			MemberDto memberDto = (MemberDto) session;
+			System.out.println("MemberInfoController::memberDto::" + memberDto);
+			ObjectMapper objectMapper = new ObjectMapper();
+			String json = objectMapper.writeValueAsString(memberDto);
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().print(json);
 			    // MemberDto로 형변환된 객체를 사용할 수 있습니다.
 			//} 
+			return;
 		} else if(type.equals("logout")) {
 			System.out.println("type : "+ type);
 			//세션에 저장된 logiDto에 null대입
