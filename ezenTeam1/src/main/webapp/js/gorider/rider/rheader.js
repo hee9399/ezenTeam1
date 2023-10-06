@@ -29,7 +29,7 @@ function getRiderInfo(){
 			  
 		  }
 		  // html 대입 
-      	riderinformation.innerHTML;
+      	riderinformation.innerHTML = html;
       } ,       
       error : e => {} ,         
    });

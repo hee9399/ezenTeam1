@@ -13,10 +13,10 @@ navigator.geolocation.getCurrentPosition(e => {
     sfromlo = e.coords.longitude;
 });
 
-console.log( rno );
 
 
-function accept(sno) {
+
+function accept() {
 	
 	//userType = "rider";
 	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
@@ -30,7 +30,7 @@ function accept(sno) {
     let riderInfo = {
 		type: "accept",
 		
-		라이더위도: 라이더위도, 라이더경도: 라이더경도 ,sno : sno , rno:rno}
+		라이더위도: 라이더위도, 라이더경도: 라이더경도}
 	
 	
 	callClientSocket.send(JSON.stringify(riderInfo));
