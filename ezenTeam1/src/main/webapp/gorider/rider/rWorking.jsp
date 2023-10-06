@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="wrapR ">
-<%--      <%@include file="rheader.jsp" %> --%>
+ <%@include file="rheader.jsp" %>
         <div class="rheaderwrapA ">
             <div  onclick="onMove('myMenu')" class="bcp mymenu">나의 메뉴</div>
         </div>
@@ -26,15 +26,16 @@
 
         <div class="rcontBox ">
             <div class="rstatebox ">
-
-               <div class="rstate"> 콜 대기중 </div>
-               <div on="interval" class="dotBox">
+				<div class = "callcontent">
+              		<div class="rstate"> 콜 대기중 </div>
+        			 <div on="interval" class="dotBox">
 
                		<i class="fa-solid fa-circle dot1"></i>
                		<i class="fa-solid fa-circle dot2"></i>
                		<i class="fa-solid fa-circle dot3"></i>
                </div>
-
+               </div>
+              
 
 
 
@@ -45,8 +46,12 @@
 	       <div  onclick="outWork()"class="fbtn btn100 bgm02">퇴근하기</div>
 	    </div>
     </div>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59b47c7057625f350189b1cb8369a874&libraries=services"></script>
 <script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
-<script src="../../js/gorider/rider/rAfterWork.js"></script>
+
+<script src = "../../js/gorider/rider/rWorking.js"></script>
 
 </body>
 </html>

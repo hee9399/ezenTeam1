@@ -1,7 +1,7 @@
 
-
 let userType = "rider";
 
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 let rmessage = "";
 let 라이더 = null;
 let markerPosition1 = "";
@@ -82,9 +82,6 @@ function accept() {
 
     
 }
-
-//let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
 
 callClientSocket.onmessage = (e) => {
 	

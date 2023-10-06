@@ -1,4 +1,7 @@
+
+
 console.log('rAfterWork.js');
+
 
 if(loginState == true){ // 마냐게 로그인이 되있으면 
 	document.querySelector('.rname').innerHTML = loginRname;
@@ -12,32 +15,12 @@ if(loginState == true){ // 마냐게 로그인이 되있으면
 let callstate = 'Y';
 function goWork(){
 
-	/* riderState 테이블 업데이트 후 */arguments
+	/* riderState 테이블 업데이트 후 */
 	location.href = '/ezenTeam1/gorider/rider/rWorking.jsp'
-
-
-}
-
-function outWork(){
-
-	/* riderState 테이블 업데이트 후 */arguments
-	window.close();
+	
 
 }
-function onMove(to){
 
-	if(to == 'myMenu'){
-		location.href = '/ezenTeam1/gorider/rider/rMyMenu.jsp';
-	} else if(to == 'goBack'){
-		window.history.back();
-	}else if(to == 'callList'){
-		location.href = '/ezenTeam1/gorider/rider/rCallListg.jsp'
-	}
-
-
- 
-
-}
 let currentIndex = 0;
 var colors = ['#EBC12F',  '#90772B', '#4D421B' ]
 function changeColor() {
