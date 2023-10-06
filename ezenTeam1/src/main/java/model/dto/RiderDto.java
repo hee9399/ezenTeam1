@@ -4,10 +4,10 @@ public class RiderDto {// 기사 Dto
 
 	// 필드 
 	private int rno;      			// 라이더번호              	
-	private String rname; 		// 라이더이름              		
+	private String rname; 			// 라이더이름              		
 	private String rid;				// 라이더아이디		
 	private String rpwd; 			// 라이더비밀번호 
-	private String rphone;		// 라이더전화번호 
+	private String rphone;			// 라이더전화번호 
 	private String rphoto;			// 라이더프로필사진 //이미지
 	private String rlicense;		// 면허증  //이미지
 	private String rregistration;	// 차량등록증  //이미지
@@ -15,11 +15,11 @@ public class RiderDto {// 기사 Dto
 	private String raccount; 		// 계좌번호
 	private String rbank;			// 은행
 	private String rstatus;			// 승인상태
-	private String rcomment;	// 승인거부시 사유
+	private String rcomment;		// 승인거부시 사유
 	private String rbikenum;		// 라이더 차량번호 
-	private String rstart;    	 // 라이더출근상태  
+	private String rstart;    		// 라이더출근상태  
 	private String rcall;   		// 라이더콜가능상태
-	private String type;				// 타입
+	private String type;			// 타입
 	private String accept;			// 라이더가 사용자 요청 수락했을때.
 	private double 라이더위도;			// 라이더 수락하고 사용자 위치까지 가기 전.
 	private double 라이더경도;			// 라이더 수락하고 사용자 위치까지 가기 전.
