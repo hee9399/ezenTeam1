@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 public class CallDao extends Dao{
 
@@ -30,16 +30,16 @@ public class CallDao extends Dao{
 	}
 	
 	// 2. 콜했을때 두가지
-		// 1. 라이더의 위치 DB에 담아주기
-	public boolean RiderAccept(int rno,double 라이더위도,
-			double 라이더경도) {
+		// 1. 라이더의 위치 DB에 수정
+	public boolean RiderAccept(int rno,double sriderla,
+			double sriderlo, int sno) {
 		try {
-			String sql = "update service set 라이더위도 = ?,라이더경도 =? ,rno = ? where sno = ?";
+			String sql = "update service set sriderla = ?,sriderlo =? ,rno = ? where sno = ?";
 			ps = conn.prepareStatement(sql);
-			
-			ps.setDouble(1, 라이더위도);
-			ps.setDouble(2, 라이더경도);
+			ps.setDouble(1, sriderla);
+			ps.setDouble(2, sriderlo);
 			ps.setInt(3, rno);
+			ps.setInt(4, sno);
 			
 			
 			int count = ps.executeUpdate();
@@ -53,20 +53,25 @@ public class CallDao extends Dao{
 	
 	
 	// 2. 콜 수락했을때 사용자가 라이더 정보 확인
-	public RiderDto ShowRiderInfo(int rno) {
+	public ServiceDto ShowRiderInfo(int sno, int rno, double sriderla, double sriderlo, String rname, String rphoto, String rbikenum) {
 		try {
-			String sql = "select * from rider where rno = ? ";
+			String sql = "SELECT s.sno, s.sriderla, s.sriderlo, s.rno, r.rname, r.rphoto, r.rbikenum " +
+                    "	FROM service s " +
+                    "	INNER JOIN rider r ON s.rno = r.rno	where s.sno = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, rno);
 			rs= ps.executeQuery();
 			if(rs.next()) {
-				RiderDto riderDto = new RiderDto(
+				ServiceDto servicedto= new ServiceDto(
+						rs.getInt("sno"),
 						rs.getInt("rno"),
-						rs.getString("rname"),
-						rs.getString("rphoto"),
+						rs.getDouble("sriderla"),
+						rs.getDouble("sriderlo"),
+						 rs.getString("rphoto"),
+						 rs.getString("rname"),
 						 rs.getString("rbikenum")
 						);
-				return riderDto;
+				return servicedto;
 			}
 		}catch (Exception e) {System.out.println(e);}
 		return null;

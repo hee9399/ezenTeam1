@@ -12,7 +12,21 @@ if(loginState == true){ // 마냐게 로그인이 되있으면
 	location.href="/ezenTeam1/gorider/rider/rlogin.jsp";
 }
 
+let callstate = 'Y';
+function goWork(){
 
+	/* riderState 테이블 업데이트 후 */
+	location.href = '/ezenTeam1/gorider/rider/rWorking.jsp'
+	
+
+}
+
+function outWork(){
+
+	/* riderState 테이블 업데이트 후 */
+	window.close();
+
+}
 function onMove(to){
 
 	if(to == 'myMenu'){
@@ -23,17 +37,9 @@ function onMove(to){
 		location.href = '/ezenTeam1/gorider/rider/rCallListg.jsp'
 	}
 
-}
-
-let callstate = 'Y';
-function goWork(){
-
-	/* riderState 테이블 업데이트 후 */
-	location.href = '/ezenTeam1/gorider/rider/rWorking.jsp'
-	
+ 
 
 }
-
 let currentIndex = 0;
 var colors = ['#EBC12F',  '#90772B', '#4D421B' ]
 function changeColor() {
@@ -46,8 +52,6 @@ function changeColor() {
 	currentIndex = (currentIndex + 1) % colors.length;
 }
 // setInterval(changeColor, 800);
-
-
 
 
 
