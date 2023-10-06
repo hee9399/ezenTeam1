@@ -22,9 +22,7 @@ let approvalDenied = false; // 승인 또는 거부 여부를 추적하는 변�
 			
         
         },
-        error: e => {
-           console.error(e);
-        }
+        
 });
 
 function onapprove() {
@@ -32,7 +30,7 @@ function onapprove() {
         return; // 이미 승인 또는 거부한 경우 함수를 종료합니다.
     }
 
-    approvalDenied = true; // 승인 또는 거부함을 표시합니다.
+    approvalDenied = true; // 승인 또는 거부함을 표시합니다. 
 
     $.ajax({
         url: "/ezenTeam1/AdminController",
@@ -96,8 +94,23 @@ function Request(){
 			   console.log(r)
 			   
 			
-			   document.querySelector('.hinfo').innerHTML=`신규요청 : ${rno}건`;
+			   document.querySelector('.hinfo').innerHTML=`신규요청 : ${r}건`;
 			   
+			   } ,
+                          
+   });
+}
+
+function deposit(){
+	console.log('deposit() 실행')
+	
+	 $.ajax({
+      
+            url : "/ezenTeam1/AdminServiceControoler",    
+            method : "post",
+            data : {rno : rno},      
+           success : r=>{
+			   console.log(r)
 			   } ,
                           
    });

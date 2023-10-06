@@ -17,50 +17,12 @@
 
          <!-- title -->
             <ul class="listTitle rlistR">
-                <li class="col15">R번호</li>
-                <li class="col15">S번호</li>
-                <li class="col25">서비스일자</li>
-                <li class="col20">입금액</li>
-                <li class="col25">입금</li>
+                
            </ul>
 
         <!-- 1 content start -->
             <ul class="listContent rlistR">
-                 <li class="col15">153132</li>
-                <li class="col15">454</li>
-                <li class="col25">2023-09-15</li>
-                <li class="col20">9800</li>
-                <li class="col25"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-           
-            <ul class="listContent rlistR">
-                 <li class="col15">153132</li>
-                <li class="col15">454</li>
-                <li class="col25">2023-09-15</li>
-                <li class="col20">9800</li>
-                <li class="col25"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-           
-            <ul class="listContent rlistR">
-                 <li class="col15">153132</li>
-                <li class="col15">454</li>
-                <li class="col25">2023-09-15</li>
-                <li class="col20">9800</li>
-                <li class="col25"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-         <ul class="listContent rlistR">
-                 <li class="col15">153132</li>
-                <li class="col15">454</li>
-                <li class="col25">2023-09-15</li>
-                <li class="col20">9800</li>
-                <li class="col25"><button class="btnPd6" type="button" >상세보기</button></li>
-           </ul>
-           <ul class="listContent rlistR">
-                 <li class="col15">153132</li>
-                <li class="col15">454</li>
-                <li class="col25">2023-09-15</li>
-                <li class="col20">9800</li>
-                <li class="col25"><button class="btnPd6" type="button" >상세보기</button></li>
+                 
            </ul>
            
            
@@ -70,5 +32,7 @@
         
       <%@include file="afooter.jsp" %>
      </div>
+     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+     <script src="/ezenTeam1/js/gorider/admin/aDeposit.js"></script>
 </body>
 </html>

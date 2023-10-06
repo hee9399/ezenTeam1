@@ -158,6 +158,14 @@ public class ServiceDto {// 서비스 Dto
 		this.stola = stola;
 		this.stolo = stolo;
 	}
+	// 입급내역 조회 리스트
+	public ServiceDto(int sno, int rno, String sdate, int spayment) {
+		super();
+		this.sno = sno;
+		this.rno = rno;
+		this.sdate = sdate;
+		this.spayment = spayment;
+	}
 
 	
 	// 라이더가 콜을 누른 후에 저장되는 생성자

@@ -58,13 +58,17 @@ public class AdminController extends HttpServlet {
 	        // JSON 문자열을 응답에 출력
 	        response.getWriter().print(json2);
 	        System.out.println(json2);
-	    }else if(type.equals("3")) {
-	    	
-	    	boolean result=AdminDao.getInstance().Request();
-	    	response.setContentType("application/json;charset=UTF-8");
-			 response.getWriter().print(result);
-			 System.out.println("result ="+result);
-	    
+	    }else if (type.equals("3")) {
+	        int result = AdminDao.getInstance().Request();
+	        response.setContentType("application/json;charset=UTF-8");
+	        response.getWriter().print(result);
+	        System.out.println("result = " + result);
+	    }else if(type.equals("4")) {
+	    	ArrayList<ServiceDto> result=AdminDao.getInstance().depositCount();
+	    	 response.setContentType("application/json;charset=UTF-8");
+		  	 json = objectMapper.writeValueAsString(result);
+		  	 response.getWriter().print(json);
+		  	 System.out.println("json: "+json);
 	    }
 	}
 

@@ -90,7 +90,7 @@ public class AdminDao extends Dao{
 	        if (count > 0) {
 	            return true; // Approval success
 	        }
-	    } catch (Exception e) {
+	    } catch (Excep;'tion e) {
 	        System.out.println(e);
 	    }
 	    return false;
@@ -114,15 +114,17 @@ public class AdminDao extends Dao{
 	}
 	*/
 	// 승인요청 가져오는 함수
-	public boolean Request() {
-		 try {
-		        String sql = "SELECT COUNT(*) FROM rider WHERE rstatus = 'n'";
-		        ps = conn.prepareStatement(sql);
-		        rs = ps.executeQuery();
-		        System.out.println("rs = "+rs);
-		       
+	public int Request() {
+		int count = 0;
+	    try {
+	        String sql = "SELECT COUNT(*) FROM rider WHERE rstatus = 'N'";
+	        ps = conn.prepareStatement(sql);
+	        rs = ps.executeQuery();
+	        if (rs.next()) {
+	            count = rs.getInt(1);
+	        }
 		}catch (Exception e) {System.out.println(e);}
-		return false;
+		return count;
 	}
 	
 	public ArrayList<ServiceDto> ServicePrint(){
@@ -163,5 +165,28 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return list;
 	}
-	
+	public ArrayList<ServiceDto>depositCount(){
+		ArrayList<ServiceDto> list = new ArrayList<>();
+		try {
+			String sql = "select sno,rno,sdate,spayment from service ";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				ServiceDto dto = new ServiceDto(
+						rs.getInt("sno"),rs.getInt("rno"),
+						rs.getString("sdate"), rs.getInt("spayment"));
+				list.add(dto);
+			}
+		}catch (Exception e) {System.out.println("에러이유: "+e);}
+		return list;
+	}
+	public boolean deposit() {
+		try {
+			String sql = "insert into deposit (rno, sno, ddate, ddeposit) VALUES (?, ?, now(), ?)";
+			ps=conn.prepareStatement(sql);
+			
+			
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 }
