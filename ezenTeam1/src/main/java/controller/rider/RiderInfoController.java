@@ -92,9 +92,9 @@ public class RiderInfoController extends HttpServlet {
 			System.out.println((Object)session);
 			// 2. 타입변환한다. [ 부모 -> 자식 ( 캐스팅 / 강제타입변환 ) ]
 			RiderDto loginDto = (RiderDto) session ;
-			System.out.println(111111);
+			
 			System.out.println(loginDto);
-			System.out.println(222222);
+			
 		// Dto는 JS가 이해살수 없는 언어이기 때문에 JS가 이해할수 있게 JS언어로 변환해줘야한다. [ jackson 라이브러리사용 ]
 			ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writeValueAsString(loginDto);
@@ -114,41 +114,50 @@ public class RiderInfoController extends HttpServlet {
 
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPut시작");
 		
 		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
 		MultipartRequest multi = new MultipartRequest(
-				request, 	// 1. 요청방식
-				request.getServletContext().getRealPath("gorider/rider/img") , // 2. 첨부파일을 저장할 경로
-				1024 * 1024 * 10 ,		// 3. 첨부파일 용량 허용 번위 [ 바이트 단위 ] 10mb
-				"UTF-8" ,			// 4. 한글 인코딩타입 
-				new DefaultFileRenamePolicy()
-				);
-		String rphoto = multi.getFilesystemName("rphoto");
+			request, 	// 1. 요청방식
+			request.getServletContext().getRealPath("gorider/rider/img") , // 2. 첨부파일을 저장할 경로
+			1024 * 1024 * 10 ,		// 3. 첨부파일 용량 허용 번위 [ 바이트 단위 ] 10mb
+			"UTF-8" ,			// 4. 한글 인코딩타입 
+			new DefaultFileRenamePolicy()
+			);
+		System.out.println("multi도착"+multi);
 		
 		// Dao [ 로그인된 라이더번호 , 수정할 값 ]
 		Object object = request.getSession().getAttribute("loginDto");
 		RiderDto riderDto = (RiderDto)object;
 		int rno = riderDto.getRno();
 		
-		// 
-		String change = multi.getParameter("type");
-	
+		
+		String change = multi.getFilesystemName("change");
+		
+		System.out.println("change: "+change);
+		
 		String type = null;
 		String value = null;
 		
 		if(change.equals("프로필사진") ) { // 프로필사진수정할경우
+			System.out.println("프로필사진if: ");
+			
+					
 			
 			type = "rphoto";
 			value = multi.getFilesystemName("rphoto");
 			
 		}else if(change.equals("라이더차량번호") ) { // 라이더 차량번호 수정할경우
-				
-			type = "rphoto";
 			
-		 }
+			type = "rbikenum";
+			value = request.getParameter("rbikenum");
+			
+		}else if(change.equals("계좌번호")) {
+			
+			
+		}
 		
-		
-		System.out.println("type: "+type);
+		System.out.println("컨트롤러type: "+type);
 		
 		boolean result = RiderDao.getInstance().rupdate(rno , type , value);
 		response.setContentType("application/json;charset=UTF-8");
