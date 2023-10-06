@@ -12,7 +12,7 @@
         <link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
 <!-- <style>*{border:solid 1px red;}</style> -->
 </head>
-<body>
+<body> <!-- 라이더 메뉴 페이지 -->
 	<div class="wrapR ">
 <%--      <%@include file="rheader.jsp" %> --%>
         <div class="rheaderwrapA ">
@@ -26,7 +26,7 @@
         <div class="rcontBox">
 	        <div class="rmyBtnBox">
 	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div>
-	            <div class="rmyBtn"> 차량번호수정 </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rNumChange.jsp"> 차량번호수정 </a>  </div>
 	            <div class="rmyBtn"> 주행기록 </div>
 	            <div class="rmyBtn"> 입금내역 </div>
 

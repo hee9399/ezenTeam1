@@ -7,7 +7,7 @@ console.log('js실행됩니다.');
 
    $.ajax({
       url : "/ezenTeam1/RiderInfoController",      
-      data : {type: "info" },  // 로그인정보를 갖고있는 info 로 보낸다.  
+      data : { type: "info" },  // 로그인정보를 갖고있는 info 로 보낸다.  
       method : "get",   
       success : r => {console.log(r);
       
@@ -16,7 +16,7 @@ console.log('js실행됩니다.');
       		
       		// 2. 해당 로그인된 라이더 이름 출력 
       		document.querySelector('.rpname').innerHTML =`${r.rname}`;
-      		console.log(r.rname);
+      			console.log(r.rname);
       		
       		
       } ,       
