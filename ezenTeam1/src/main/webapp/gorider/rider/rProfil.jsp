@@ -18,8 +18,8 @@
 	
 		<div class="backimg" > <!-- 뒤로가기 버튼구역 -->
 		
-			 <a href="/ezenTeam1/gorider/rider/rMyMenu.jsp"> 
-				<img class="rlogo" src="/ezenTeam1/gorider/rider/img/back.png"/> </a> 
+			<a href="/ezenTeam1/gorider/rider/rMyMenu.jsp"> 
+			<img class="rlogo" src="/ezenTeam1/gorider/rider/img/back.png"/> </a> 
 			
 		</div>
 		
