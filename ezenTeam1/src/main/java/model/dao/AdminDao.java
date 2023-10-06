@@ -90,7 +90,7 @@ public class AdminDao extends Dao{
 	        if (count > 0) {
 	            return true; // Approval success
 	        }
-	    } catch (Excep;'tion e) {
+	    } catch (Exception e) {
 	        System.out.println(e);
 	    }
 	    return false;

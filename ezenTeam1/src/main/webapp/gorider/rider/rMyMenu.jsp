@@ -25,8 +25,8 @@
 
         <div class="rcontBox">
 	        <div class="rmyBtnBox">
-	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div>
-	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rNumChange.jsp"> 차량번호수정 </a>  </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div> 
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rBikeNumChange.jsp"> 차량/계좌번호수정 </a>  </div>
 	            <div class="rmyBtn"> 주행기록 </div>
 	            <div class="rmyBtn"> 입금내역 </div>
 
@@ -38,6 +38,8 @@
        <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
    </div>
     </div>
+    
     <script src="../../js/gorider/rider/rAfterWork.js"></script>
+    
 </body>
 </html>
