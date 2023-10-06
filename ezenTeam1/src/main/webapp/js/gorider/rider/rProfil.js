@@ -33,7 +33,8 @@ console.log('js실행됩니다.');
 	 let rpData = new FormData(rpChange);
 	 	console.log(rpData);
 	 	
-	// rpData.append('type' , '프로필사진'); // put 에 타입을 보내서 프로필사진 수정을한다.
+	 // 3. 프로필사진 수정 타입으로 보내기 
+	rpData.append('type' , '프로필사진'); // put 에 타입을 보내서 프로필사진 수정을한다.
 	 
 	 
 	 $.ajax({

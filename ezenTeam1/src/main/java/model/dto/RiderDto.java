@@ -53,14 +53,16 @@ public class RiderDto {// 기사 Dto
 		this.라이더경도 = 라이더경도;
 	}
 	// 라이더 로그인 객체 만들때 필요한 생성자 
-	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rregistration,
-			String raccount, String rbank, String rstatus, String rbikenum, String rstart, String rcall) {
+	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rlicense,
+			String rregistration, String raccount, String rbank, String rstatus, String rbikenum, String rstart,
+			String rcall) {
 		super();
 		this.rno = rno;
 		this.rname = rname;
 		this.rid = rid;
 		this.rphone = rphone;
 		this.rphoto = rphoto;
+		this.rlicense = rlicense;
 		this.rregistration = rregistration;
 		this.raccount = raccount;
 		this.rbank = rbank;
@@ -89,6 +91,7 @@ public class RiderDto {// 기사 Dto
 	}
 	
 	
+	
 	// 라이더 간단한 정보 출력할때 생성자
 	public RiderDto(int rno, String rid, String rdate) {
 		super();
@@ -98,25 +101,7 @@ public class RiderDto {// 기사 Dto
 	}
 	
 	
-	// 상세정보 불러올때 필요한 생성자
-	public RiderDto(int rno, String rname, String rid, String rphone, String rphoto, String rlicense,
-			String rregistration, String rdate, String raccount, String rbank, String rstatus, String rcomment,
-			String rbikenum) {
-		super();
-		this.rno = rno;
-		this.rname = rname;
-		this.rid = rid;
-		this.rphone = rphone;
-		this.rphoto = rphoto;
-		this.rlicense = rlicense;
-		this.rregistration = rregistration;
-		this.rdate = rdate;
-		this.raccount = raccount;
-		this.rbank = rbank;
-		this.rstatus = rstatus;
-		this.rcomment = rcomment;
-		this.rbikenum = rbikenum;
-	}
+	
 	
 	// 라이더가 사용자에 대한 콜을 수락했을때 생성자
 
