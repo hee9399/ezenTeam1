@@ -19,7 +19,7 @@ public class AdminDao extends Dao{
 		ArrayList<RiderDto> list = new ArrayList<>();
 		try {
 			// 2.  최신순으로 라이더가 회원가입 요청했을때 간단한 라이더 정보 가져오는 쿼리문
-			String sql ="select rno , rid , rdate from rider where rstatus='n' order by rdate asc";
+			String sql ="select rno , rid , rdate from rider where rstatus='N' order by rdate asc";
 			ps = conn.prepareStatement(sql);
 			rs=ps.executeQuery();
 			
@@ -62,7 +62,7 @@ public class AdminDao extends Dao{
 	}
 	// 3. 승인 거부 함수
 	public boolean ApprovalReject(int rno, String rcomment) {
-		RiderDto dto = new RiderDto();
+		
 		try {
 			 String sql = "UPDATE rider SET rstatus = 'D', rcomment = ? WHERE rno = ?";
 			  ps = conn.prepareStatement(sql);
@@ -88,21 +88,19 @@ public class AdminDao extends Dao{
 	        int count = ps.executeUpdate();
 	        
 	        if (count > 0) {
-	            return true; // Approval success
+	            return onapprove(rno); 
 	        }
 	    } catch (Exception e) {
 	        System.out.println(e);
 	    }
 	    return false;
 	}
-	/*	
+	
 	public boolean onapprove(int rno) { 
 		try {
-			String sql = "insert into riderstate (rno, rstart, rcall) values (?, ?, ?)";
+			String sql = "insert into riderstate (rno) values (?)";
 	        ps = conn.prepareStatement(sql);
 	        ps.setInt(1, rno);
-	        ps.setString(2, "1"); // 예시로 '1' 값을 설정
-	        ps.setString(3, "1"); // 예시로 '1' 값을 설정
 
 	        int count = ps.executeUpdate();
 
@@ -112,7 +110,7 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-	*/
+	
 	// 승인요청 가져오는 함수
 	public int Request() {
 		int count = 0;
@@ -168,7 +166,7 @@ public class AdminDao extends Dao{
 	public ArrayList<ServiceDto>depositCount(){
 		ArrayList<ServiceDto> list = new ArrayList<>();
 		try {
-			String sql = "select sno,rno,sdate,spayment from service ";
+			String sql = "select sno,rno,sdate,spayment from service where sdepositYN = 'N'";
 			ps=conn.prepareStatement(sql);
 			rs=ps.executeQuery();
 			while(rs.next()) {
@@ -180,10 +178,21 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println("에러이유: "+e);}
 		return list;
 	}
-	public boolean deposit() {
+	public boolean deposit(int rno , int sno , int ddeposit) {
 		try {
-			String sql = "insert into deposit (rno, sno, ddate, ddeposit) VALUES (?, ?, now(), ?)";
+			String sql = "insert into deposit (rno, sno,ddeposit) VALUES (?, ?,?)";
 			ps=conn.prepareStatement(sql);
+			ps.setInt(1, rno); ps.setInt(2, sno); ps.setInt(3, ddeposit);
+			int count = ps.executeUpdate();
+			if(count==1) {
+				sql="update service set sdepositYN='Y' where sno=? ";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, sno);
+				count =ps.executeUpdate();
+				if(count==1) {
+					return true;
+				}
+			}
 			
 			
 		}catch (Exception e) {System.out.println(e);}

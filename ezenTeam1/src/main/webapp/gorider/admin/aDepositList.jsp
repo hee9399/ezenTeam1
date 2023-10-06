@@ -11,7 +11,7 @@
 <body>
   <div class="wrap">
      <%@include file="aheader.jsp" %>
-     <h5 class="ptitle">리뷰별점정보 정보</h5>
+     <h5 class="ptitle">라이더 입금내역</h5>
         
         <div class="listbox">
 
