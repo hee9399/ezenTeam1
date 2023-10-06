@@ -11,7 +11,7 @@ console.log('js실행됩니다.');
       method : "get",   
       success : r => {console.log(r);
       
-      		// 1. 해당 로그인된 라이더 프로필사진 이미지 출력
+      		// 1.  해당 로그인된 라이더 프로필사진 이미지 출력
       		document.querySelector('.rphoto img').src=`/ezenTeam1/gorider/rider/img/${r.rphoto}`;
       		
       		// 2. 해당 로그인된 라이더 이름 출력 
