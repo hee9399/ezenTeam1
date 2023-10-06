@@ -12,6 +12,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.dao.RiderDao;
+import model.dto.MemberDto;
 import model.dto.RiderDto;
 
 // 링크 : http://localhost/ezenTeam1/RiderInfoController
@@ -89,19 +90,32 @@ public class RiderInfoController extends HttpServlet {
 			// 섹션에 저장된 로그인 객체를 꺼낸다.
 			// 1. 세션호출한다. [ 세션타입은 object ]
 			Object session = request.getSession().getAttribute("loginDto");
-			System.out.println((Object)session);
 			// 2. 타입변환한다. [ 부모 -> 자식 ( 캐스팅 / 강제타입변환 ) ]
-			RiderDto loginDto = (RiderDto) session ;
-			System.out.println(111111);
-			System.out.println(loginDto);
-			System.out.println(222222);
+			if (session instanceof RiderDto) {
+			    RiderDto riderDto = (RiderDto) session;
+			    ObjectMapper objectMapper = new ObjectMapper();
+				String json = objectMapper.writeValueAsString(riderDto);
+				response.setContentType("application/json;charset=UTF-8");
+				response.getWriter().print(json);
+			    // RiderDto로 형변환된 객체를 사용할 수 있습니다.
+			} else if (session instanceof MemberDto) {
+			    MemberDto memberDto = (MemberDto) session;
+			    ObjectMapper objectMapper = new ObjectMapper();
+				String json = objectMapper.writeValueAsString(memberDto);
+				response.setContentType("application/json;charset=UTF-8");
+				response.getWriter().print(json);
+			    // MemberDto로 형변환된 객체를 사용할 수 있습니다.
+			} else {
+			    // 다른 타입의 객체일 경우 처리할 코드를 작성하세요.
+			}
+
+			System.out.println(session);
+
 		// Dto는 JS가 이해살수 없는 언어이기 때문에 JS가 이해할수 있게 JS언어로 변환해줘야한다. [ jackson 라이브러리사용 ]
-			ObjectMapper objectMapper = new ObjectMapper();
-			String json = objectMapper.writeValueAsString(loginDto);
+			
 			 
 			// 응답한다.
-			response.setContentType("application/json;charset=UTF-8");
-			response.getWriter().print(json);
+			
 			
 		}else if(type.equals("logout") ) {
 			// * 세션에 저장된 로그인 객체를 없애기/초기화/지우기/삭제 
