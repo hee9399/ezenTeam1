@@ -30,6 +30,7 @@
 				 <img  src="/ezenTeam1/gorider/rider/img/default.webp"/>
 				<input name="rphoto" type="file">
 				<button onclick="changeImg()" type="button"> 수정하기 </button>
+				
 			</div> <!-- 라이더 프로필 사진 구역 e -->
 		</form>
 	
