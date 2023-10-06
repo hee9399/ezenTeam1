@@ -16,6 +16,7 @@ let loginMphoto ='';
 getMemberInfo();
 // 1. 세션에 있는 로그인정보 유무에 따라  화면수정
 function getMemberInfo(){
+	console.log("헤더 JS")
 	$.ajax({
 		url:"/ezenTeam1/MemberInfoController",
 		method:"get",

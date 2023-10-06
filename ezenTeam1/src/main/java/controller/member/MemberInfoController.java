@@ -80,6 +80,7 @@ public class MemberInfoController extends HttpServlet {
 		} else if(type.equals("login")) {
 			
 			Object session = request.getSession().getAttribute("loginDto");
+			/*
 			if (session instanceof RiderDto) {
 			    RiderDto riderDto = (RiderDto) session;
 			    ObjectMapper objectMapper = new ObjectMapper();
@@ -88,16 +89,14 @@ public class MemberInfoController extends HttpServlet {
 				response.getWriter().print(json);
 			    // RiderDto로 형변환된 객체를 사용할 수 있습니다.
 			} else if (session instanceof MemberDto) {
+			*/
 			    MemberDto memberDto = (MemberDto) session;
 			    ObjectMapper objectMapper = new ObjectMapper();
 				String json = objectMapper.writeValueAsString(memberDto);
 				response.setContentType("application/json;charset=UTF-8");
 				response.getWriter().print(json);
 			    // MemberDto로 형변환된 객체를 사용할 수 있습니다.
-			} else {
-			    // 다른 타입의 객체일 경우 처리할 코드를 작성하세요.
-			}
-
+			//} 
 		} else if(type.equals("logout")) {
 			System.out.println("type : "+ type);
 			//세션에 저장된 logiDto에 null대입

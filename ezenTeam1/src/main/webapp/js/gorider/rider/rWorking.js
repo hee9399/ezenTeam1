@@ -24,8 +24,6 @@ function onMove(to){
 		location.href = '/ezenTeam1/gorider/rider/rCallListg.jsp'
 	}
 
- 
-
 }
 
 let userType = "rider";

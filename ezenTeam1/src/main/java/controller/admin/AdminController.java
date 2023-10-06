@@ -32,16 +32,17 @@ public class AdminController extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 	    String json = "";
 	    if(type.equals("1")) {
-	    ArrayList<RiderDto> result = AdminDao.getInstance().ApprovalPrint();
-
-	    // JSON 형식으로 응답 데이터 설정
-	    response.setContentType("application/json;charset=UTF-8");
-
-	    // Java 객체를 JSON 문자열로 변환
-	    json = objectMapper.writeValueAsString(result);
-
-	    // JSON 문자열을 응답에 출력 
-	    response.getWriter().print(json);
+		    ArrayList<RiderDto> result = AdminDao.getInstance().ApprovalPrint();
+	
+		    // JSON 형식으로 응답 데이터 설정
+		    response.setContentType("application/json;charset=UTF-8");
+	
+		    // Java 객체를 JSON 문자열로 변환
+		    json = objectMapper.writeValueAsString(result);
+	
+		    // JSON 문자열을 응답에 출력 
+		    response.getWriter().print(json);
+		    
 	    }else if(type.equals("2")) {
 	    	
 	    	int rno = Integer.parseInt(request.getParameter("rno"));

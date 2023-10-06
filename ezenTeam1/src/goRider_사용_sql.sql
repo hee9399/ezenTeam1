@@ -29,7 +29,7 @@ create table rider(
     rdate datetime default now(),		# 등록일
     raccount varchar(20),				# 계좌번호
     rbank varchar(3) , 					# 라이더 은행명
-    rstatus varchar(1),					# 승인상태 Y / N / D
+    rstatus varchar(1) default 'N',					# 승인상태 Y / N / D
     rcomment text,						# 승인거부시 사유
     rbikenum varchar(20),				# 바이크넘		
     primary key( rno )
@@ -74,8 +74,8 @@ create table deposit ( 				# 입금 테이블
     ddate datetime default now(),	# 입금일
     ddeposit int,					# 입금액
 	primary key( dno ),
-    foreign key( rno) references rider(rno) on delete cascade on update cascade
-    foreign key( sno) references service(sno) on delete cascade on update cascade ,
+    foreign key( rno) references rider(rno) on delete cascade on update cascade,
+    foreign key( sno) references service(sno) on delete cascade on update cascade 
 
 );
 
@@ -106,10 +106,17 @@ select * from member;
 select * from rider;
 select * from service;
 select * from deposit;
-selelct * from board;
-select * from boardfiles
+select * from board;
+select * from boardfiles;
 
 select * from rider where rid = 'hee9399';
+
+
+
+
+
+
+
 
 # -------------------------------------------------------- 조작어 -------------------------------------------------------------------------------------
 
@@ -177,7 +184,7 @@ insert into service values(3,3,3,'2023-09-27 15:41:40',123.123,123.123,123.123,1
 #board 추가/ 삭제
 insert into board (btarget,btype,btitle,bcontent,bstartdate,benddate) values('U','N','ddddddd','aaaaaaa',null,null);
 delete from board where bno = '1';
-select * from board b natural join boardfiles bf order by desc;
+select * from board b natural join boardfiles bf order by bno desc;
 #공지 상세
 select 
 		b.bno as bno

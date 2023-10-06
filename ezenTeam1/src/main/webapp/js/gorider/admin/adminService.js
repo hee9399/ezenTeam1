@@ -32,8 +32,8 @@ function ServiceStatus(){
            								</ul>`;
 							   }
 						listbox.innerHTML = html;
-			   } ,
-                          
+			   } , 
+			   error : e =>{ console.log(e);}                          
    });
    
 }

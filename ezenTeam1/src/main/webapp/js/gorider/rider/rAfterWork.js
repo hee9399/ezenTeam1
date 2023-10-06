@@ -12,6 +12,19 @@ if(loginState == true){ // 마냐게 로그인이 되있으면
 	location.href="/ezenTeam1/gorider/rider/rlogin.jsp";
 }
 
+
+function onMove(to){
+
+	if(to == 'myMenu'){
+		location.href = '/ezenTeam1/gorider/rider/rMyMenu.jsp';
+	} else if(to == 'goBack'){
+		window.history.back();
+	}else if(to == 'callList'){
+		location.href = '/ezenTeam1/gorider/rider/rCallListg.jsp'
+	}
+
+}
+
 let callstate = 'Y';
 function goWork(){
 

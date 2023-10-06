@@ -22,7 +22,7 @@
 <!-- ajax  -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/ezenTeam1/js/gorider/admin/aheader.js"></script>
-<script src="/ezenTeam1/js/gorider/admin/adminView.js"></script>
+<!-- <script src="/ezenTeam1/js/gorider/admin/adminView.js"></script> -->
 
 </body>
 </html>

@@ -18,3 +18,20 @@
 	 }
 	 
  }
+Request();
+function Request(){
+	$.ajax({
+      
+            url : "/ezenTeam1/AdminController",   
+            method : "get",
+            data : {type : 3},      
+           success : r=>{
+			   console.log(r)
+			   
+			
+			   document.querySelector('.hinfo').innerHTML=`신규요청 : ${r}건`;
+			   
+			   } ,
+                          
+   });
+}
