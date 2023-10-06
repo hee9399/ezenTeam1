@@ -42,7 +42,7 @@ console.log('js실행됩니다.');
       method : "put",  
       contentType : false ,
       processData : false , 
-      success : r => {console.log(r);
+      success : r => { console.log(r);
       
       		if(r == true){
 				  alert('이미지 수정했습니다.')
