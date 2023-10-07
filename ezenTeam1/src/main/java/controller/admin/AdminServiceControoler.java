@@ -47,8 +47,9 @@ public class AdminServiceControoler extends HttpServlet {
 		  	    json = objectMapper.writeValueAsString(result);
 
 		  	    // JSON 문자열을 응답에 출력 
-		  	    response.getWriter().print(json);
-		  	    
+		  	    response.getWriter().print(json); 
+	    }else if(type.equals("3")) {
+	    	
 	    }
 	}
 
