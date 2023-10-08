@@ -101,6 +101,7 @@ public class CallSocket {
 					System.out.println("실패");
 				}
 			} else if ("accept".equals(type)) { // 라이더가 -> 콜 수락
+				System.out.println(type);
 				ServiceDto servicedto = mapper.convertValue(jsonNode, ServiceDto.class);
 				boolean result = CallDao.getInstance().RiderAccept(
 						servicedto.getRno(),
@@ -108,7 +109,7 @@ public class CallSocket {
 						servicedto.getSriderlo(),
 						servicedto.getSno()
 						);
-				
+				System.out.println(result);
 				 if (result) {
 			            System.out.println("라이더 정보 성공");
 			            ServiceDto riderinfo = CallDao.getInstance().ShowRiderInfo( servicedto.getSno() );
