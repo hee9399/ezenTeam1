@@ -25,7 +25,7 @@
 
             </div>
 
-            <div class="rsubTitle">차량/계좌 번호 변경</div>
+            <div class="rsubTitle">차량/계좌 번호 변경 </div>
 
         </div>
 
