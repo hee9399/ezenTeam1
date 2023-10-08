@@ -198,4 +198,10 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
+	public ArrayList<ServiceDto> servicestatus(){
+		try {
+				String sql = "";
+		}catch (Exception e) {System.out.println(e);}
+		return null;
+	}
 }
