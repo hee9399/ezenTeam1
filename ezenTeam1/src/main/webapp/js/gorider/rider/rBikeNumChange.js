@@ -40,7 +40,7 @@ function rBikeNumChange(){
 		
 	// 2. from 데이터 객체화 
 	let rNumData = new FormData(rNumChange);
-		console.log(rNumData);
+		console.log('rNumData 들어옵니다.'+rNumData);
 		
 	// 3. 차량번호 , 계좌번호 수정 타입으로 보내기 
 	rNumData.append('type' , '라이더차량번호');
@@ -65,4 +65,25 @@ function rBikeNumChange(){
 	
 	
 }//f e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

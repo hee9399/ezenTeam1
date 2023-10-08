@@ -117,25 +117,19 @@ public class RiderInfoController extends HttpServlet {
 
 	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
-		MultipartRequest multi = new MultipartRequest(
-				request, 	// 1. 요청방식
-				request.getServletContext().getRealPath("gorider/rider/img") , // 2. 첨부파일을 저장할 경로
-				1024 * 1024 * 10 ,		// 3. 첨부파일 용량 허용 번위 [ 바이트 단위 ] 10mb
-				"UTF-8" ,			// 4. 한글 인코딩타입 
-				new DefaultFileRenamePolicy()
-				);
-		String rphoto = multi.getFilesystemName("rphoto");
+
 		
 		// Dao [ 로그인된 라이더번호 , 수정할 값 ]
 		Object object = request.getSession().getAttribute("loginDto");
 		RiderDto riderDto = (RiderDto)object;
 		int rno = riderDto.getRno();
+			System.out.println("rno: "+rno);
+
+
+		String change = request.getParameter("change");
 		
-		// 
-		String change = multi.getParameter("type");
-	
+		System.out.println("change: "+change);
+
 		String type = null;
 		String value = null;
 		
@@ -143,6 +137,16 @@ public class RiderInfoController extends HttpServlet {
 
 			System.out.println("프로필사진if: ");
 
+			
+			// 1. 첨부파일 서버pc에 업로드( COS.jar 라이브러리 )
+			MultipartRequest multi = new MultipartRequest(
+				request, 	// 1. 요청방식
+				request.getServletContext().getRealPath("gorider/rider/img") , // 2. 첨부파일을 저장할 경로
+				1024 * 1024 * 10 ,		// 3. 첨부파일 용량 허용 번위 [ 바이트 단위 ] 10mb
+				"UTF-8" ,			// 4. 한글 인코딩타입 
+				new DefaultFileRenamePolicy()
+				);
+			System.out.println("multi도착"+multi);
 			
 			type = "rphoto";
 			value = multi.getFilesystemName("rphoto");
@@ -153,9 +157,14 @@ public class RiderInfoController extends HttpServlet {
 			
 			type = "rbikenum";
 			value = request.getParameter("rbikenum");
+			System.out.println("rbikenum: "+value);
 			
-		}else if(change.equals("라이더계좌번호")) {
+		}else if(change.equals("라이더계좌번호")) { // 라이더 은행명 , 계좌번호 수정할경우
 			
+			type = "rbank";
+			type = "raccount";
+			value = request.getParameter("rbank"); // 은행명
+			value = request.getParameter("raccount");	// 계좌번호
 			
 		}
 
