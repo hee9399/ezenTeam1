@@ -245,6 +245,13 @@ padding-top:20px ;
     color:var(--white);
 
 }
+.rsubTitle01{
+    margin-left:80px;
+    margin-top:3px;
+    text-align: center;
+    color:var(--white);
+
+}
 .rmyBtnBox{
 	width:100%;
 }
@@ -316,7 +323,9 @@ padding-top:20px ;
 }
 .rpcontent input{width: 100px;}
 .rpname{
-	color: white;
+	display:inline-block;
+	width:100px;
+	color: var(--white);
     margin-top: 18px;
 }
 .rzone{
@@ -382,14 +391,14 @@ font-size: 1.5rem;
 }
 
 .histroyBox{
-    background-color: var(--lgray);
+    background-color: #000;
     padding:10px;
     overflow-y: auto;
     scrollwidth:1px;
 }
 .hContBox{
     font-family: 'NanumSquareNeo-Variable';
-    background-color: var(--black);
+    background-color: var(--lgray);
     border-radius: 10px;
     margin-bottom: 10px;
     padding:20px;
@@ -407,10 +416,86 @@ font-size: 1.5rem;
     margin-right: 8px;
     color: var(--dgray);
 }
-/*---------------- ( rindex ) ----------------*/
-/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rBoardList ) ----------------*/
+.btypeBox{
+    padding: 0px 0px;
+    display: flex;
+    justify-content: space-between;
 
+}
+.btypeBox div{
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+.btypeBox .selected{
+    border-bottom: solid 3px var(--dgray);
+}
 
+.bContBox{
+    padding: 0px 10px;
+    color:var(--white);
+    }
+.btitle span{
+    font-size: 0.6rem;
+}
+.btitle {
+	font-weight:bold;
+    padding: 10px 0 ;
+    line-height: 1.5rem;
+}
+/*---------------- ( rBoardView ) ----------------*/
+.contBox{
+    padding-top:10px;
+}
+.vbtnBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vbtnBox button{
+    padding:10px 15px 5px;
+    font-family: 'LINESeedKR-Bd';
+    border-radius: 10px;
+    color:var(--dgray);
+}
+.vbtnBox button:hover{
+    background-color: var(--main01);
+    color: var(--main03);
+}
+.bviewBox{
+    padding: 20px 10px;
+    color:var(--white);
+
+}
+
+.bviewBox .bvTitle{
+    font-family: 'LINESeedKR-Bd';
+    font-size: 1.3rem;
+}
+.bviewBox .bvDate{font-size: 0.5rem;}
+.bviewBox .bvEventPeriod{
+    padding:10px 0;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 0.9rem;
+    color:var(--main03);
+}
+.bviewBox .bvCont{
+    font-size: 0.8rem;
+}
+
+.bviewBox .bvImg img{
+    width: 100%;
+    object-fit:cover;
+}
+/*---------------- ( rIncomInfo ) ----------------*/
+
+.sheight{
+	height:calc(85vh - 15vh)
+}
 
 
 

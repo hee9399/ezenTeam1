@@ -89,6 +89,10 @@
 
     </div>
     </div>
+         <div class="footerR" >
+       <div onclick="onMove('callList')" class="fbtn btn50 bgm02">콜리스트</div>
+       <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
+   </div>
 	</div> <!-- 라이더 프로필 전체구역 e -->
 
 

@@ -23,7 +23,7 @@
 		<div class="rheaderwrapA backimg" >  <!-- 뒤로가기 버튼구역-->
             <div class="rtopbtn">
                 <a href="/ezenTeam1/gorider/rider/rMyMenu.jsp">
-               <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i>
+               <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i></a>
 
             </div>
 
@@ -47,7 +47,7 @@
 
 		<div class="rpcontent"> <!-- 라이더 이름 -->
 
-			<div class="rctitle">이름 :  <span class="rpname"></span> </div>
+			<div class="rctitle">이름 :  <span class="rpname"> </span> </div>
 			<div class="rzone"> 안산 상록구 , KOR </div>
 
 		</div>  <!-- 라이더 이름 e -->
