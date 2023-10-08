@@ -21,18 +21,18 @@
     color:#FFF;
     text-align: center;
 }
-ul {
+.riderSignupUL {
     padding:30px 0;
     max-width: 400px;
 
 }
-li:nth-child(odd) {
+.riderSignupUL li:nth-child(odd) {
     padding:20px 15px 5px;
 
     font-size: 0.9rem;
     color:#666;
 }
-li:nth-child(even) {
+.riderSignupUL li:nth-child(even) {
     padding:0px 15px 10px;
 }
 input{
@@ -69,7 +69,9 @@ BUTTON{
 .btnbox{ padding-bottom: 30px;}
 
 /*---------------- (상단 버튼) ----------------*/
-
+.riderinformation .rbtn {
+    border:
+}
 
 /*---------------- (푸터 버튼) ----------------*/
 .fbtn{
@@ -121,6 +123,8 @@ BUTTON{
 .fs15m02{font-size: 1.5rem; color:var(--main02);}
 .fs22m02{font-size: 2.2rem; color:var(--main02);}
 
+/*---------------- ( rAfterWorking ) ----------------*/
+.
 
 /*---------------- ( rWorking ) ----------------*/
 .bcp{cursor: pointer;}
@@ -216,11 +220,30 @@ padding-top:20px ;
  	background-color:#ffce1f;
  }
 /*---------------- ( rMyMenu ) ----------------*/
+.rheaderwrapA{
+	height:80px;
+	display: flex;
+	justify-content:flex-start;
+	align-items: center;
+	 font-size: 1.8rem;
+}
+.rheaderwrapA i{
+	vertical-align: middle;
+}
 .rmTitle{
+    margin-top:3px;
 	text-align: center;
 	width:100%;
 	color:var(--white);
 	font-size: 2rem;
+}
+.rtopbtn{width:10%;}
+.rsubTitle{
+    margin-left:50px;
+    margin-top:3px;
+    text-align: center;
+    color:var(--white);
+
 }
 .rmyBtnBox{
 	width:100%;
@@ -240,13 +263,11 @@ padding-top:20px ;
 	color:#000;
 	background-color: #EBC12F;
 }
-/*---------------- ( rindex ) ----------------*/
-/*---------------- ( rindex ) ----------------*/
-/*---------------- ( rindex ) ----------------*/
-/*---------------- ( rindex ) ----------------*/
+
 
 
 /* 라이더 프로필 버튼사이즈 */
+
 .backimg img{
 	width: 60px;
     padding: 6px 6px;
@@ -254,16 +275,45 @@ padding-top:20px ;
     margin: 10px 10px 5px;
     border-radius: 15px;
 }
-.backimg{ 
-	border-bottom: solid 3px var(--main02); 
+.backimg{
+	border-bottom: solid 3px var(--main02);
 	color:var(--white);
 }
-.rphoto{width: 100%;}
-.rphoto img{
-    border-radius: 118px;
-    margin: 25px;
+.rphoto{
+	padding:30px 0;
+	width: 50%;
+    text-align: center;
+    margin: 0 auto;
 }
-.rpcontent{width: 100%}
+.rphoto img{
+    width:200px;
+	object-fit:cover;
+    border-radius: 50%;
+
+}
+.photoinput{width:25%;}
+.rphotobtnBox button {
+	width:30%;
+	padding: 10px 0;
+	border-radius: 10px;
+	background-color: var(--dyellow);
+	margin-left: 10px;
+	font-family: 'NanumSquareNeo-Variable';
+	color:#000;
+}
+.rphotobtnBox{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+}
+.rpcontent{
+	padding:50px 50px ;
+	color:var(--white);
+	text-align: center;
+	}
+.rpcontent div{
+	padding-bottom: 10px;
+}
 .rpcontent input{width: 100px;}
 .rpname{
 	color: white;
@@ -271,13 +321,94 @@ padding-top:20px ;
 }
 .rzone{
 	font-size: 16px;
-    margin-left: 134px;
-    margin-top: 7px;
     color: #FBC22B;
 }
 
+/*---------------- ( rBikeNumChange ) ----------------*/
+.rChangeBox{
+    padding: 20px;
 
+}
+.rci_subtitle{
 
+	color:var(--dyellow);
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+.borderTop {
+	border-top: solid 1px var(--dgray);
+	padding-bottom: 20px;
+}
+.rci_subtitle span{
+	font-size: 0.8rem;
+	color:var(--white);
+}
+.inselect {
+	padding:10px;
+}
+.rChangeBox button {
+	width:100%;
+	padding: 15px 0;
+	background-color: var(--dyellow);
+    font-family: 'LINESeedKR-Bd';
+    font-size: 1.5rem;
+    color:#000;
+    border-radius: 5px;
+}
+.raccountinfo {width: 70%;}
+.rBankChange {
+	display: flex;
+justify-content: space-between;}
+/*---------------- ( rDriveRecord ) ----------------*/
+.hcontBox{
+
+}
+
+.pageInfo{
+
+    font-family: 'LINESeedKR-Bd';
+    font-size: 1.2rem;
+    letter-spacing:0.2rem;
+    padding:25px;
+    background-color: var(--main01);
+    color: var(--dgray);
+
+}
+.pageInfo i {
+font-size: 1.5rem;
+
+    margin-right: 20px;
+}
+
+.histroyBox{
+    background-color: var(--lgray);
+    padding:10px;
+    overflow-y: auto;
+    scrollwidth:1px;
+}
+.hContBox{
+    font-family: 'NanumSquareNeo-Variable';
+    background-color: var(--black);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding:20px;
+    font-size: 0.8rem;
+}
+.hContBox li:not(:last-child){
+    padding-bottom: 5px;
+
+}
+.hTitle{
+    letter-spacing: 0.67rem;
+    color: var(--dgray);
+}
+.hTitleA{
+    margin-right: 8px;
+    color: var(--dgray);
+}
+/*---------------- ( rindex ) ----------------*/
+/*---------------- ( rindex ) ----------------*/
 
 
 

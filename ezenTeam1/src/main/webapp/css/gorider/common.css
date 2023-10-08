@@ -17,6 +17,8 @@
 	--main02: #30E3CA;
 	--main03: #11999E;
 	--main04: #40514E;
+	--lyellow :#ffd900;
+	--dyellow:#FBC22B;
 }
 a {  all: unset; text-decoration: none;}
 a:link { text-decoration: none;  }
@@ -52,7 +54,16 @@ h5{ padding:30px; text-align: center;}
     font-weight: normal;
     font-style: normal;
 }
-
+/*스크롤박스 영역: 스크롤은 되고 스크롤은 보이지 않게----*/
+.scrollbox{
+    overflow-y: auto;
+    height:calc(90vh - 40px);
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.scrollbox::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
 /*--------------------------------------------*/
 .headerwrap button{
 	width:70px;
@@ -169,7 +180,7 @@ BUTTON{ border: none;}
     max-width:400px;
     height:100vh;
     margin: 0 auto;
-    position: relative; 
+    position: relative;
     overflow-y: none;;
     -ms-overflow-style:none;
     scrollbar-width:0;
@@ -306,7 +317,7 @@ BUTTON{ border: none;}
 	justify-content:space-between;
     position:absolute;
     bottom:0;
-    height:12vh;
+    height:100px;
     width:100%;
 }
 

@@ -57,14 +57,15 @@ public class BoardController extends HttpServlet {
 			json = objectMapper.writeValueAsString( result );
 
 		} else if(type.equals("getDetail")) { //상세페이지 출력
-			
+
 			int bno = Integer.parseInt(request.getParameter("bno"));
 			BoardDto result = BoardDao.getInstance().boardView(bno);
 			json = objectMapper.writeValueAsString( result );
-			
+
 		} else if(type.equals("N")||type.equals("E")){
 			String btarget = request.getParameter("btarget");
-			ArrayList<BoardDto> result = BoardDao.getInstance().onList(type, btarget);
+			int limit = Integer.parseInt(request.getParameter("limit"));
+			ArrayList<BoardDto> result = BoardDao.getInstance().onList(type, btarget,limit);
 			json = objectMapper.writeValueAsString( result );
 		}
 

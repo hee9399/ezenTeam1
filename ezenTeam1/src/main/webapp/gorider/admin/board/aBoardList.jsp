@@ -14,9 +14,10 @@
 <body>
 <div class="wrap">
  <%@include file="../aheader.jsp" %>
-	<div class="apageinfo"><a href="javascript:history.back();"><i onclick="" class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a><span class="aptitle"> 공지사항 /이벤트 </span>  </div>
+	<h5 class="aptitle"> 공지사항 /이벤트 </h5>
 	<div class="listBox">
 		<div class="listbtnBox">
+		<a href="javascript:history.back();"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a>
 			<button onclick="onWrite()" type="button">글작성하기</button>
 		</div>
 		<!-- 리스트 head -->
@@ -34,6 +35,8 @@
 		</div>
 
 	</div>
+	<%@include file="../afooter.jsp" %>
+
 </div>
 <script src="/ezenTeam1/js/gorider/admin/adminBoardList.js"></script>
 

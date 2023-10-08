@@ -1,12 +1,22 @@
 
 
-console.log('rAfterWork.js');
+console.log('rBeforeWork.js');
 
 
-if(loginState == true){ // 마냐게 로그인이 되있으면 
+if(loginState == true){ // 로그인이 되있으면
 	document.querySelector('.rname').innerHTML = loginRname;
-}else if( loginState == true ){
-	document.querySelector('.rbikenum').innerHTML = loginRbikenum;
+//	document.querySelector('.rbikenum').innerHTML = loginRbikenum;
+
+	/* nlevel0 ~nlevel2 문자열 잘라서 넣기 */
+	// 바이크 번호는 지역(nlevel0) /구분문자(nlevel1)/번호4자리(nlevel2)로 구성
+	// 맨마지막 인덱스(-1)에서 왼쪽으로 -2, -3, -4 .. 인덱스를 가지므로
+	let rbikenum = loginRbikenum.replace(/ /g, ''); //문자열의 공백 제거
+	console.log("after replace :: "+rbikenum);
+	document.querySelector('.nlevel0').innerHTML = rbikenum.slice(0,-5);
+	document.querySelector('.nlevel1').innerHTML = rbikenum.substr(-5,1);
+	//맨마지막 인덱스에서 왼쪽으로 4개 : 번호판에서 번호에 해당
+	document.querySelector('.nlevel2').innerHTML = rbikenum.substr(-4);
+
 }else{
 	alert('로그인 후 사용해주세요.');
 	location.href="/ezenTeam1/gorider/rider/rlogin.jsp";
@@ -17,7 +27,7 @@ function goWork(){
 
 	/* riderState 테이블 업데이트 후 */
 	location.href = '/ezenTeam1/gorider/rider/rWorking.jsp'
-	
+
 
 }
 
@@ -37,7 +47,7 @@ function onMove(to){
 		location.href = '/ezenTeam1/gorider/rider/rCallListg.jsp'
 	}
 
- 
+
 
 }
 let currentIndex = 0;

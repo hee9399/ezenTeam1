@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Insert title here</title>
 
 	<!-- css 호출 -->
@@ -52,10 +50,7 @@
 
 		</div>  <!-- 라이더 이름 e -->
 
-     <div class="footerR" >
-       <div onclick="onMove('callList')" class="fbtn btn50 bgm02">콜리스트</div>
-       <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
-    </div>
+
 	</div> <!-- 라이더 프로필 전체구역 e -->
 
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
