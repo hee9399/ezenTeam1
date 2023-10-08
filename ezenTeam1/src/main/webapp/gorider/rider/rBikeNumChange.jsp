@@ -23,15 +23,15 @@
 						 
 		</div>
 		
-	<form class="rNumChange">
-		
 		<div class="rbikeChangeInfo"> <!-- 차량번호 수정구역 -->
 		
 			<input type="text" class="rBikeChange" name="rBikeChange"> 
 			<button onclick="rBikeNumChange()" type="button"> 수정하기 </button>
 			
 		</div> <!-- 차량번호 수정구역 e -->
+		
 	
+	<form class="rNumChange">
 	
 		<div class="rBankChange"> 
 			<select class="inselect rbankinfo" name="rbankinfo">
@@ -47,6 +47,7 @@
 	                    <option value="HN"> 하나 </option>
 	        </select>
 	           <input class="raccountinfo intext75" name="raccountinfo" type="number">
+	        <!--  <button onclick="()" type="button"> 수정하기 </button> -->   
 		</div>
 	</form>
 	
