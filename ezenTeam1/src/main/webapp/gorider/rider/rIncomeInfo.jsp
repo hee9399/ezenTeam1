@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- css 호출 -->
 	<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
@@ -23,7 +22,7 @@
 		<div class="rheaderwrapA backimg" >  <!-- 뒤로가기 버튼구역-->
             <div class="rtopbtn">
                 <a href="/ezenTeam1/gorider/rider/rMyMenu.jsp">
-               <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i>
+               <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i></a>
 
             </div>
 
@@ -52,10 +51,7 @@
 
 		</div>  <!-- 라이더 이름 e -->
 
-     <div class="footerR" >
-       <div onclick="onMove('callList')" class="fbtn btn50 bgm02">콜리스트</div>
-       <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
-    </div>
+
 	</div> <!-- 라이더 프로필 전체구역 e -->
 
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->

@@ -14,7 +14,10 @@
 <body>
 <div class="wrap">
  <%@include file="../aheader.jsp" %>
-	<div class="apageinfo"><a href="javascript:history.back();"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a><span class="aptitle"> 공지사항 /이벤트 </span>  </div>
+	<div class="listbtnBox">
+        <a href="javascript:history.back();"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></a>
+            <h5 class="aptitle80"> 공지사항 /이벤트 </h5>
+        </div>
 	<div class="writeBox">
 	<form class="bWriteForm">
 		<ul>

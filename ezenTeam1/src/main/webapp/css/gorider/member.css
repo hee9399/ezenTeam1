@@ -201,59 +201,62 @@ BUTTON{
 .newPayBox {padding-bottom: 10px;}
 
 /* 이용내역--------------------------------------*/
-.hcontBox{
+.hcontBox {
 	overflow-y: scroll;
-    -ms-overflow-style:none;
-    scrollbar-width:none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
+
 .hcontBox::-webkit-scrollbar {
-    display:none /* Chrome , Safari , Opera */
+	display: none /* Chrome , Safari , Opera */
 }
-.pageInfo{
 
+.pageInfo {
 	font-family: 'LINESeedKR-Bd';
-    font-size: 1.2rem;
-    letter-spacing:0.2rem;
-	padding:25px;
-	background-color: var(--main01);
-	color: var(--dgray);
-
+	font-size: 1.2rem;
+	letter-spacing: 0.2rem;
+	padding: 25px;
+	background-color: var(- -main01);
+	color: var(- -dgray);
 }
-.pageInfo i {
-font-size: 1.5rem;
 
+.pageInfo i {
+	font-size: 1.5rem;
 	margin-right: 20px;
 }
 
-.histroyBox{
-	background-color: var(--lgray);
-	padding:10px;
+.histroyBox {
+	background-color: var(- -lgray);
+	padding: 10px;
 	overflow-y: auto;
-	scrollwidth:1px;
+	scrollwidth: 1px;
 }
-.hContBox{
+
+.hContBox {
 	font-family: 'NanumSquareNeo-Variable';
-	background-color: var(--white);
+	background-color: var(- -white);
 	border-radius: 10px;
 	margin-bottom: 10px;
-	padding:20px;
+	padding: 20px;
 	font-size: 0.8rem;
 }
-.hContBox li:not(:last-child){
-	padding-bottom: 5px;
 
+.hContBox li:not (:last-child ){
+	padding-bottom: 5px;
 }
-.hTitle{
-    letter-spacing: 0.67rem;
-    color: var(--dgray);
+
+.hTitle {
+	letter-spacing: 0.67rem;
+	color: var(- -dgray);
 }
-.hTitleA{
+
+.hTitleA {
 	margin-right: 8px;
-    color: var(--dgray);
+	color: var(- -dgray);
 }
 /* 공지사항/이벤트 리스트--------------------------------------*/
 .bpageinfo{
-	padding:10px 20px;
+	padding:10px 10px;
 	font-family: 'LINESeedKR-Bd';
 	font-size: 1.2rem;
 	color: var(--dgray);
@@ -262,6 +265,12 @@ font-size: 1.5rem;
 	position: absolute;
 	padding:3px;
 
+	display: flex;
+
+}
+.bpageinfo .gohome{
+	display: inline-block;
+    padding-left:30px;
 }
 .aptitle{
 	display:inline-block;
@@ -299,4 +308,47 @@ font-size: 1.5rem;
 .btitle {
 	padding: 10px 0 ;
 	line-height: 1.4rem;
+}
+/* 공지사항 이벤트 상세보기-------------------------------*/
+.contBox{
+    padding-top:10px;
+}
+.vbtnBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vbtnBox button{
+    padding:10px 15px 5px;
+    font-family: 'LINESeedKR-Bd';
+    border-radius: 10px;
+    color:var(--dgray);
+}
+.vbtnBox button:hover{
+    background-color: var(--main01);
+    color: var(--main03);
+}
+.bviewBox{
+    padding: 20px 10px;
+
+}
+
+.bviewBox .bvTitle{
+    font-family: 'LINESeedKR-Bd';
+    font-size: 1.3rem;
+}
+.bviewBox .bvDate{font-size: 0.5rem;}
+.bviewBox .bvEventPeriod{
+    padding:10px 0;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 0.9rem;
+    color:var(--main03);
+}
+.bviewBox .bvCont{
+    font-size: 0.8rem;
+}
+
+.bviewBox .bvImg img{
+    width: 100%;
+    object-fit:cover;
 }

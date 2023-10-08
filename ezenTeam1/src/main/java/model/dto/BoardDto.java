@@ -48,7 +48,7 @@ public class BoardDto {
 	}
 	// 풀생성자
 	public BoardDto(int bno, String btarget, String btype, String btitle, String bcontent, String bdate, int bview,
-			String bstartdate, String benddate, Map<Integer, String> fileList, int bfno, String bfile) {
+			String bstartdate, String benddate, Map<Integer, String> fileList) {
 		super();
 		this.bno = bno;
 		this.btarget = btarget;
@@ -60,8 +60,7 @@ public class BoardDto {
 		this.bstartdate = bstartdate;
 		this.benddate = benddate;
 		this.fileList = fileList;
-		this.bfno = bfno;
-		this.bfile = bfile;
+
 	}
 
 	//게시물 저장용
@@ -90,7 +89,7 @@ public class BoardDto {
 		this.bstartdate = bstartdate;
 		this.benddate = benddate;
 	}
-	
+
 	//상세보기 출력용
 	public BoardDto(int bno, String btarget, String btype, String btitle, String bcontent, String bdate, int bview,
 			String bstartdate, String benddate, int bfno, String bfile) {
@@ -111,7 +110,7 @@ public class BoardDto {
 	public int getBno() {
 		return bno;
 	}
-	
+
 	public void setBno(int bno) {
 		this.bno = bno;
 	}

@@ -18,18 +18,18 @@
     </div>
     <div class="rSignupBox">
     <form class="riderSignup">
-        <ul>
+        <ul class="riderSignupUL">
             <li class="title" > 이름 </li>
             <li class="input">
             	<input class="rname" name="rname" type="text">
-            	 <span class="namecheckbox"> </span> 
+            	 <span class="namecheckbox"> </span>
             </li>
 
-            <li class="title" >아이디<span class="idcheckbox"> </span></li> 
+            <li class="title" >아이디<span class="idcheckbox"> </span></li>
             <li class="dflex">
             	<!-- onkeyup="idcheck()" -->
                 <input onkeyup="idcheck()" class="rid" name="rid" type="text">
-              
+
 
             <li class="title" >비밀번호<span class="pwdcheckbox">  </span> </li>
             <li class=""><input onkeyup="pwdcheck()" maxlength="30" class="rpwd" name="rpwd" type="text"></li>
@@ -39,13 +39,13 @@
 
 			<li class="title">전화번호 </li>
 			<li class=""> <input type="text" class="rphone" name="rphone" placeholder="- 제외하고 입력해주세요."/> </li>
-			
+
 
             <li class="title">프로필사진</li>
             <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
             	<img class="preimg" src="" />
             </li>
-			
+
             <li class="title">면허증</li>
             <li class=""><input onchange="" class="rlicense infile" name="rlicense" type="file"></li>
 
@@ -68,15 +68,15 @@
                 </select>
                 <input class="raccount intext75" name="raccount" type="number">
             </li>
-            
+
             <li class="title"> 차량번호 </li>
 			<li class=""> <input type="text" class="rbikenum" name="rbikenum" placeholder="차량번호를 입력해주세요."/> </li>
-            
+
         </ul>
         <div class="btnbox">
             <button  class="btn50 colorW" onclick="" type="reset"> 다시쓰기</button>
             <button  class="btn50" onclick="signup()" type="button"> 지원서제출</button>
-        </div>    
+        </div>
        </form>
     </div><!-- 라이더 회원가입 전체구역 e -->
 

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="wrapR ">
-<%--      <%@include file="rheader.jsp" %> --%>
+     <%@include file="rheader.jsp" %>
         <div class="rheaderwrapA ">
             <div onclick="onMove('myMenu')" class="bcp mymenu">나의 메뉴</div>
         </div>

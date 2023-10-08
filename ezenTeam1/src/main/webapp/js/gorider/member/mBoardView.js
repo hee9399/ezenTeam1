@@ -1,5 +1,9 @@
-console.log('연결');
-
+console.log('list연결');
+// 비로그인 리턴
+if(loginState== false){
+	alert('로그인이 필요합니다.');
+	location.href='/ezenTeam1/gorider/member/mlogin.jsp'
+}
 //상세보기
 onView();
 function onView(){
@@ -7,6 +11,8 @@ function onView(){
 	let urlParams = new URL(location.href).searchParams
 		console.log( urlParams );
 	let bno = urlParams.get("bno");
+	let bt = urlParams.get("bt")
+
 
 	//아작스함수 (저장)호출
     $.ajax({
@@ -14,10 +20,12 @@ function onView(){
         method:"get",
         data: {'type':'getDetail', 'bno':bno},
         success: r => {
-            console.log("성공");
-            console.log(r);
-            console.log(Object.values(r.fileList).length);
+            //console.log("성공");
+            //console.log(r);
+            //console.log(Object.values(r.fileList).length);
 
+            //let btarget = "'" +r.btarget+"'"
+            if(bt !== r.btarget){ alert('해당 게시물에 대한 권한이 없습니다.'); return;}
             let bviewBox = document.querySelector('.bviewBox');
             let html = ` <li class="bvTitle">[${r.btype == 'N'? '공지':'이벤트'}] ${r.btitle}<span class="bvDate"> ${r.bdate}</span></li>
             			<div class="scrollbox">	`
@@ -44,6 +52,11 @@ function onView(){
     });
 }
 
+//상세보기
+function onViewDetails(bno){
+	console.log("onViewList");
+
+}
 
 //수정하기
 function onUpdate(){
@@ -54,7 +67,33 @@ function onUpdate(){
 function onDelete(){
 
 }
-//글목록 페이지로
+//글작성하기 페이지로
 function onList(){
-	location.href="aBoardList.jsp"
+	location.href="mBoardList.jsp"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

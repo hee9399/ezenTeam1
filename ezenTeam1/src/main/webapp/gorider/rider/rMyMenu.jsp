@@ -14,21 +14,22 @@
 </head>
 <body> <!-- 라이더 메뉴 페이지 -->
 	<div class="wrapR ">
-<%--      <%@include file="rheader.jsp" %> --%>
+     <%@include file="rheader.jsp" %>
         <div class="rheaderwrapA ">
 
             <div class="rmTitle">나의 메뉴</div>
 
         </div>
 
-        <div class="hbutton">상단고정버튼</div>
+<!--         <div class="hbutton">상단고정버튼</div> -->
 
-        <div class="rcontBox">
+        <div class="rcontBox scrollbox">
 	        <div class="rmyBtnBox">
-	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div> 
-	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rBikeNumChange.jsp"> 차량/계좌번호수정 </a>  </div>
-	            <div class="rmyBtn"> 주행기록 </div>
-	            <div class="rmyBtn"> 입금내역 </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rProfil.jsp"> 내정보수정 </a> </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rBikeNumChange.jsp"> 차량/계좌번호 변경 </a></div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rDriveRecord.jsp">주행기록 </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rIncomeInfo.jsp">입금내역 </div>
+	            <div class="rmyBtn"> <a href="/ezenTeam1/gorider/rider/rBoardList.jsp">공지사항/이벤트정보 </div>
 
             </div>
 
@@ -38,8 +39,8 @@
        <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
    </div>
     </div>
-    
+
     <script src="../../js/gorider/rider/rAfterWork.js"></script>
-    
+
 </body>
 </html>

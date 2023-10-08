@@ -107,7 +107,7 @@
 	align-items: center;
 }
 .amenu{
-	
+
 
 }
 .amenu li {
@@ -142,17 +142,18 @@
 .apageinfo{
 	padding:20px;
 	font-family: 'LINESeedKR-Bd';
-	font-size: 1.5rem;
 	color: var(--dgray);
+	display: flex;
 }
 .apageinfo i{
-	position: absolute;
-	padding:3px;
+/* 	position: absolute; */
+    font-size: 1.5rem;
 
+	padding:3px;
 }
 .writeBox{
 	font-family: 'LINESeedKR-Bd';
-	padding:10px;
+	padding:0 10px;
 	font-size: 0.8rem;
 	color: var(--dgray);
 	overflow-y: auto;
@@ -164,9 +165,15 @@
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 .aptitle{
-	display:inline-block;
-	width:100%;
-	text-align: center;
+    text-align: center;
+    padding-top: 20px;
+    color:var(--dgray);
+}
+.aptitle80{
+	width:90%;
+    text-align: center;
+    margin-right:30px;
+    color:var(--dgray);
 }
 
 .writeBox li{padding:10px 0 5px;;}
@@ -201,14 +208,15 @@
 	display: inline-block;
 	margin-right: 30px;
 }
-.btargetBox,.btypeBox {border-bottom: solid 1px var(--lgray);}
+.btargetBox,.btypeBox, .bePeriodBox {border-bottom: solid 1px var(--lgray);}
 .btargetBox span{
 	display: inline-block;
 	margin-right: 37px;
 }
+
 .bePeriodBox i{
 	font-size: 1.2rem;
-	margin-left: 5px;
+	margin-left: 10px;
 }
 .gubun{margin: 0 10px;}
 .bbtnBox {
@@ -306,15 +314,17 @@
 .listhead,.listcont{
 	display: flex;
 	justify-content: space-between;
+
 }
 .listhead {
 	font-family: 'LINESeedKR-Bd';
 	text-align: center;
 	font-size: 0.8rem;
 }
+
 .listhead li{
-	padding:10px 0;
-	background-color: var(--main03);
+	padding:8px 0;
+	background-color: var(--main04);
 	border-right: solid 1px var(--white);
 	color:var(--white);
 	letter-spacing: 0.1rem;
@@ -333,18 +343,29 @@
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 
+
 .listcont li{
 	border-bottom:solid 1px var(--main03);
 	padding:10px 0;
 	font-size: 0.6rem;
 	text-align: center;
+    overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
 }
 .listcont:hover{
     background-color: var(--main01);
 }
 .listbtnBox{
-	padding:0px 0 5px;
-	text-align: right;
+	display:flex;
+	justify-content:space-between;
+	   align-items: center;
+    vertical-align: middel;
+    padding-bottom: 5px;
+}
+.listbtnBox i{
+    margin-left:10px;
+    color:var(--dgray);
 }
 .listbtnBox button{
 	padding:10px 15px 5px;
@@ -380,21 +401,16 @@
 }
 .bviewBox{
 	padding: 20px 10px;
-	overflow-y: auto;
-	height:calc(90vh - 40px);
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
+
 }
-.bviewBox::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-}
+
 .bviewBox .bvTitle{
 	font-family: 'LINESeedKR-Bd';
 	font-size: 1.3rem;
 }
 .bviewBox .bvDate{font-size: 0.5rem;}
 .bviewBox .bvEventPeriod{
-	padding:10px 0; 
+	padding:10px 0;
 	font-family: 'LINESeedKR-Bd';
 	font-size: 0.9rem;
 	color:var(--main03);

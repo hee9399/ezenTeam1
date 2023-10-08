@@ -31,7 +31,7 @@
    	<div class="myMenuBox">
    		<div class="disFlexStCent " onclick="onBoardList()">
    			<div><i class="fa-solid fa-bullhorn"> </i></div>
-   			<a href=""></a><div class="mtitle"> 공지/이벤트</div></a>
+   			<div class="mtitle"> 공지/이벤트</div>
    		</div>
 
    		<div class="disFlexStCent" onclick="onUsedList()">
