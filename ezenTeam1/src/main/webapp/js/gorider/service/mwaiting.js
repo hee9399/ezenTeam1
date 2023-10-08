@@ -1,3 +1,6 @@
+let no = loginMno;
+
+/* [ 사용자 화면 ] 라이더가 수락 했을때*/
 
 let message = document.querySelector('.message');
 
@@ -5,35 +8,12 @@ let html = `<h1>매칭 대기중입니다 잠시만 기다려주세요</h1>`;
 
 message.innerHTML = html;
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/user`);
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/user/${no}`);
 
 callClientSocket.onmessage = (e) => {
     let jsonData = JSON.parse(e.data);
     console.log(jsonData);
-    if (jsonData.type === "accept") {
-        // 매칭 성공 시 라이더 정보 가져오기
-        $.ajax({
-            url: "/ezenTeam1/RiderInfoController",
-            data: { type: "info" },
-            method: "get",
-            success: riderData => {
-                if (riderData && riderData.loginState) { // 로그인 상태 체크
-                    let riderName = riderData.loginRname;
-                    let bikeNum = riderData.loginRbikenum;
-                    let 라이더위도 = jsonData.라이더위도;
-                    let 라이더경도 = jsonData.라이더경도;
-                    
-                    // 화면 업데이트 함수 호출
-                    handleMatchSuccess(riderName,bikeNum, 라이더위도, 라이더경도);
-                } else {
-                    // 로그인되어 있지 않은 경우에 대한 처리
-                }
-            },
-            error: e => {
-                // 에러 처리
-            }
-        });
-    }
+    handleMatchSuccess( jsonData.rname  , jsonData.rbikenum , jsonData.sriderla , jsonData.sriderlo );
 };
 
 

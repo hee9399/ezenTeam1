@@ -1,8 +1,11 @@
 
-let userType = "rider";
+/*[ 라이더 화면 ] 라이더가 수락 했을대. */
 
+
+let userType = "rider";
+let no = loginRno;
 let rmessage = "";
-let 라이더 = null;
+let 라이더마커 = null;
 let markerPosition1 = "";
 let sriderla = 37.320682;
 let sriderlo = 126.832668;
@@ -12,78 +15,60 @@ navigator.geolocation.getCurrentPosition(e => {
     sfromlo = e.coords.longitude;
 });
 
+let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket"); // 라이더 위치 정보 ;
+
+// gps 이동 함수..
+function gpsMove( way ){
+	if( way == 'right') sriderlo += 0.0001;
+	if( way == 'left') sriderlo -= 0.0001;
+	if( way == 'up') sriderla += 0.0001;
+	if( way == 'down') sriderla -= 0.0001;
+	gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
+}
+gpsClientSocket.onmessage = (e) => {
+    let data = JSON.parse(e.data);
+    console.log(data);
+    sriderla = data.sfromla;
+    sriderlo = data.sfromlo;
+    마커셋팅();
+};
+
+let map = null;
 
 
 
-function accept() {
-	
+
+// 수락 했을때.. 
+function accept( sno ) {
 	//userType = "rider";
-	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
-    let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
-
-	
+	// ......... 왜 소켓이 두개인가요???????????? 진형씨??네 말씀하세요..ㅋㅋ
+	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
+	// 콜 함수 어디에 있죠? 사용자 페이지에서 콜 버튼 이벤트함수 어디에 있을까요?
     let contentBox = document.querySelector('.accept');
    
    callClientSocket.onopen = function(event) {
     
+    // 수락 했을때... 정보중에서 가장 중요한 부분이 빠짐...
+    // 수락한 요청 번호 [ 라이더가 선택한 sno = 어떻게 넣어야 하는지 생각 ]
     let riderInfo = {
 		type: "accept",
-		
-		sriderla: sriderla, sriderlo: sriderlo}
-	
-	
-	callClientSocket.send(JSON.stringify(riderInfo));
-	
+		sno : sno ,
+		rno : loginRno, sriderla: sriderla, sriderlo: sriderlo}
+		callClientSocket.send(JSON.stringify(riderInfo));
 	};
     
     
     let html = `
-        <button type="button" class="rightBtn">앞으로</button>
-        <button type="button" class="leftBtn">뒤로</button>
-        <button type="button" class="topBtn">위로</button>
-        <button type="button" class="bottomBtn">아래로</button>
+        <button type="button" onclick="gpsMove('right')" class="rightBtn">앞으로</button>
+        <button type="button" onclick="gpsMove('left')" class="leftBtn">뒤로</button>
+        <button type="button" onclick="gpsMove('up')" class="topBtn">위로</button>
+        <button type="button" onclick="gpsMove('down')" class="bottomBtn">아래로</button>
     `;
-    
     contentBox.innerHTML = html;
-    
-    document.querySelector('.rightBtn').addEventListener('click', (e) => {
-        console.log('앞으로');
-        sriderlo += 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
-    });
-
-    document.querySelector('.leftBtn').addEventListener('click', (e) => {
-        console.log('뒤로');
-        sriderlo -= 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
-    });
-
-    document.querySelector('.topBtn').addEventListener('click', (e) => {
-        console.log('위로');
-        sriderla += 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
-    });
-
-    document.querySelector('.bottomBtn').addEventListener('click', (e) => {
-        console.log('아래로');
-        sriderla -= 0.0001;
-        gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
-    });
-
-    gpsClientSocket.onmessage = (e) => {
-        let data = JSON.parse(e.data);
-        console.log(data);
-        sriderla = data.sfromla;
-        sriderlo = data.sfromlo;
-        마커셋팅();
-    };
-    
-
-    
 }
 
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
 
 callClientSocket.onmessage = (e) => {
 	
@@ -100,36 +85,30 @@ callClientSocket.onmessage = (e) => {
         <div class="end">목적지 : ${jsonData.목적지.주소} ${jsonData.목적지.장소명}</div>
         <div class="call">요청내용 : ${jsonData.요청내용}</div>
         <div class="choicebox">
-            <button onclick="accept()" type="button" class="accept">수락</button>
+            <button onclick="accept(${ jsonData.sno })" type="button" class="accept">수락</button>
             <button onclick="reject()" type="button" class="reject">거절</button>
         </div>
     `;
 
     callcontent.innerHTML = html;
-
+    
     let mapContainer = document.getElementById('map');
-    let mapOption = {
-        center: new kakao.maps.LatLng(jsonData.sfromla, jsonData.sfromlo),
-        level: 4
-    };
-
-    let map = new kakao.maps.Map(mapContainer, mapOption);
-    
-    
+	let mapOption = {
+	    center: new kakao.maps.LatLng(jsonData.sfromla, jsonData.sfromlo),
+	    level: 4
+	};
+	
+	map = new kakao.maps.Map(mapContainer, mapOption);
 
     let startSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png';
     let startSize = new kakao.maps.Size(50, 45);
-    let startOption = {
-        offset: new kakao.maps.Point(15, 43)
-    };
+    let startOption = { offset: new kakao.maps.Point(15, 43) };
 
     let startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
 
     let startDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png';
     let startDragSize = new kakao.maps.Size(50, 64);
-    let startDragOption = {
-        offset: new kakao.maps.Point(15, 54)
-    };
+    let startDragOption = { offset: new kakao.maps.Point(15, 54) };
 
     let startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
 
@@ -191,7 +170,7 @@ callClientSocket.onmessage = (e) => {
 
     let 라이더위치 = new kakao.maps.LatLng(sriderla, sriderlo);
 
-    라이더 = new kakao.maps.Marker({
+    라이더마커 = new kakao.maps.Marker({
         position: 라이더위치,
         map: map,
         image: riderImage
@@ -205,26 +184,26 @@ callClientSocket.onmessage = (e) => {
     map.setBounds(bounds);
 }
 
-function 마커셋팅() {
-    if (라이더) {
-        라이더.setMap(null);
-    }
+// 이동 된 라이더 마커 다시 셋팅 
+function 마커셋팅() { 
 
+	라이더마커.setMap(null); // 기존 마커 없애고
+ 	
     let riderSrc = '/ezenTeam1/img/gorider/icon.png';
     let riderSize = new kakao.maps.Size(50, 45);
     let riderOption = {
         offset: new kakao.maps.Point(15, 43)
     };
-
+    
     let riderImage = new kakao.maps.MarkerImage(riderSrc, riderSize, riderOption);
 
     let 라이더위치 = new kakao.maps.LatLng(sriderla, sriderlo);
 
-    라이더 = new kakao.maps.Marker({
+    라이더마커 = new kakao.maps.Marker({ // 라이더 마커
         position: 라이더위치,
-        map: map,
         image: riderImage
     });
 
-    라이더.setMap(map);
+    라이더마커.setMap(map);
+    map.setCenter( 라이더위치 );
 }

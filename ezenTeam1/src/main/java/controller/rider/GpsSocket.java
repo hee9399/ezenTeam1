@@ -13,7 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/gpssocket")
 public class GpsSocket {
 	
-	public static List<Session> 접속명단 = new ArrayList<>();
+	public static List< Session > 접속명단 = new ArrayList<>();
 	
 	@OnOpen
 	public void OnOpen( Session session ) {
@@ -33,6 +33,5 @@ public class GpsSocket {
 			catch (IOException e) { e.printStackTrace(); }
 		});
 	}
-	
 	
 }
