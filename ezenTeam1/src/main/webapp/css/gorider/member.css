@@ -226,10 +226,12 @@ BUTTON{
 }
 
 .histroyBox {
-	background-color: var(- -lgray);
+	background-color: var(--lgray);
 	padding: 10px;
-	overflow-y: auto;
-	scrollwidth: 1px;
+
+}
+.mUsedList{
+	calc(100vh - 125x)
 }
 
 .hContBox {
@@ -238,7 +240,9 @@ BUTTON{
 	border-radius: 10px;
 	margin-bottom: 10px;
 	padding: 20px;
-	font-size: 0.8rem;
+/* 	font-size: 0.8rem; */
+	border-radius: 10px;
+	mar
 }
 
 .hContBox li:not (:last-child ){

@@ -12,70 +12,72 @@
 </head>
 <body>
  <div  class="wrap">
- <%@include file="mBHeader.jsp" %>
-    <div class="hcontBox">
+<%--  <%@include file="mBHeader.jsp" %> --%>
+   <%@include file="header.jsp" %>
 
-    <div class="pageInfo"><i class="fa-solid fa-person-walking-arrow-right fa-flip-horizontal" onclick="goBack()"></i> <sapn> 이용내역</div>
-    <div class="histroyBox"> <!-- list 전체 -->
+<!--     <div class="hcontBox"> -->
+    <div class="contBox">
+	    <div class="bpageinfo">
+	        <a href="javascript:history.back()">
+	            <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i><span class="gohome">이전페이지로</span>
+	        </a>
+	    </div>
 
-
-        <ul class="hContBox">
-            <li><span class="hTitle ls10">날 짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출 발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도 착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금 액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
-         <ul class="hContBox">
-            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
-            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
-            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
-            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
-            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
-        </ul>
+        <div class="histroyBox scrollbox mUsedList"> <!-- list 전체 -->
 
 
-
-
-
-
-    </div>
+	        <ul class="hContBox">
+	            <li><span class="hTitle ls10">날 짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출 발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도 착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금 액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+	         <ul class="hContBox">
+	            <li><span class="hTitle">날짜</span><span class="hContent"> 23.06.20</span><li>
+	            <li><span class="hTitleA">운행시간</span><span class="hContent"> 18:43 - 18:52</span><li>
+	            <li><span class="hTitle">출발</span><span class="hContent"> 각골</span><li>
+	            <li><span class="hTitle">도착</span><span class="hContent"> IBK기업은행 상록수지점</span><li>
+	            <li><span class="hTitle">금액</span><span class="hContent"> 4,700원</span><li>
+	        </ul>
+        </div>
     </div>
  </div>
-
+<script src="/ezenTeam1/js/gorider/member/mUsedList.js"></script>
+</body>
 </html>

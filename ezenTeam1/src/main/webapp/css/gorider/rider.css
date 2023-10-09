@@ -16,14 +16,16 @@
 
 }
 .header{
-    padding:10px 15px;
+    padding:30px 0;
     background-color: #30E3CA;
     color:#FFF;
     text-align: center;
 }
 .riderSignupUL {
-    padding:30px 0;
     max-width: 400px;
+}
+.rSUsH{
+	height:calc(100vh - 64px);
 
 }
 .riderSignupUL li:nth-child(odd) {
@@ -66,7 +68,10 @@ BUTTON{
 	color:#30E3CA;
 	border:solid 1px #30E3CA;
 }
-.btnbox{ padding-bottom: 30px;}
+.tSUbtnbox{
+	padding-top: 20px;
+}
+.tSUbtnbox button{ padding:15px 0; }
 
 /*---------------- (상단 버튼) ----------------*/
 .riderinformation .rbtn {

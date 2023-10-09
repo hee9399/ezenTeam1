@@ -5,18 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-   <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
    <link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrap">
     <div class="header">
 
-        <h2> 라이더 지원하기 </h2>
-        <p> 환영합니다.</p>
+        <h2> 라이더 지원서 작성 </h2>
 
     </div>
-    <div class="rSignupBox">
+    <div class="rSignupBox scrollbox rSUsH">
     <form class="riderSignup">
         <ul class="riderSignupUL">
             <li class="title" > 이름 </li>
@@ -42,7 +42,7 @@
 
 
             <li class="title">프로필사진</li>
-            <li class=""><input onchange="" class="rphoto infile" name="rphoto" type="file">
+            <li class=""><input onchange="" class="" name="rphoto" type="file">
             	<img class="preimg" src="" />
             </li>
 
@@ -73,7 +73,7 @@
 			<li class=""> <input type="text" class="rbikenum" name="rbikenum" placeholder="차량번호를 입력해주세요."/> </li>
 
         </ul>
-        <div class="btnbox">
+        <div class="tSUbtnbox dflex">
             <button  class="btn50 colorW" onclick="" type="reset"> 다시쓰기</button>
             <button  class="btn50" onclick="signup()" type="button"> 지원서제출</button>
         </div>

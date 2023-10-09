@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
     <link href="/ezenTeam1/css/gorider/member.css" rel="stylesheet">
-    <style type="text/css">*{border:solid 1px red;}</style>
+<!--     <style type="text/css">*{border:solid 1px red;}</style> -->
 
 </head>
 <body>
@@ -48,7 +48,7 @@
 
 
    <!-- bottom -->
-   <%@include file="footer.jsp" %>
+<%--    <%@include file="footer.jsp" %> --%>
 
 
 

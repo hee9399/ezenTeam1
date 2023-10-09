@@ -64,8 +64,6 @@ public class MemberFindController extends HttpServlet {
 			json = objectMapper.writeValueAsString(mDto);
 		} else if(type.equals("findHistory")) {
 
-		} else if(type.equals("findMyinfo")) {
-
 		}
 
 		response.setContentType(("application/json;charset=UTF-8"));

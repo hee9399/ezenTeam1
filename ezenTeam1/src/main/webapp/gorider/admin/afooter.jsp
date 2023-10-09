@@ -17,7 +17,7 @@
         <li class="col18"><a href="aDepositList.jsp">R입금<br/>내역 </a></li>
         <li class="col18"><a href="aClosingList.jsp">서비스<br/>정산</a></li>
         <li class="col18"><a href="board/aBoardList.jsp">공지<br/>관리</a></li>
-    
+
     </ul>
 
    </div>

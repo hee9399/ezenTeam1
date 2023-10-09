@@ -2,15 +2,15 @@ package model.dto;
 
 public class ServiceDto {// 서비스 Dto
 
-	// 필드 
+	// 필드
 	private int sno;			// 서비스번호
-	private int mno; 			// 회원번호  
-	private int rno;     		// 라이더번호              	
+	private int mno; 			// 회원번호
+	private int rno;     		// 라이더번호
 	private String sdate; 		// 서비스이용일
-	private double sfromla; 	// 서비스 시작위치 위도
-	private double sfromlo;		// 서비스 시작위치 경도
-	private double stola;		// 서비스 도착위치 위도
-	private double stolo;		// 서비스 도착위치 경도
+	private String sfromla; 	// 서비스 시작위치 위도
+	private String sfromlo;		// 서비스 시작위치 경도
+	private String stola;		// 서비스 도착위치 위도
+	private String stolo;		// 서비스 도착위치 경도
 	private int spayment; 		// 서비스결제금액
 	private boolean spayYN;		// 결제여부
 	private String sreview;		// 리뷰
@@ -19,19 +19,22 @@ public class ServiceDto {// 서비스 Dto
 	private String 요청내용;		// 요청내용
 	private Destination 목적지;		// 목적지
 	private Departure 출발지;		// 출발지
-	private double sriderla;		// 라이더 출발위치 위도
-	private double sriderlo;		// 라이더 출발위치 경도
-	
+	private String sriderla;		// 라이더 출발위치 위도
+	private String sriderlo;		// 라이더 출발위치 경도
+	private String sDepositYN;		//라이더 입금여부
+
 	// 조인할라고 필드만 만듬
 	private String rname;
 	private String rphoto;
 	private String rbikenum;
-	
-	
+
+	private String ddate;		// deposit 테이블 조인시 입금일
+
+
 	public static class Destination {
 	    private String 장소명;
 	    private String 주소;
-	    
+
 		public String get장소명() {
 			return 장소명;
 		}
@@ -44,76 +47,76 @@ public class ServiceDto {// 서비스 Dto
 		public void set주소(String 주소) {
 			this.주소 = 주소;
 		}
-}
-	
+	}
+
 	 public static class Departure {
-	        private String address_name;
-	        private String region_1depth_name;
-	        private String region_2depth_name;
-	        private String region_3depth_name;
-	        private String mountain_yn;
-	        private String main_address_no;
-	        private String sub_address_no;
-	        private String zip_code;
-			public String getAddress_name() {
-				return address_name;
-			}
-			public void setAddress_name(String address_name) {
-				this.address_name = address_name;
-			}
-			public String getRegion_1depth_name() {
-				return region_1depth_name;
-			}
-			public void setRegion_1depth_name(String region_1depth_name) {
-				this.region_1depth_name = region_1depth_name;
-			}
-			public String getRegion_2depth_name() {
-				return region_2depth_name;
-			}
-			public void setRegion_2depth_name(String region_2depth_name) {
-				this.region_2depth_name = region_2depth_name;
-			}
-			public String getRegion_3depth_name() {
-				return region_3depth_name;
-			}
-			public void setRegion_3depth_name(String region_3depth_name) {
-				this.region_3depth_name = region_3depth_name;
-			}
-			public String getMountain_yn() {
-				return mountain_yn;
-			}
-			public void setMountain_yn(String mountain_yn) {
-				this.mountain_yn = mountain_yn;
-			}
-			public String getMain_address_no() {
-				return main_address_no;
-			}
-			public void setMain_address_no(String main_address_no) {
-				this.main_address_no = main_address_no;
-			}
-			public String getSub_address_no() {
-				return sub_address_no;
-			}
-			public void setSub_address_no(String sub_address_no) {
-				this.sub_address_no = sub_address_no;
-			}
-			public String getZip_code() {
-				return zip_code;
-			}
-			public void setZip_code(String zip_code) {
-				this.zip_code = zip_code;
-			}
-	        
-	        
-	        
-	    }
-	
-	// 생성자 
+        private String address_name;
+        private String region_1depth_name;
+        private String region_2depth_name;
+        private String region_3depth_name;
+        private String mountain_yn;
+        private String main_address_no;
+        private String sub_address_no;
+        private String zip_code;
+		public String getAddress_name() {
+			return address_name;
+		}
+		public void setAddress_name(String address_name) {
+			this.address_name = address_name;
+		}
+		public String getRegion_1depth_name() {
+			return region_1depth_name;
+		}
+		public void setRegion_1depth_name(String region_1depth_name) {
+			this.region_1depth_name = region_1depth_name;
+		}
+		public String getRegion_2depth_name() {
+			return region_2depth_name;
+		}
+		public void setRegion_2depth_name(String region_2depth_name) {
+			this.region_2depth_name = region_2depth_name;
+		}
+		public String getRegion_3depth_name() {
+			return region_3depth_name;
+		}
+		public void setRegion_3depth_name(String region_3depth_name) {
+			this.region_3depth_name = region_3depth_name;
+		}
+		public String getMountain_yn() {
+			return mountain_yn;
+		}
+		public void setMountain_yn(String mountain_yn) {
+			this.mountain_yn = mountain_yn;
+		}
+		public String getMain_address_no() {
+			return main_address_no;
+		}
+		public void setMain_address_no(String main_address_no) {
+			this.main_address_no = main_address_no;
+		}
+		public String getSub_address_no() {
+			return sub_address_no;
+		}
+		public void setSub_address_no(String sub_address_no) {
+			this.sub_address_no = sub_address_no;
+		}
+		public String getZip_code() {
+			return zip_code;
+		}
+		public void setZip_code(String zip_code) {
+			this.zip_code = zip_code;
+		}
+
+
+
+    }
+
+	// 생성자
 	public ServiceDto() {}
-	// 풀 
-	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
-			double stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용,
-			Destination 목적지, Departure 출발지, double sriderla, double sriderlo) {
+	// 풀
+	public ServiceDto(int sno, int mno, int rno, String sdate, String sfromla, String sfromlo, String stola,
+			String stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용,
+			Destination 목적지, Departure 출발지, String sriderla, String sriderlo) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
@@ -135,7 +138,7 @@ public class ServiceDto {// 서비스 Dto
 		this.sriderlo = sriderlo;
 	}
 	// 라이더가 콜을 누르기 전에 저장되는 생성자
-	public ServiceDto(int mno, double sfromla, double sfromlo, double stola, double stolo) {
+	public ServiceDto(int mno, String sfromla, String sfromlo, String stola, String stolo) {
 		super();
 		this.mno = mno;
 		this.sfromla = sfromla;
@@ -143,9 +146,9 @@ public class ServiceDto {// 서비스 Dto
 		this.stola = stola;
 		this.stolo = stolo;
 	}
-	
 
-	
+
+
 	// 서비스 정보 조회 생성자
 	public ServiceDto(int sno, int rno, String sdate, String sreview, int spoint) {
 		super();
@@ -156,8 +159,8 @@ public class ServiceDto {// 서비스 Dto
 		this.spoint = spoint;
 	}
 	// 서비스이용현황 조희 생성자
-	public ServiceDto(int sno, int mno, int rno, String sdate, double sfromla, double sfromlo, double stola,
-			double stolo) {
+	public ServiceDto(int sno, int mno, int rno, String sdate, String sfromla, String sfromlo, String stola,
+			String stolo) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
@@ -169,7 +172,7 @@ public class ServiceDto {// 서비스 Dto
 		this.stolo = stolo;
 	}
 	// 입급내역 조회 리스트
-	public ServiceDto(int sno, int rno, String sdate, int spayment) {
+	public ServiceDto(int sno, int rno, String sdate, int spayment ) {
 		super();
 		this.sno = sno;
 		this.rno = rno;
@@ -177,9 +180,28 @@ public class ServiceDto {// 서비스 Dto
 		this.spayment = spayment;
 	}
 
-	
+
+
+	//입금내역, 주행기록 리스트
+
+	public ServiceDto(int sno, int mno, int rno, String sdate, String sfromla, String sfromlo, String stola,
+			String stolo, int spayment, boolean spayYN, String sDepositYN, String ddate) {
+		super();
+		this.sno = sno;
+		this.mno = mno;
+		this.rno = rno;
+		this.sdate = sdate;
+		this.sfromla = sfromla;
+		this.sfromlo = sfromlo;
+		this.stolo = stolo;
+		this.stola = stola;
+		this.spayment = spayment;
+		this.spayYN = spayYN;
+		this.sDepositYN = sDepositYN;
+		this.ddate = ddate;
+	}
 	// 라이더가 콜을 누른 후에 수정
-	public ServiceDto(int sno, int rno, double sriderla, double sriderlo) {
+	public ServiceDto(int sno, int rno, String sriderla, String sriderlo) {
 		super();
 		this.sno = sno;
 		this.rno = rno;
@@ -187,7 +209,7 @@ public class ServiceDto {// 서비스 Dto
 		this.sriderlo = sriderlo;
 	}
 	// 라이더가 콜을 누른 후에 조회
-	public ServiceDto(int sno, int rno, double sriderla, double sriderlo, String rname, String rphoto,
+	public ServiceDto(int sno, int rno, String sriderla, String sriderlo, String rname, String rphoto,
 			String rbikenum) {
 		super();
 		this.sno = sno;
@@ -198,10 +220,10 @@ public class ServiceDto {// 서비스 Dto
 		this.rphoto = rphoto;
 		this.rbikenum = rbikenum;
 	}
-	
-	
-	
-	// 메소드 
+
+
+
+	// 메소드
 	public int getSno() {
 		return sno;
 	}
@@ -227,28 +249,28 @@ public class ServiceDto {// 서비스 Dto
 	public void setSdate(String sdate) {
 		this.sdate = sdate;
 	}
-	public double getSfromla() {
+	public String getSfromla() {
 		return sfromla;
 	}
-	public void setSfromla(double sfromla) {
+	public void setSfromla(String sfromla) {
 		this.sfromla = sfromla;
 	}
-	public double getSfromlo() {
+	public String getSfromlo() {
 		return sfromlo;
 	}
-	public void setSfromlo(double sfromlo) {
+	public void setSfromlo(String sfromlo) {
 		this.sfromlo = sfromlo;
 	}
-	public double getStola() {
+	public String getStola() {
 		return stola;
 	}
-	public void setStola(double stola) {
+	public void setStola(String stola) {
 		this.stola = stola;
 	}
-	public double getStolo() {
+	public String getStolo() {
 		return stolo;
 	}
-	public void setStolo(double stolo) {
+	public void setStolo(String stolo) {
 		this.stolo = stolo;
 	}
 	public int getSpayment() {
@@ -282,16 +304,16 @@ public class ServiceDto {// 서비스 Dto
     public void set요청내용(String 요청내용) {
         this.요청내용 = 요청내용;
     }
-	
-	
+
+
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
+
+
 	public Destination get목적지() {
 		return 목적지;
 	}
@@ -304,22 +326,22 @@ public class ServiceDto {// 서비스 Dto
 	public void set출발지(Departure 출발지) {
 		this.출발지 = 출발지;
 	}
-	
-	
-	public double getSriderla() {
+
+
+	public String getSriderla() {
 		return sriderla;
 	}
-	public void setSriderla(double sriderla) {
+	public void setSriderla(String sriderla) {
 		this.sriderla = sriderla;
 	}
-	public double getSriderlo() {
+	public String getSriderlo() {
 		return sriderlo;
 	}
-	public void setSriderlo(double sriderlo) {
+	public void setSriderlo(String sriderlo) {
 		this.sriderlo = sriderlo;
 	}
-	
-	
+
+
 	public String getRname() {
 		return rname;
 	}
@@ -338,15 +360,31 @@ public class ServiceDto {// 서비스 Dto
 	public void setRbikenum(String rbikenum) {
 		this.rbikenum = rbikenum;
 	}
+
+
+	public String getsDepositYN() {
+		return sDepositYN;
+	}
+	public void setsDepositYN(String sDepositYN) {
+		this.sDepositYN = sDepositYN;
+	}
+
+
+	public String getDdate() {
+		return ddate;
+	}
+	public void setDdate(String ddate) {
+		this.ddate = ddate;
+	}
 	@Override
 	public String toString() {
 		return "ServiceDto [sno=" + sno + ", mno=" + mno + ", rno=" + rno + ", sdate=" + sdate + ", sfromla=" + sfromla
 				+ ", sfromlo=" + sfromlo + ", stola=" + stola + ", stolo=" + stolo + ", spayment=" + spayment
 				+ ", spayYN=" + spayYN + ", sreview=" + sreview + ", spoint=" + spoint + ", type=" + type + ", 요청내용="
 				+ 요청내용 + ", 목적지=" + 목적지 + ", 출발지=" + 출발지 + ", sriderla=" + sriderla + ", sriderlo=" + sriderlo
-				+ ", rname=" + rname + ", rphoto=" + rphoto + ", rbikenum=" + rbikenum + "]";
+				+ ", sDepositYN=" + sDepositYN + ", rname=" + rname + ", rphoto=" + rphoto + ", rbikenum=" + rbikenum
+				+ "]";
 	}
-	
-	
-	
+
+
 }// class

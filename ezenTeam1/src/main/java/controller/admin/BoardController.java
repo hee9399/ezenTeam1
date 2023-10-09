@@ -69,7 +69,7 @@ public class BoardController extends HttpServlet {
 			json = objectMapper.writeValueAsString( result );
 		}
 
-		// 4. 응답
+
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(  json );
 

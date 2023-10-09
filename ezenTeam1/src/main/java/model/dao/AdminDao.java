@@ -11,9 +11,9 @@ public class AdminDao extends Dao{
 	private static AdminDao adminDao = new AdminDao();
 	private AdminDao() {}
 	public static AdminDao getInstance() {return adminDao;}
-	
-	
-	
+
+
+
 	// 1. 기본적인 내용 호출
 	public ArrayList<RiderDto> ApprovalPrint(){
 		ArrayList<RiderDto> list = new ArrayList<>();
@@ -22,24 +22,24 @@ public class AdminDao extends Dao{
 			String sql ="select rno , rid , rdate from rider where rstatus='N' order by rdate asc";
 			ps = conn.prepareStatement(sql);
 			rs=ps.executeQuery();
-			
+
 			// 3. 정보가 여러개니깐 while문으로 여러개 레코드 조회
 			while(rs.next()) {
 				RiderDto dto = new RiderDto(
 						rs.getInt("rno"), rs.getString("rid"),
 						rs.getString("rdate")	);
-				
+
 				// 4. 리스트에 dto 를 담는다,
 				list.add(dto);
 			}
-			
+
 		}catch (Exception e) {System.out.println(e);}
 		// 5. 리스트에 dto 를 담아서 리턴.
 		return list;
 	}
-	
-	
-	// 2. 상세보기 
+
+
+	// 2. 상세보기
 	public RiderDto ApprovalView(int rno) {
 		try {
 			String sql = "select * from rider where rno = ? ";
@@ -62,14 +62,14 @@ public class AdminDao extends Dao{
 	}
 	// 3. 승인 거부 함수
 	public boolean ApprovalReject(int rno, String rcomment) {
-		
+
 		try {
 			 String sql = "UPDATE rider SET rstatus = 'D', rcomment = ? WHERE rno = ?";
 			  ps = conn.prepareStatement(sql);
 		        ps.setString(1, rcomment);
 		        ps.setInt(2, rno);
 		        int count = ps.executeUpdate();
- 
+
 		        // 업데이트가 성공하면 count는 1이상의 값을 가집니다.
 		        if (count > 0) {
 		            return true; // 승인 거부 성공
@@ -79,24 +79,24 @@ public class AdminDao extends Dao{
 	}
 	// 승인 수락 함수
 	public boolean approval( int rno) {
-		
+
 		try {
 	        String sql = "UPDATE rider SET rstatus = 'Y' WHERE rno = ?";
 	        ps = conn.prepareStatement(sql);
 	        ps.setInt(1, rno); // Set the value for the first (and only) parameter
-	        
+
 	        int count = ps.executeUpdate();
-	        
+
 	        if (count > 0) {
-	            return onapprove(rno); 
+	            return onapprove(rno);
 	        }
 	    } catch (Exception e) {
 	        System.out.println(e);
 	    }
 	    return false;
 	}
-	
-	public boolean onapprove(int rno) { 
+
+	public boolean onapprove(int rno) {
 		try {
 			String sql = "insert into riderstate (rno) values (?)";
 	        ps = conn.prepareStatement(sql);
@@ -104,13 +104,13 @@ public class AdminDao extends Dao{
 
 	        int count = ps.executeUpdate();
 
-	        if (count > 0) { 
+	        if (count > 0) {
 	            return true;
 	        }
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-	
+
 	// 승인요청 가져오는 함수
 	public int Request() {
 		int count = 0;
@@ -124,14 +124,14 @@ public class AdminDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return count;
 	}
-	
+
 	public ArrayList<ServiceDto> ServicePrint(){
 		ArrayList<ServiceDto> list = new ArrayList<>();
 		try {
 			String sql="select * from service order by sdate desc ";
 			ps=conn.prepareStatement(sql);
 			rs=ps.executeQuery();
-			
+
 			while(rs.next()) {
 				ServiceDto dto = new ServiceDto(
 						rs.getInt("sno"),rs.getInt("rno"),
@@ -146,20 +146,20 @@ public class AdminDao extends Dao{
 	public ArrayList<ServiceDto> getServiceUsageStatus(){
 		ArrayList<ServiceDto> list = new ArrayList<>();
 		try {
-			
+
 			String sql ="select * from service";
 			ps=conn.prepareStatement(sql);
 			rs=ps.executeQuery();
-			
+
 			while(rs.next()) {
 				ServiceDto dto = new ServiceDto(
 						rs.getInt("sno"),rs.getInt("mno"),
 						rs.getInt("rno"),rs.getString("sdate"),
-						rs.getDouble("sfromla"),rs.getDouble("sfromlo"),
-						rs.getDouble("stola"),rs.getDouble("stolo"));
-				list.add(dto);	
+						rs.getString("sfromla"),rs.getString("sfromlo"),
+						rs.getString("stola"),rs.getString("stolo"));
+				list.add(dto);
 			}
-			
+
 		}catch (Exception e) {System.out.println(e);}
 		return list;
 	}
@@ -193,8 +193,8 @@ public class AdminDao extends Dao{
 					return true;
 				}
 			}
-			
-			
+
+
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}

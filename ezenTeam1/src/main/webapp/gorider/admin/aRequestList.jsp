@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
     <link href="/ezenTeam1/css/gorider/admin.css" rel="stylesheet">
 </head>
 <body>
@@ -21,9 +22,9 @@
 
          <!-- 1 content start -->
             <ul class="listContent rlistC">
-             <!-- js가 출력해주는 구간 -->   
+             <!-- js가 출력해주는 구간 -->
            </ul>
-       
+
 
 
         </div>

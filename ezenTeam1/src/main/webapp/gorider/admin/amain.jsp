@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
     <link href="/ezenTeam1/css/gorider/admin.css" rel="stylesheet">
 
 </head>
@@ -12,7 +15,7 @@
 	<div class="wrap">
      <%@include file="aheader.jsp" %>
      <div class="menuBox">
-     	<ul class="amenu">
+    	<ul class="amenu">
 
             <li onclick="goMenu('R')">라이더 승인요청</li>
             <li onclick="goMenu('S')">서비스 이용 현황</li>
@@ -23,9 +26,9 @@
 
 
         </ul>
-     
+
      </div>
-       
+
 
 	 <%@include file="afooter.jsp" %>
     </div>

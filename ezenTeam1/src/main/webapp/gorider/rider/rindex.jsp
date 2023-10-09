@@ -14,11 +14,11 @@
 </head>
 <body>
 	<div class="wrapR ">
-<%--      <%@include file="rheader.jsp" %> --%>
-	
+     <%@include file="rheader.jsp" %>
+
         <div class="rheaderwrap ">
 
-            
+
             <div onclick="onMove('myMenu')" class="rbtn">나의 메뉴</div>
 
         </div>
@@ -46,7 +46,7 @@
 	 <div class="footerR" >
        <div onclick="goWork()" class="fbtn btn100 bgm02">출근하기</div>
    </div>
-    </div> 
+    </div>
     <script src="../../js/gorider/rider/rAfterWork.js"></script>
     <script src="../../js/gorider/rider/rheader.js"></script>
 </body>
