@@ -105,7 +105,7 @@ public class RiderDao extends Dao{ // 라이더
 		return null;
 	}
 	
-	// 4. 라이더 정보 수정 
+	// 4. 라이더 정보 수정 [ 이 수정은 1개만 수정이 가능... 그러므로... 은행명 /계좌번호 수정은 불가능하다..]
 	public boolean rupdate( int rno , String type , String value) {
 		
 		try {
@@ -126,6 +126,31 @@ public class RiderDao extends Dao{ // 라이더
 		
 		return false;
 	}
+	// 4-2 은행명//계좌번호를 수정할수 있도록 필드2개 수정 SQL 작성하기 .
+	public boolean rupdate2( int rno , String type1 , String type2 , String value1 , String value2 ) {
+		
+		try {
+			
+			// Sql 작성 //희락씨 잘 하셨는데. sql 에문제가 있어요.. 예시를 생각해보세요.
+			// 은행명을 입력받은 값으로 , 계좌번호를 입력받은 값으로 누가 현재 라이더가.
+			String sql = "update rider set "+type1+" , "+type2+" = ? where rno = ? ";
+			System.out.println("Sql: "+sql);
+			
+			// 
+			ps = conn.prepareStatement(sql);
+			ps.setString(1 , value1);
+			ps.setString(2 , value2);
+			ps.setInt(3, rno);
+			
+			System.out.println("rupdate2 SQL:: "+ps);
+			int count = ps.executeUpdate();
+			if( count == 1 ) return true;
+			
+		} catch (Exception e) {System.out.println(e);}
+		
+		return false;
+	}
+
 	
 	// 5. 삭제 
 	public boolean rdelete( int rno , String rpwd ) {
