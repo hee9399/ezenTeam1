@@ -1,5 +1,7 @@
 console.log('js실행');
 
+// 라이더 입금내역 js 
+
 // 1.입금현황 함수
 depositCount();
 function depositCount(){

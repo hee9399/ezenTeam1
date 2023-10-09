@@ -10,7 +10,7 @@ function depositCount(){
             data : {type : 4},      
            success : r=>{  
 
-			   console.log(r)
+			   console.log(r);
 			   let listbox = document.querySelector('.listbox');
 			   let html=``;
 			   html =`<ul class="listTitle rlistR">
