@@ -55,7 +55,7 @@ public class CallSocket {
 	}
 	
 	@OnMessage
-	public void OnMessage(Session session, String msg) {
+	public void OnMessage(Session session, String msg) throws IOException {
 		System.out.println(msg);
 
 		// String(json형식) Map로 바꾼다.
@@ -114,6 +114,8 @@ public class CallSocket {
 			            System.out.println("라이더 정보 성공");
 			            ServiceDto riderinfo = CallDao.getInstance().ShowRiderInfo( servicedto.getSno() );
 			            
+			            
+			            
 			            callList.keySet().forEach( s ->{
 			            	// 콜 수락시 회원들에게 콜 수락된 이벤트를 보내줘야한다.
 			            	// 문제점 : 콜 소켓 리스트에 각 소켓들은  어떤 회원의 소켓인지 알고 있나요?? 모르죠.... 음,.... 음....
@@ -130,6 +132,8 @@ public class CallSocket {
 			    					System.out.println(" 콜리스트내 회원번호 " + callList.get(s) );
 			    					System.out.println(" 콜리스트내 회원번호 " + riderinfo.getMno() );
 			    					
+			    					riderinfo.setType("accept");
+			    					
 			    					ObjectMapper objectMapper = new ObjectMapper();
 							        String ridermsg = objectMapper.writeValueAsString(riderinfo);
 							        
@@ -142,12 +146,44 @@ public class CallSocket {
 			        } else {
 			            System.out.println("라이더 실패");
 			        }
-			} else {
-				System.out.println("알 수 없는 메시지 타입: " + type);
+			} else if("out".equals(type)) {
+				ServiceDto servicedto = mapper.convertValue(jsonNode, ServiceDto.class);
+				callList.keySet().forEach( s ->{
+					
+					try {
+						// [라이더가 보낸 메시지] 라이더와 같은 방에 있는 회원이면
+						System.out.println("하차 컨트롤:" + servicedto.getMno() );
+						if( callList.get(s) == servicedto.getMno()  ) {
+							System.out.println("하차 컨트롤:" + servicedto.getMno() );
+							s.getBasicRemote().sendText(msg);
+						}
+					} catch (Exception e) {
+						e.printStackTrace(); 
+					}
+				});
+				
+				riderlist.keySet().forEach( s ->{
+					try {
+						// [라이더가 보낸 메시지] 라이더와 같은 방에 있는 회원이면
+						System.out.println("하차 컨트롤:" + servicedto.getRno() );
+						if( riderlist.get(s) == servicedto.getRno()  ) {
+							// // 1. 서비스 상태 변경 // 2. 라이더 상태 변경
+							boolean result = CallDao.getInstance().getOut(servicedto.getSno(),servicedto.getRno());
+							s.getBasicRemote().sendText(msg);
+						}
+					} catch (Exception e) { e.printStackTrace(); }
+				});
+			} else if("on".equals(type)) {
+				ServiceDto servicedto = mapper.convertValue(jsonNode, ServiceDto.class);
+				callList.keySet().forEach( s ->{
+					try {
+						if( callList.get(s) == servicedto.getMno()  ) {
+							s.getBasicRemote().sendText(msg);
+						}
+					} catch (Exception e) { e.printStackTrace();  }
+				});
 			}
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
+		} catch (JsonProcessingException e) { e.printStackTrace(); }
 	}
 
 }

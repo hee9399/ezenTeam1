@@ -72,6 +72,7 @@ public class CallDao extends Dao{
                     "	FROM service s " +
                     "	INNER JOIN rider r ON s.rno = r.rno	where s.sno = ?";
 			ps = conn.prepareStatement(sql);
+			System.out.println("ps  : " + ps );
 			ps.setInt(1, sno);
 			rs= ps.executeQuery();
 			if(rs.next()) {
@@ -106,6 +107,26 @@ public class CallDao extends Dao{
 		}catch (Exception e) {System.out.println( e );} 
 			return false;
 	}
+	
+	// 4. 하차할때 서비스, 라이더 상태 변경
+	public boolean getOut(int sno, int rno) {
+		try {
+			
+			String sql = "update riderstate set rcall = 'Y' where rno = " + rno;
+			ps = conn.prepareStatement(sql);	System.out.println( ps );
+			
+			int count = ps.executeUpdate();
+			
+			if( count == 1 ) {
+				// 서비스 상태 변경
+				sql = "";
+				return true;
+			}
+		} catch (Exception e) { System.out.println( e ); }
+		
+		return false;
+	}
+	
 }
 
 

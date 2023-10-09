@@ -9,15 +9,17 @@ let 라이더마커 = null;
 let markerPosition1 = "";
 let sriderla = 37.320682;
 let sriderlo = 126.832668;
+let outmessage ="";
+
 
 navigator.geolocation.getCurrentPosition(e => {
     sfromla = e.coords.latitude;
     sfromlo = e.coords.longitude;
 });
 
-let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket"); // 라이더 위치 정보 ;
+let gpsClientSocket = null // 라이더 위치 정보 ;
 
-// gps 이동 함수..
+// gps 이동 메시지 보냈을때..
 function gpsMove( way ){
 	if( way == 'right') sriderlo += 0.0001;
 	if( way == 'left') sriderlo -= 0.0001;
@@ -25,24 +27,25 @@ function gpsMove( way ){
 	if( way == 'down') sriderla -= 0.0001;
 	gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
 }
-gpsClientSocket.onmessage = (e) => {
-    let data = JSON.parse(e.data);
+// gps 이동 메시지 받았을때
+function gpsRecevie(e){
+	let data = JSON.parse(e.data);
     console.log(data);
     sriderla = data.sfromla;
     sriderlo = data.sfromlo;
     마커셋팅();
-};
+}
 
 let map = null;
 
-
-
+let mno = 0; // 라이더와 현재 연결된 회원번호;
 
 // 수락 했을때.. 
 function accept( sno ) {
 	//userType = "rider";
 	// ......... 왜 소켓이 두개인가요???????????? 진형씨??네 말씀하세요..ㅋㅋ
 	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
+
 	// 콜 함수 어디에 있죠? 사용자 페이지에서 콜 버튼 이벤트함수 어디에 있을까요?
     let contentBox = document.querySelector('.accept');
    
@@ -63,10 +66,29 @@ function accept( sno ) {
         <button type="button" onclick="gpsMove('left')" class="leftBtn">뒤로</button>
         <button type="button" onclick="gpsMove('up')" class="topBtn">위로</button>
         <button type="button" onclick="gpsMove('down')" class="bottomBtn">아래로</button>
+        <button type="button" onclick="getOn(${sno})" class = "onBtn">탑승</button>
+        <button type="button" onclick="getOut(${sno})" class = "outBtn">하차</button>
     `;
     contentBox.innerHTML = html;
+    
+    // 수락했을때.. gps 소켓 연결
+    gpsClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/gpssocket/${sno}`); // 라이더 위치 정보 ;
+    gpsClientSocket.onmessage = (e) => { gpsRecevie(e) };
 }
 
+// 탑승
+function getOn( sno ){
+	let outinfo = { type : "on" , mno : mno , rno : loginRno , sno : sno };
+	callClientSocket.send( JSON.stringify(outinfo));
+}
+// 하차 
+function getOut(sno){
+	// 1. 하차 이벤트 처리 
+		// 3. 유저에게 메시를 보내서 하차 하라고 보내기.
+		let outinfo = { type : "out" , mno : mno , rno : loginRno , sno : sno };
+		callClientSocket.send( JSON.stringify(outinfo));
+		mno = 0;
+}
 
 let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
 
@@ -76,7 +98,22 @@ callClientSocket.onmessage = (e) => {
     let jsonData = JSON.parse(e.data);
     console.log('userType : ' + userType)
     console.log(jsonData);
-    let callcontent = document.querySelector('.callcontent');
+    
+   // 1.  수락했을때 지도 띄우기
+    if( jsonData.type == 'call'){
+		getAccept( jsonData );
+	}else if( jsonData.type == 'out'){
+		// 4. 페이지 전환. http://localhost:8080/ezenTeam1/gorider/rider/rWorking.jsp
+		location.href="/ezenTeam1/gorider/rider/rWorking.jsp";
+	}
+}
+ 
+//   
+function getAccept( jsonData ){
+	let callcontent = document.querySelector('.callcontent');
+    
+    mno = jsonData.mno;
+    
     let html = `
         <h3> 콜 도착 </h3>
         <div id="map" style="width:100%;height:350px;"></div>
@@ -207,3 +244,5 @@ function 마커셋팅() {
     라이더마커.setMap(map);
     map.setCenter( 라이더위치 );
 }
+
+

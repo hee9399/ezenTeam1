@@ -1,11 +1,7 @@
 
 /* [ 사용자 화면 ]  사용자가 콜 보냈을때. */
 
-let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
-
 function call() {
-
-
 	gpsClientSocket.onmessage = (e) => {
 		alert('수락')
 	}
