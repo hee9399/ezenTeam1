@@ -133,7 +133,10 @@ public class RiderDao extends Dao{ // 라이더
 			
 			// Sql 작성 //희락씨 잘 하셨는데. sql 에문제가 있어요.. 예시를 생각해보세요.
 			// 은행명을 입력받은 값으로 , 계좌번호를 입력받은 값으로 누가 현재 라이더가.
-			String sql = "update rider set "+type1+" , "+type2+" = ? where rno = ? ";
+			// update 테이블명 set 수정할필드명 = 수정할값 , 수정할필드명 = 수정할값 where 조건 
+			
+			String sql = "update rider set "+type1+" = ? , "+type2+" = ? where rno = ? ";
+			
 			System.out.println("Sql: "+sql);
 			
 			// 
