@@ -1,9 +1,7 @@
 
-let gpsClientSocket = new WebSocket("ws://localhost:8080/ezenTeam1/gpssocket");
+/* [ 사용자 화면 ]  사용자가 콜 보냈을때. */
 
 function call() {
-
-
 	gpsClientSocket.onmessage = (e) => {
 		alert('수락')
 	}
@@ -179,21 +177,26 @@ if (JsonInfo) {
 }
 
 let userType = "user";
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}`);
+let no = loginMno;
+let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
 
+
+// * [10/08] 사용자가 라이더에게 콜 요청 
 document.querySelector('.call').addEventListener('click', (e) => {
+
 
 
 	requestContent = document.querySelector('.ccontent').value;
 	let callInfo = {
 		type: "call",
-		sfromla: sfromla, sfromlo: sfromlo, mno: 1, stola: stola, stolo: stolo, 요청내용: requestContent
+		sfromla: sfromla, sfromlo: sfromlo, mno: loginMno, stola: stola, stolo: stolo, 요청내용: requestContent
 		, 목적지: destination, 출발지: 현재주소  
+		
 	}
 	
 	callClientSocket.send(JSON.stringify(callInfo));
 	
-	 window.location.href = "/ezenTeam1/gorider/service/mwaiting.jsp";
+	 window.location.href = "/ezenTeam1/gorider/service/mwaiting.jsp"; // 그리고 페이지전환하면.. 소켓 초기화 
 	
 });
 

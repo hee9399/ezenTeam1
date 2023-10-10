@@ -14,6 +14,7 @@ let loginMid = ''; // 전역변수로 선언
 let loginMname = '';
 let loginMeamil = '';
 let loginMphoto ='';
+let loginMno = 0;
 getMemberInfo();
 // 1. 세션에 있는 로그인정보 유무에 따라  화면수정
 function getMemberInfo(){
@@ -40,6 +41,8 @@ function getMemberInfo(){
 				loginMname = r.mname;
 				loginMeamil = r.memail
 				loginMphoto = r.mphoto == null? 'default.png': r.mphoto;
+				loginMno = r.mno;	console.log("loginMno :: "+loginMno);
+				
 				html += ` <div class="minfo">
 							<span class="mname">${r.mname}님</span>
 							<span class="sayhello">반갑습니다. <br> <span class="logout" onclick="logout()"> 로그아웃</span></span>

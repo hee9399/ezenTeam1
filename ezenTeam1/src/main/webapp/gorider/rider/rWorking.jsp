@@ -51,7 +51,7 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59b47c7057625f350189b1cb8369a874&libraries=services"></script>
 <script src="https://kit.fontawesome.com/bfee791ec9.js" crossorigin="anonymous"></script>
 
-<script src = "../../js/gorider/rider/rWorking.js"></script>
+<script src = "../../js/gorider/rider/rAfterWork.js"></script>
 <script src = "../../js/gorider/service/riderAccept.js"></script>
 
 </body>
