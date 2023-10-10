@@ -13,7 +13,7 @@ public class CallDao extends Dao{
 	
 
 	// 1. 사용자 콜정보 INSERT
-	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo ) {
+	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo , String spayYN , int spayment  ) {
 
 		try {
 			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo,spayYN,spayment) values(?,?,?,?,?,?,?)";
