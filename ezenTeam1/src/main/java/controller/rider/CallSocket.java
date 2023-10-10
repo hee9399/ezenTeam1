@@ -72,7 +72,7 @@ public class CallSocket {
 				
 				// 콜 정보를 SQL로 DB에 담아서... 콜 번호를 반환 받는다..
 				int result = CallDao.getInstance().MemberCall(servicedto.getMno(), servicedto.getSfromla(),
-						servicedto.getSfromlo(), servicedto.getStola(), servicedto.getStolo());
+						servicedto.getSfromlo(), servicedto.getStola(), servicedto.getStolo(), servicedto.getSpayYN(), servicedto.getSpayment());
 				
 				if ( result > 0 ) { 	// 콜 정보를 SQL 담기를 성공했을대.. 
 					System.out.println("사용자 정보 성공");

@@ -55,6 +55,7 @@
       <div class = "addrInput">
 		<div class = "placeinfo">
 		</div>
+		<div class="예상금액"></div>
 		<div class="btns">
 			<button type = "button" class = "call">콜</button>
 	  		<button type = "button" class = "back">뒤로가기</button>
