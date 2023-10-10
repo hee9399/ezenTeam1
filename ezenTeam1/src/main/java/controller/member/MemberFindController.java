@@ -1,6 +1,7 @@
 package controller.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.dao.MemberDao;
+import model.dao.RiderDao;
 import model.dto.MemberDto;
+import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 // 링크 : http://localhost/ezenTeam1/MemberFindController
 @WebServlet("/MemberFindController")
@@ -62,8 +66,12 @@ public class MemberFindController extends HttpServlet {
 
 			MemberDto mDto = MemberDao.getInstance().onFind(type,memail,mid);
 			json = objectMapper.writeValueAsString(mDto);
-		} else if(type.equals("findHistory")) {
-
+		} else if(type.equals("findHistory")) { //사용자의 주행기록
+			MemberDto memberDto =  (MemberDto)request.getSession().getAttribute("loginDto");
+			//System.out.println("riderDto  :: "+ riderDto );
+			int mno = memberDto.getMno();
+			ArrayList<ServiceDto>result = RiderDao.getInstance().getDriveRecord(mno);
+			json = objectMapper.writeValueAsString( result );
 		}
 
 		response.setContentType(("application/json;charset=UTF-8"));

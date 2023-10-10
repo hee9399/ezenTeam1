@@ -10,7 +10,7 @@
 	<!-- css 호출 -->
 	<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
 	<link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
-<style>*{border:solid 1px red;}</style>
+<!-- <style>*{border:solid 1px red;}</style> -->
 
 </head>
 <body>

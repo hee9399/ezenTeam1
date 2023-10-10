@@ -231,21 +231,20 @@ BUTTON{
 
 }
 .mUsedList{
-	calc(100vh - 125x)
+	height:calc(100vh - 125x);
 }
 
 .hContBox {
 	font-family: 'NanumSquareNeo-Variable';
-	background-color: var(- -white);
+	background-color: var(--white);
 	border-radius: 10px;
 	margin-bottom: 10px;
 	padding: 20px;
-/* 	font-size: 0.8rem; */
+	font-size: 0.8rem;
 	border-radius: 10px;
-	mar
 }
 
-.hContBox li:not (:last-child ){
+.hContBox li:not(:last-child ){
 	padding-bottom: 5px;
 }
 

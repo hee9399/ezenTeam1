@@ -1,6 +1,9 @@
 package model.dao;
 
+import java.util.ArrayList;
+
 import model.dto.MemberDto;
+import model.dto.ServiceDto;
 
 public class MemberDao extends Dao{
 
@@ -178,5 +181,56 @@ public class MemberDao extends Dao{
 		}
 		return false;
 	}
+	
+	// 10. 사용자 이용내역
+   public ArrayList<ServiceDto> getDriveRecord(int mno) {
+      System.out.println("getDriveRecord");
+      System.out.println("mno :: "+ mno);
+      ArrayList<ServiceDto> list = new ArrayList<>();
+      try {
+         String sql = "SELECT "
+               + "        SNO "
+               + "      , MNO"
+               + "    , RNO "
+               + "      , SDATE "
+               + "      , SFROMLA "
+               + "      , SRIDERLO "
+               + "      , STOLA, STOLO "
+               + "      , SPAYMENT  "
+               + "      , SPAYYN "
+               + "      , SDEPOSITYN "
+               + " FROM SERVICE "
+               + " WHERE RNO = ? AND STOLA IS NOT NULL"
+               + " ORDER BY SDATE DESC ";
+         ps= conn.prepareStatement(sql);
+         ps.setInt(1, mno);
+         System.out.println( "getDriveRecord  :: " + ps);
+         rs = ps.executeQuery();
+         System.out.println("rs.next()   >>>" + rs.next());
+         while (rs.next()) {
+            System.out.println("serviceDto  :: "+  rs.getInt("mno"));
+            ServiceDto serviceDto = new ServiceDto(
+                    rs.getInt(1)
+                  , rs.getInt(2)
+                  , rs.getInt(3)
+                  , rs.getString(4)
+                  , rs.getString(5)
+                  , rs.getString(6)
+                  , rs.getString(7)
+                  , rs.getString(8)
+                  , rs.getInt(9)
+                  , rs.getBoolean(10)
+                  , rs.getString(11)
+                  , null);
+
+            System.out.println("serviceDto  :: "+ serviceDto);
+            list.add(serviceDto);
+         }
+         System.out.println(list);
+      }catch(Exception e) {
+         e.getStackTrace();
+      }
+      return list;
+   }
 	
 }// class e
