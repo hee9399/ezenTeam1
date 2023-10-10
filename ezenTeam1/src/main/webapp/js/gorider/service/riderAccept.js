@@ -21,10 +21,10 @@ let gpsClientSocket = null // 라이더 위치 정보 ;
 
 // gps 이동 메시지 보냈을때..
 function gpsMove( way ){
-	if( way == 'right') sriderlo += 0.0001;
-	if( way == 'left') sriderlo -= 0.0001;
-	if( way == 'up') sriderla += 0.0001;
-	if( way == 'down') sriderla -= 0.0001;
+	if( way == 'right') sriderlo += 0.0010;
+	if( way == 'left') sriderlo -= 0.0010;
+	if( way == 'up') sriderla += 0.0010;
+	if( way == 'down') sriderla -= 0.0010;
 	gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
 }
 // gps 이동 메시지 받았을때
@@ -90,7 +90,7 @@ function getOut(sno){
 }
 
 let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
-
+console.log(callClientSocket)
 callClientSocket.onmessage = (e) => {
 	
     alert('통신');
