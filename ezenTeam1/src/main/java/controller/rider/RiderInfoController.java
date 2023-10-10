@@ -161,7 +161,7 @@ public class RiderInfoController extends HttpServlet {
 			
 		}else if(change.equals("라이더차량번호") ) { // 라이더 차량번호 수정할경우
 			System.out.println("라이더차량번호if: ");
-			type = "rbikenum";
+			 type = "rbikenum";
 			value = request.getParameter("rbikenum");
 			
 			
