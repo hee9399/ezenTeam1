@@ -142,7 +142,6 @@ if (JsonInfo) {
 				let html = `
                     <div>장소명 : ${info.name} </div>
                     <div>주소 : ${info.address} </div>
-                    <div>전화번호 : ${info.phone} </div>
                     <div><input class = "ccontent" type = "text" placeholder="요청사항을 적어주세요!"></div>
                 `;
 				placeinfo.innerHTML = html;

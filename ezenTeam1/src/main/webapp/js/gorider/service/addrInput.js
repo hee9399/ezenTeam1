@@ -7,7 +7,7 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-searchPlaces();
+// searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
@@ -18,9 +18,11 @@ function searchPlaces() {
         alert('키워드를 입력해주세요!');
         return false;
     }
-
+    
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     ps.keywordSearch( keyword, placesSearchCB); 
+    document.getElementById('placesList').style.display = 'block';
+    
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -224,11 +226,26 @@ function selectedPlaceInfo(index){
 
 	
 	html += `
-	<div>
+	<div style="    position: fixed;
+    bottom: 0px;
+    z-index: 2;
+    background-color: white;
+    width: 400px;
+    height: 90px;
+        padding: 10px;
+    font-size: 15px;
+        border-radius: 20px;
+    ">
+    		<button onclick = "choice(info)" type = "button" style="width: 100%;
+    font-size: 20px;
+    background-color: #30e3ca;
+    color: white;
+    margin: 6px 0px;"
+        >선택</button>
+    
 		<div>장소명 : ${pName} </div>
 		<div>주소 : ${pAddress} </div>
-		<div>전화번호 : ${pPhone} </div>
-		<button onclick = "choice(info)" type = "button">선택</button>
+
 	</div>`;
 	
 	selectedPlaceInfo.innerHTML = html;

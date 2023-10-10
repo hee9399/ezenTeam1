@@ -226,7 +226,6 @@ BUTTON{ border: none;}
 .contentBox{
 	overflow-y:auto;
 	width:100%;
-	height:calc(100vh - 100px);
 	scrollbar-width: thin;
     scrollbar-color: transparent transparent;
 }

@@ -11,6 +11,25 @@
     <link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
         <link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
 <!-- <style>*{border:solid 1px red;}</style> -->
+
+	<style type="text/css">
+		
+		.choicebox{
+			display: flex;
+		}
+		.choicebox button {
+			width: 20%;
+		    background-color: #30e3ca;
+		    color: white;
+		    height: 10px;
+		    border: 1px solid;
+		    font-size: 10px;
+		    font-weight: bold;
+		}
+	
+	
+	</style>
+
 </head>
 <body>
 	<div class="wrapR ">
