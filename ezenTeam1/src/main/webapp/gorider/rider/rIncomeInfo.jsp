@@ -97,15 +97,11 @@
 	        </div>   
 	    
      </div>
->>>>>>> branch '정희락' of https://github.com/hee9399/ezenTeam1.git
 
 
-	<!-- js호출 -->
-<<<<<<< HEAD
-	<script src="../../js/gorider/rider/rincomeInfo.js"></script>
-=======
+
+
 	<script src="../../js/gorider/rider/rIncomeInfo.js"></script>
->>>>>>> branch '정희락' of https://github.com/hee9399/ezenTeam1.git
 
 </body>
 </html>
