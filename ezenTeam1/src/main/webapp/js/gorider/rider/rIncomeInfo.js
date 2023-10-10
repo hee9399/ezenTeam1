@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 console.log('list연결');
 
 //비로그인 리턴
