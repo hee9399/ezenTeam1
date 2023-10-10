@@ -13,16 +13,16 @@ public class CallDao extends Dao{
 	
 
 	// 1. 사용자 콜정보 INSERT
-	public int MemberCall(int mno, double sfromla,double sfromlo,double stola, double stolo ) {
+	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo ) {
 		try {
 			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo) values(?,?,?,?,?)";
 			ps = conn.prepareStatement(sql , Statement.RETURN_GENERATED_KEYS ); // insert 에서 오토키로 생성된 sno 가져오는 방법.
 				// Statement.RETURN_GENERATED_KEYS : 방금 생성된 pk(오토키)를 리턴 준비..
 			ps.setInt(1, mno);
-			ps.setDouble(2, sfromla);
-			ps.setDouble(3, sfromlo);
-			ps.setDouble(4, stola);
-			ps.setDouble(5, stolo);
+			ps.setString(2, sfromla);
+			ps.setString(3, sfromlo);
+			ps.setString(4, stola);
+			ps.setString(5, stolo);
 			
 			int count = ps.executeUpdate();
 			// pk 호출 하기 
@@ -38,13 +38,13 @@ public class CallDao extends Dao{
 	
 	// 2. 콜했을때 두가지 // 라이더가 콜 수락했을때..
 		// 1. 라이더의 위치 DB에 수정
-	public boolean RiderAccept(int rno,double sriderla,
-			double sriderlo, int sno) {
+	public boolean RiderAccept(int rno,String sriderla,
+			String sriderlo, int sno) {
 		try {
 			String sql = "update service set sriderla = ?,sriderlo =? ,rno = ? where sno = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setDouble(1, sriderla);
-			ps.setDouble(2, sriderlo);
+			ps.setString(1, sriderla);
+			ps.setString(2, sriderlo);
 			ps.setInt(3, rno);
 			ps.setInt(4, sno);
 			int count = ps.executeUpdate();
