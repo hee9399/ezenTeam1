@@ -42,6 +42,7 @@ public class ServiceDto {// 서비스 Dto
 			this.장소명 = 장소명;
 		}
 		public String get주소() {
+			
 			return 주소;
 		}
 		public void set주소(String 주소) {

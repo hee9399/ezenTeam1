@@ -7,17 +7,25 @@ if(loginState== false){
 	location.href='/ezenTeam1/gorider/rider/rlogin.jsp'
 }
 
+
+/*
+
+	
+	
+
+*/ 
+
  //리스트출력
 getIncomeInfo('AD');
 function getIncomeInfo(type){
 	console.log("type :: "+ type);
-	if(btype == 'AD'){
+	if(type == 'AD'){ // 입금 된 목록
 		document.querySelector('.btypeN').style.borderBottom  = "3px solid var(--dgray)";
 		document.querySelector('.btypeN').style.backgroundColor  = "var(--dyellow)";
 		document.querySelector('.btypeE').style.backgroundColor  = " #000";
 		document.querySelector('.btypeE').style.borderBottom  = "3px solid #000";
 		document.querySelector('.btypeE').style.color  = "var(--white)"
-	}else if(btype =='ND'){
+	}else if(type =='ND'){ // 입금 예정 목록 
 		document.querySelector('.btypeE').style.borderBottom  = "3px solid var(--dgray)";
 		document.querySelector('.btypeE').style.backgroundColor  = "var(--dyellow)";
 		document.querySelector('.btypeN').style.backgroundColor  = " #000";
@@ -31,30 +39,30 @@ function getIncomeInfo(type){
     $.ajax({
         url:"/ezenTeam1/BoardController",
         method:"get",
-        data: {type : type},
+        data: {type : type }, // type이 'AD' , 'ND' 를 컨트롤러에게 보낸다.
 
         success: r => {
             console.log(r);
-            /*
+            
              let histroyBox = document.querySelector('.histroyBox');
              let html = ``;
 
-             r.forEach( b => {
+             r.forEach( b => { console.log(b);
              html +=	`<ul class="hContBox">
-	            	 		<li><span class="hTitleA">운행번호</span><span class="hContent">${r.sno}</span><li>
-	            	 		<li><span class="hTitleA">운행일자</span><span class="hContent"> ${r.sdate}</span><li>`
+	            	 		<li><span class="hTitleA">운행번호</span><span class="hContent">${b.sno}</span><li>
+	            	 		<li><span class="hTitleA">운행일자</span><span class="hContent"> ${b.sdate}</span><li>`
             	 if(type == 'AD'){
-            		 html += ` <li><span class="hTitleA">입금일자</span><span class="hContent"> ${r.ddate}</span><li>
-            		 <li><span class="hTitleA">운행수입</span><span class="hContent">  $ {r.spayment }원</span><li>`;
+            		 html += ` <li><span class="hTitleA">입금일자</span><span class="hContent"> ${b.ddate}</span><li>
+            		 <li><span class="hTitleA">운행수입</span><span class="hContent">  ${b.spayment}원</span><li>`;
             	 } else{
-             html+=`	<li><span class="hTitleA">예정수입</span><span class="hContent">  $ {r.spayment }원</span><li>`
+             html+=`<li><span class="hTitleA">예정수입</span><span class="hContent">  ${b.spayment}원</span><li>`
             	 }
             	 html += `</ul>` ;
-
+			
 
                });
              histroyBox.innerHTML = html;
-			*/
+			
 
             },
         error: e => { console.log("에러"+ e)}
