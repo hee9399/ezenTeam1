@@ -106,7 +106,7 @@ function waitingMap(jsonData) {
     let marker2 = new kakao.maps.Marker({
         position: markerPosition2,
         map: map,
-        image: arriveDragImage
+        image: arriveImage
     });
 
     kakao.maps.event.addListener(marker2, 'dragstart', function() {
@@ -139,6 +139,7 @@ function waitingMap(jsonData) {
     bounds.extend(markerPosition2);
 
     map.setBounds(bounds);
+     map.setCenter( 라이더위치 );
 }
 
 
@@ -147,10 +148,10 @@ function waitingMap(jsonData) {
 function getOut(){
 	// 1.하차 이벤트 처리
 	
-		// 1. 결제.[ 입금 -> 현재페이지 vs 결제페이지 ]
+		
 		// 2. 페이지 전환 [ 리뷰 페이지 ]
 	// 테스트 
-	location.href="/ezenTeam1/gorider/service/addrInput.jsp";
+	location.href="/ezenTeam1/gorider/member/mindex.jsp";
 }
 
 

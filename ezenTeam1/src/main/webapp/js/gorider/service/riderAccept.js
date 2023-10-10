@@ -185,7 +185,7 @@ function getAccept( jsonData ){
     let marker2 = new kakao.maps.Marker({
         position: markerPosition2,
         map: map,
-        image: arriveDragImage
+        image: arriveImage
     });
 
     kakao.maps.event.addListener(marker2, 'dragstart', function() {

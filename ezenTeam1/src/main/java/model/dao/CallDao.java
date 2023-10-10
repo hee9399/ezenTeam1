@@ -13,9 +13,9 @@ public class CallDao extends Dao{
 	
 
 	// 1. 사용자 콜정보 INSERT
-	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo ) {
+	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo ,String spayYN , int spayment ) {
 		try {
-			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo) values(?,?,?,?,?)";
+			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo,spayYN,spayment) values(?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql , Statement.RETURN_GENERATED_KEYS ); // insert 에서 오토키로 생성된 sno 가져오는 방법.
 				// Statement.RETURN_GENERATED_KEYS : 방금 생성된 pk(오토키)를 리턴 준비..
 			ps.setInt(1, mno);
@@ -23,6 +23,8 @@ public class CallDao extends Dao{
 			ps.setString(3, sfromlo);
 			ps.setString(4, stola);
 			ps.setString(5, stolo);
+			ps.setString(6, spayYN);
+			ps.setInt(7, spayment);
 			
 			int count = ps.executeUpdate();
 			// pk 호출 하기 
@@ -108,7 +110,7 @@ public class CallDao extends Dao{
 			return false;
 	}
 	
-	// 4. 하차할때 서비스, 라이더 상태 변경
+	// 4. 하차할때 서비스, 라이더 상태 변경 , 결제여부 = Y
 	public boolean getOut(int sno, int rno) {
 		try {
 			
@@ -119,8 +121,10 @@ public class CallDao extends Dao{
 			
 			if( count == 1 ) {
 				// 서비스 상태 변경
-				sql = "";
-				return true;
+				sql = "update service set spayYN = 'Y' where sno = " + sno;
+				ps = conn.prepareStatement(sql);
+				count = ps.executeUpdate();
+				if( count == 1 ) return true;
 			}
 		} catch (Exception e) { System.out.println( e ); }
 		

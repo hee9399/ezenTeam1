@@ -1,6 +1,7 @@
 package model.dto;
 
-public class ServiceDto {// 서비스 Dto
+public class ServiceDto {// 서비스 Dt
+	
 
 	// 필드
 	private int sno;			// 서비스번호
@@ -12,7 +13,7 @@ public class ServiceDto {// 서비스 Dto
 	private String stola;		// 서비스 도착위치 위도
 	private String stolo;		// 서비스 도착위치 경도
 	private int spayment; 		// 서비스결제금액
-	private boolean spayYN;		// 결제여부
+	private String spayYN;		// 결제여부
 	private String sreview;		// 리뷰
 	private int spoint;			// 별점
 	private String type;			// 타입
@@ -115,7 +116,7 @@ public class ServiceDto {// 서비스 Dto
 	public ServiceDto() {}
 	// 풀
 	public ServiceDto(int sno, int mno, int rno, String sdate, String sfromla, String sfromlo, String stola,
-			String stolo, int spayment, boolean spayYN, String sreview, int spoint, String type, String 요청내용,
+			String stolo, int spayment, String spayYN, String sreview, int spoint, String type, String 요청내용,
 			Destination 목적지, Departure 출발지, String sriderla, String sriderlo) {
 		super();
 		this.sno = sno;
@@ -185,7 +186,7 @@ public class ServiceDto {// 서비스 Dto
 	//입금내역, 주행기록 리스트
 
 	public ServiceDto(int sno, int mno, int rno, String sdate, String sfromla, String sfromlo, String stola,
-			String stolo, int spayment, boolean spayYN, String sDepositYN, String ddate) {
+			String stolo, int spayment, String spayYN, String sDepositYN, String ddate) {
 		super();
 		this.sno = sno;
 		this.mno = mno;
@@ -279,10 +280,11 @@ public class ServiceDto {// 서비스 Dto
 	public void setSpayment(int spayment) {
 		this.spayment = spayment;
 	}
-	public boolean isSpayYN() {
+	
+	public String getSpayYN() {
 		return spayYN;
 	}
-	public void setSpayYN(boolean spayYN) {
+	public void setSpayYN(String spayYN) {
 		this.spayYN = spayYN;
 	}
 	public String getSreview() {
