@@ -20,7 +20,7 @@ public class Dao {
 		 */
 		public Dao() {
 			try {
-				
+
 				// mariadb 라이브러리 
 				 Class.forName("org.mariadb.jdbc.Driver");
 				 conn = DriverManager.getConnection("jdbc:mariadb://18.222.109.190:3306/gorider", "root", "zxcv0246!@");

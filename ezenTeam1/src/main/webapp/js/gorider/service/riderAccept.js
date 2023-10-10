@@ -42,17 +42,16 @@ let mno = 0; // 라이더와 현재 연결된 회원번호;
 
 // 수락 했을때.. 
 function accept( sno ) {
-	//userType = "rider";
-	// ......... 왜 소켓이 두개인가요???????????? 진형씨??네 말씀하세요..ㅋㅋ
+	
+
 	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
 
-	// 콜 함수 어디에 있죠? 사용자 페이지에서 콜 버튼 이벤트함수 어디에 있을까요?
+
     let contentBox = document.querySelector('.accept');
    
    callClientSocket.onopen = function(event) {
     
-    // 수락 했을때... 정보중에서 가장 중요한 부분이 빠짐...
-    // 수락한 요청 번호 [ 라이더가 선택한 sno = 어떻게 넣어야 하는지 생각 ]
+ 
     let riderInfo = {
 		type: "accept",
 		sno : sno ,
