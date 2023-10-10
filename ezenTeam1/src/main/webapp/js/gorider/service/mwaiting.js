@@ -8,7 +8,7 @@ let html = `<h1>매칭 대기중입니다 잠시만 기다려주세요</h1>`;
 
 message.innerHTML = html;
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/user/${no}`);
+let callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/user/${no}`);
 
 let gpsClientSocket = null;
 
@@ -21,7 +21,7 @@ callClientSocket.onmessage = (e) => {
 		handleMatchSuccess( jsonData);
    		 // 콜 수락을 라이더로부터 받았을때. 유저는 gps소켓에 들어감.
    		if(gpsClientSocket== null ){
-				gpsClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/gpssocket/${ jsonData.sno }`);
+				gpsClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/gpssocket/${ jsonData.sno }`);
 		}
 	}else if( jsonData.type == 'out'){
 		getOut(); // 2. 하차.

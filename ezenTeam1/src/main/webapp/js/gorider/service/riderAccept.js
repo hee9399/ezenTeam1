@@ -44,7 +44,7 @@ let mno = 0; // 라이더와 현재 연결된 회원번호;
 function accept( sno ) {
 	
 
-	callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
+	callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
 
 
     let contentBox = document.querySelector('.accept');
@@ -71,7 +71,7 @@ function accept( sno ) {
     contentBox.innerHTML = html;
     
     // 수락했을때.. gps 소켓 연결
-    gpsClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/gpssocket/${sno}`); // 라이더 위치 정보 ;
+    gpsClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/gpssocket/${sno}`); // 라이더 위치 정보 ;
     gpsClientSocket.onmessage = (e) => { gpsRecevie(e) };
 }
 
@@ -89,7 +89,7 @@ function getOut(sno){
 		mno = 0;
 }
 
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
+let callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/${userType}/${no}`);
 
 callClientSocket.onmessage = (e) => {
 	
@@ -102,7 +102,7 @@ callClientSocket.onmessage = (e) => {
     if( jsonData.type == 'call'){
 		getAccept( jsonData );
 	}else if( jsonData.type == 'out'){
-		// 4. 페이지 전환. http://localhost:8080/ezenTeam1/gorider/rider/rWorking.jsp
+		// 4. 페이지 전환. http://192.168.17.54:8080/ezenTeam1/gorider/rider/rWorking.jsp
 		location.href="/ezenTeam1/gorider/rider/rWorking.jsp";
 	}
 }

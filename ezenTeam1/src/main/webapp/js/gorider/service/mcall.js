@@ -203,7 +203,7 @@ if (JsonInfo) {
 
 let userType = "user";
 let no = loginMno;
-let callClientSocket = new WebSocket(`ws://localhost:8080/ezenTeam1/callsocket/${userType}/${no}`);
+let callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/${userType}/${no}`);
 
 
 // * [10/08] 사용자가 라이더에게 콜 요청 
