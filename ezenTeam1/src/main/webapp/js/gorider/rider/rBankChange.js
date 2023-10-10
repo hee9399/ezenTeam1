@@ -45,6 +45,8 @@ function rBankNumChange(){
       url : "/ezenTeam1/RiderInfoController",
       data : rNumData ,
       method : "put",
+      contentType : false ,
+      processData : false ,
       success : r => { console.log(r);
 		  if(r == true){
 			  alert('계좌번호 수정했습니다.');
