@@ -15,11 +15,7 @@ $.ajax({
 		  // 1. 로그인된 라이더 차량번호 출력
 		  document.querySelector('.rBikeChange').value = `${r.rbikenum}`;
 
-		  // 2. 로그인된 라이더 은행이름 출력
-		  document.querySelector('.rbankinfo').value = `${r.rbank}`;
 
-		  // 3. 로그인된 라이더 계좌번호 출력
-		  document.querySelector('.raccountinfo').value = `${r.raccount}`;
 
 		  // document.getElementById("id명")
 		  // getelementsbyclassname("class명")
@@ -38,17 +34,22 @@ $.ajax({
 // 1. 차량번호 , 계좌번호 수정함수
 function rBikeNumChange(){
 
-	// 1. from 객체 호출
+	
+	// 1. form 객체 호출
+
 	let rNumChange = document.querySelectorAll('.rNumChange')[0];
 		console.log('from객체 호출 했습니다.'+rNumChange);
 
-	// 2. from 데이터 객체화
+		
+	// 2. form 데이터 객체화 
 	let rNumData = new FormData(rNumChange);
 		console.log('rNumData 들어옵니다.'+rNumData);
 
-	// 3. 차량번호 , 계좌번호 수정 타입으로 보내기
+		
+	// 3. 차량번호 수정 타입으로 보내기 
 	rNumData.append('type' , '라이더차량번호');
 	rNumData.append('type' , '라이더계좌번호');
+
 
 	$.ajax({
       url : "/ezenTeam1/RiderInfoController",

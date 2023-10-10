@@ -1,3 +1,6 @@
+console.log('js실행');
+
+// 라이더 입금내역 js 
 
 // 1.입금현황 함수
 depositCount();
@@ -8,7 +11,7 @@ function depositCount(){
             method : "get",
             data : {type : 4},      
            success : r=>{  
-<<<<<<< HEAD
+
 			   console.log(r)
 			   let listbox = document.querySelector('.listbox');
 			   let html=``;
@@ -36,7 +39,7 @@ function depositCount(){
 				   }
 			   		listbox.innerHTML=html;
 			   } ,
-=======
+			})
             console.log(r)
             let listbox = document.querySelector('.listbox');
             let html=``;
@@ -63,11 +66,10 @@ function depositCount(){
                              </ul>`;
                }
                   listbox.innerHTML=html;
-            } ,
-                          
-   });
-}
-function deposit(rno, sno, spayment){
+ 			}
+ 
+ 
+ function deposit(rno, sno, spayment){
    console.log('deposit() 실행')
    console.log('rno : '+ rno);
    console.log('sno :'+ sno)
@@ -81,7 +83,7 @@ function deposit(rno, sno, spayment){
             console.log(r)
             alert('입금 성공했습니다.')
             } ,
->>>>>>> branch '박상빈2' of https://github.com/hee9399/ezenTeam1.git
+
                           
    });
 }

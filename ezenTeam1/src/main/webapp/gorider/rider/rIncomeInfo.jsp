@@ -10,21 +10,22 @@
 	<!-- css 호출 -->
 	<link href="/ezenTeam1/css/gorider/common.css" rel="stylesheet">
 	<link href="/ezenTeam1/css/gorider/rider.css" rel="stylesheet">
-<!-- <style>*{border:solid 1px red;}</style> -->
+<style>*{border:solid 1px red;}</style>
 
 </head>
 <body>
 
 	<!-- 라이더 내정보 수정 -->
 	<div class="wrapR">  <!-- 라이더 프로필 전체구역 -->
-     <%@include file="rheader.jsp" %>
-
+	     <%@include file="rheader.jsp" %>
+	
 		<div class="rheaderwrapA backimg" >  <!-- 뒤로가기 버튼구역-->
             <div class="rtopbtn">
                 <a href="/ezenTeam1/gorider/rider/rMyMenu.jsp">
                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i></a>
 
             </div>
+<<<<<<< HEAD
 
 			<div class="rsubTitle01">입금정보</div>
 
@@ -73,10 +74,38 @@
        <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
    </div>
 	</div> <!-- 라이더 프로필 전체구역 e -->
+=======
+            	<div class="rsubTitle"> 입금 내역 </div>
+         </div>
+         
+	
+	     <h5 class="ptitle"> </h5>
+	        
+	        <div class="listbox">
+	
+	         <!-- title -->
+	            <ul class="listTitle rlistR">
+	                
+	           </ul>
+	
+	        <!-- 1 content start -->
+	            <ul class="listContent rlistR">
+	                 
+	           </ul>
+	           
+	           
+	        </div>   
+	    
+     </div>
+>>>>>>> branch '정희락' of https://github.com/hee9399/ezenTeam1.git
 
 
 	<!-- js호출 -->
+<<<<<<< HEAD
 	<script src="../../js/gorider/rider/rincomeInfo.js"></script>
+=======
+	<script src="../../js/gorider/rider/rIncomeInfo.js"></script>
+>>>>>>> branch '정희락' of https://github.com/hee9399/ezenTeam1.git
 
 </body>
 </html>

@@ -22,9 +22,13 @@ public class Dao {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver"); //
 				this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/GORIDER" , 	"root" , "1234");
+				
 				//conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/GORIDER", "root", "fm050426^^");
 				//Class.forName("org.mariadb.jdbc.Driver");
 				//conn = DriverManager.getConnection("jdbc:mariadb://18.222.109.190:3306/gorider", "root", "zxcv0246!@");
+
+				// conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/GORIDER", "root", "fm050426^^");
+
 				System.out.println("안내) DB연동성공");
 			} catch (Exception e) {System.out.println(e);}
 		}
