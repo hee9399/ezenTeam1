@@ -287,6 +287,62 @@ public class RiderDao extends Dao{ // 라이더
 	   /*
 	    * 라이더 입금내역 조회
 	    * */
+	   public ArrayList<ServiceDto> getIncome( int rno , String value ){
+		   
+		   ArrayList<ServiceDto> list = new ArrayList<>();
+		   
+		   try {
+			
+			   // sql작성 
+			   String sql = "SELECT "
+		               + "        s.SNO "
+		               + "      , s.MNO "
+		               + "      , s.RNO "
+		               + "      , s.SDATE "
+		               + "      , s.SFROMLA "
+		               + "      , s.sfromlo "
+		               + "      , s.STOLA "
+		               + "      , s.STOLO "
+		               + "      , CEIL(s.SPAYMENT *70/100) as SPAYMENT  "
+		               + "      , s.SPAYYN "
+		               + "      , s.SDEPOSITYN "
+		               + "      , d.ddate "
+		               + " FROM SERVICE s left join deposit d "
+		               + " on s.sno = d.sno "
+		               + " WHERE s.RNO = ? "
+		               + " and s.sdepositYN = ? "
+		               + " ORDER BY SDATE DESC ";
+			   ps = conn.prepareStatement(sql);
+			   ps.setInt(1, rno);
+			   ps.setString(2, value);
+			   System.out.println("getIncome: "+ps);
+			   rs = ps.executeQuery();
+			   
+			   while( rs.next() ) {
+				   
+				   ServiceDto serviceDto = new ServiceDto(
+		                    rs.getInt(1)
+		                  , rs.getInt(2)
+		                  , rs.getInt(3)
+		                  , rs.getString(4)
+		                  , rs.getString(5)
+		                  , rs.getString(6)
+		                  , rs.getString(7)
+		                  , rs.getString(8)
+		                  , rs.getInt(9)
+		                  , rs.getBoolean(10)
+		                  , rs.getString(11)
+		                  , rs.getString(12) );
+
+		            System.out.println("serviceDto  :: "+ serviceDto);
+		            list.add(serviceDto);
+				   
+			   }
+			   
+		} catch (Exception e) {System.out.println(e);}
+		   
+		   return null;
+	   }
 	   
 	   
 }// class e

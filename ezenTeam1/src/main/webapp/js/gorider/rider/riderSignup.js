@@ -31,7 +31,7 @@ function signup(){
 		}else if( document.querySelector('.rphone').value == '' ){
 			alert('전화번호 입력해주세요.')
 			return;
-		}else if( document.querySelector('.rphoto').value == '' ){
+		}else if( !document.querySelector('.rphoto').value ){ // 첨부파일은 스트링 형식이 아닌 true / false 있다 없다 형태로 호출이됨 
 			alert('프로필사진 등록해주세요.');
 			return;
 		}else if( document.querySelector('.rlicense').value == ''  ){

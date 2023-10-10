@@ -25,7 +25,7 @@
                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180" style="color: #ffffff;"></i></a>
 
             </div>
-<<<<<<< HEAD
+
 
 			<div class="rsubTitle01">입금정보</div>
 
@@ -74,29 +74,6 @@
        <div onclick="onMove('goBack')" class="fbtn btn50 bgm02">돌아가기</div>
    </div>
 	</div> <!-- 라이더 프로필 전체구역 e -->
-=======
-            	<div class="rsubTitle"> 입금 내역 </div>
-         </div>
-         
-	
-	     <h5 class="ptitle"> </h5>
-	        
-	        <div class="listbox">
-	
-	         <!-- title -->
-	            <ul class="listTitle rlistR">
-	                
-	           </ul>
-	
-	        <!-- 1 content start -->
-	            <ul class="listContent rlistR">
-	                 
-	           </ul>
-	           
-	           
-	        </div>   
-	    
-     </div>
 
 
 

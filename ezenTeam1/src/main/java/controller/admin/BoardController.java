@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.ValueInstantiator.Gettable;
 
 import model.dao.BoardDao;
+import model.dao.RiderDao;
 import model.dto.BoardDto;
+import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 /**
  * Servlet implementation class BoardController
@@ -67,6 +71,25 @@ public class BoardController extends HttpServlet {
 			int limit = Integer.parseInt(request.getParameter("limit"));
 			ArrayList<BoardDto> result = BoardDao.getInstance().onList(type, btarget,limit);
 			json = objectMapper.writeValueAsString( result );
+		}else if(type.equals("AD")) { // 입금내역을 클릭했을때
+			
+			RiderDto riderDto = (RiderDto)request.getSession().getAttribute("loginDto");
+			// 라이더 번호 
+			int rno = riderDto.getRno(); 
+			
+			ArrayList<ServiceDto> list = RiderDao.getInstance().getIncome(rno, "Y" );
+			
+			// 라이더 
+			
+		}else if(type.equals("ND")) { // 입금 예정을 클릭했을때 
+			
+			RiderDto riderDto = (RiderDto)request.getSession().getAttribute("loginDto");
+			
+			// 라이더 번호
+			int rno = riderDto.getRno();
+			
+			ArrayList<ServiceDto> list = RiderDao.getInstance().getIncome(rno, "Y");
+			
 		}
 
 
@@ -156,11 +179,10 @@ public class BoardController extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
+	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
 	}
 
 	/**
