@@ -270,7 +270,7 @@ public class RiderDao extends Dao{ // 라이더
 	                  , rs.getString(7)
 	                  , rs.getString(8)
 	                  , rs.getInt(9)
-	                  , rs.getBoolean(10)
+	                  , rs.getString(10)
 	                  , rs.getString(11)
 	                  , null);
 
@@ -330,7 +330,7 @@ public class RiderDao extends Dao{ // 라이더
 		                  , rs.getString(7)
 		                  , rs.getString(8)
 		                  , rs.getInt(9)
-		                  , rs.getBoolean(10)
+		                  , rs.getString(10)
 		                  , rs.getString(11)
 		                  , rs.getString(12) );
 
