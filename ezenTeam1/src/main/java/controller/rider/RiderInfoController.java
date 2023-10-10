@@ -180,7 +180,7 @@ public class RiderInfoController extends HttpServlet {
 			
 			String type1 = "rbank";  // 변경할 대상 [ 은행 필드 ] 
 			String type2 = "raccount";// 변경할 대상 [ 계좌번호 필드]
-				//value = request.getParameter("rbank");
+				 //value = request.getParameter("rbank");
 				//value = request.getParameter("raccount");
 	
 			System.out.println("type: "+type);
