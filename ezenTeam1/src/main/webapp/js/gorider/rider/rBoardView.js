@@ -28,7 +28,7 @@ function onView(){
             if(bt !== r.btarget){ alert('해당 게시물에 대한 권한이 없습니다.'); return;}
             let bviewBox = document.querySelector('.bviewBox');
             let html = ` <li class="bvTitle">[${r.btype == 'N'? '공지':'이벤트'}] ${r.btitle}<span class="bvDate"> ${r.bdate}</span></li>
-            			<div class="scrollbox">	`
+            			<div class="scrollbox rbvHeight">	`
 
             if (r.btype == 'E'){
 				html +=		`<li class="bvEventPeriod">이벤트기간 :  ${r.bstartdate} ~  ${r.benddate}</li>`

@@ -13,7 +13,8 @@ public class CallDao extends Dao{
 	
 
 	// 1. 사용자 콜정보 INSERT
-	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo ,String spayYN , int spayment ) {
+	public int MemberCall(int mno, String sfromla,String sfromlo,String stola, String stolo , String spayYN , int spayment  ) {
+
 		try {
 			String sql = "insert into service (mno,sfromla,sfromlo,stola,stolo,spayYN,spayment) values(?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(sql , Statement.RETURN_GENERATED_KEYS ); // insert 에서 오토키로 생성된 sno 가져오는 방법.

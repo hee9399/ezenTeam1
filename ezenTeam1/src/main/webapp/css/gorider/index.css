@@ -24,6 +24,7 @@
 }
 /*-------------------(목적지검색)----------------------*/
 .searchbox{
+	display: flex;
 	margin:30px 0;
 	padding:0 20px;
 	text-align: center;

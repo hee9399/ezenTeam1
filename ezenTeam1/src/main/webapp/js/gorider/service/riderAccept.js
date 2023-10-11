@@ -21,10 +21,10 @@ let gpsClientSocket = null // 라이더 위치 정보 ;
 
 // gps 이동 메시지 보냈을때..
 function gpsMove( way ){
-	if( way == 'right') sriderlo += 0.0001;
-	if( way == 'left') sriderlo -= 0.0001;
-	if( way == 'up') sriderla += 0.0001;
-	if( way == 'down') sriderla -= 0.0001;
+	if( way == 'right') sriderlo += 0.0010;
+	if( way == 'left') sriderlo -= 0.0010;
+	if( way == 'up') sriderla += 0.0010;
+	if( way == 'down') sriderla -= 0.0010;
 	gpsClientSocket.send(JSON.stringify({ sfromla: sriderla, sfromlo: sriderlo }));
 }
 // gps 이동 메시지 받았을때
@@ -44,7 +44,9 @@ let mno = 0; // 라이더와 현재 연결된 회원번호;
 function accept( sno ) {
 	
 
+
 	callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/${userType}/${no}`); // 라이더 콜 정보 
+
 
 
     let contentBox = document.querySelector('.accept');
@@ -71,7 +73,9 @@ function accept( sno ) {
     contentBox.innerHTML = html;
     
     // 수락했을때.. gps 소켓 연결
+
     gpsClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/gpssocket/${sno}`); // 라이더 위치 정보 ;
+
     gpsClientSocket.onmessage = (e) => { gpsRecevie(e) };
 }
 
@@ -89,7 +93,9 @@ function getOut(sno){
 		mno = 0;
 }
 
+
 let callClientSocket = new WebSocket(`ws://192.168.17.54:8080/ezenTeam1/callsocket/${userType}/${no}`);
+
 
 callClientSocket.onmessage = (e) => {
 	
@@ -102,7 +108,9 @@ callClientSocket.onmessage = (e) => {
     if( jsonData.type == 'call'){
 		getAccept( jsonData );
 	}else if( jsonData.type == 'out'){
+
 		// 4. 페이지 전환. http://192.168.17.54:8080/ezenTeam1/gorider/rider/rWorking.jsp
+
 		location.href="/ezenTeam1/gorider/rider/rWorking.jsp";
 	}
 }

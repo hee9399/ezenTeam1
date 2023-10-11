@@ -1,7 +1,10 @@
 
 package model.dao;
 
+import java.util.ArrayList;
+
 import model.dto.RiderDto;
+import model.dto.ServiceDto;
 
 
 public class RiderDao extends Dao{ // 라이더 
@@ -228,7 +231,120 @@ public class RiderDao extends Dao{ // 라이더
 		return null;
 	}
 	
-	
+		/*
+	    * 라이더 주행기록 조회
+	    * */
+	   public ArrayList<ServiceDto> getDriveRecord(int rno) {
+	      System.out.println("getDriveRecord");
+	      System.out.println("rno :: "+ rno);
+	      ArrayList<ServiceDto> list = new ArrayList<>();
+	      try {
+	         String sql = "SELECT "
+	               + "        SNO "
+	               + "      , MNO"
+	               + "    , RNO "
+	               + "      , SDATE "
+	               + "      , SFROMLA "
+	               + "      , SRIDERLO "
+	               + "      , STOLA, STOLO "
+	               + "      , CEIL(SPAYMENT *70/100) as SPAYMENT  "
+	               + "      , SPAYYN "
+	               + "      , SDEPOSITYN "
+	               + " FROM SERVICE "
+	               + " WHERE RNO = ? AND STOLA IS NOT NULL"
+	               + " ORDER BY SDATE DESC ";
+	         ps= conn.prepareStatement(sql);
+	         ps.setInt(1, rno);
+	         System.out.println( "getDriveRecord  :: " + ps);
+	         rs = ps.executeQuery();
+	         System.out.println("rs.next()   >>>" + rs.next());
+	         while (rs.next()) {
+	            System.out.println("serviceDto  :: "+  rs.getInt("mno"));
+	            ServiceDto serviceDto = new ServiceDto(
+	                    rs.getInt(1)
+	                  , rs.getInt(2)
+	                  , rs.getInt(3)
+	                  , rs.getString(4)
+	                  , rs.getString(5)
+	                  , rs.getString(6)
+	                  , rs.getString(7)
+	                  , rs.getString(8)
+	                  , rs.getInt(9)
+	                  , rs.getString(10)
+	                  , rs.getString(11)
+	                  , null);
+
+	            System.out.println("serviceDto  :: "+ serviceDto);
+	            list.add(serviceDto);
+	         }
+	         System.out.println(list);
+	      }catch(Exception e) {
+	         e.getStackTrace();
+	      }
+	      return list;
+	   }
+
+	   /*
+	    * 라이더 입금내역 조회
+	    * */
+	   public ArrayList<ServiceDto> getIncome( int rno , String value ){
+		   
+		   ArrayList<ServiceDto> list = new ArrayList<>();
+		   
+		   try {
+			
+			   // sql작성 
+			   String sql = "SELECT "
+		               + "        s.SNO "
+		               + "      , s.MNO "
+		               + "      , s.RNO "
+		               + "      , s.SDATE "
+		               + "      , s.SFROMLA "
+		               + "      , s.sfromlo "
+		               + "      , s.STOLA "
+		               + "      , s.STOLO "
+		               + "      , CEIL(s.SPAYMENT *70/100) as SPAYMENT  "
+		               + "      , s.SPAYYN "
+		               + "      , s.SDEPOSITYN "
+		               + "      , d.ddate "
+		               + " FROM SERVICE s left join deposit d "
+		               + " on s.sno = d.sno "
+		               + " WHERE s.RNO = ? "
+		               + " and s.sdepositYN = ? "
+		               + " ORDER BY SDATE DESC ";
+			   ps = conn.prepareStatement(sql);
+			   ps.setInt(1, rno);
+			   ps.setString(2, value);
+			   System.out.println("getIncome: "+ps);
+			   rs = ps.executeQuery();
+			   
+			   while( rs.next() ) {
+				   
+				   ServiceDto serviceDto = new ServiceDto(
+		                    rs.getInt(1)
+		                  , rs.getInt(2)
+		                  , rs.getInt(3)
+		                  , rs.getString(4)
+		                  , rs.getString(5)
+		                  , rs.getString(6)
+		                  , rs.getString(7)
+		                  , rs.getString(8)
+		                  , rs.getInt(9)
+		                  , rs.getString(10)
+		                  , rs.getString(11)
+		                  , rs.getString(12) );
+
+		            System.out.println("serviceDto  :: "+ serviceDto);
+		            list.add(serviceDto);
+				   
+			   }
+			   
+		} catch (Exception e) {System.out.println(e);}
+		   
+		   return null;
+	   }
+	   
+	   
 }// class e
 
 

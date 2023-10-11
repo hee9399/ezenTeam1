@@ -42,7 +42,7 @@
 
 
             <li class="title">프로필사진</li>
-            <li class=""><input onchange="" class="" name="rphoto" type="file">
+            <li class=""><input onchange="" class="rphoto" name="rphoto" type="file">
             	<img class="preimg" src="" />
             </li>
 
