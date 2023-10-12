@@ -1,3 +1,4 @@
+
 console.log('js실행');
 
 // 라이더 입금내역 js 
@@ -82,24 +83,6 @@ function depositCount(){
            success : r=>{
             console.log(r)
             alert('입금 성공했습니다.')
-            } ,
-
-                          
-   });
-}
-function deposit(rno, sno, spayment){
-   console.log('deposit() 실행')
-   console.log('rno :: '+ rno);
-   console.log('sno :: '+ sno)
-   console.log('spayment :: '+ spayment)
-   
-    $.ajax({
-            url : "/ezenTeam1/AdminServiceControoler",    
-            method : "post",
-            data : {rno : rno, sno:sno, spayment:spayment},      
-           success : r=>{
-            console.log(r)
-            } ,
-                          
+            } ,             
    });
 }

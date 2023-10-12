@@ -89,7 +89,6 @@ public class AdminController extends HttpServlet {
 			boolean result = AdminDao.getInstance().approval(rno);
 			 response.setContentType("application/json;charset=UTF-8");
 			 response.getWriter().print(result);
-			 System.out.println("result에 머들어있니? "+result);
 		}
 	}
 
