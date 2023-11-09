@@ -302,8 +302,12 @@ BUTTON{
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
     scrollbar-width: none; /* 파이어폭스 */
 }
+
 .bContBox::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.mbContTitle{
+	font-size:0.7rem;
 }
 .btitle span{
 	font-size: 0.6rem;

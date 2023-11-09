@@ -104,7 +104,7 @@
     text-align: right;
 }
 .mbContTitle{
-	font-size: 0.8rem;
+	font-size: 0.7rem;
     white-space: nowrap; /*텍스트가 너비값을 초과할때 다음줄로 개행하지 못하게*/
     overflow: hidden;
     text-overflow: ellipsis;  /* 말줄임 적용 */
