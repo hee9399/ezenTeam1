@@ -7,8 +7,8 @@ let no = loginRno;
 let rmessage = "";
 let 라이더마커 = null;
 let markerPosition1 = "";
-let sriderla = 37.320682;
-let sriderlo = 126.832668;
+let sriderla = 35.23678400;
+let sriderlo = 139.11684800;
 let outmessage ="";
 
 

@@ -33,7 +33,7 @@ function getDriveRecord(){
 
         success: r => {
             console.log(r);
-			 let addname ;
+			 let addname;
              let histroyBox = document.querySelector('.histroyBox');
              let html = ``;
              r.forEach( b => {
